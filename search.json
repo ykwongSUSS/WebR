@@ -101,7 +101,7 @@
     "href": "index.html",
     "title": "WebR",
     "section": "",
-    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:\n\nDatatypes\nDataFrames\nDatasets\nggPlots\nTables\nExamples\nReferences\n\nOthers may be added later. The R used in this website tends to lean towards tidyverse.",
+    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:\n\nDatatypes\nDataFrames\nDatasets\nggPlots\nTables\nExamples\nReferences\n\nThis website uses tidyverse R.",
     "crumbs": [
       "Preface"
     ]
@@ -581,7 +581,7 @@
     "href": "datatypes/factors.html#ordering-of-factors",
     "title": "Factors",
     "section": "3 Ordering of factors",
-    "text": "3 Ordering of factors\n\n3.1 baseR factor (alphabetical)\n\n# factor levels normally arranged alphabetically\nbloodtypes &lt;- c(\"O\",\"A\",\"B\",\"AB\")\nbt &lt;- factor(bloodtypes)\nlevels(bt)\n\n[1] \"A\"  \"AB\" \"B\"  \"O\" \n\n\n\nthe Levels default to an alphabetical sequence, but\nif I want to list factors Levels by the order in which they first appear\n\nyou can define levels explicitly with factor() ’\nyou can use as_factor from tidyverse which will retain the order\n\nhence, good idea to use as_factor",
+    "text": "3 Ordering of factors\n\n3.1 tidyverse:: as_factor is better\n\n3.1.1 (default to alphabetical)\n\n# factor levels normally arranged alphabetically\nbloodtypes &lt;- c(\"O\",\"A\",\"B\",\"AB\")\nb1 &lt;- factor(bloodtypes)\nlevels(b1)\n\n[1] \"A\"  \"AB\" \"B\"  \"O\" \n\nb2 &lt;- as.factor(bloodtypes)\nlevels(b2)\n\n[1] \"A\"  \"AB\" \"B\"  \"O\" \n\n\n\nthe Levels default to an alphabetical sequence, but\nif I want to list factors Levels by the order in which they first appear\n\nyou can define levels explicitly with factor() ’\nyou can use as_factor from tidyverse which will retain the order\n\nhence, good idea to use as_factor\n\n\n\n3.1.2 (specify factor order)\n\n# method 1\n# specified levels\nbt1 &lt;- factor(bloodtypes,\n          levels=c(\"O\",\"A\",\"B\",\"AB\"))\nlevels(bt1)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"\n\n# method 2\n# using as_factor (instead of as.factor from baseR) \n# will retain the original factor order.\n# better than using relevel or fct_reorder\nbt2 &lt;- as_factor(bloodtypes)\nlevels(bt2)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"",
     "crumbs": [
       "Datatypes",
       "factors"
@@ -591,8 +591,8 @@
     "objectID": "datatypes/factors.html#renaming-factors",
     "href": "datatypes/factors.html#renaming-factors",
     "title": "Factors",
-    "section": "6 Renaming Factors",
-    "text": "6 Renaming Factors\n\ntb3&lt;-read_csv(\"\nDept, Views\nNational Cancer Center, 683\nNational Heart Center Singapore, 697\nNational Eye Center, 534\n\")\ntb3$Dept &lt;- as_factor(tb3$Dept)   # retains order\nlevels(tb3$Dept)\n\n[1] \"National Cancer Center\"          \"National Heart Center Singapore\"\n[3] \"National Eye Center\"            \n\n\n\ntb3$Dept &lt;- fct_recode(tb3$Dept,\n           NCC=\"National Cancer Center\",\n           NHCS = \"National Heart Center Singapore\",\n           NEC = \"National Eye Center\")\nlevels(tb3$Dept)\n\n[1] \"NCC\"  \"NHCS\" \"NEC\" \n\ntb3\n\n# A tibble: 3 × 2\n  Dept  Views\n  &lt;fct&gt; &lt;dbl&gt;\n1 NCC     683\n2 NHCS    697\n3 NEC     534",
+    "section": "5 Renaming Factors",
+    "text": "5 Renaming Factors\n\ntb3&lt;-read_csv(\"\nDept, Views\nNational Cancer Center, 683\nNational Heart Center Singapore, 697\nNational Eye Center, 534\n\")\ntb3$Dept &lt;- as_factor(tb3$Dept)   # retains order\nlevels(tb3$Dept)\n\n[1] \"National Cancer Center\"          \"National Heart Center Singapore\"\n[3] \"National Eye Center\"            \n\n\n\ntb3$Dept &lt;- fct_recode(tb3$Dept,\n           NCC=\"National Cancer Center\",\n           NHCS = \"National Heart Center Singapore\",\n           NEC = \"National Eye Center\")\nlevels(tb3$Dept)\n\n[1] \"NCC\"  \"NHCS\" \"NEC\" \n\ntb3\n\n# A tibble: 3 × 2\n  Dept  Views\n  &lt;fct&gt; &lt;dbl&gt;\n1 NCC     683\n2 NHCS    697\n3 NEC     534",
     "crumbs": [
       "Datatypes",
       "factors"
@@ -701,7 +701,7 @@
     "href": "datasets/iris/iris.html#regression-for-speciesversicolor",
     "title": "Iris",
     "section": "Regression for Species=Versicolor",
-    "text": "Regression for Species=Versicolor\n\nirisV &lt;- filter(iris, Species==\"versicolor\")\nhead(irisV)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width    Species\n1          6.4         3.2          4.5         1.5 versicolor\n2          6.0         3.4          4.5         1.6 versicolor\n3          6.9         3.1          4.9         1.5 versicolor\n4          5.0         2.3          3.3         1.0 versicolor\n5          6.7         3.0          5.0         1.7 versicolor\n6          6.7         3.1          4.4         1.4 versicolor",
+    "text": "Regression for Species=Versicolor\n\nirisV &lt;- filter(iris, Species==\"versicolor\")\nhead(irisV)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width    Species\n1          6.1         2.8          4.0         1.3 versicolor\n2          5.5         2.6          4.4         1.2 versicolor\n3          5.2         2.7          3.9         1.4 versicolor\n4          5.9         3.0          4.2         1.5 versicolor\n5          6.0         3.4          4.5         1.6 versicolor\n6          6.4         3.2          4.5         1.5 versicolor",
     "crumbs": [
       "DataSets",
       "iris"
@@ -1581,8 +1581,8 @@
     "objectID": "datatypes/factors.html#ordering-factors-for-ggplots",
     "href": "datatypes/factors.html#ordering-factors-for-ggplots",
     "title": "Factors",
-    "section": "5 Ordering factors for ggplots",
-    "text": "5 Ordering factors for ggplots\n\n# problems when you want to plot the categorical variable \n# in a certain (original) order\ntb &lt;- read_csv(\"cancer, age, sex\n               Colorectal, 66, M\n               Lung, 29, M\n               Lung, 21, F\n               Nasal, 17, M\n               Colorectal, 55, F\n               Nasal, 31,F\n               Breast, 37, F\n               Liver, 55, M\n               Liver, 63, F\n               \")\ntb1 &lt;- tb\ntb1$cancer &lt;- factor(tb1$cancer)\nlevels(tb1$cancer)\n\n[1] \"Breast\"     \"Colorectal\" \"Liver\"      \"Lung\"       \"Nasal\"     \n\nggplot(tb1, aes(x=cancer))+\n  geom_bar(fill=\"lightblue\",color=\"blue\")\n\n\n\n\n\n\n\n\n\nor I can order the factor cancer in its original position\n\n\nlibrary(tidyverse)\ntb2 &lt;- tb\ntb2$cancer &lt;- as_factor(tb$cancer)\nlevels(tb2$cancer)\n\n[1] \"Colorectal\" \"Lung\"       \"Nasal\"      \"Breast\"     \"Liver\"     \n\nggplot(tb2, aes(x=cancer))+\n  geom_bar(fill=\"lightblue\",color=\"black\")",
+    "section": "4 Ordering factors for ggplots",
+    "text": "4 Ordering factors for ggplots\n\n# problems when you want to plot the categorical variable \n# in a certain (original) order\ntb &lt;- read_csv(\"cancer, age, sex\n               Colorectal, 66, M\n               Lung, 29, M\n               Liver, 21, F\n               Nasal, 17, M\n               Colorectal, 55, F\n               Nasal, 31,F\n               Breast, 37, F\n               Liver, 55, M\n               Liver, 63, F\n               \")\ntb1 &lt;- tb\ntb1$cancer &lt;-as.factor(tb1$cancer)\nlevels(tb1$cancer)\n\n[1] \"Breast\"     \"Colorectal\" \"Liver\"      \"Lung\"       \"Nasal\"     \n\nggplot(tb1, aes(x=cancer))+\n  geom_bar(fill=\"lightblue\",color=\"blue\")\n\n\n\n\n\n\n\n\n\nor I can order the factor cancer in its original position\n\n\nlibrary(tidyverse)\ntb2 &lt;- tb\ntb2$cancer &lt;- as_factor(tb2$cancer)\nlevels(tb2$cancer)\n\n[1] \"Colorectal\" \"Lung\"       \"Liver\"      \"Nasal\"      \"Breast\"    \n\nggplot(tb2, aes(x=cancer))+\n  geom_bar(fill=\"lightblue\",color=\"black\")",
     "crumbs": [
       "Datatypes",
       "factors"
@@ -2198,6 +2198,61 @@
     "crumbs": [
       "DataSets",
       "DatatSets"
+    ]
+  },
+  {
+    "objectID": "datatypes/factors.html#creating-factors",
+    "href": "datatypes/factors.html#creating-factors",
+    "title": "Factors",
+    "section": "2 Creating factors",
+    "text": "2 Creating factors\n\n2.1 defaults to alphabetical\n\n# factor is a function that creates a factor variable\nchvec &lt;- (c(\"apples\",\"oranges\",\"bananas\"))\nfch1 &lt;- factor(chvec)\nfch1 # note: levels are alphabetical\n\n[1] apples  oranges bananas\nLevels: apples bananas oranges\n\n# or using as.factor from BaseR which does the same thing but\n# is normally used to 'coerce' already defined datatype to factors\nclass(chvec)\n\n[1] \"character\"\n\nfch2 &lt;- as.factor(chvec)\nfch2\n\n[1] apples  oranges bananas\nLevels: apples bananas oranges\n\n\n\n\n2.2 specifies a level order\n\n# you can specify ordered levels\nfch3 &lt;- factor(chvec, levels= c(\"apples\",\"oranges\",\"bananas\"))\nfch3\n\n[1] apples  oranges bananas\nLevels: apples oranges bananas",
+    "crumbs": [
+      "Datatypes",
+      "factors"
+    ]
+  },
+  {
+    "objectID": "datatypes/factors.html#as_factor-retains-order",
+    "href": "datatypes/factors.html#as_factor-retains-order",
+    "title": "Factors",
+    "section": "3 as_factor retains order",
+    "text": "3 as_factor retains order\n\n3.1 tidyverse:: as_factor is better\n\n3.1.1 (default to alphabetical)\n\n# factor levels normally arranged alphabetically\nbloodtypes &lt;- c(\"O\",\"A\",\"B\",\"AB\")\nb1 &lt;- factor(bloodtypes)\nlevels(b1)\n\n[1] \"A\"  \"AB\" \"B\"  \"O\" \n\nb2 &lt;- as.factor(bloodtypes)\nlevels(b2)\n\n[1] \"A\"  \"AB\" \"B\"  \"O\" \n\n\n\nthe Levels default to an alphabetical sequence, but\nif I want to list factors Levels by the order in which they first appear\n\nyou can define levels explicitly with factor() ’\nyou can use as_factor from tidyverse which will retain the order\n\nhence, good idea to use as_factor\n\n\n\n3.1.2 (specify factor order)\n\n# method 1\n# specified levels\nbt1 &lt;- factor(bloodtypes,\n          levels=c(\"O\",\"A\",\"B\",\"AB\"))\nlevels(bt1)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"\n\n# method 2\n# using as_factor (instead of as.factor from baseR) \n# will retain the original factor order.\n# better than using relevel or fct_reorder\nbt2 &lt;- as_factor(bloodtypes)\nlevels(bt2)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"",
+    "crumbs": [
+      "Datatypes",
+      "factors"
+    ]
+  },
+  {
+    "objectID": "datatypes/factors.html#as_factor-retains-order-better",
+    "href": "datatypes/factors.html#as_factor-retains-order-better",
+    "title": "Factors",
+    "section": "3 as_factor retains order (better)",
+    "text": "3 as_factor retains order (better)\n\n# factor levels normally arranged alphabetically\nbloodtypes &lt;- c(\"O\",\"A\",\"B\",\"AB\")\nb1 &lt;- factor(bloodtypes)\nb1\n\n[1] O  A  B  AB\nLevels: A AB B O\n\nb2 &lt;- as.factor(bloodtypes)\nb2\n\n[1] O  A  B  AB\nLevels: A AB B O\n\nb2 &lt;- as_factor(bloodtypes)\nb2\n\n[1] O  A  B  AB\nLevels: O A B AB\n\n\n\nthe Levels default to an alphabetical sequence, but\nif I want to list factors Levels by the order in which they first appear\n\nyou can define levels explicitly with factor(., levels=xxx)\nyou can use as_factor from tidyverse which will retain the order\n\nhence, good idea to use as_factor\n\n\n3.0.1 (specify factor order)\n\n# method 1\n# specified levels\nbt1 &lt;- factor(bloodtypes,\n          levels=c(\"O\",\"A\",\"B\",\"AB\"))\nlevels(bt1)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"\n\n# method 2\n# using as_factor (instead of as.factor from baseR) \n# will retain the original factor order.\n# better than using relevel or fct_reorder\nbt2 &lt;- as_factor(bloodtypes)\nlevels(bt2)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"",
+    "crumbs": [
+      "Datatypes",
+      "factors"
+    ]
+  },
+  {
+    "objectID": "datatypes/factors.html#tidyverseas_factor-retains-order-better",
+    "href": "datatypes/factors.html#tidyverseas_factor-retains-order-better",
+    "title": "Factors",
+    "section": "3 tidyverse::as_factor retains order (better)",
+    "text": "3 tidyverse::as_factor retains order (better)\n\n# factor levels normally arranged alphabetically\nbloodtypes &lt;- c(\"O\",\"A\",\"B\",\"AB\")\nb1 &lt;- factor(bloodtypes)\nb1\n\n[1] O  A  B  AB\nLevels: A AB B O\n\nb2 &lt;- as.factor(bloodtypes)\nb2\n\n[1] O  A  B  AB\nLevels: A AB B O\n\nb2 &lt;- as_factor(bloodtypes)\nb2\n\n[1] O  A  B  AB\nLevels: O A B AB\n\n\n\nthe Levels default to an alphabetical sequence, but\nif I want to list factors Levels by the order in which they first appear\n\nyou can define levels explicitly with factor(., levels=xxx)\nyou can use as_factor from tidyverse which will retain the order\n\nhence, good idea to use as_factor\n\n\n3.0.1 (specify factor order)\n\n# method 1\n# specified levels\nbt1 &lt;- factor(bloodtypes,\n          levels=c(\"O\",\"A\",\"B\",\"AB\"))\nlevels(bt1)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"\n\n# method 2\n# using as_factor (instead of as.factor from baseR) \n# will retain the original factor order.\n# better than using relevel or fct_reorder\nbt2 &lt;- as_factor(bloodtypes)\nlevels(bt2)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"",
+    "crumbs": [
+      "Datatypes",
+      "factors"
+    ]
+  },
+  {
+    "objectID": "datatypes/factors.html#tidyverseas_factor-retains-order",
+    "href": "datatypes/factors.html#tidyverseas_factor-retains-order",
+    "title": "Factors",
+    "section": "3 tidyverse::as_factor retains order",
+    "text": "3 tidyverse::as_factor retains order\n\n# another example of factor levels\n\nbloodtypes &lt;- c(\"O\",\"A\",\"B\",\"AB\")\nfactor(bloodtypes)\n\n[1] O  A  B  AB\nLevels: A AB B O\n\nas.factor(bloodtypes)\n\n[1] O  A  B  AB\nLevels: A AB B O\n\nas_factor(bloodtypes)\n\n[1] O  A  B  AB\nLevels: O A B AB\n\n\n\nthe Levels default to an alphabetical sequence, but\nif I want to list factors Levels by the order in which they first appear\n\nyou can define levels explicitly with factor(., levels=xxx)\nyou can use as_factor from tidyverse which will retain the order\n\nhence, good idea to use as_factor\n\n\n3.1 (specify factor order)\n\n# method 1\n# specified levels\nbt1 &lt;- factor(bloodtypes,\n          levels=c(\"O\",\"A\",\"B\",\"AB\"))\nlevels(bt1)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"\n\n# method 2\n# using as_factor (instead of as.factor from baseR) \n# will retain the original factor order.\n# better than using relevel or fct_reorder\nbt2 &lt;- as_factor(bloodtypes)\nlevels(bt2)\n\n[1] \"O\"  \"A\"  \"B\"  \"AB\"",
+    "crumbs": [
+      "Datatypes",
+      "factors"
     ]
   }
 ]
