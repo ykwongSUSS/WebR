@@ -99,7 +99,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Preface",
+    "title": "WebR",
     "section": "",
     "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:\n\nDatatypes\nDataFrames\nDatasets\nggPlots\nTables\nExamples\nReferences\n\nOthers may be added later. The R used in this website tends to lean towards tidyverse.",
     "crumbs": [
@@ -123,7 +123,7 @@
   {
     "objectID": "datatypes/lists.html",
     "href": "datatypes/lists.html",
-    "title": "lists",
+    "title": "Lists",
     "section": "",
     "text": "# can mix different types\nlist1 &lt;- list(fruits = c(\"apple\", \"bananas\"),qty=c(120,180),total = 300)\nlist1\n\n$fruits\n[1] \"apple\"   \"bananas\"\n\n$qty\n[1] 120 180\n\n$total\n[1] 300\n\nstr(list1)\n\nList of 3\n $ fruits: chr [1:2] \"apple\" \"bananas\"\n $ qty   : num [1:2] 120 180\n $ total : num 300\n\n\n\nlist1$fruits\n\n[1] \"apple\"   \"bananas\"\n\nlist1$qty\n\n[1] 120 180\n\nlist1$total\n\n[1] 300",
     "crumbs": [
@@ -134,7 +134,7 @@
   {
     "objectID": "datatypes/lists.html#convert-named-list-to-tibbledataframe",
     "href": "datatypes/lists.html#convert-named-list-to-tibbledataframe",
-    "title": "lists",
+    "title": "Lists",
     "section": "2 Convert named list to tibble/dataframe",
     "text": "2 Convert named list to tibble/dataframe\n\nlibrary(tidyverse)\ndf &lt;- data.frame(fruit=list1$fruit, quantity=list1$qty)\ndf\n\n    fruit quantity\n1   apple      120\n2 bananas      180",
     "crumbs": [
@@ -145,7 +145,7 @@
   {
     "objectID": "datatypes/strings.html",
     "href": "datatypes/strings.html",
-    "title": "strings",
+    "title": "Strings",
     "section": "",
     "text": "library(tidyverse)\n# single letter single quotes\n# multiple letters use double quotes\n\ns1 &lt;- c(\"I believe\")\nstr(s1)\n\n chr \"I believe\"\n\ntypeof(s1)\n\n[1] \"character\"\n\n\n\n\n\n# str_c to concat strings\ns2 &lt;- str_c(\"I really\",\" believe \")\n\n\n\n\n\n# lowercase\nstr_to_lower(s2)\n\n[1] \"i really believe \"\n\nstr_length(s2)\n\n[1] 17\n\n# remove spaces\ns3 &lt;- str_trim(s2, side=\"both\")\ns3\n\n[1] \"I really believe\"\n\nstr_length(s3)\n\n[1] 16\n\n\n\n\n\n\n\n# output of website crawling\nt0 &lt;- \"gets%better%every%day\"\nt1 &lt;- strsplit(t0,split='%')\nt1\n\n[[1]]\n[1] \"gets\"   \"better\" \"every\"  \"day\"   \n\ntypeof(t1)\n\n[1] \"list\"\n\n\n\n\n\n\nu0 &lt;- c(\"The quick brown fox jumps over the lazy dog\")\nu1 &lt;- strsplit(u0, \"\")\nu1\n\n[[1]]\n [1] \"T\" \"h\" \"e\" \" \" \"q\" \"u\" \"i\" \"c\" \"k\" \" \" \"b\" \"r\" \"o\" \"w\" \"n\" \" \" \"f\" \"o\" \"x\"\n[20] \" \" \"j\" \"u\" \"m\" \"p\" \"s\" \" \" \"o\" \"v\" \"e\" \"r\" \" \" \"t\" \"h\" \"e\" \" \" \"l\" \"a\" \"z\"\n[39] \"y\" \" \" \"d\" \"o\" \"g\"\n\n\n\n\n\n\nu2 &lt;- strsplit(u0, \" \")\nu2\n\n[[1]]\n[1] \"The\"   \"quick\" \"brown\" \"fox\"   \"jumps\" \"over\"  \"the\"   \"lazy\"  \"dog\"  \n\n\n\n\n\n\nv0 &lt;- \"all16i5need6is4a%long8vacation\"\nv1 &lt;- strsplit(v0,split=\"[0-9,%]+\")\nv1\n\n[[1]]\n[1] \"all\"      \"i\"        \"need\"     \"is\"       \"a\"        \"long\"     \"vacation\"",
     "crumbs": [
@@ -502,7 +502,7 @@
   {
     "objectID": "datatypes/matrices.html",
     "href": "datatypes/matrices.html",
-    "title": "vectors-matrices",
+    "title": "Matrices",
     "section": "",
     "text": "vec = c(1, 2, 3, 5)\nvec &lt;- vec + 1\nvec\n\n[1] 2 3 4 6\n\nstr(vec)\n\n num [1:4] 2 3 4 6",
     "crumbs": [
@@ -513,7 +513,7 @@
   {
     "objectID": "datatypes/matrices.html#vectors",
     "href": "datatypes/matrices.html#vectors",
-    "title": "vectors-matrices",
+    "title": "Matrices",
     "section": "",
     "text": "vec = c(1, 2, 3, 5)\nvec &lt;- vec + 1\nvec\n\n[1] 2 3 4 6\n\nstr(vec)\n\n num [1:4] 2 3 4 6",
     "crumbs": [
@@ -524,7 +524,7 @@
   {
     "objectID": "datatypes/matrices.html#matrices",
     "href": "datatypes/matrices.html#matrices",
-    "title": "vectors-matrices",
+    "title": "Matrices",
     "section": "2 matrices",
     "text": "2 matrices\n\nm &lt;- matrix(c(1, 2, 3, 4), nrow=2, ncol=2)\nm\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\nstr(m)\n\n num [1:2, 1:2] 1 2 3 4",
     "crumbs": [
@@ -535,7 +535,7 @@
   {
     "objectID": "datatypes/dates.html",
     "href": "datatypes/dates.html",
-    "title": "dates",
+    "title": "Dates",
     "section": "",
     "text": "Before importing from Excel it is a good idea to custom-format in Excel the dates as yyyy-mm-dd (e.g. 2021-05-12). It will make things consistent and easier.\nuse here::here() to establish the working directory\nlibrary(lubridate) is part of tidyverse.\nUse str()to check if Dates are recognized correctly before filtering\n\n\nlibrary(tidyverse)\nlibrary(here)\ndf1 &lt;- read_csv(here::here(\"./assets/vaccines.csv\"))\ndf1\n\n# A tibble: 10 × 3\n   Date       OneDose TwoDose\n   &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n 1 2021-01-11    3400       0\n 2 2021-01-12    6200       0\n 3 2021-01-22   60000       0\n 4 2021-01-27  113000      50\n 5 2021-01-31  155000      50\n 6 2021-02-02  175000    6000\n 7 2021-02-10  250000    6000\n 8 2021-02-18  250000  110000\n 9 2021-03-01  317715  207324\n10 2021-03-04  350000  215000\n\n\n\n\n\nfilter(df1, Date&gt;=\"2021-02-02\" & Date &lt; \"2021-03-01\")\n\n# A tibble: 3 × 3\n  Date       OneDose TwoDose\n  &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n\n\n\nfilter(df1, Date &gt; \"2021-01-31\")\n\n# A tibble: 5 × 3\n  Date       OneDose TwoDose\n  &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n4 2021-03-01  317715  207324\n5 2021-03-04  350000  215000",
     "crumbs": [
@@ -546,7 +546,7 @@
   {
     "objectID": "datatypes/dates.html#filtering-with-dates",
     "href": "datatypes/dates.html#filtering-with-dates",
-    "title": "dates",
+    "title": "Dates",
     "section": "",
     "text": "Before importing from Excel it is a good idea to custom-format in Excel the dates as yyyy-mm-dd (e.g. 2021-05-12). It will make things consistent and easier.\nuse here::here() to establish the working directory\nlibrary(lubridate) is part of tidyverse.\nUse str()to check if Dates are recognized correctly before filtering\n\n\nlibrary(tidyverse)\nlibrary(here)\ndf1 &lt;- read_csv(here::here(\"./assets/vaccines.csv\"))\ndf1\n\n# A tibble: 10 × 3\n   Date       OneDose TwoDose\n   &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n 1 2021-01-11    3400       0\n 2 2021-01-12    6200       0\n 3 2021-01-22   60000       0\n 4 2021-01-27  113000      50\n 5 2021-01-31  155000      50\n 6 2021-02-02  175000    6000\n 7 2021-02-10  250000    6000\n 8 2021-02-18  250000  110000\n 9 2021-03-01  317715  207324\n10 2021-03-04  350000  215000\n\n\n\n\n\nfilter(df1, Date&gt;=\"2021-02-02\" & Date &lt; \"2021-03-01\")\n\n# A tibble: 3 × 3\n  Date       OneDose TwoDose\n  &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n\n\n\nfilter(df1, Date &gt; \"2021-01-31\")\n\n# A tibble: 5 × 3\n  Date       OneDose TwoDose\n  &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 2021-02-02  175000    6000\n2 2021-02-10  250000    6000\n3 2021-02-18  250000  110000\n4 2021-03-01  317715  207324\n5 2021-03-04  350000  215000",
     "crumbs": [
@@ -557,9 +557,9 @@
   {
     "objectID": "datatypes/dates.html#calculating-age-from-dates",
     "href": "datatypes/dates.html#calculating-age-from-dates",
-    "title": "dates",
+    "title": "Dates",
     "section": "2 Calculating age from Dates",
-    "text": "2 Calculating age from Dates\n\nlibrary(tidyverse)\nlibrary(eeptools)\ndf2 &lt;- read_csv(\"name, dob\n                CUMBERBATCH Benedict, 1976-07-19\n                FOX Megan, 1986-05-16\n                HANKS Tom, 1956-07-09\n                SANDLER Adam, 1966-09-09\n                SMITH Will, 1968-09-25\n                STONE Emma, 1988-11-06\")\ndf3 &lt;- arrange(df2, -desc(dob))\ndf4 &lt;- df3 %&gt;% \n         mutate(age=age_calc(dob, units=\"years\")) %&gt;%\n         mutate(mth=month(dob))\ndf4$mth &lt;- month.abb[df4$mth]\ndf4\n\n# A tibble: 6 × 4\n  name                 dob          age mth  \n  &lt;chr&gt;                &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;\n1 HANKS Tom            1956-07-09  68.3 Jul  \n2 SANDLER Adam         1966-09-09  58.1 Sep  \n3 SMITH Will           1968-09-25  56.1 Sep  \n4 CUMBERBATCH Benedict 1976-07-19  48.2 Jul  \n5 FOX Megan            1986-05-16  38.4 May  \n6 STONE Emma           1988-11-06  35.9 Nov",
+    "text": "2 Calculating age from Dates\n\nlibrary(tidyverse)\nlibrary(eeptools)\ndf2 &lt;- read_csv(\"name, dob\n                CUMBERBATCH Benedict, 1976-07-19\n                FOX Megan, 1986-05-16\n                HANKS Tom, 1956-07-09\n                SANDLER Adam, 1966-09-09\n                SMITH Will, 1968-09-25\n                STONE Emma, 1988-11-06\")\ndf3 &lt;- arrange(df2, -desc(dob))\ndf4 &lt;- df3 %&gt;% \n         mutate(age=age_calc(dob, units=\"years\")) %&gt;%\n         mutate(mth=month(dob))\ndf4$mth &lt;- month.abb[df4$mth]\ndf4\n\n# A tibble: 6 × 4\n  name                 dob          age mth  \n  &lt;chr&gt;                &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;\n1 HANKS Tom            1956-07-09  68.4 Jul  \n2 SANDLER Adam         1966-09-09  58.2 Sep  \n3 SMITH Will           1968-09-25  56.2 Sep  \n4 CUMBERBATCH Benedict 1976-07-19  48.4 Jul  \n5 FOX Megan            1986-05-16  38.5 May  \n6 STONE Emma           1988-11-06  36.1 Nov",
     "crumbs": [
       "Datatypes",
       "dates"
@@ -805,7 +805,7 @@
     "href": "datatypes.html",
     "title": "datatypes",
     "section": "",
-    "text": "DataTypes\n\nnumbers\nstrings\nfactors\ndates\nlists\nmatrices\ntables",
+    "text": "numbers\nstrings\nfactors\ndates\nlists\nmatrices\ntables",
     "crumbs": [
       "Datatypes"
     ]
@@ -1021,7 +1021,7 @@
   {
     "objectID": "datatypes/lists.html#mix-types-with-different-lengths",
     "href": "datatypes/lists.html#mix-types-with-different-lengths",
-    "title": "lists",
+    "title": "Lists",
     "section": "",
     "text": "# can mix different types\nlist1 &lt;- list(fruits = c(\"apple\", \"bananas\"),qty=c(120,180),total = 300)\nlist1\n\n$fruits\n[1] \"apple\"   \"bananas\"\n\n$qty\n[1] 120 180\n\n$total\n[1] 300\n\nstr(list1)\n\nList of 3\n $ fruits: chr [1:2] \"apple\" \"bananas\"\n $ qty   : num [1:2] 120 180\n $ total : num 300\n\n\n\nlist1$fruits\n\n[1] \"apple\"   \"bananas\"\n\nlist1$qty\n\n[1] 120 180\n\nlist1$total\n\n[1] 300",
     "crumbs": [
@@ -1206,7 +1206,7 @@
   {
     "objectID": "datatypes/strings.html#tidyverse-stringr",
     "href": "datatypes/strings.html#tidyverse-stringr",
-    "title": "strings",
+    "title": "Strings",
     "section": "",
     "text": "library(tidyverse)\n# single letter single quotes\n# multiple letters use double quotes\n\ns1 &lt;- c(\"I believe\")\nstr(s1)\n\n chr \"I believe\"\n\ntypeof(s1)\n\n[1] \"character\"\n\n\n\n\n\n# str_c to concat strings\ns2 &lt;- str_c(\"I really\",\" believe \")\n\n\n\n\n\n# lowercase\nstr_to_lower(s2)\n\n[1] \"i really believe \"\n\nstr_length(s2)\n\n[1] 17\n\n# remove spaces\ns3 &lt;- str_trim(s2, side=\"both\")\ns3\n\n[1] \"I really believe\"\n\nstr_length(s3)\n\n[1] 16\n\n\n\n\n\n\n\n# output of website crawling\nt0 &lt;- \"gets%better%every%day\"\nt1 &lt;- strsplit(t0,split='%')\nt1\n\n[[1]]\n[1] \"gets\"   \"better\" \"every\"  \"day\"   \n\ntypeof(t1)\n\n[1] \"list\"\n\n\n\n\n\n\nu0 &lt;- c(\"The quick brown fox jumps over the lazy dog\")\nu1 &lt;- strsplit(u0, \"\")\nu1\n\n[[1]]\n [1] \"T\" \"h\" \"e\" \" \" \"q\" \"u\" \"i\" \"c\" \"k\" \" \" \"b\" \"r\" \"o\" \"w\" \"n\" \" \" \"f\" \"o\" \"x\"\n[20] \" \" \"j\" \"u\" \"m\" \"p\" \"s\" \" \" \"o\" \"v\" \"e\" \"r\" \" \" \"t\" \"h\" \"e\" \" \" \"l\" \"a\" \"z\"\n[39] \"y\" \" \" \"d\" \"o\" \"g\"\n\n\n\n\n\n\nu2 &lt;- strsplit(u0, \" \")\nu2\n\n[[1]]\n[1] \"The\"   \"quick\" \"brown\" \"fox\"   \"jumps\" \"over\"  \"the\"   \"lazy\"  \"dog\"  \n\n\n\n\n\n\nv0 &lt;- \"all16i5need6is4a%long8vacation\"\nv1 &lt;- strsplit(v0,split=\"[0-9,%]+\")\nv1\n\n[[1]]\n[1] \"all\"      \"i\"        \"need\"     \"is\"       \"a\"        \"long\"     \"vacation\"",
     "crumbs": [
@@ -2127,7 +2127,7 @@
   {
     "objectID": "References/references.html",
     "href": "References/references.html",
-    "title": "WebR",
+    "title": "references",
     "section": "",
     "text": "1 Bibliography\n\nIsmay, C., and A. Y. Kim. 2019. Statistical Inference via Data Science: A ModernDive into r and the Tidyverse. https://doi.org/10.1201/9780367409913: Chapman; Hall/CRC.\n\n\nKuhn, Max, and Julia Silge. 2022. Tidy Modeling with r. \" O’Reilly Media, Inc.\".\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. 2nd ed. \" O’Reilly Media, Inc.\"."
   },
@@ -2140,6 +2140,16 @@
     "crumbs": [
       "Datatypes",
       "vectors"
+    ]
+  },
+  {
+    "objectID": "datatypes.html#datatypes",
+    "href": "datatypes.html#datatypes",
+    "title": "datatypes",
+    "section": "",
+    "text": "numbers\nstrings\nfactors\ndates\nlists\nmatrices\ntables",
+    "crumbs": [
+      "Datatypes"
     ]
   }
 ]
