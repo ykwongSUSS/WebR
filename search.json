@@ -2130,5 +2130,16 @@
     "title": "WebR",
     "section": "",
     "text": "1 Bibliography\n\nIsmay, C., and A. Y. Kim. 2019. Statistical Inference via Data Science: A ModernDive into r and the Tidyverse. https://doi.org/10.1201/9780367409913: Chapman; Hall/CRC.\n\n\nKuhn, Max, and Julia Silge. 2022. Tidy Modeling with r. \" O’Reilly Media, Inc.\".\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. 2nd ed. \" O’Reilly Media, Inc.\"."
+  },
+  {
+    "objectID": "datatypes/vectors.html#sequences",
+    "href": "datatypes/vectors.html#sequences",
+    "title": "Vectors",
+    "section": "2 Sequences",
+    "text": "2 Sequences\n\nvec3 &lt;- seq(1,10,0.5)\nvec3\n\n [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0\n[16]  8.5  9.0  9.5 10.0",
+    "crumbs": [
+      "Datatypes",
+      "vectors"
+    ]
   }
 ]
