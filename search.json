@@ -1776,7 +1776,7 @@
     "href": "ggplots/basics.html#barplot",
     "title": "basicPlots",
     "section": "3 BarPlot",
-    "text": "3 BarPlot\n\n# barplot\ndirection = c('N','S','E','W','W','E','W','E','E','E','E','S','S','N','N','W','E','E','N','N','N','S','E','W','W','E','W','E','E','E')\nspeed = rnorm(30, 5, 0.2)\ndfWind &lt;- data.frame(direction,speed)\nstr(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  4.97 5.16 4.83 5.03 4.98 ...\n\n# indicate x\n# counting on y is automatic\n\nggplot(dfWind,aes(x=direction, fill=direction))+\n  geom_bar(color=\"gray\")+\n  labs(\n    title=\"BarPlot\",\n    subtitle=\"auto counting\"\n  )",
+    "text": "3 BarPlot\n\n# barplot\ndirection = c('N','S','E','W','W','E','W','E','E','E','E','S','S','N','N','W','E','E','N','N','N','S','E','W','W','E','W','E','E','E')\nspeed = rnorm(30, 5, 0.2)\ndfWind &lt;- data.frame(direction,speed)\nstr(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  5.03 5.29 4.86 5.08 4.86 ...\n\n# indicate x\n# counting on y is automatic\n\nggplot(dfWind,aes(x=direction, fill=direction))+\n  geom_bar(color=\"gray\")+\n  labs(\n    title=\"BarPlot\",\n    subtitle=\"auto counting\"\n  )",
     "crumbs": [
       "ggPlots",
       "basics"
@@ -1798,7 +1798,7 @@
     "href": "ggplots/basics.html#histogram",
     "title": "basicPlots",
     "section": "5 Histogram",
-    "text": "5 Histogram\n\n  str(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  4.97 5.16 4.83 5.03 4.98 ...\n\n  head(dfWind)\n\n  direction    speed\n1         N 4.974077\n2         S 5.157644\n3         E 4.829416\n4         W 5.025681\n5         W 4.980848\n6         E 4.878386\n\n  ggplot(dfWind, aes(x=speed))+\n    geom_histogram(bins = 8, fill=\"lightgray\",color=\"black\")+\n    labs(\n      title=\"Histogram\",\n      subtitle = \"bins=8\",\n      xlab = \"Wind Speed\",\n      ylab = \"Frequency\"\n    )",
+    "text": "5 Histogram\n\n  str(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  5.03 5.29 4.86 5.08 4.86 ...\n\n  head(dfWind)\n\n  direction    speed\n1         N 5.027016\n2         S 5.285336\n3         E 4.863955\n4         W 5.078700\n5         W 4.863720\n6         E 5.256984\n\n  ggplot(dfWind, aes(x=speed))+\n    geom_histogram(bins = 8, fill=\"lightgray\",color=\"black\")+\n    labs(\n      title=\"Histogram\",\n      subtitle = \"bins=8\",\n      xlab = \"Wind Speed\",\n      ylab = \"Frequency\"\n    )",
     "crumbs": [
       "ggPlots",
       "basics"
@@ -2129,7 +2129,11 @@
     "href": "References/references.html",
     "title": "references",
     "section": "",
-    "text": "1 Bibliography\n\nIsmay, C., and A. Y. Kim. 2019. Statistical Inference via Data Science: A ModernDive into r and the Tidyverse. https://doi.org/10.1201/9780367409913: Chapman; Hall/CRC.\n\n\nKuhn, Max, and Julia Silge. 2022. Tidy Modeling with r. \" O’Reilly Media, Inc.\".\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. 2nd ed. \" O’Reilly Media, Inc.\"."
+    "text": "1 Bibliography\n\nIsmay, C., and A. Y. Kim. 2019. Statistical Inference via Data Science: A ModernDive into r and the Tidyverse. https://doi.org/10.1201/9780367409913: Chapman; Hall/CRC.\n\n\nKuhn, Max, and Julia Silge. 2022. Tidy Modeling with r. \" O’Reilly Media, Inc.\".\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. 2nd ed. \" O’Reilly Media, Inc.\".",
+    "crumbs": [
+      "References",
+      "bibliography"
+    ]
   },
   {
     "objectID": "datatypes/vectors.html#sequences",
