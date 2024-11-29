@@ -2398,5 +2398,49 @@
       "ggPlots",
       "curves"
     ]
+  },
+  {
+    "objectID": "programming/loops.html",
+    "href": "programming/loops.html",
+    "title": "functions",
+    "section": "",
+    "text": "library(tidyverse)",
+    "crumbs": [
+      "Programming",
+      "loops"
+    ]
+  },
+  {
+    "objectID": "programming/loops.html#library",
+    "href": "programming/loops.html#library",
+    "title": "functions",
+    "section": "",
+    "text": "library(tidyverse)",
+    "crumbs": [
+      "Programming",
+      "loops"
+    ]
+  },
+  {
+    "objectID": "programming/loops.html#data",
+    "href": "programming/loops.html#data",
+    "title": "functions",
+    "section": "2 Data",
+    "text": "2 Data\n\ndf &lt;- data.frame(\n  name = c(\"Mary\", \"Bobby\", \"Lizzy\",\"Tom\"),\n  age = c(30,26,19,45),\n  gender=c(\"F\",\"M\",\"F\",\"M\")\n)\ndf\n\n   name age gender\n1  Mary  30      F\n2 Bobby  26      M\n3 Lizzy  19      F\n4   Tom  45      M",
+    "crumbs": [
+      "Programming",
+      "loops"
+    ]
+  },
+  {
+    "objectID": "programming/loops.html#for-loop",
+    "href": "programming/loops.html#for-loop",
+    "title": "functions",
+    "section": "3 For Loop",
+    "text": "3 For Loop\n\nnrow(df)\n\n[1] 4\n\nfor (i in 1:nrow(df)){\n  if (df[i,]$age &lt; 30)\n    print(paste(df[i,]))\n}\n\n[1] \"Bobby\" \"26\"    \"M\"    \n[1] \"Lizzy\" \"19\"    \"F\"    \n\n\n\n# alternatively you could just filter\nfilter(df, age&lt;30)\n\n   name age gender\n1 Bobby  26      M\n2 Lizzy  19      F",
+    "crumbs": [
+      "Programming",
+      "loops"
+    ]
   }
 ]
