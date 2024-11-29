@@ -2337,8 +2337,8 @@
     "objectID": "ggplots/curves.html#ggplot2geom_function",
     "href": "ggplots/curves.html#ggplot2geom_function",
     "title": "curves",
-    "section": "3 ggplot2::geom_function()",
-    "text": "3 ggplot2::geom_function()\n\nx &lt;- seq(0,10,0.5)\nfn &lt;- function(x){\n  sqrt(x)*cos(5*x)\n}\nggplot(data.frame(x), aes(x=x))+\n  geom_function(fun=fn)+\n  theme_bw()+\n  ggtitle(\"geom_function()\")",
+    "section": "4 ggplot2::geom_function()",
+    "text": "4 ggplot2::geom_function()\n\nx &lt;- seq(0,10,0.5)\nfn &lt;- function(x){\n  sqrt(x)*cos(5*x)\n}\nggplot(data.frame(x), aes(x=x))+\n  geom_function(fun=fn)+\n  theme_bw()+\n  ggtitle(\"geom_function()\")",
     "crumbs": [
       "ggPlots",
       "curves"
@@ -2349,7 +2349,7 @@
     "href": "ggplots/curves.html#baser-curve",
     "title": "curves",
     "section": "2 BaseR:: curve()",
-    "text": "2 BaseR:: curve()\ncurve() is a useful baseR function for plotting continuous functions in R. The ggplot equivalent is geom_function() as shown below.\n\nylim=c(-3,12)\ncurve({(x-1)^2}*(x+3), from=-3, to=2, col=\"blue\", lwd=2, ylim=ylim, main='curve()', ylab=\"y\")\ncurve(sin(x^2)+4,  from=-3, to=2, col=\"red\",  lwd=2,  ylim=ylim,ylab=\"y\", add=TRUE)",
+    "text": "2 BaseR:: curve()\ncurve() is a useful baseR function for plotting continuous functions in R. The ggplot equivalent is geom_function() as shown below.\n\nylim=c(-3,12)\ncurve({(x-1)^2}*(x+3), from=-3, to=2, col=\"blue\", lwd=2, ylim=ylim, ylab=\"y\")\ncurve(sin(x^2)+4, from=-3, to=2, col=\"red\", lwd=2, add=TRUE)",
     "crumbs": [
       "ggPlots",
       "curves"
@@ -2386,6 +2386,17 @@
     "crumbs": [
       "Programming",
       "functions"
+    ]
+  },
+  {
+    "objectID": "ggplots/curves.html#ggplot2geom_curve",
+    "href": "ggplots/curves.html#ggplot2geom_curve",
+    "title": "curves",
+    "section": "3 ggplot2::geom_curve()",
+    "text": "3 ggplot2::geom_curve()\n\ndf &lt;- data.frame(\n  x = 1:8,\n  y = rnorm(8, mean = 5, sd = 2)\n)\nggplot(df, aes(x, y)) +\n  geom_point(size=2, color=\"brown\") +\n  geom_curve(aes(x = 2, y = 2, xend = 7, yend = 7),\n    arrow = arrow(length = unit(0.3, \"cm\"), type = \"closed\"),\n    color = \"blue\",\n    size = 1.1,\n    curvature = -0.3\n  ) +\n  theme_minimal()",
+    "crumbs": [
+      "ggPlots",
+      "curves"
     ]
   }
 ]
