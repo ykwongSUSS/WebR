@@ -504,7 +504,7 @@
     "href": "datatypes/matrices.html",
     "title": "Matrices",
     "section": "",
-    "text": "vec = c(1, 2, 3, 5)\nvec &lt;- vec + 1\nvec\n\n[1] 2 3 4 6\n\nstr(vec)\n\n num [1:4] 2 3 4 6",
+    "text": "M &lt;- matrix(c(1, 2, 3, 4, 5, 6), nrow=2, ncol=3,\n            dimnames = list(c(\"r1\",\"r2\"),\n                            c(\"c1\",\"c2\",\"c3\")))\nM\n\n   c1 c2 c3\nr1  1  3  5\nr2  2  4  6\n\nstr(M)\n\n num [1:2, 1:3] 1 2 3 4 5 6\n - attr(*, \"dimnames\")=List of 2\n  ..$ : chr [1:2] \"r1\" \"r2\"\n  ..$ : chr [1:3] \"c1\" \"c2\" \"c3\"\n\n# baseR\nt(M)\n\n   r1 r2\nc1  1  2\nc2  3  4\nc3  5  6",
     "crumbs": [
       "Datatypes",
       "matrices"
@@ -525,8 +525,8 @@
     "objectID": "datatypes/matrices.html#matrices",
     "href": "datatypes/matrices.html#matrices",
     "title": "Matrices",
-    "section": "2 matrices",
-    "text": "2 matrices\n\nm &lt;- matrix(c(1, 2, 3, 4), nrow=2, ncol=2)\nm\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\nstr(m)\n\n num [1:2, 1:2] 1 2 3 4",
+    "section": "",
+    "text": "M &lt;- matrix(c(1, 2, 3, 4, 5, 6), nrow=2, ncol=3,\n            dimnames = list(c(\"r1\",\"r2\"),\n                            c(\"c1\",\"c2\",\"c3\")))\nM\n\n   c1 c2 c3\nr1  1  3  5\nr2  2  4  6\n\nstr(M)\n\n num [1:2, 1:3] 1 2 3 4 5 6\n - attr(*, \"dimnames\")=List of 2\n  ..$ : chr [1:2] \"r1\" \"r2\"\n  ..$ : chr [1:3] \"c1\" \"c2\" \"c3\"\n\n# baseR\nt(M)\n\n   r1 r2\nc1  1  2\nc2  3  4\nc3  5  6",
     "crumbs": [
       "Datatypes",
       "matrices"
@@ -924,7 +924,7 @@
     "href": "dataframes/textEntry.html#tribble---transposed-tibble",
     "title": "textEntry",
     "section": "5 tribble() - transposed tibble",
-    "text": "5 tribble() - transposed tibble\n\ntb2&lt;-tribble(\n  ~sch, ~pgms,\n  \"SBIZ\", 23,\n  \"NSHD\", 25,\n  \"SHBS\", 14,\n  \"SST\", 13\n)\ntb2\n\n# A tibble: 4 × 2\n  sch    pgms\n  &lt;chr&gt; &lt;dbl&gt;\n1 SBIZ     23\n2 NSHD     25\n3 SHBS     14\n4 SST      13\n\n\n\n5.1 tribble() with dates\n\ntb3 &lt;- tribble (\n  ~date, ~weight,\n  \"2020-02-22\", 13,\n  \"2021-03-02\", 15,\n  \"2022-04-11\", 18,\n  \"2023-03-10\", 23\n)\ntb3$date &lt;- as.Date(tb3$date)\ntb3\n\n# A tibble: 4 × 2\n  date       weight\n  &lt;date&gt;      &lt;dbl&gt;\n1 2020-02-22     13\n2 2021-03-02     15\n3 2022-04-11     18\n4 2023-03-10     23",
+    "text": "5 tribble() - transposed tibble\n\ntb2&lt;-tribble(\n  ~sch, ~pgms,\n  \"SBIZ\", 23,\n  \"NSHD\", 25,\n  \"SHBS\", 14,\n  \"SST\", 13\n)\ntb2\n\n# A tibble: 4 × 2\n  sch    pgms\n  &lt;chr&gt; &lt;dbl&gt;\n1 SBIZ     23\n2 NSHD     25\n3 SHBS     14\n4 SST      13\n\n\n\n5.1 tribble() with dates\n\ntb3 &lt;- tribble (\n  ~date, ~weight,\n  \"2020-02-22\", 13,\n  \"2021-03-02\", 15,\n  \"2022-04-11\", 18,\n  \"2023-03-10\", 23\n)\ntb3$date &lt;- as.Date(tb3$date)\ntb3\n\n# A tibble: 4 × 2\n  date       weight\n  &lt;date&gt;      &lt;dbl&gt;\n1 2020-02-22     13\n2 2021-03-02     15\n3 2022-04-11     18\n4 2023-03-10     23\n\n\n\n\n5.2 Copy and paste a bunch of numbers from a pdf textbook\n\n# the numbers are copied and pasted\ntb4 &lt;- read_table(col_names = FALSE, \"\n82 96 99 102 103 103 106 107 108 108 108\n108 109 110 110 111 113 113 113 113 115 115\n118 118 119 121 122 122 127 132 136 140 146\n\")\ntb4\n\n# A tibble: 3 × 11\n     X1    X2    X3    X4    X5    X6    X7    X8    X9   X10   X11\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    82    96    99   102   103   103   106   107   108   108   108\n2   108   109   110   110   111   113   113   113   113   115   115\n3   118   118   119   121   122   122   127   132   136   140   146\n\nv &lt;- as.vector(t(tb4))\nv\n\n [1]  82  96  99 102 103 103 106 107 108 108 108 108 109 110 110 111 113 113 113\n[20] 113 115 115 118 118 119 121 122 122 127 132 136 140 146",
     "crumbs": [
       "DataFrames",
       "textEntry"
@@ -1340,9 +1340,9 @@
   {
     "objectID": "test.html",
     "href": "test.html",
-    "title": "test",
+    "title": "WebR",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\n## read_csv\n\nlibrary(tidyverse)\ntb &lt;- read_csv(\"id, gender, lgrades\n  SD101, M, C+\n  SD102, F, F\n  SD103, F, B\n  SD104, F, A+\n  SD105, M, B\n  SD106, F, B-\n  SD107, M, A\n  SD108, M, C\n  SD109, M, B-\n  SD110, M, B-\n\")\n\nRows: 10 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (3): id, gender, lgrades\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ntb\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-"
+    "text": "library(tidyverse)\nx &lt;- read_table(col_names = FALSE, \"\n82 96 99 102 103 103 106 107 108 108 108\n108 109 110 110 111 113 113 113 113 115 115\n118 118 119 121 122 122 127 132 136 140 146\n\")\nx\n\n# A tibble: 3 × 11\n     X1    X2    X3    X4    X5    X6    X7    X8    X9   X10   X11\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    82    96    99   102   103   103   106   107   108   108   108\n2   108   109   110   110   111   113   113   113   113   115   115\n3   118   118   119   121   122   122   127   132   136   140   146\n\nvec &lt;- as.vector(t(x))\nvec\n\n [1]  82  96  99 102 103 103 106 107 108 108 108 108 109 110 110 111 113 113 113\n[20] 113 115 115 118 118 119 121 122 122 127 132 136 140 146"
   },
   {
     "objectID": "tables/contigency.html",
@@ -2096,7 +2096,7 @@
     "href": "datatypes/vectors.html",
     "title": "Vectors",
     "section": "",
-    "text": "vec1 &lt;- c(1, 2, 3, 5)\nvec1 &lt;- vec1 + 1\nvec1\n\n[1] 2 3 4 6\n\nstr(vec1)\n\n num [1:4] 2 3 4 6\n\n\n\nvec2 &lt;- c(\"a\",\"b\",\"c\")\nstr(vec2)\n\n chr [1:3] \"a\" \"b\" \"c\"",
+    "text": "vec1 &lt;- c(1, 2, 3, 5)\nvec1 &lt;- vec1 + 1\nvec1\n\n[1] 2 3 4 6\n\nclass(vec1)\n\n[1] \"numeric\"\n\n\n\nvec2 &lt;- c(\"a\",\"b\",\"c\")\nstr(vec2)\n\n chr [1:3] \"a\" \"b\" \"c\"",
     "crumbs": [
       "Datatypes",
       "vectors"
@@ -2107,7 +2107,7 @@
     "href": "datatypes/vectors.html#vectors",
     "title": "Vectors",
     "section": "",
-    "text": "vec1 &lt;- c(1, 2, 3, 5)\nvec1 &lt;- vec1 + 1\nvec1\n\n[1] 2 3 4 6\n\nstr(vec1)\n\n num [1:4] 2 3 4 6\n\n\n\nvec2 &lt;- c(\"a\",\"b\",\"c\")\nstr(vec2)\n\n chr [1:3] \"a\" \"b\" \"c\"",
+    "text": "vec1 &lt;- c(1, 2, 3, 5)\nvec1 &lt;- vec1 + 1\nvec1\n\n[1] 2 3 4 6\n\nclass(vec1)\n\n[1] \"numeric\"\n\n\n\nvec2 &lt;- c(\"a\",\"b\",\"c\")\nstr(vec2)\n\n chr [1:3] \"a\" \"b\" \"c\"",
     "crumbs": [
       "Datatypes",
       "vectors"
@@ -2140,7 +2140,7 @@
     "href": "datatypes/vectors.html#sequences",
     "title": "Vectors",
     "section": "2 Sequences",
-    "text": "2 Sequences\n\nvec3 &lt;- seq(1,10,0.5)\nvec3\n\n [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0\n[16]  8.5  9.0  9.5 10.0",
+    "text": "2 Sequences\n\nvec3 &lt;- seq(1,10,0.5)\nvec3\n\n [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0\n[16]  8.5  9.0  9.5 10.0\n\nvec3[3]\n\n[1] 2",
     "crumbs": [
       "Datatypes",
       "vectors"
@@ -2442,5 +2442,12 @@
       "Programming",
       "loops"
     ]
+  },
+  {
+    "objectID": "test.html#copy-and-paste-a-bunch-of-numbers-from-a-textbook",
+    "href": "test.html#copy-and-paste-a-bunch-of-numbers-from-a-textbook",
+    "title": "WebR",
+    "section": "",
+    "text": "library(tidyverse)\nx &lt;- read_table(col_names = FALSE, \"\n82 96 99 102 103 103 106 107 108 108 108\n108 109 110 110 111 113 113 113 113 115 115\n118 118 119 121 122 122 127 132 136 140 146\n\")\nx\n\n# A tibble: 3 × 11\n     X1    X2    X3    X4    X5    X6    X7    X8    X9   X10   X11\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    82    96    99   102   103   103   106   107   108   108   108\n2   108   109   110   110   111   113   113   113   113   115   115\n3   118   118   119   121   122   122   127   132   136   140   146\n\nvec &lt;- as.vector(t(x))\nvec\n\n [1]  82  96  99 102 103 103 106 107 108 108 108 108 109 110 110 111 113 113 113\n[20] 113 115 115 118 118 119 121 122 122 127 132 136 140 146"
   }
 ]
