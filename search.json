@@ -101,7 +101,7 @@
     "href": "index.html",
     "title": "WebR",
     "section": "",
-    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:\n\nDatatypes\nDataFrames\nggPlots\nTables\nProgramming\nDatasets\nExamples\nReferences\n\nThis website uses tidyverse R.",
+    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:\n\nDatatypes\nDataFrames\nggPlots\nTables\nProgramming\nDatasets\nExamples\nReferences\n\nA companion website is ykwongWebStats",
     "crumbs": [
       "Preface"
     ]
