@@ -1342,7 +1342,7 @@
     "href": "test.html",
     "title": "WebR",
     "section": "",
-    "text": "library(tidyverse)\nx &lt;- read_table(col_names = FALSE, \"\n82 96 99 102 103 103 106 107 108 108 108\n108 109 110 110 111 113 113 113 113 115 115\n118 118 119 121 122 122 127 132 136 140 146\n\")\nx\n\n# A tibble: 3 × 11\n     X1    X2    X3    X4    X5    X6    X7    X8    X9   X10   X11\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    82    96    99   102   103   103   106   107   108   108   108\n2   108   109   110   110   111   113   113   113   113   115   115\n3   118   118   119   121   122   122   127   132   136   140   146\n\nvec &lt;- as.vector(t(x))\nvec\n\n [1]  82  96  99 102 103 103 106 107 108 108 108 108 109 110 110 111 113 113 113\n[20] 113 115 115 118 118 119 121 122 122 127 132 136 140 146"
+    "text": "library(tidyverse)\nx &lt;- read_table(col_names = FALSE, \"\n82 96 99 102 103 103 106 107 108 108 108\n108 109 110 110 111 113 113 113 113 115 115\n118 118 119 121 122 122 127 132 136 140 146\n\")\nx\n\n# A tibble: 3 × 11\n     X1    X2    X3    X4    X5    X6    X7    X8    X9   X10   X11\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    82    96    99   102   103   103   106   107   108   108   108\n2   108   109   110   110   111   113   113   113   113   115   115\n3   118   118   119   121   122   122   127   132   136   140   146\n\nv &lt;- as.vector(t(x))\nv\n\n [1]  82  96  99 102 103 103 106 107 108 108 108 108 109 110 110 111 113 113 113\n[20] 113 115 115 118 118 119 121 122 122 127 132 136 140 146"
   },
   {
     "objectID": "tables/contigency.html",
@@ -2260,7 +2260,7 @@
     "href": "ggplots/curves.html",
     "title": "curves",
     "section": "",
-    "text": "library(tidyverse)",
+    "text": "library(tidyverse)  \nlibrary(latex2exp)",
     "crumbs": [
       "ggPlots",
       "curves"
@@ -2271,7 +2271,7 @@
     "href": "ggplots/curves.html#libraries",
     "title": "curves",
     "section": "",
-    "text": "library(tidyverse)",
+    "text": "library(tidyverse)  \nlibrary(latex2exp)",
     "crumbs": [
       "ggPlots",
       "curves"
@@ -2349,7 +2349,7 @@
     "href": "ggplots/curves.html#baser-curve",
     "title": "curves",
     "section": "2 BaseR:: curve()",
-    "text": "2 BaseR:: curve()\ncurve() is a useful baseR function for plotting continuous functions in R. The ggplot equivalent is geom_function() as shown below.\n\nylim=c(-3,12)\ncurve({(x-1)^2}*(x+3), from=-3, to=2, col=\"blue\", lwd=2, ylim=ylim, ylab=\"y\")\ncurve(sin(x^2)+4, from=-3, to=2, col=\"red\", lwd=2, add=TRUE)",
+    "text": "2 BaseR:: curve()\ncurve() is a useful baseR function for plotting continuous functions in R. The ggplot equivalent is geom_function() as shown below.\n\nylim=c(-3,12)\ncurve({(x-1)^2}*(x+3), from=-3, to=2, col=\"blue\", lwd=2, ylim=ylim, ylab=\"y\",\n      main=\"curves by functions\")\ntext(0.8,10,label=TeX(r'($f(x)=(x-1)^2*(x+3)$)'))\narrows(0,10,-0.9,8, length=.05)\n\ncurve(sin(x^2)+4, from=-3, to=2, col=\"red\", lwd=2, add=TRUE)\ntext(1,7,label=expression(sin(x^2)+4))\narrows(0.5,6.5,0.2,4.2, length=.05)",
     "crumbs": [
       "ggPlots",
       "curves"
@@ -2448,6 +2448,17 @@
     "href": "test.html#copy-and-paste-a-bunch-of-numbers-from-a-textbook",
     "title": "WebR",
     "section": "",
-    "text": "library(tidyverse)\nx &lt;- read_table(col_names = FALSE, \"\n82 96 99 102 103 103 106 107 108 108 108\n108 109 110 110 111 113 113 113 113 115 115\n118 118 119 121 122 122 127 132 136 140 146\n\")\nx\n\n# A tibble: 3 × 11\n     X1    X2    X3    X4    X5    X6    X7    X8    X9   X10   X11\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    82    96    99   102   103   103   106   107   108   108   108\n2   108   109   110   110   111   113   113   113   113   115   115\n3   118   118   119   121   122   122   127   132   136   140   146\n\nvec &lt;- as.vector(t(x))\nvec\n\n [1]  82  96  99 102 103 103 106 107 108 108 108 108 109 110 110 111 113 113 113\n[20] 113 115 115 118 118 119 121 122 122 127 132 136 140 146"
+    "text": "library(tidyverse)\nx &lt;- read_table(col_names = FALSE, \"\n82 96 99 102 103 103 106 107 108 108 108\n108 109 110 110 111 113 113 113 113 115 115\n118 118 119 121 122 122 127 132 136 140 146\n\")\nx\n\n# A tibble: 3 × 11\n     X1    X2    X3    X4    X5    X6    X7    X8    X9   X10   X11\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1    82    96    99   102   103   103   106   107   108   108   108\n2   108   109   110   110   111   113   113   113   113   115   115\n3   118   118   119   121   122   122   127   132   136   140   146\n\nv &lt;- as.vector(t(x))\nv\n\n [1]  82  96  99 102 103 103 106 107 108 108 108 108 109 110 110 111 113 113 113\n[20] 113 115 115 118 118 119 121 122 122 127 132 136 140 146"
+  },
+  {
+    "objectID": "ggplots/curves.html#ggplot2stat_function",
+    "href": "ggplots/curves.html#ggplot2stat_function",
+    "title": "curves",
+    "section": "5 ggplot2::stat_function()",
+    "text": "5 ggplot2::stat_function()\n\nggplot(data.frame(z), aes(x=z))+\n  geom_function(fun=fn)+\n  theme_bw()",
+    "crumbs": [
+      "ggPlots",
+      "curves"
+    ]
   }
 ]
