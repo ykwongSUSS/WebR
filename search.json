@@ -472,7 +472,7 @@
     "href": "dataframes/importExport.html",
     "title": "importExport",
     "section": "",
-    "text": "(reads .csv file, readr does not have “read_xls”)\n\nlibrary(tidyverse)\nlibrary(here)\nhere()\n\n[1] \"/Users/ykwong/quartoWeb/WebR\"\n\n# returns a tibble\ntb1 &lt;- read_csv(here(\"assets\",\"data.csv\"),col_names=FALSE)\nhead(tb1)\n\n# A tibble: 6 × 3\n     X1     X2    X3\n  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1     2   3400     0\n2     3   6200     0\n3     4  60000     0\n4     6 113000    50\n5     8 155000    50\n6    11 175000  6000",
+    "text": "(reads .csv file, readr does not have “read_xls”)\n\nlibrary(tidyverse)\nlibrary(here)\n# returns a tibble\ntb1 &lt;- read_csv(here(\"assets\",\"data.csv\"),col_names=FALSE)\nhead(tb1)\n\n# A tibble: 6 × 3\n     X1     X2    X3\n  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1     2   3400     0\n2     3   6200     0\n3     4  60000     0\n4     6 113000    50\n5     8 155000    50\n6    11 175000  6000",
     "crumbs": [
       "DataFrames",
       "importExport."
@@ -979,7 +979,7 @@
     "href": "dataframes/importExport.html#tidyverseread_csv",
     "title": "importExport",
     "section": "",
-    "text": "(reads .csv file, readr does not have “read_xls”)\n\nlibrary(tidyverse)\nlibrary(here)\nhere()\n\n[1] \"/Users/ykwong/quartoWeb/WebR\"\n\n# returns a tibble\ntb1 &lt;- read_csv(here(\"assets\",\"data.csv\"),col_names=FALSE)\nhead(tb1)\n\n# A tibble: 6 × 3\n     X1     X2    X3\n  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1     2   3400     0\n2     3   6200     0\n3     4  60000     0\n4     6 113000    50\n5     8 155000    50\n6    11 175000  6000",
+    "text": "(reads .csv file, readr does not have “read_xls”)\n\nlibrary(tidyverse)\nlibrary(here)\n# returns a tibble\ntb1 &lt;- read_csv(here(\"assets\",\"data.csv\"),col_names=FALSE)\nhead(tb1)\n\n# A tibble: 6 × 3\n     X1     X2    X3\n  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1     2   3400     0\n2     3   6200     0\n3     4  60000     0\n4     6 113000    50\n5     8 155000    50\n6    11 175000  6000",
     "crumbs": [
       "DataFrames",
       "importExport."
