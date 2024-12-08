@@ -472,7 +472,7 @@
     "href": "dataframes/importExport.html",
     "title": "importExport",
     "section": "",
-    "text": "(reads .csv file, readr does not have “read_xls”)\n\nlibrary(tidyverse)\n# returns a tibble\ntb1 &lt;- read_csv(\"../assets/data.csv\",col_names=FALSE)\nhead(tb1)\n\n# A tibble: 6 × 3\n     X1     X2    X3\n  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1     2   3400     0\n2     3   6200     0\n3     4  60000     0\n4     6 113000    50\n5     8 155000    50\n6    11 175000  6000",
+    "text": "(reads .csv file, readr does not have “read_xls”)\n\nlibrary(tidyverse)\nlibrary(here)\nhere()\n\n[1] \"/Users/ykwong/quartoWeb/WebR\"\n\n# returns a tibble\ntb1 &lt;- read_csv(here(\"assets\",\"data.csv\"),col_names=FALSE)\nhead(tb1)\n\n# A tibble: 6 × 3\n     X1     X2    X3\n  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1     2   3400     0\n2     3   6200     0\n3     4  60000     0\n4     6 113000    50\n5     8 155000    50\n6    11 175000  6000",
     "crumbs": [
       "DataFrames",
       "importExport."
@@ -979,7 +979,7 @@
     "href": "dataframes/importExport.html#tidyverseread_csv",
     "title": "importExport",
     "section": "",
-    "text": "(reads .csv file, readr does not have “read_xls”)\n\nlibrary(tidyverse)\n# returns a tibble\ntb1 &lt;- read_csv(\"../assets/data.csv\",col_names=FALSE)\nhead(tb1)\n\n# A tibble: 6 × 3\n     X1     X2    X3\n  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1     2   3400     0\n2     3   6200     0\n3     4  60000     0\n4     6 113000    50\n5     8 155000    50\n6    11 175000  6000",
+    "text": "(reads .csv file, readr does not have “read_xls”)\n\nlibrary(tidyverse)\nlibrary(here)\nhere()\n\n[1] \"/Users/ykwong/quartoWeb/WebR\"\n\n# returns a tibble\ntb1 &lt;- read_csv(here(\"assets\",\"data.csv\"),col_names=FALSE)\nhead(tb1)\n\n# A tibble: 6 × 3\n     X1     X2    X3\n  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1     2   3400     0\n2     3   6200     0\n3     4  60000     0\n4     6 113000    50\n5     8 155000    50\n6    11 175000  6000",
     "crumbs": [
       "DataFrames",
       "importExport."
@@ -990,7 +990,7 @@
     "href": "dataframes/importExport.html#rioimport",
     "title": "importExport",
     "section": "3 rio::import",
-    "text": "3 rio::import\n(note: reads both .csv or .xlsx files.)\n\nlibrary(rio)\n# returns dataframe\ndf2 &lt;- import(\"../assets/datesData.xlsx\")\nhead(df2)\n\n        Date OneDose TwoDose\n1 2021-01-11    3400       0\n2 2021-01-12    6200       0\n3 2021-01-22   60000       0\n4 2021-01-27  113000      50\n5 2021-01-31  155000      50\n6 2021-02-02  175000    6000\n\ndf3 &lt;- import(\"../assets/datesData.csv\")\ndf3\n\n         Date OneDose TwoDose\n1  2021-01-11    3400       0\n2  2021-01-12    6200       0\n3  2021-01-22   60000       0\n4  2021-01-27  113000      50\n5  2021-01-31  155000      50\n6  2021-02-02  175000    6000\n7  2021-02-10  250000    6000\n8  2021-02-18  250000  110000\n9  2021-03-01  317715  207324\n10 2021-03-04  350000  215000\n\n\n\n3.1 3. package rio - export\n(can export to .xlsx or .csv file)\n\nexport(df3, \"../assets//vaccines.csv\")",
+    "text": "3 rio::import\n(note: reads both .csv or .xlsx files.)\n\nlibrary(rio)\n# returns dataframe\ndf2 &lt;- import(here(\"assets/datesData.xlsx\"))\nhead(df2)\n\n        Date OneDose TwoDose\n1 2021-01-11    3400       0\n2 2021-01-12    6200       0\n3 2021-01-22   60000       0\n4 2021-01-27  113000      50\n5 2021-01-31  155000      50\n6 2021-02-02  175000    6000\n\ndf3 &lt;- import(here(\"assets/datesData.csv\"))\ndf3\n\n         Date OneDose TwoDose\n1  2021-01-11    3400       0\n2  2021-01-12    6200       0\n3  2021-01-22   60000       0\n4  2021-01-27  113000      50\n5  2021-01-31  155000      50\n6  2021-02-02  175000    6000\n7  2021-02-10  250000    6000\n8  2021-02-18  250000  110000\n9  2021-03-01  317715  207324\n10 2021-03-04  350000  215000\n\n\n\n3.1 3. package rio - export\n(can export to .xlsx or .csv file)\n\nexport(df3, here(\"assets/vaccines.csv\"))",
     "crumbs": [
       "DataFrames",
       "importExport."
@@ -1001,7 +1001,7 @@
     "href": "dataframes/importExport.html#tidyversewrite_csv",
     "title": "importExport",
     "section": "2 tidyverse::write_csv",
-    "text": "2 tidyverse::write_csv\n\ndf1 &lt;- data.frame(tb1) \nwrite_csv(tb1, \"../assets/datawrite.csv\", col_names=FALSE)",
+    "text": "2 tidyverse::write_csv\n\ndf1 &lt;- data.frame(tb1) \nwrite_csv(tb1, here(\"assets/datawrite.csv\"), col_names=FALSE)",
     "crumbs": [
       "DataFrames",
       "importExport."
