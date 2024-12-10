@@ -623,7 +623,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>tb4 <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="at">col_names =</span> <span class="cn">FALSE</span>, <span class="st">"</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="st">82 96 99 102 103 103 106 107 108 108 108</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="st">108 109 110 110 111 113 113 113 113 115 115</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="st">118 118 119 121 122 122 127 132 136 140 146</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="st">118 118 119 121 122 122 127 132 136</span></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>tb4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -632,13 +632,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 1    82    96    99   102   103   103   106   107   108   108   108
 2   108   109   110   110   111   113   113   113   113   115   115
-3   118   118   119   121   122   122   127   132   136   140   146</code></pre>
+3   118   118   119   121   122   122   127   132   136    NA    NA</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">t</span>(tb4))</span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> tb4[<span class="sc">!</span><span class="fu">is.na</span>(tb4)]</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  82  96  99 102 103 103 106 107 108 108 108 108 109 110 110 111 113 113 113
-[20] 113 115 115 118 118 119 121 122 122 127 132 136 140 146</code></pre>
+<pre><code> [1]  82 108 118  96 109 118  99 110 119 102 110 121 103 111 122 103 113 122 106
+[20] 113 127 107 113 132 108 113 136 108 115 108 115</code></pre>
 </div>
 </div>
 
