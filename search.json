@@ -248,7 +248,7 @@
     "href": "dataframes/pivot_longer.html#data1---students",
     "title": "pivot_longer",
     "section": "2 Data1 - students",
-    "text": "2 Data1 - students\n\nstudents &lt;- data.frame(\n  name = c(\"Alice\",\"Bob\",\"Charles\"),\n  math = c(90,85,92),\n  science = c(95,88,91),\n  history = c(87,92,78)\n)\nstudents\n\n     name math science history\n1   Alice   90      95      87\n2     Bob   85      88      92\n3 Charles   92      91      78\n\n\n\nstudents_long &lt;- students %&gt;%\n  pivot_longer(\n    !name,\n    names_to = \"subject\",\n    values_to = \"score\"\n)\nstudents_long\n\n# A tibble: 9 × 3\n  name    subject score\n  &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;\n1 Alice   math       90\n2 Alice   science    95\n3 Alice   history    87\n4 Bob     math       85\n5 Bob     science    88\n6 Bob     history    92\n7 Charles math       92\n8 Charles science    91\n9 Charles history    78",
+    "text": "2 Data1 - students\n\nstudents &lt;- data.frame(\n  math = c(90,85,92),\n  science = c(95,88,91),\n  history = c(87,92,78)\n)\nstudents\n\n  math science history\n1   90      95      87\n2   85      88      92\n3   92      91      78\n\n\n\nstudents_long &lt;- students %&gt;%\n  pivot_longer(\n    col=colnames(students),\n    names_to = \"subject\",\n    values_to = \"score\"\n)\nstudents_long\n\n# A tibble: 9 × 2\n  subject score\n  &lt;chr&gt;   &lt;dbl&gt;\n1 math       90\n2 science    95\n3 history    87\n4 math       85\n5 science    88\n6 history    92\n7 math       92\n8 science    91\n9 history    78",
     "crumbs": [
       "DataFrames",
       "pivot_longer"
