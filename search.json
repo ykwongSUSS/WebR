@@ -2159,9 +2159,9 @@
   {
     "objectID": "datasets/datasets.html",
     "href": "datasets/datasets.html",
-    "title": "datasets",
+    "title": "WebR",
     "section": "",
-    "text": "library(tidyverse)  # includes package `ggplot2`\n\nYou can list the datasets available in each package using datasets() from library vcdExtras (which includes vcd).",
+    "text": "213 2.778 1.2 7020 706 2.725 3.3 7020 440 2.683 3.4 7020 984 2.835 8.2 5680 155 2.779 2.3 5680 251 2.712 2.3 5680 311 2.712 1.6 7960 989 2.686 6.0 7960 326 2.821 4.0 7960 479 2.810 2.7 7090 324 2.845 1.9 7090 404 2.755 3.0 7090 688 2.735 3.4 6130 180 2.705 2.6 6130 1046 2.755 7.7 6130 272 2.734 3.2 6880 1168 2.725 7.4 7270 821 2.750 6.1 7270 418 2.740 4.4 7270 1102 2.708 9.2 7390 56 2.860 1.6 2950 91 3.002 1.3 2950 97 2.749 1.9 2950",
     "crumbs": [
       "DataSets",
       "DataSets"
@@ -2337,8 +2337,8 @@
     "objectID": "ggplots/curves.html#ggplot2geom_function",
     "href": "ggplots/curves.html#ggplot2geom_function",
     "title": "curves",
-    "section": "4 ggplot2::geom_function()",
-    "text": "4 ggplot2::geom_function()\n\nx &lt;- seq(0,10,0.5)\nfn &lt;- function(x){\n  sqrt(x)*cos(5*x)\n}\nggplot(data.frame(x), aes(x=x))+\n  geom_function(fun=fn)+\n  theme_bw()+\n  ggtitle(\"geom_function()\")",
+    "section": "5 ggplot2::geom_function()",
+    "text": "5 ggplot2::geom_function()\n\nx &lt;- seq(0,10,0.5)\nfn &lt;- function(x){\n  sqrt(x)*cos(5*x)\n}\nggplot(data.frame(x), aes(x=x))+\n  geom_function(fun=fn)+\n  theme_bw()+\n  ggtitle(\"geom_function()\")",
     "crumbs": [
       "ggPlots",
       "curves"
@@ -2348,8 +2348,8 @@
     "objectID": "ggplots/curves.html#baser-curve",
     "href": "ggplots/curves.html#baser-curve",
     "title": "curves",
-    "section": "2 BaseR:: curve()",
-    "text": "2 BaseR:: curve()\ncurve() is a useful baseR function for plotting continuous functions in R. The ggplot equivalent is geom_function() as shown below.\n\nylim=c(-3,12)\ncurve({(x-1)^2}*(x+3), from=-3, to=2, col=\"blue\", lwd=2, ylim=ylim, ylab=\"y\",\n      main=\"curves by functions\")\ntext(0.8,10,label=TeX(r'($f(x)=(x-1)^2*(x+3)$)'))\narrows(0,10,-0.9,8, length=.05)\n\ncurve(sin(x^2)+4, from=-3, to=2, col=\"red\", lwd=2, add=TRUE)\ntext(1,7,label=expression(sin(x^2)+4))\narrows(0.5,6.5,0.2,4.2, length=.05)",
+    "section": "3 BaseR:: curve()",
+    "text": "3 BaseR:: curve()\ncurve() is a useful baseR function for plotting continuous functions in R. The ggplot equivalent is geom_function() as shown below.\n\nylim=c(-3,12)\ncurve({(x-1)^2}*(x+3), from=-3, to=2, col=\"blue\", lwd=2, ylim=ylim, ylab=\"y\",\n      main=\"curves by functions\")\ntext(0.8,10,label=TeX(r'($f(x)=(x-1)^2*(x+3)$)'))\narrows(0,10,-0.9,8, length=.05)\n\ncurve(sin(x^2)+4, from=-3, to=2, col=\"red\", lwd=2, add=TRUE)\ntext(1,7,label=expression(sin(x^2)+4))\narrows(0.5,6.5,0.2,4.2, length=.05)",
     "crumbs": [
       "ggPlots",
       "curves"
@@ -2392,8 +2392,8 @@
     "objectID": "ggplots/curves.html#ggplot2geom_curve",
     "href": "ggplots/curves.html#ggplot2geom_curve",
     "title": "curves",
-    "section": "3 ggplot2::geom_curve()",
-    "text": "3 ggplot2::geom_curve()\n\ndf &lt;- data.frame(\n  x = 1:8,\n  y = rnorm(8, mean = 5, sd = 2)\n)\nggplot(df, aes(x, y)) +\n  geom_point(size=2, color=\"brown\") +\n  geom_curve(aes(x = 2, y = 2, xend = 7, yend = 7),\n    arrow = arrow(length = unit(0.3, \"cm\"), type = \"closed\"),\n    color = \"blue\",\n    size = 1.1,\n    curvature = -0.3\n  ) +\n  theme_minimal()",
+    "section": "4 ggplot2::geom_curve()",
+    "text": "4 ggplot2::geom_curve()\n\ndf &lt;- data.frame(\n  x = 1:8,\n  y = rnorm(8, mean = 5, sd = 2)\n)\nggplot(df, aes(x, y)) +\n  geom_point(size=2, color=\"brown\") +\n  geom_curve(aes(x = 2, y = 2, xend = 7, yend = 7),\n    arrow = arrow(length = unit(0.3, \"cm\"), type = \"closed\"),\n    color = \"blue\",\n    size = 1.1,\n    curvature = -0.3\n  ) +\n  theme_minimal()",
     "crumbs": [
       "ggPlots",
       "curves"
@@ -2456,6 +2456,28 @@
     "title": "curves",
     "section": "5 ggplot2::stat_function()",
     "text": "5 ggplot2::stat_function()\n\nggplot(data.frame(z), aes(x=z))+\n  geom_function(fun=fn)+\n  theme_bw()",
+    "crumbs": [
+      "ggPlots",
+      "curves"
+    ]
+  },
+  {
+    "objectID": "ggplots/curves.html#define-function",
+    "href": "ggplots/curves.html#define-function",
+    "title": "curves",
+    "section": "2 Define function",
+    "text": "2 Define function\n\nf &lt;- function(x,b0,b1){\n  a &lt;- exp(b0 + b1*x)\n  b &lt;- 1 + a\n  c &lt;- a/b\n  return(c)\n}\n# Example 12.32\nf(2,-2,0.5)\n\n[1] 0.2689414\n\nf(8,-2,0.5)\n\n[1] 0.8807971\n\n\n\n2.1 BaseR: logit function curve\n\ncurve(f(x,-2,0.5), from=0, to=10)",
+    "crumbs": [
+      "ggPlots",
+      "curves"
+    ]
+  },
+  {
+    "objectID": "ggplots/curves.html#define-logit-function",
+    "href": "ggplots/curves.html#define-logit-function",
+    "title": "curves",
+    "section": "2 Define logit function",
+    "text": "2 Define logit function\n\nf &lt;- function(x,b0,b1){\n  a &lt;- exp(b0 + b1*x)\n  b &lt;- 1 + a\n  c &lt;- a/b\n  return(c)\n}\n# Example 12.32\nf(2,-2,0.5)\n\n[1] 0.2689414\n\nf(8,-2,0.5)\n\n[1] 0.8807971\n\n\n\n2.1 BaseR: logit function curve\n\nb0= -2.0\nb1=0.5\ncurve(f(x,b0,b1), from=-10, to=20, main=\"logit curve\")",
     "crumbs": [
       "ggPlots",
       "curves"
