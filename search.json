@@ -2482,5 +2482,89 @@
       "ggPlots",
       "curves"
     ]
+  },
+  {
+    "objectID": "tables/dataTable01.html#data.table",
+    "href": "tables/dataTable01.html#data.table",
+    "title": "dataTableExample",
+    "section": "2 Data.Table",
+    "text": "2 Data.Table\n\nlibrary(data.table)\ndt &lt;- fread(text = \"\nrow ID Test1 Test2 Exam TotScore\n1  SD101    11    48   61     66.8\n2  SD102     8    43   77     71.4\n3  SD103    13    15   49     48.4\n4  SD104    15    20   57     57.2\n5  SD105    10    40   82     75.2\n6  SD106    11    23   65     59.2\n7  SD107     6    24   46     43.2\n8  SD108    12    47   80     78.8\n9  SD109    10    21   48     47.2\n10 SD110     7    27   62     55.0  \")\ndt\n\n      row     ID Test1 Test2  Exam TotScore\n    &lt;int&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;\n 1:     1  SD101    11    48    61     66.8\n 2:     2  SD102     8    43    77     71.4\n 3:     3  SD103    13    15    49     48.4\n 4:     4  SD104    15    20    57     57.2\n 5:     5  SD105    10    40    82     75.2\n 6:     6  SD106    11    23    65     59.2\n 7:     7  SD107     6    24    46     43.2\n 8:     8  SD108    12    47    80     78.8\n 9:     9  SD109    10    21    48     47.2\n10:    10  SD110     7    27    62     55.0\n\ndt2 &lt;- dt[,!\"row\", with=FALSE]\ndt2\n\n        ID Test1 Test2  Exam TotScore\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;\n 1:  SD101    11    48    61     66.8\n 2:  SD102     8    43    77     71.4\n 3:  SD103    13    15    49     48.4\n 4:  SD104    15    20    57     57.2\n 5:  SD105    10    40    82     75.2\n 6:  SD106    11    23    65     59.2\n 7:  SD107     6    24    46     43.2\n 8:  SD108    12    47    80     78.8\n 9:  SD109    10    21    48     47.2\n10:  SD110     7    27    62     55.0"
+  },
+  {
+    "objectID": "tables/dataTable01.html#select-multiple-columns",
+    "href": "tables/dataTable01.html#select-multiple-columns",
+    "title": "dataTableExample",
+    "section": "2 Select multiple columns",
+    "text": "2 Select multiple columns\n\ndt[, list(mpg,cyl)] |&gt; head()\n\n     mpg   cyl\n   &lt;num&gt; &lt;num&gt;\n1:  21.0     6\n2:  21.0     6\n3:  22.8     4\n4:  21.4     6\n5:  18.7     8\n6:  18.1     6\n\n\nor\n\ndt[, .(mpg, cyl, gear)] |&gt; head()\n\n     mpg   cyl  gear\n   &lt;num&gt; &lt;num&gt; &lt;num&gt;\n1:  21.0     6     4\n2:  21.0     6     4\n3:  22.8     4     4\n4:  21.4     6     3\n5:  18.7     8     3\n6:  18.1     6     3"
+  },
+  {
+    "objectID": "tables/dataTable01.html#data",
+    "href": "tables/dataTable01.html#data",
+    "title": "dataTable",
+    "section": "1 Data",
+    "text": "1 Data\n      ID Test1 Test2 Exam \n1  SD101    11    48   61    \n2  SD102     8    43   77    \n3  SD103    13    15   49    \n4  SD104    15    20   57    \n5  SD105    10    40   82     \n6  SD106    11    23   65     \n7  SD107     6    24   46    \n8  SD108    12    47   80     \n9  SD109    10    21   48     \n10 SD110     7    27   62     \n\n1.1 Create a data.table using fread\n\nlibrary(data.table)\ndt0 &lt;- fread(text = \"\nrow ID Test1 Test2 Exam \n1  SD101    11    48   61     \n2  SD102     8    43   77    \n3  SD103    13    15   49    \n4  SD104    15    20   57    \n5  SD105    10    40   82    \n6  SD106    11    23   65    \n7  SD107     6    24   46    \n8  SD108    12    47   80    \n9  SD109    10    21   48   \n10 SD110     7    27   62   \")\nclass(dt0)\n\n[1] \"data.table\" \"data.frame\"\n\n# remove the row column\ndt &lt;- dt0[,!\"row\", with=FALSE]\ndt\n\n        ID Test1 Test2  Exam\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1:  SD101    11    48    61\n 2:  SD102     8    43    77\n 3:  SD103    13    15    49\n 4:  SD104    15    20    57\n 5:  SD105    10    40    82\n 6:  SD106    11    23    65\n 7:  SD107     6    24    46\n 8:  SD108    12    47    80\n 9:  SD109    10    21    48\n10:  SD110     7    27    62\n\n\n\n\n1.2 Create a new data.table column\n(equivalent of mutate)\n\n # equivalent of mutate\ndt[, TotScore := Test1+0.4*Test2+0.6*Exam ]\ndt\n\n        ID Test1 Test2  Exam TotScore\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;\n 1:  SD101    11    48    61     66.8\n 2:  SD102     8    43    77     71.4\n 3:  SD103    13    15    49     48.4\n 4:  SD104    15    20    57     57.2\n 5:  SD105    10    40    82     75.2\n 6:  SD106    11    23    65     59.2\n 7:  SD107     6    24    46     43.2\n 8:  SD108    12    47    80     78.8\n 9:  SD109    10    21    48     47.2\n10:  SD110     7    27    62     55.0\n\n\n\n\n1.3 Read a data.table column\n\nscore &lt;- dt[,TotScore]\nscore\n\n [1] 66.8 71.4 48.4 57.2 75.2 59.2 43.2 78.8 47.2 55.0\n\n\n\n\n1.4 Using cut to data segment and assign letter grade\n\nbreaks&lt;- c(0,40,44,49,54,59,64,69,74,79,84,100)\nlabels&lt;-c(\"F\",\"D\",\"D+\",\"C\",\"C+\",\"B-\",\"B\",\"B+\",\"A-\",\"A\",\"A+\")\nlgrades&lt;-cut(score, breaks, labels, right=TRUE)\ndt[,Grade := lgrades]\ndt\n\n        ID Test1 Test2  Exam TotScore  Grade\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;\n 1:  SD101    11    48    61     66.8      B\n 2:  SD102     8    43    77     71.4     B+\n 3:  SD103    13    15    49     48.4     D+\n 4:  SD104    15    20    57     57.2     C+\n 5:  SD105    10    40    82     75.2     A-\n 6:  SD106    11    23    65     59.2     B-\n 7:  SD107     6    24    46     43.2      D\n 8:  SD108    12    47    80     78.8     A-\n 9:  SD109    10    21    48     47.2     D+\n10:  SD110     7    27    62     55.0     C+\n\n\n\n\n1.5 Filtering rows - all B’s (B+,B,B-)\n\nBTerms &lt;- c(\"B+\",\"B\",\"B-\")\ndt[Grade %in% BTerms,]\n\n       ID Test1 Test2  Exam TotScore  Grade\n   &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;\n1:  SD101    11    48    61     66.8      B\n2:  SD102     8    43    77     71.4     B+\n3:  SD106    11    23    65     59.2     B-"
+  },
+  {
+    "objectID": "tables/dataTable01.html#section",
+    "href": "tables/dataTable01.html#section",
+    "title": "dataTableExample",
+    "section": "3 ",
+    "text": "3"
+  },
+  {
+    "objectID": "tables/dataTable01.html#create-a-data.table",
+    "href": "tables/dataTable01.html#create-a-data.table",
+    "title": "dataTableExample",
+    "section": "2 Create a data.table",
+    "text": "2 Create a data.table\n\nlibrary(data.table)\ndt0 &lt;- fread(text = \"\nrow ID Test1 Test2 Exam \n1  SD101    11    48   61     \n2  SD102     8    43   77    \n3  SD103    13    15   49    \n4  SD104    15    20   57    \n5  SD105    10    40   82    \n6  SD106    11    23   65    \n7  SD107     6    24   46    \n8  SD108    12    47   80    \n9  SD109    10    21   48   \n10 SD110     7    27   62   \")\nclass(dt0)\n\n[1] \"data.table\" \"data.frame\"\n\ndt &lt;- dt0[,!\"row\", with=FALSE]\ndt\n\n        ID Test1 Test2  Exam\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1:  SD101    11    48    61\n 2:  SD102     8    43    77\n 3:  SD103    13    15    49\n 4:  SD104    15    20    57\n 5:  SD105    10    40    82\n 6:  SD106    11    23    65\n 7:  SD107     6    24    46\n 8:  SD108    12    47    80\n 9:  SD109    10    21    48\n10:  SD110     7    27    62"
+  },
+  {
+    "objectID": "tables/dataTable01.html#create-a-new-column-mutate",
+    "href": "tables/dataTable01.html#create-a-new-column-mutate",
+    "title": "dataTableExample",
+    "section": "3 Create a new column (mutate)",
+    "text": "3 Create a new column (mutate)\n\ndt[, TotScore := Test1+0.4*Test2+0.6*Exam ]\ndt\n\n        ID Test1 Test2  Exam TotScore\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;\n 1:  SD101    11    48    61     66.8\n 2:  SD102     8    43    77     71.4\n 3:  SD103    13    15    49     48.4\n 4:  SD104    15    20    57     57.2\n 5:  SD105    10    40    82     75.2\n 6:  SD106    11    23    65     59.2\n 7:  SD107     6    24    46     43.2\n 8:  SD108    12    47    80     78.8\n 9:  SD109    10    21    48     47.2\n10:  SD110     7    27    62     55.0"
+  },
+  {
+    "objectID": "tables/dataTable01.html#create-a-new-column-equivalent-of-mutate",
+    "href": "tables/dataTable01.html#create-a-new-column-equivalent-of-mutate",
+    "title": "dataTableExample",
+    "section": "3 Create a new column (equivalent of mutate)",
+    "text": "3 Create a new column (equivalent of mutate)\n\ndt[, TotScore := Test1+0.4*Test2+0.6*Exam ]\ndt\n\n        ID Test1 Test2  Exam TotScore\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;\n 1:  SD101    11    48    61     66.8\n 2:  SD102     8    43    77     71.4\n 3:  SD103    13    15    49     48.4\n 4:  SD104    15    20    57     57.2\n 5:  SD105    10    40    82     75.2\n 6:  SD106    11    23    65     59.2\n 7:  SD107     6    24    46     43.2\n 8:  SD108    12    47    80     78.8\n 9:  SD109    10    21    48     47.2\n10:  SD110     7    27    62     55.0"
+  },
+  {
+    "objectID": "tables/dataTable01.html#create-a-new-column",
+    "href": "tables/dataTable01.html#create-a-new-column",
+    "title": "dataTableExample",
+    "section": "3 Create a new column",
+    "text": "3 Create a new column\n(equivalent of mutate)\n\n # equivalent of mutate\ndt[, TotScore := Test1+0.4*Test2+0.6*Exam ]\ndt\n\n        ID Test1 Test2  Exam TotScore\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;\n 1:  SD101    11    48    61     66.8\n 2:  SD102     8    43    77     71.4\n 3:  SD103    13    15    49     48.4\n 4:  SD104    15    20    57     57.2\n 5:  SD105    10    40    82     75.2\n 6:  SD106    11    23    65     59.2\n 7:  SD107     6    24    46     43.2\n 8:  SD108    12    47    80     78.8\n 9:  SD109    10    21    48     47.2\n10:  SD110     7    27    62     55.0\n\n\n\n3.1 Read a column\n\nscore &lt;- dt[,TotScore]\nscore\n\n [1] 66.8 71.4 48.4 57.2 75.2 59.2 43.2 78.8 47.2 55.0\n\n\n\nbreaks&lt;- c(0,40,44,49,54,59,64,69,74,79,84,100)\nlabels&lt;-c(\"F\",\"D\",\"D+\",\"C\",\"C+\",\"B-\",\"B\",\"B+\",\"A-\",\"A\",\"A+\")\nletter.grades&lt;-cut(score, breaks, labels, right=TRUE)\nletter.grades\n\n [1] B  B+ D+ C+ A- B- D  A- D+ C+\nLevels: F D D+ C C+ B- B B+ A- A A+"
+  },
+  {
+    "objectID": "tables/dataTable01.html",
+    "href": "tables/dataTable01.html",
+    "title": "dataTable",
+    "section": "",
+    "text": "{library(tidyverse)}"
+  },
+  {
+    "objectID": "tables/dataTable01.html#create-a-data.table-using-fread",
+    "href": "tables/dataTable01.html#create-a-data.table-using-fread",
+    "title": "dataTableExample",
+    "section": "2 Create a data.table using fread",
+    "text": "2 Create a data.table using fread\n\nlibrary(data.table)\ndt0 &lt;- fread(text = \"\nrow ID Test1 Test2 Exam \n1  SD101    11    48   61     \n2  SD102     8    43   77    \n3  SD103    13    15   49    \n4  SD104    15    20   57    \n5  SD105    10    40   82    \n6  SD106    11    23   65    \n7  SD107     6    24   46    \n8  SD108    12    47   80    \n9  SD109    10    21   48   \n10 SD110     7    27   62   \")\nclass(dt0)\n\n[1] \"data.table\" \"data.frame\"\n\n# remove the row column\ndt &lt;- dt0[,!\"row\", with=FALSE]\ndt\n\n        ID Test1 Test2  Exam\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1:  SD101    11    48    61\n 2:  SD102     8    43    77\n 3:  SD103    13    15    49\n 4:  SD104    15    20    57\n 5:  SD105    10    40    82\n 6:  SD106    11    23    65\n 7:  SD107     6    24    46\n 8:  SD108    12    47    80\n 9:  SD109    10    21    48\n10:  SD110     7    27    62"
+  },
+  {
+    "objectID": "tables/dataTable.html",
+    "href": "tables/dataTable.html",
+    "title": "dataTable",
+    "section": "",
+    "text": "{library(tidyverse)}"
+  },
+  {
+    "objectID": "tables/dataTable.html#data",
+    "href": "tables/dataTable.html#data",
+    "title": "dataTable",
+    "section": "1 Data",
+    "text": "1 Data\n      ID Test1 Test2 Exam \n1  SD101    11    48   61    \n2  SD102     8    43   77    \n3  SD103    13    15   49    \n4  SD104    15    20   57    \n5  SD105    10    40   82     \n6  SD106    11    23   65     \n7  SD107     6    24   46    \n8  SD108    12    47   80     \n9  SD109    10    21   48     \n10 SD110     7    27   62     \n\n1.1 Create a data.table using fread\n\nlibrary(data.table)\ndt0 &lt;- fread(text = \"\nrow ID Test1 Test2 Exam \n1  SD101    11    48   61     \n2  SD102     8    43   77    \n3  SD103    13    15   49    \n4  SD104    15    20   57    \n5  SD105    10    40   82    \n6  SD106    11    23   65    \n7  SD107     6    24   46    \n8  SD108    12    47   80    \n9  SD109    10    21   48   \n10 SD110     7    27   62   \")\nclass(dt0)\n\n[1] \"data.table\" \"data.frame\"\n\n# remove the row column\ndt &lt;- dt0[,!\"row\", with=FALSE]\ndt\n\n        ID Test1 Test2  Exam\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1:  SD101    11    48    61\n 2:  SD102     8    43    77\n 3:  SD103    13    15    49\n 4:  SD104    15    20    57\n 5:  SD105    10    40    82\n 6:  SD106    11    23    65\n 7:  SD107     6    24    46\n 8:  SD108    12    47    80\n 9:  SD109    10    21    48\n10:  SD110     7    27    62\n\n\n\n\n1.2 Create a new data.table column\n(equivalent of mutate)\n\n # equivalent of mutate\ndt[, TotScore := Test1+0.4*Test2+0.6*Exam ]\ndt\n\n        ID Test1 Test2  Exam TotScore\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;\n 1:  SD101    11    48    61     66.8\n 2:  SD102     8    43    77     71.4\n 3:  SD103    13    15    49     48.4\n 4:  SD104    15    20    57     57.2\n 5:  SD105    10    40    82     75.2\n 6:  SD106    11    23    65     59.2\n 7:  SD107     6    24    46     43.2\n 8:  SD108    12    47    80     78.8\n 9:  SD109    10    21    48     47.2\n10:  SD110     7    27    62     55.0\n\n\n\n\n1.3 Read a data.table column to vector\n\nscore &lt;- dt[,TotScore]\nscore\n\n [1] 66.8 71.4 48.4 57.2 75.2 59.2 43.2 78.8 47.2 55.0\n\n\n\n\n1.4 Using cut to data segment and assign letter grade\n\nbreaks&lt;- c(0,40,44,49,54,59,64,69,74,79,84,100)\nlabels&lt;-c(\"F\",\"D\",\"D+\",\"C\",\"C+\",\"B-\",\"B\",\"B+\",\"A-\",\"A\",\"A+\")\nlgrades&lt;-cut(score, breaks, labels, right=TRUE)\ndt[,Grade := lgrades]\ndt\n\n        ID Test1 Test2  Exam TotScore  Grade\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;\n 1:  SD101    11    48    61     66.8      B\n 2:  SD102     8    43    77     71.4     B+\n 3:  SD103    13    15    49     48.4     D+\n 4:  SD104    15    20    57     57.2     C+\n 5:  SD105    10    40    82     75.2     A-\n 6:  SD106    11    23    65     59.2     B-\n 7:  SD107     6    24    46     43.2      D\n 8:  SD108    12    47    80     78.8     A-\n 9:  SD109    10    21    48     47.2     D+\n10:  SD110     7    27    62     55.0     C+\n\n\n\n\n1.5 Filtering rows - all B’s (B+,B,B-)\n\nBTerms &lt;- c(\"B+\",\"B\",\"B-\")\ndt[Grade %in% BTerms,]\n\n       ID Test1 Test2  Exam TotScore  Grade\n   &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;\n1:  SD101    11    48    61     66.8      B\n2:  SD102     8    43    77     71.4     B+\n3:  SD106    11    23    65     59.2     B-\n\n\n\n\n1.6 Getting the row numbers first\n\nr1 &lt;- dt[,which(Grade=='A-')]\nr1\n\n[1] 5 8\n\n# alternatively\nr2 &lt;- dt[,.I[Grade=='A-']]\ndt[r2,]\n\n       ID Test1 Test2  Exam TotScore  Grade\n   &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;\n1:  SD105    10    40    82     75.2     A-\n2:  SD108    12    47    80     78.8     A-\n\n\n\n\n1.7 Count numbers in each grade (Grouping)\n\ndt[, .N, by=Grade]\n\n    Grade     N\n   &lt;fctr&gt; &lt;int&gt;\n1:      B     1\n2:     B+     1\n3:     D+     2\n4:     C+     2\n5:     A-     2\n6:     B-     1\n7:      D     1"
   }
 ]
