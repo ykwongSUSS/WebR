@@ -64,8 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tables/frequency.html" rel="next">
-<link href="../dataframes/pivot_longer.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,7 +114,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/dataTable.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/dataTable.html">dataTable</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      WebR
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -275,7 +275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tables/dataTable.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tables/dataTable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">dataTable</span></a>
   </div>
 </li>
@@ -448,19 +448,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#library" id="toc-library" class="nav-link active" data-scroll-target="#library"><span class="header-section-number">1</span> Library</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data</a>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">1</span> Data</a>
   <ul class="collapse">
-  <li><a href="#create-a-data.table-using-fread" id="toc-create-a-data.table-using-fread" class="nav-link" data-scroll-target="#create-a-data.table-using-fread"><span class="header-section-number">2.1</span> Create a data.table using <code>fread</code></a></li>
-  <li><a href="#create-a-new-data.table-column" id="toc-create-a-new-data.table-column" class="nav-link" data-scroll-target="#create-a-new-data.table-column"><span class="header-section-number">2.2</span> Create a new data.table column</a></li>
-  <li><a href="#select-multiple-rows-and-columns" id="toc-select-multiple-rows-and-columns" class="nav-link" data-scroll-target="#select-multiple-rows-and-columns"><span class="header-section-number">2.3</span> Select multiple rows and columns</a></li>
-  <li><a href="#read-a-data.table-column-to-a-vector" id="toc-read-a-data.table-column-to-a-vector" class="nav-link" data-scroll-target="#read-a-data.table-column-to-a-vector"><span class="header-section-number">2.4</span> Read a data.table column to a vector</a></li>
-  <li><a href="#using-cut-to-data-segment-and-assign-letter-grade" id="toc-using-cut-to-data-segment-and-assign-letter-grade" class="nav-link" data-scroll-target="#using-cut-to-data-segment-and-assign-letter-grade"><span class="header-section-number">2.5</span> Using <code>cut</code> to data segment and assign letter grade</a></li>
-  <li><a href="#filtering-rows---all-bs-bbb-" id="toc-filtering-rows---all-bs-bbb-" class="nav-link" data-scroll-target="#filtering-rows---all-bs-bbb-"><span class="header-section-number">2.6</span> Filtering rows - all B’s (B+,B,B-)</a></li>
-  <li><a href="#getting-row-numbers" id="toc-getting-row-numbers" class="nav-link" data-scroll-target="#getting-row-numbers"><span class="header-section-number">2.7</span> Getting row numbers</a></li>
-  <li><a href="#count-numbers-in-each-grade-grouping" id="toc-count-numbers-in-each-grade-grouping" class="nav-link" data-scroll-target="#count-numbers-in-each-grade-grouping"><span class="header-section-number">2.8</span> Count numbers in each grade (Grouping)</a></li>
-  <li><a href="#mean-totscore-by-gender-grouping" id="toc-mean-totscore-by-gender-grouping" class="nav-link" data-scroll-target="#mean-totscore-by-gender-grouping"><span class="header-section-number">2.9</span> Mean TotScore by Gender (Grouping)</a></li>
-  <li><a href="#means-of-columns" id="toc-means-of-columns" class="nav-link" data-scroll-target="#means-of-columns"><span class="header-section-number">2.10</span> Means of Columns</a></li>
+  <li><a href="#create-a-data.table-using-fread" id="toc-create-a-data.table-using-fread" class="nav-link" data-scroll-target="#create-a-data.table-using-fread"><span class="header-section-number">1.1</span> Create a data.table using <code>fread</code></a></li>
+  <li><a href="#create-a-new-data.table-column" id="toc-create-a-new-data.table-column" class="nav-link" data-scroll-target="#create-a-new-data.table-column"><span class="header-section-number">1.2</span> Create a new data.table column</a></li>
+  <li><a href="#read-a-data.table-column" id="toc-read-a-data.table-column" class="nav-link" data-scroll-target="#read-a-data.table-column"><span class="header-section-number">1.3</span> Read a data.table column</a></li>
+  <li><a href="#using-cut-to-data-segment-and-assign-letter-grade" id="toc-using-cut-to-data-segment-and-assign-letter-grade" class="nav-link" data-scroll-target="#using-cut-to-data-segment-and-assign-letter-grade"><span class="header-section-number">1.4</span> Using <code>cut</code> to data segment and assign letter grade</a></li>
+  <li><a href="#filtering-rows---all-bs-bbb-" id="toc-filtering-rows---all-bs-bbb-" class="nav-link" data-scroll-target="#filtering-rows---all-bs-bbb-"><span class="header-section-number">1.5</span> Filtering rows - all B’s (B+,B,B-)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -468,7 +462,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/dataTable.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/dataTable.html">dataTable</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">dataTable</h1>
 </div>
@@ -487,217 +481,127 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="library" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="library"><span class="header-section-number">1</span> Library</h2>
+<p><code>{library(tidyverse)}</code></p>
+<section id="data" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data"><span class="header-section-number">1</span> Data</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>      ID Test1 Test2 Exam </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>1  SD101    11    48   61    </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>2  SD102     8    43   77    </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>3  SD103    13    15   49    </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>4  SD104    15    20   57    </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>5  SD105    10    40   82     </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>6  SD106    11    23   65     </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>7  SD107     6    24   46    </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>8  SD108    12    47   80     </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>9  SD109    10    21   48     </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>10 SD110     7    27   62     </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="create-a-data.table-using-fread" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="create-a-data.table-using-fread"><span class="header-section-number">1.1</span> Create a data.table using <code>fread</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="data" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>      ID Gender Test1 Test2 Exam </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>1  SD101 M   11    48   61    </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>2  SD102 F   8    43   77    </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>3  SD103 F  13    15   49    </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>4  SD104 F  15    20   57    </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>5  SD105 M  10    40   82     </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>6  SD106 F  11    23   65     </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>7  SD107 M   6    24   46    </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>8  SD108 M  12    47   80     </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>9  SD109 M  10    21   48     </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>10 SD110 M   7    27   62     </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="create-a-data.table-using-fread" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="create-a-data.table-using-fread"><span class="header-section-number">2.1</span> Create a data.table using <code>fread</code></h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dt0 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="at">text =</span> <span class="st">"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">row  ID Gender Test1 Test2 Exam </span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">1  SD101 M   11    48   61    </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">2  SD102 F    8    43   77    </span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">3  SD103 F   13    15   49    </span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">4  SD104 F   15    20   57    </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">5  SD105 M   10    40   82     </span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">6  SD106 F   11    23   65     </span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st">7  SD107 M    6    24   46    </span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="st">8  SD108 M   12    47   80     </span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">9  SD109 M   10    21   48     </span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="st">10 SD110 M    7    27   62  "</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dt0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dt0 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="at">text =</span> <span class="st">"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">row ID Test1 Test2 Exam </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">1  SD101    11    48   61     </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">2  SD102     8    43   77    </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">3  SD103    13    15   49    </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">4  SD104    15    20   57    </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">5  SD105    10    40   82    </span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">6  SD106    11    23   65    </span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">7  SD107     6    24   46    </span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">8  SD108    12    47   80    </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">9  SD109    10    21   48   </span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">10 SD110     7    27   62   "</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dt0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data.table" "data.frame"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove the row column</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> dt0[,<span class="sc">!</span><span class="st">"row"</span>, with<span class="ot">=</span><span class="cn">FALSE</span>]</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove the row column</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> dt0[,<span class="sc">!</span><span class="st">"row"</span>, with<span class="ot">=</span><span class="cn">FALSE</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        ID Gender Test1 Test2  Exam
-    &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
- 1:  SD101      M    11    48    61
- 2:  SD102      F     8    43    77
- 3:  SD103      F    13    15    49
- 4:  SD104      F    15    20    57
- 5:  SD105      M    10    40    82
- 6:  SD106      F    11    23    65
- 7:  SD107      M     6    24    46
- 8:  SD108      M    12    47    80
- 9:  SD109      M    10    21    48
-10:  SD110      M     7    27    62</code></pre>
+<pre><code>        ID Test1 Test2  Exam
+    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1:  SD101    11    48    61
+ 2:  SD102     8    43    77
+ 3:  SD103    13    15    49
+ 4:  SD104    15    20    57
+ 5:  SD105    10    40    82
+ 6:  SD106    11    23    65
+ 7:  SD107     6    24    46
+ 8:  SD108    12    47    80
+ 9:  SD109    10    21    48
+10:  SD110     7    27    62</code></pre>
 </div>
 </div>
 </section>
-<section id="create-a-new-data.table-column" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="create-a-new-data.table-column"><span class="header-section-number">2.2</span> Create a new data.table column</h3>
+<section id="create-a-new-data.table-column" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="create-a-new-data.table-column"><span class="header-section-number">1.2</span> Create a new data.table column</h3>
 <p>(equivalent of mutate)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># equivalent of mutate</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dt[, TotScore <span class="sc">:</span><span class="er">=</span> Test1<span class="fl">+0.4</span><span class="sc">*</span>Test2<span class="fl">+0.6</span><span class="sc">*</span>Exam ]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># equivalent of mutate</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dt[, TotScore <span class="sc">:</span><span class="er">=</span> Test1<span class="fl">+0.4</span><span class="sc">*</span>Test2<span class="fl">+0.6</span><span class="sc">*</span>Exam ]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        ID Gender Test1 Test2  Exam TotScore
-    &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;
- 1:  SD101      M    11    48    61     66.8
- 2:  SD102      F     8    43    77     71.4
- 3:  SD103      F    13    15    49     48.4
- 4:  SD104      F    15    20    57     57.2
- 5:  SD105      M    10    40    82     75.2
- 6:  SD106      F    11    23    65     59.2
- 7:  SD107      M     6    24    46     43.2
- 8:  SD108      M    12    47    80     78.8
- 9:  SD109      M    10    21    48     47.2
-10:  SD110      M     7    27    62     55.0</code></pre>
+<pre><code>        ID Test1 Test2  Exam TotScore
+    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;
+ 1:  SD101    11    48    61     66.8
+ 2:  SD102     8    43    77     71.4
+ 3:  SD103    13    15    49     48.4
+ 4:  SD104    15    20    57     57.2
+ 5:  SD105    10    40    82     75.2
+ 6:  SD106    11    23    65     59.2
+ 7:  SD107     6    24    46     43.2
+ 8:  SD108    12    47    80     78.8
+ 9:  SD109    10    21    48     47.2
+10:  SD110     7    27    62     55.0</code></pre>
 </div>
 </div>
 </section>
-<section id="select-multiple-rows-and-columns" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="select-multiple-rows-and-columns"><span class="header-section-number">2.3</span> Select multiple rows and columns</h3>
+<section id="read-a-data.table-column" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="read-a-data.table-column"><span class="header-section-number">1.3</span> Read a data.table column</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dt[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="fu">c</span>(<span class="st">'Test1'</span>,<span class="st">'Test2'</span>), with<span class="ot">=</span><span class="cn">FALSE</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Test1 Test2
-   &lt;int&gt; &lt;int&gt;
-1:    11    48
-2:     8    43
-3:    13    15
-4:    15    20</code></pre>
-</div>
-</div>
-</section>
-<section id="read-a-data.table-column-to-a-vector" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="read-a-data.table-column-to-a-vector"><span class="header-section-number">2.4</span> Read a data.table column to a vector</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>score <span class="ot">&lt;-</span> dt[,TotScore]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>score <span class="ot">&lt;-</span> dt[,TotScore]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 66.8 71.4 48.4 57.2 75.2 59.2 43.2 78.8 47.2 55.0</code></pre>
 </div>
 </div>
 </section>
-<section id="using-cut-to-data-segment-and-assign-letter-grade" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="using-cut-to-data-segment-and-assign-letter-grade"><span class="header-section-number">2.5</span> Using <code>cut</code> to data segment and assign letter grade</h3>
+<section id="using-cut-to-data-segment-and-assign-letter-grade" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="using-cut-to-data-segment-and-assign-letter-grade"><span class="header-section-number">1.4</span> Using <code>cut</code> to data segment and assign letter grade</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>breaks<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">44</span>,<span class="dv">49</span>,<span class="dv">54</span>,<span class="dv">59</span>,<span class="dv">64</span>,<span class="dv">69</span>,<span class="dv">74</span>,<span class="dv">79</span>,<span class="dv">84</span>,<span class="dv">100</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>labels<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"F"</span>,<span class="st">"D"</span>,<span class="st">"D+"</span>,<span class="st">"C"</span>,<span class="st">"C+"</span>,<span class="st">"B-"</span>,<span class="st">"B"</span>,<span class="st">"B+"</span>,<span class="st">"A-"</span>,<span class="st">"A"</span>,<span class="st">"A+"</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>lgrades<span class="ot">&lt;-</span><span class="fu">cut</span>(score, breaks, labels, <span class="at">right=</span><span class="cn">TRUE</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>dt[,Grade <span class="sc">:</span><span class="er">=</span> lgrades]</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>breaks<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">44</span>,<span class="dv">49</span>,<span class="dv">54</span>,<span class="dv">59</span>,<span class="dv">64</span>,<span class="dv">69</span>,<span class="dv">74</span>,<span class="dv">79</span>,<span class="dv">84</span>,<span class="dv">100</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>labels<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"F"</span>,<span class="st">"D"</span>,<span class="st">"D+"</span>,<span class="st">"C"</span>,<span class="st">"C+"</span>,<span class="st">"B-"</span>,<span class="st">"B"</span>,<span class="st">"B+"</span>,<span class="st">"A-"</span>,<span class="st">"A"</span>,<span class="st">"A+"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>lgrades<span class="ot">&lt;-</span><span class="fu">cut</span>(score, breaks, labels, <span class="at">right=</span><span class="cn">TRUE</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>dt[,Grade <span class="sc">:</span><span class="er">=</span> lgrades]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        ID Gender Test1 Test2  Exam TotScore  Grade
-    &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;
- 1:  SD101      M    11    48    61     66.8      B
- 2:  SD102      F     8    43    77     71.4     B+
- 3:  SD103      F    13    15    49     48.4     D+
- 4:  SD104      F    15    20    57     57.2     C+
- 5:  SD105      M    10    40    82     75.2     A-
- 6:  SD106      F    11    23    65     59.2     B-
- 7:  SD107      M     6    24    46     43.2      D
- 8:  SD108      M    12    47    80     78.8     A-
- 9:  SD109      M    10    21    48     47.2     D+
-10:  SD110      M     7    27    62     55.0     C+</code></pre>
+<pre><code>        ID Test1 Test2  Exam TotScore  Grade
+    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;
+ 1:  SD101    11    48    61     66.8      B
+ 2:  SD102     8    43    77     71.4     B+
+ 3:  SD103    13    15    49     48.4     D+
+ 4:  SD104    15    20    57     57.2     C+
+ 5:  SD105    10    40    82     75.2     A-
+ 6:  SD106    11    23    65     59.2     B-
+ 7:  SD107     6    24    46     43.2      D
+ 8:  SD108    12    47    80     78.8     A-
+ 9:  SD109    10    21    48     47.2     D+
+10:  SD110     7    27    62     55.0     C+</code></pre>
 </div>
 </div>
 </section>
-<section id="filtering-rows---all-bs-bbb-" class="level3" data-number="2.6">
-<h3 data-number="2.6" class="anchored" data-anchor-id="filtering-rows---all-bs-bbb-"><span class="header-section-number">2.6</span> Filtering rows - all B’s (B+,B,B-)</h3>
+<section id="filtering-rows---all-bs-bbb-" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="filtering-rows---all-bs-bbb-"><span class="header-section-number">1.5</span> Filtering rows - all B’s (B+,B,B-)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>BTerms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"B+"</span>,<span class="st">"B"</span>,<span class="st">"B-"</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>dt[Grade <span class="sc">%in%</span> BTerms,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>BTerms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"B+"</span>,<span class="st">"B"</span>,<span class="st">"B-"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>dt[Grade <span class="sc">%in%</span> BTerms,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       ID Gender Test1 Test2  Exam TotScore  Grade
-   &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;
-1:  SD101      M    11    48    61     66.8      B
-2:  SD102      F     8    43    77     71.4     B+
-3:  SD106      F    11    23    65     59.2     B-</code></pre>
-</div>
-</div>
-</section>
-<section id="getting-row-numbers" class="level3" data-number="2.7">
-<h3 data-number="2.7" class="anchored" data-anchor-id="getting-row-numbers"><span class="header-section-number">2.7</span> Getting row numbers</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> dt[,.I[Grade<span class="sc">==</span><span class="st">'A-'</span>]]</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>r1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5 8</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># alternatively</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> dt[,<span class="fu">which</span>(Grade<span class="sc">==</span><span class="st">'A-'</span>)]</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>dt[r2,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       ID Gender Test1 Test2  Exam TotScore  Grade
-   &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;
-1:  SD105      M    10    40    82     75.2     A-
-2:  SD108      M    12    47    80     78.8     A-</code></pre>
-</div>
-</div>
-</section>
-<section id="count-numbers-in-each-grade-grouping" class="level3" data-number="2.8">
-<h3 data-number="2.8" class="anchored" data-anchor-id="count-numbers-in-each-grade-grouping"><span class="header-section-number">2.8</span> Count numbers in each grade (Grouping)</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dt[, .N, by<span class="ot">=</span>Grade]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    Grade     N
-   &lt;fctr&gt; &lt;int&gt;
-1:      B     1
-2:     B+     1
-3:     D+     2
-4:     C+     2
-5:     A-     2
-6:     B-     1
-7:      D     1</code></pre>
-</div>
-</div>
-</section>
-<section id="mean-totscore-by-gender-grouping" class="level3" data-number="2.9">
-<h3 data-number="2.9" class="anchored" data-anchor-id="mean-totscore-by-gender-grouping"><span class="header-section-number">2.9</span> Mean TotScore by Gender (Grouping)</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dt_m <span class="ot">&lt;-</span> dt[,.(<span class="at">meanTotScore =</span> <span class="fu">round</span>(<span class="fu">mean</span>(TotScore),<span class="dv">2</span>)),by<span class="ot">=</span>Gender]</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>dt_m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Gender meanTotScore
-   &lt;char&gt;        &lt;num&gt;
-1:      M        61.03
-2:      F        59.05</code></pre>
-</div>
-</div>
-</section>
-<section id="means-of-columns" class="level3" data-number="2.10">
-<h3 data-number="2.10" class="anchored" data-anchor-id="means-of-columns"><span class="header-section-number">2.10</span> Means of Columns</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dt3 <span class="ot">&lt;-</span> dt[,.(mt1<span class="ot">&lt;-</span><span class="fu">mean</span>(Test1), </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>      mt2<span class="ot">&lt;-</span><span class="fu">mean</span>(Test2),</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>      mt3<span class="ot">&lt;-</span><span class="fu">mean</span>(Exam))]</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>dt3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      V1    V2    V3
-   &lt;num&gt; &lt;num&gt; &lt;num&gt;
-1:  10.3  30.8  62.7</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(dt3, <span class="fu">c</span>(<span class="st">'mt1'</span>,<span class="st">'mt2'</span>,<span class="st">'mt3'</span>))</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>dt3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     mt1   mt2   mt3
-   &lt;num&gt; &lt;num&gt; &lt;num&gt;
-1:  10.3  30.8  62.7</code></pre>
+<pre><code>       ID Test1 Test2  Exam TotScore  Grade
+   &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;
+1:  SD101    11    48    61     66.8      B
+2:  SD102     8    43    77     71.4     B+
+3:  SD106    11    23    65     59.2     B-</code></pre>
 </div>
 </div>
 
@@ -1123,18 +1027,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../dataframes/pivot_longer.html" class="pagination-link" aria-label="pivot_longer">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">pivot_longer</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../tables/frequency.html" class="pagination-link" aria-label="frequency">
-        <span class="nav-page-text">frequency</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
