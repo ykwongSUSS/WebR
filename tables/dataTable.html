@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tables/frequency.html" rel="next">
-<link href="../dataframes/pivot_longer.html" rel="prev">
+<link href="../ggplots/basics.html" rel="next">
+<link href="../tables/gt.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/dataTable.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/dataTable.html">dataTable</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/frequency.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/dataTable.html">dataTable</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -275,12 +275,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tables/dataTable.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">dataTable</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../tables/frequency.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">frequency</span></a>
   </div>
@@ -295,6 +289,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../tables/gt.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">gt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/dataTable.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">dataTable</span></a>
   </div>
 </li>
       </ul>
@@ -451,17 +451,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#library" id="toc-library" class="nav-link active" data-scroll-target="#library"><span class="header-section-number">1</span> Library</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data</a>
   <ul class="collapse">
-  <li><a href="#creating-a-data.table-using-fread" id="toc-creating-a-data.table-using-fread" class="nav-link" data-scroll-target="#creating-a-data.table-using-fread"><span class="header-section-number">2.1</span> Creating a data.table using <code>fread</code></a></li>
-  <li><a href="#alternatively-create-data.table-using-combined-vectors-lists" id="toc-alternatively-create-data.table-using-combined-vectors-lists" class="nav-link" data-scroll-target="#alternatively-create-data.table-using-combined-vectors-lists"><span class="header-section-number">2.2</span> Alternatively, create data.table using combined vectors, lists</a></li>
-  <li><a href="#create-a-new-data.table-column" id="toc-create-a-new-data.table-column" class="nav-link" data-scroll-target="#create-a-new-data.table-column"><span class="header-section-number">2.3</span> Create a new data.table column</a></li>
-  <li><a href="#select-multiple-rows-and-columns" id="toc-select-multiple-rows-and-columns" class="nav-link" data-scroll-target="#select-multiple-rows-and-columns"><span class="header-section-number">2.4</span> Select multiple rows and columns</a></li>
-  <li><a href="#read-a-data.table-column-to-a-vector" id="toc-read-a-data.table-column-to-a-vector" class="nav-link" data-scroll-target="#read-a-data.table-column-to-a-vector"><span class="header-section-number">2.5</span> Read a data.table column to a vector</a></li>
-  <li><a href="#using-cut-to-data-segment-and-assign-letter-grade" id="toc-using-cut-to-data-segment-and-assign-letter-grade" class="nav-link" data-scroll-target="#using-cut-to-data-segment-and-assign-letter-grade"><span class="header-section-number">2.6</span> Using <code>cut</code> to data segment and assign letter grade</a></li>
-  <li><a href="#filtering-rows---all-bs-bbb-" id="toc-filtering-rows---all-bs-bbb-" class="nav-link" data-scroll-target="#filtering-rows---all-bs-bbb-"><span class="header-section-number">2.7</span> Filtering rows - all B’s (B+,B,B-)</a></li>
-  <li><a href="#getting-row-numbers" id="toc-getting-row-numbers" class="nav-link" data-scroll-target="#getting-row-numbers"><span class="header-section-number">2.8</span> Getting row numbers</a></li>
-  <li><a href="#count-numbers-in-each-grade-grouping" id="toc-count-numbers-in-each-grade-grouping" class="nav-link" data-scroll-target="#count-numbers-in-each-grade-grouping"><span class="header-section-number">2.9</span> Count numbers in each grade (Grouping)</a></li>
-  <li><a href="#mean-totscore-by-gender-grouping" id="toc-mean-totscore-by-gender-grouping" class="nav-link" data-scroll-target="#mean-totscore-by-gender-grouping"><span class="header-section-number">2.10</span> Mean TotScore by Gender (Grouping)</a></li>
-  <li><a href="#means-of-columns" id="toc-means-of-columns" class="nav-link" data-scroll-target="#means-of-columns"><span class="header-section-number">2.11</span> Means of Columns</a></li>
+  <li><a href="#method-1-create-data.table-using-fread" id="toc-method-1-create-data.table-using-fread" class="nav-link" data-scroll-target="#method-1-create-data.table-using-fread"><span class="header-section-number">2.1</span> Method 1: create data.table using <code>fread</code></a></li>
+  <li><a href="#method-2-create-data.table-using-vectors-or-lists" id="toc-method-2-create-data.table-using-vectors-or-lists" class="nav-link" data-scroll-target="#method-2-create-data.table-using-vectors-or-lists"><span class="header-section-number">2.2</span> Method 2: create data.table using vectors or lists</a></li>
+  </ul></li>
+  <li><a href="#data.table-manipulation" id="toc-data.table-manipulation" class="nav-link" data-scroll-target="#data.table-manipulation"><span class="header-section-number">3</span> data.Table Manipulation</a>
+  <ul class="collapse">
+  <li><a href="#create-a-new-data.table-column" id="toc-create-a-new-data.table-column" class="nav-link" data-scroll-target="#create-a-new-data.table-column"><span class="header-section-number">3.1</span> Create a new data.table column</a></li>
+  <li><a href="#select-multiple-rows-and-columns" id="toc-select-multiple-rows-and-columns" class="nav-link" data-scroll-target="#select-multiple-rows-and-columns"><span class="header-section-number">3.2</span> Select multiple rows and columns</a></li>
+  <li><a href="#read-a-data.table-column-to-a-vector" id="toc-read-a-data.table-column-to-a-vector" class="nav-link" data-scroll-target="#read-a-data.table-column-to-a-vector"><span class="header-section-number">3.3</span> Read a data.table column to a vector</a></li>
+  <li><a href="#using-cut-to-data-segment-and-assign-letter-grade" id="toc-using-cut-to-data-segment-and-assign-letter-grade" class="nav-link" data-scroll-target="#using-cut-to-data-segment-and-assign-letter-grade"><span class="header-section-number">3.4</span> Using <code>cut</code> to data segment and assign letter grade</a></li>
+  <li><a href="#filtering-rows---all-bs-bbb-" id="toc-filtering-rows---all-bs-bbb-" class="nav-link" data-scroll-target="#filtering-rows---all-bs-bbb-"><span class="header-section-number">3.5</span> Filtering rows - all B’s (B+,B,B-)</a></li>
+  <li><a href="#getting-row-numbers" id="toc-getting-row-numbers" class="nav-link" data-scroll-target="#getting-row-numbers"><span class="header-section-number">3.6</span> Getting row numbers</a></li>
+  <li><a href="#count-numbers-in-each-grade-grouping" id="toc-count-numbers-in-each-grade-grouping" class="nav-link" data-scroll-target="#count-numbers-in-each-grade-grouping"><span class="header-section-number">3.7</span> Count numbers in each grade (Grouping)</a></li>
+  <li><a href="#mean-totscore-by-gender-grouping" id="toc-mean-totscore-by-gender-grouping" class="nav-link" data-scroll-target="#mean-totscore-by-gender-grouping"><span class="header-section-number">3.8</span> Mean TotScore by Gender (Grouping)</a></li>
+  <li><a href="#means-of-columns" id="toc-means-of-columns" class="nav-link" data-scroll-target="#means-of-columns"><span class="header-section-number">3.9</span> Means of Columns</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -469,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/dataTable.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/dataTable.html">dataTable</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/frequency.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/dataTable.html">dataTable</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">dataTable</h1>
 </div>
@@ -488,6 +491,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<ol type="1">
+<li>dataTables are also dataframes and thus functions-methods on dataframes are also applicable to dataTables</li>
+<li><code>fread</code> is very useful for data input</li>
+<li></li>
+</ol>
 <section id="library" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="library"><span class="header-section-number">1</span> Library</h2>
 <div class="cell">
@@ -497,8 +505,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>      ID Gender Test1 Test2 Exam </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>1  SD101 M   11    48   61    </span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>   ID Gender Test1 Test2 Exam </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>1  SD101 M  11    48   61    </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>2  SD102 F   8    43   77    </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>3  SD103 F  13    15   49    </span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>4  SD104 F  15    20   57    </span>
@@ -508,23 +516,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>8  SD108 M  12    47   80     </span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>9  SD109 M  10    21   48     </span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>10 SD110 M   7    27   62     </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="creating-a-data.table-using-fread" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="creating-a-data.table-using-fread"><span class="header-section-number">2.1</span> Creating a data.table using <code>fread</code></h3>
+<section id="method-1-create-data.table-using-fread" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="method-1-create-data.table-using-fread"><span class="header-section-number">2.1</span> Method 1: create data.table using <code>fread</code></h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dt0 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="at">text =</span> <span class="st">"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">row  ID Gender Test1 Test2 Exam </span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">1  SD101 M   11    48   61    </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">2  SD102 F    8    43   77    </span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">3  SD103 F   13    15   49    </span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">4  SD104 F   15    20   57    </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">5  SD105 M   10    40   82     </span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">6  SD106 F   11    23   65     </span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st">7  SD107 M    6    24   46    </span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="st">8  SD108 M   12    47   80     </span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">9  SD109 M   10    21   48     </span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="st">10 SD110 M    7    27   62  "</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dt0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># note row definition</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dt0 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="at">text =</span> <span class="st">"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">row  ID Gender Test1 Test2 Exam </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st">1  SD101 M   11    48   61    </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">2  SD102 F    8    43   77    </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">3  SD103 F   13    15   49    </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">4  SD104 F   15    20   57    </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st">5  SD105 M   10    40   82     </span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="st">6  SD106 F   11    23   65     </span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">7  SD107 M    6    24   46    </span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="st">8  SD108 M   12    47   80     </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="st">9  SD109 M   10    21   48     </span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="st">10 SD110 M    7    27   62  "</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dt0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data.table" "data.frame"</code></pre>
 </div>
@@ -547,8 +557,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="alternatively-create-data.table-using-combined-vectors-lists" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="alternatively-create-data.table-using-combined-vectors-lists"><span class="header-section-number">2.2</span> Alternatively, create data.table using combined vectors, lists</h3>
+<section id="method-2-create-data.table-using-vectors-or-lists" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="method-2-create-data.table-using-vectors-or-lists"><span class="header-section-number">2.2</span> Method 2: create data.table using vectors or lists</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ID2 <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">"SD"</span>,<span class="dv">101</span><span class="sc">:</span><span class="dv">110</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Gender2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>,<span class="st">"F"</span>,<span class="st">"F"</span>,<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"M"</span>,<span class="st">"M"</span>,<span class="st">"M"</span>)</span>
@@ -562,13 +572,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="create-a-new-data.table-column" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="create-a-new-data.table-column"><span class="header-section-number">2.3</span> Create a new data.table column</h3>
-<p>(equivalent of mutate)</p>
+</section>
+<section id="data.table-manipulation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="data.table-manipulation"><span class="header-section-number">3</span> data.Table Manipulation</h2>
+<section id="create-a-new-data.table-column" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="create-a-new-data.table-column"><span class="header-section-number">3.1</span> Create a new data.table column</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># equivalent of mutate</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dt[, TotScore <span class="sc">:</span><span class="er">=</span> Test1<span class="fl">+0.4</span><span class="sc">*</span>Test2<span class="fl">+0.6</span><span class="sc">*</span>Exam ]</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># equivalent of mutate</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># just define with a := sign</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>dt[, TotScore <span class="sc">:</span><span class="er">=</span> Test1<span class="fl">+0.4</span><span class="sc">*</span>Test2<span class="fl">+0.6</span><span class="sc">*</span>Exam ]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        ID Gender Test1 Test2  Exam TotScore
     &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;
@@ -585,8 +599,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="select-multiple-rows-and-columns" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="select-multiple-rows-and-columns"><span class="header-section-number">2.4</span> Select multiple rows and columns</h3>
+<section id="select-multiple-rows-and-columns" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="select-multiple-rows-and-columns"><span class="header-section-number">3.2</span> Select multiple rows and columns</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dt[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="fu">c</span>(<span class="st">'Test1'</span>,<span class="st">'Test2'</span>), with<span class="ot">=</span><span class="cn">FALSE</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -599,8 +613,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="read-a-data.table-column-to-a-vector" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="read-a-data.table-column-to-a-vector"><span class="header-section-number">2.5</span> Read a data.table column to a vector</h3>
+<section id="read-a-data.table-column-to-a-vector" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="read-a-data.table-column-to-a-vector"><span class="header-section-number">3.3</span> Read a data.table column to a vector</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>score <span class="ot">&lt;-</span> dt[,TotScore]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -609,8 +623,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="using-cut-to-data-segment-and-assign-letter-grade" class="level3" data-number="2.6">
-<h3 data-number="2.6" class="anchored" data-anchor-id="using-cut-to-data-segment-and-assign-letter-grade"><span class="header-section-number">2.6</span> Using <code>cut</code> to data segment and assign letter grade</h3>
+<section id="using-cut-to-data-segment-and-assign-letter-grade" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="using-cut-to-data-segment-and-assign-letter-grade"><span class="header-section-number">3.4</span> Using <code>cut</code> to data segment and assign letter grade</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>breaks<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">44</span>,<span class="dv">49</span>,<span class="dv">54</span>,<span class="dv">59</span>,<span class="dv">64</span>,<span class="dv">69</span>,<span class="dv">74</span>,<span class="dv">79</span>,<span class="dv">84</span>,<span class="dv">100</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>labels<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"F"</span>,<span class="st">"D"</span>,<span class="st">"D+"</span>,<span class="st">"C"</span>,<span class="st">"C+"</span>,<span class="st">"B-"</span>,<span class="st">"B"</span>,<span class="st">"B+"</span>,<span class="st">"A-"</span>,<span class="st">"A"</span>,<span class="st">"A+"</span>)</span>
@@ -633,8 +647,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="filtering-rows---all-bs-bbb-" class="level3" data-number="2.7">
-<h3 data-number="2.7" class="anchored" data-anchor-id="filtering-rows---all-bs-bbb-"><span class="header-section-number">2.7</span> Filtering rows - all B’s (B+,B,B-)</h3>
+<section id="filtering-rows---all-bs-bbb-" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="filtering-rows---all-bs-bbb-"><span class="header-section-number">3.5</span> Filtering rows - all B’s (B+,B,B-)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>BTerms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"B+"</span>,<span class="st">"B"</span>,<span class="st">"B-"</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dt[Grade <span class="sc">%in%</span> BTerms,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -647,8 +661,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="getting-row-numbers" class="level3" data-number="2.8">
-<h3 data-number="2.8" class="anchored" data-anchor-id="getting-row-numbers"><span class="header-section-number">2.8</span> Getting row numbers</h3>
+<section id="getting-row-numbers" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="getting-row-numbers"><span class="header-section-number">3.6</span> Getting row numbers</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> dt[,.I[Grade<span class="sc">==</span><span class="st">'A-'</span>]]</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>r1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -666,10 +680,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="count-numbers-in-each-grade-grouping" class="level3" data-number="2.9">
-<h3 data-number="2.9" class="anchored" data-anchor-id="count-numbers-in-each-grade-grouping"><span class="header-section-number">2.9</span> Count numbers in each grade (Grouping)</h3>
+<section id="count-numbers-in-each-grade-grouping" class="level3" data-number="3.7">
+<h3 data-number="3.7" class="anchored" data-anchor-id="count-numbers-in-each-grade-grouping"><span class="header-section-number">3.7</span> Count numbers in each grade (Grouping)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dt[, .N, by<span class="ot">=</span>Grade]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>lvlgrades<span class="ot">=</span> <span class="fu">as_factor</span>(<span class="fu">c</span>(<span class="st">"A+"</span>,<span class="st">"A"</span>,<span class="st">"A-"</span>,<span class="st">"B+"</span>,<span class="st">"B"</span>,<span class="st">"B-"</span>,<span class="st">"C+"</span>,<span class="st">"C"</span>,<span class="st">"D+"</span>,<span class="st">"D"</span>,<span class="st">"F"</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>dt[, .N, by<span class="ot">=</span>Grade]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Grade     N
    &lt;fctr&gt; &lt;int&gt;
@@ -683,8 +698,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="mean-totscore-by-gender-grouping" class="level3" data-number="2.10">
-<h3 data-number="2.10" class="anchored" data-anchor-id="mean-totscore-by-gender-grouping"><span class="header-section-number">2.10</span> Mean TotScore by Gender (Grouping)</h3>
+<section id="mean-totscore-by-gender-grouping" class="level3" data-number="3.8">
+<h3 data-number="3.8" class="anchored" data-anchor-id="mean-totscore-by-gender-grouping"><span class="header-section-number">3.8</span> Mean TotScore by Gender (Grouping)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dt_m <span class="ot">&lt;-</span> dt[,.(<span class="at">meanTotScore =</span> <span class="fu">round</span>(<span class="fu">mean</span>(TotScore),<span class="dv">2</span>)),by<span class="ot">=</span>Gender]</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>dt_m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -696,8 +711,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="means-of-columns" class="level3" data-number="2.11">
-<h3 data-number="2.11" class="anchored" data-anchor-id="means-of-columns"><span class="header-section-number">2.11</span> Means of Columns</h3>
+<section id="means-of-columns" class="level3" data-number="3.9">
+<h3 data-number="3.9" class="anchored" data-anchor-id="means-of-columns"><span class="header-section-number">3.9</span> Means of Columns</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>dt3 <span class="ot">&lt;-</span> dt[,.(mt1<span class="ot">&lt;-</span><span class="fu">mean</span>(Test1), </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>      mt2<span class="ot">&lt;-</span><span class="fu">mean</span>(Test2),</span>
@@ -1141,13 +1156,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../dataframes/pivot_longer.html" class="pagination-link" aria-label="pivot_longer">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">pivot_longer</span>
+      <a href="../tables/gt.html" class="pagination-link" aria-label="gt">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">gt</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../tables/frequency.html" class="pagination-link" aria-label="frequency">
-        <span class="nav-page-text">frequency</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ggplots/basics.html" class="pagination-link" aria-label="basics">
+        <span class="nav-page-text">basics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
