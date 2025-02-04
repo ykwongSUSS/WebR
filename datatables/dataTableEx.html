@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>importExport – WebR</title>
+<title>dataTableExercises – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../dataframes/filterSelectArrange.html" rel="next">
-<link href="../dataframes/textEntry.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,7 +114,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dataframes/textEntry.html">DataFrames</a></li><li class="breadcrumb-item"><a href="../dataframes/importExport.html">importExport.</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      WebR
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dataframes/importExport.html" class="sidebar-item-text sidebar-link active">
+  <a href="../dataframes/importExport.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">importExport.</span></a>
   </div>
 </li>
@@ -275,25 +275,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/vcd.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/vcd.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">vcd</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/xtab.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/xtab.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">xtab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/dataTable.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/dataTable.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">dataTable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/contingency.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/contingency.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">contingency</span></a>
   </div>
 </li>
@@ -448,21 +448,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tidyverseread_csv" id="toc-tidyverseread_csv" class="nav-link active" data-scroll-target="#tidyverseread_csv"><span class="header-section-number">1</span> <code>tidyverse::read_csv</code></a></li>
-  <li><a href="#tidyversewrite_csv" id="toc-tidyversewrite_csv" class="nav-link" data-scroll-target="#tidyversewrite_csv"><span class="header-section-number">2</span> <code>tidyverse::write_csv</code></a></li>
-  <li><a href="#rioimport" id="toc-rioimport" class="nav-link" data-scroll-target="#rioimport"><span class="header-section-number">3</span> <code>rio::import</code></a>
-  <ul class="collapse">
-  <li><a href="#package-rio---export" id="toc-package-rio---export" class="nav-link" data-scroll-target="#package-rio---export"><span class="header-section-number">3.1</span> 3. package <code>rio</code> - export</a></li>
-  </ul></li>
+  <li><a href="#install-data.table" id="toc-install-data.table" class="nav-link active" data-scroll-target="#install-data.table">1. Install data.table</a></li>
+  <li><a href="#create-a-data.table-from-lists" id="toc-create-a-data.table-from-lists" class="nav-link" data-scroll-target="#create-a-data.table-from-lists">2. Create a data.table from lists</a></li>
+  <li><a href="#import-bostonhousing-dataset-as-a-data.table" id="toc-import-bostonhousing-dataset-as-a-data.table" class="nav-link" data-scroll-target="#import-bostonhousing-dataset-as-a-data.table">3. import BostonHousing dataset as a data.table</a></li>
+  <li><a href="#import-only-n50-rows-of-bostonhousing" id="toc-import-only-n50-rows-of-bostonhousing" class="nav-link" data-scroll-target="#import-only-n50-rows-of-bostonhousing">4. import only ‘n=50’ rows of BostonHousing</a></li>
+  <li><a href="#import-only-crim-and-medv-columns" id="toc-import-only-crim-and-medv-columns" class="nav-link" data-scroll-target="#import-only-crim-and-medv-columns">5. Import only <code>crim</code> and <code>medv</code> columns</a></li>
+  <li><a href="#get-nrows-ncolumns-datatype-and-summary-stats-of-each-column-of-cars93" id="toc-get-nrows-ncolumns-datatype-and-summary-stats-of-each-column-of-cars93" class="nav-link" data-scroll-target="#get-nrows-ncolumns-datatype-and-summary-stats-of-each-column-of-cars93">6. get <code>nrows</code>, <code>ncolumns</code>, <code>datatype</code> and <code>summary stats</code> of each column of Cars93</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dataframes/textEntry.html">DataFrames</a></li><li class="breadcrumb-item"><a href="../dataframes/importExport.html">importExport.</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">importExport</h1>
+<h1 class="title">dataTableExercises</h1>
 </div>
 
 
@@ -479,77 +479,165 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="tidyverseread_csv" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="tidyverseread_csv"><span class="header-section-number">1</span> <code>tidyverse::read_csv</code></h2>
-<p>(reads <code>.csv</code> file, readr does not have “read_xls”)</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>URL: https://www.machinelearningplus.com/data-manipulation/101-r-data-table-exercises/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="install-data.table" class="level3">
+<h3 class="anchored" data-anchor-id="install-data.table">1. Install data.table</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns a tibble</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tb1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"assets"</span>,<span class="st">"data.csv"</span>),<span class="at">col_names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tb1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-a-data.table-from-lists" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-data.table-from-lists">2. Create a data.table from lists</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>list_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>,<span class="st">"d"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>list_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1"</span>,<span class="st">"2"</span>,<span class="st">"3"</span>,<span class="st">"4"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>list_3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"aa"</span>,<span class="st">"bb"</span>,<span class="st">"cc"</span>,<span class="st">"dd"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">v1=</span>list_1,<span class="at">v2=</span>list_2,<span class="at">v3=</span>list_3)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dt2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-     X1     X2    X3
-  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-1     2   3400     0
-2     3   6200     0
-3     4  60000     0
-4     6 113000    50
-5     8 155000    50
-6    11 175000  6000</code></pre>
+<pre><code>[1] "data.table" "data.frame"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dt2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       v1     v2     v3
+   &lt;char&gt; &lt;char&gt; &lt;char&gt;
+1:      a      1     aa
+2:      b      2     bb
+3:      c      3     cc
+4:      d      4     dd</code></pre>
 </div>
 </div>
 </section>
-<section id="tidyversewrite_csv" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="tidyversewrite_csv"><span class="header-section-number">2</span> <code>tidyverse::write_csv</code></h2>
+<section id="import-bostonhousing-dataset-as-a-data.table" class="level3">
+<h3 class="anchored" data-anchor-id="import-bostonhousing-dataset-as-a-data.table">3. import BostonHousing dataset as a data.table</h3>
+<pre><code>https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv</code></pre>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tb1) </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(tb1, <span class="fu">here</span>(<span class="st">"assets/datawrite.csv"</span>), <span class="at">col_names=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mycsv<span class="ot">&lt;-</span><span class="st">"https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv"</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>dt3<span class="ot">&lt;-</span><span class="fu">fread</span>(<span class="at">file=</span>mycsv)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>dt3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        crim    zn indus  chas   nox    rm   age    dis   rad   tax ptratio
+       &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;int&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;num&gt; &lt;int&gt; &lt;int&gt;   &lt;num&gt;
+  1: 0.00632    18  2.31     0 0.538 6.575  65.2 4.0900     1   296    15.3
+  2: 0.02731     0  7.07     0 0.469 6.421  78.9 4.9671     2   242    17.8
+  3: 0.02729     0  7.07     0 0.469 7.185  61.1 4.9671     2   242    17.8
+  4: 0.03237     0  2.18     0 0.458 6.998  45.8 6.0622     3   222    18.7
+  5: 0.06905     0  2.18     0 0.458 7.147  54.2 6.0622     3   222    18.7
+ ---                                                                       
+502: 0.06263     0 11.93     0 0.573 6.593  69.1 2.4786     1   273    21.0
+503: 0.04527     0 11.93     0 0.573 6.120  76.7 2.2875     1   273    21.0
+504: 0.06076     0 11.93     0 0.573 6.976  91.0 2.1675     1   273    21.0
+505: 0.10959     0 11.93     0 0.573 6.794  89.3 2.3889     1   273    21.0
+506: 0.04741     0 11.93     0 0.573 6.030  80.8 2.5050     1   273    21.0
+          b lstat  medv
+      &lt;num&gt; &lt;num&gt; &lt;num&gt;
+  1: 396.90  4.98  24.0
+  2: 396.90  9.14  21.6
+  3: 392.83  4.03  34.7
+  4: 394.63  2.94  33.4
+  5: 396.90  5.33  36.2
+ ---                   
+502: 391.99  9.67  22.4
+503: 396.90  9.08  20.6
+504: 396.90  5.64  23.9
+505: 393.45  6.48  22.0
+506: 396.90  7.88  11.9</code></pre>
+</div>
 </div>
 </section>
-<section id="rioimport" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="rioimport"><span class="header-section-number">3</span> <code>rio::import</code></h2>
-<p>(note: reads both <code>.csv</code> or <code>.xlsx</code> files.)</p>
+<section id="import-only-n50-rows-of-bostonhousing" class="level3">
+<h3 class="anchored" data-anchor-id="import-only-n50-rows-of-bostonhousing">4. import only ‘n=50’ rows of BostonHousing</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># returns dataframe</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"assets/datesData.xlsx"</span>))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fread</span>(<span class="at">file=</span>mycsv, <span class="at">nrows=</span><span class="dv">50</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        Date OneDose TwoDose
-1 2021-01-11    3400       0
-2 2021-01-12    6200       0
-3 2021-01-22   60000       0
-4 2021-01-27  113000      50
-5 2021-01-31  155000      50
-6 2021-02-02  175000    6000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"assets/datesData.csv"</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         Date OneDose TwoDose
-1  2021-01-11    3400       0
-2  2021-01-12    6200       0
-3  2021-01-22   60000       0
-4  2021-01-27  113000      50
-5  2021-01-31  155000      50
-6  2021-02-02  175000    6000
-7  2021-02-10  250000    6000
-8  2021-02-18  250000  110000
-9  2021-03-01  317715  207324
-10 2021-03-04  350000  215000</code></pre>
+<pre><code>      crim    zn indus  chas   nox    rm   age    dis   rad   tax ptratio
+     &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;int&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;num&gt; &lt;int&gt; &lt;int&gt;   &lt;num&gt;
+1: 0.00632    18  2.31     0 0.538 6.575  65.2 4.0900     1   296    15.3
+2: 0.02731     0  7.07     0 0.469 6.421  78.9 4.9671     2   242    17.8
+3: 0.02729     0  7.07     0 0.469 7.185  61.1 4.9671     2   242    17.8
+4: 0.03237     0  2.18     0 0.458 6.998  45.8 6.0622     3   222    18.7
+5: 0.06905     0  2.18     0 0.458 7.147  54.2 6.0622     3   222    18.7
+6: 0.02985     0  2.18     0 0.458 6.430  58.7 6.0622     3   222    18.7
+        b lstat  medv
+    &lt;num&gt; &lt;num&gt; &lt;num&gt;
+1: 396.90  4.98  24.0
+2: 396.90  9.14  21.6
+3: 392.83  4.03  34.7
+4: 394.63  2.94  33.4
+5: 396.90  5.33  36.2
+6: 394.12  5.21  28.7</code></pre>
 </div>
 </div>
-<section id="package-rio---export" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="package-rio---export"><span class="header-section-number">3.1</span> 3. package <code>rio</code> - export</h3>
-<p>(can export to <code>.xlsx</code> or <code>.csv</code> file)</p>
+</section>
+<section id="import-only-crim-and-medv-columns" class="level3">
+<h3 class="anchored" data-anchor-id="import-only-crim-and-medv-columns">5. Import only <code>crim</code> and <code>medv</code> columns</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(df3, <span class="fu">here</span>(<span class="st">"assets/vaccines.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fread</span>(<span class="at">file=</span>mycsv, <span class="at">select=</span><span class="fu">c</span>(<span class="st">'crim'</span>,<span class="st">'medv'</span>)) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      crim  medv
+     &lt;num&gt; &lt;num&gt;
+1: 0.00632  24.0
+2: 0.02731  21.6
+3: 0.02729  34.7
+4: 0.03237  33.4
+5: 0.06905  36.2
+6: 0.02985  28.7</code></pre>
+</div>
+</div>
+</section>
+<section id="get-nrows-ncolumns-datatype-and-summary-stats-of-each-column-of-cars93" class="level3">
+<h3 class="anchored" data-anchor-id="get-nrows-ncolumns-datatype-and-summary-stats-of-each-column-of-cars93">6. get <code>nrows</code>, <code>ncolumns</code>, <code>datatype</code> and <code>summary stats</code> of each column of Cars93</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>DT <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">'https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv'</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(DT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 506</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(DT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(DT, class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     crim        zn     indus      chas       nox        rm       age       dis 
+"numeric" "numeric" "numeric" "integer" "numeric" "numeric" "numeric" "numeric" 
+      rad       tax   ptratio         b     lstat      medv 
+"integer" "integer" "numeric" "numeric" "numeric" "numeric" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(DT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      crim                zn             indus            chas        
+ Min.   : 0.00632   Min.   :  0.00   Min.   : 0.46   Min.   :0.00000  
+ 1st Qu.: 0.08205   1st Qu.:  0.00   1st Qu.: 5.19   1st Qu.:0.00000  
+ Median : 0.25651   Median :  0.00   Median : 9.69   Median :0.00000  
+ Mean   : 3.61352   Mean   : 11.36   Mean   :11.14   Mean   :0.06917  
+ 3rd Qu.: 3.67708   3rd Qu.: 12.50   3rd Qu.:18.10   3rd Qu.:0.00000  
+ Max.   :88.97620   Max.   :100.00   Max.   :27.74   Max.   :1.00000  
+      nox               rm             age              dis        
+ Min.   :0.3850   Min.   :3.561   Min.   :  2.90   Min.   : 1.130  
+ 1st Qu.:0.4490   1st Qu.:5.886   1st Qu.: 45.02   1st Qu.: 2.100  
+ Median :0.5380   Median :6.208   Median : 77.50   Median : 3.207  
+ Mean   :0.5547   Mean   :6.285   Mean   : 68.57   Mean   : 3.795  
+ 3rd Qu.:0.6240   3rd Qu.:6.623   3rd Qu.: 94.08   3rd Qu.: 5.188  
+ Max.   :0.8710   Max.   :8.780   Max.   :100.00   Max.   :12.127  
+      rad              tax           ptratio            b         
+ Min.   : 1.000   Min.   :187.0   Min.   :12.60   Min.   :  0.32  
+ 1st Qu.: 4.000   1st Qu.:279.0   1st Qu.:17.40   1st Qu.:375.38  
+ Median : 5.000   Median :330.0   Median :19.05   Median :391.44  
+ Mean   : 9.549   Mean   :408.2   Mean   :18.46   Mean   :356.67  
+ 3rd Qu.:24.000   3rd Qu.:666.0   3rd Qu.:20.20   3rd Qu.:396.23  
+ Max.   :24.000   Max.   :711.0   Max.   :22.00   Max.   :396.90  
+     lstat            medv      
+ Min.   : 1.73   Min.   : 5.00  
+ 1st Qu.: 6.95   1st Qu.:17.02  
+ Median :11.36   Median :21.20  
+ Mean   :12.65   Mean   :22.53  
+ 3rd Qu.:16.95   3rd Qu.:25.00  
+ Max.   :37.97   Max.   :50.00  </code></pre>
+</div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -970,18 +1058,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../dataframes/textEntry.html" class="pagination-link" aria-label="textEntry">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">textEntry</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../dataframes/filterSelectArrange.html" class="pagination-link" aria-label="filterSelectArrange">
-        <span class="nav-page-text">filterSelectArrange</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

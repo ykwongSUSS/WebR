@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>importExport – WebR</title>
+<title>2x2 Contingency Table – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../dataframes/filterSelectArrange.html" rel="next">
-<link href="../dataframes/textEntry.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,7 +114,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dataframes/textEntry.html">DataFrames</a></li><li class="breadcrumb-item"><a href="../dataframes/importExport.html">importExport.</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      WebR
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dataframes/importExport.html" class="sidebar-item-text sidebar-link active">
+  <a href="../dataframes/importExport.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">importExport.</span></a>
   </div>
 </li>
@@ -275,25 +275,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/vcd.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/vcd.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">vcd</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/xtab.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/xtab.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">xtab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/dataTable.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/dataTable.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">dataTable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/contingency.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/contingency.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">contingency</span></a>
   </div>
 </li>
@@ -448,21 +448,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tidyverseread_csv" id="toc-tidyverseread_csv" class="nav-link active" data-scroll-target="#tidyverseread_csv"><span class="header-section-number">1</span> <code>tidyverse::read_csv</code></a></li>
-  <li><a href="#tidyversewrite_csv" id="toc-tidyversewrite_csv" class="nav-link" data-scroll-target="#tidyversewrite_csv"><span class="header-section-number">2</span> <code>tidyverse::write_csv</code></a></li>
-  <li><a href="#rioimport" id="toc-rioimport" class="nav-link" data-scroll-target="#rioimport"><span class="header-section-number">3</span> <code>rio::import</code></a>
-  <ul class="collapse">
-  <li><a href="#package-rio---export" id="toc-package-rio---export" class="nav-link" data-scroll-target="#package-rio---export"><span class="header-section-number">3.1</span> 3. package <code>rio</code> - export</a></li>
-  </ul></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="header-section-number">1</span> Libraries</a></li>
+  <li><a href="#using-matrix" id="toc-using-matrix" class="nav-link" data-scroll-target="#using-matrix"><span class="header-section-number">2</span> Using matrix</a></li>
+  <li><a href="#using-cbind-or-rbind" id="toc-using-cbind-or-rbind" class="nav-link" data-scroll-target="#using-cbind-or-rbind"><span class="header-section-number">3</span> Using cbind (or rbind)</a></li>
+  <li><a href="#using-dim" id="toc-using-dim" class="nav-link" data-scroll-target="#using-dim"><span class="header-section-number">4</span> Using dim</a></li>
+  <li><a href="#simple-table-from-a-dataframe" id="toc-simple-table-from-a-dataframe" class="nav-link" data-scroll-target="#simple-table-from-a-dataframe"><span class="header-section-number">5</span> Simple Table from a dataframe</a></li>
+  <li><a href="#xtabs-require-dataframe-or-tibble" id="toc-xtabs-require-dataframe-or-tibble" class="nav-link" data-scroll-target="#xtabs-require-dataframe-or-tibble"><span class="header-section-number">6</span> xtabs require dataframe or tibble</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dataframes/textEntry.html">DataFrames</a></li><li class="breadcrumb-item"><a href="../dataframes/importExport.html">importExport.</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">importExport</h1>
+<h1 class="title">2x2 Contingency Table</h1>
 </div>
 
 
@@ -479,77 +479,152 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="tidyverseread_csv" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="tidyverseread_csv"><span class="header-section-number">1</span> <code>tidyverse::read_csv</code></h2>
-<p>(reads <code>.csv</code> file, readr does not have “read_xls”)</p>
+<section id="libraries" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="libraries"><span class="header-section-number">1</span> Libraries</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns a tibble</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tb1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"assets"</span>,<span class="st">"data.csv"</span>),<span class="at">col_names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tb1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-matrix" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="using-matrix"><span class="header-section-number">2</span> Using matrix</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix: using nrows</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>M1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">c</span>(<span class="dv">327</span>,<span class="dv">50</span>,<span class="dv">31</span>,<span class="dv">192</span>),<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(M1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Disease"</span>,<span class="st">"NoDisease"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(M1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Positive"</span>,<span class="st">"Negative"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>M1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-     X1     X2    X3
-  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-1     2   3400     0
-2     3   6200     0
-3     4  60000     0
-4     6 113000    50
-5     8 155000    50
-6    11 175000  6000</code></pre>
+<pre><code>         Disease NoDisease
+Positive     327        50
+Negative      31       192</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(M1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
 </div>
 </div>
 </section>
-<section id="tidyversewrite_csv" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="tidyversewrite_csv"><span class="header-section-number">2</span> <code>tidyverse::write_csv</code></h2>
+<section id="using-cbind-or-rbind" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="using-cbind-or-rbind"><span class="header-section-number">3</span> Using cbind (or rbind)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tb1) </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(tb1, <span class="fu">here</span>(<span class="st">"assets/datawrite.csv"</span>), <span class="at">col_names=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>M2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">c</span>(<span class="dv">327</span>,<span class="dv">31</span>),<span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">192</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(M2) <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Positive"</span>,<span class="st">"Negative"</span>),<span class="fu">c</span>(<span class="st">"Disease"</span>,<span class="st">"NoDisease"</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>M2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Disease NoDisease
+Positive     327        50
+Negative      31       192</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(M2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
 </div>
 </section>
-<section id="rioimport" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="rioimport"><span class="header-section-number">3</span> <code>rio::import</code></h2>
-<p>(note: reads both <code>.csv</code> or <code>.xlsx</code> files.)</p>
+<section id="using-dim" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="using-dim"><span class="header-section-number">4</span> Using dim</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># returns dataframe</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"assets/datesData.xlsx"</span>))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">327</span>,<span class="dv">50</span>,<span class="dv">31</span>,<span class="dv">192</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(M3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(M3) <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Positive"</span>,<span class="st">"Negative"</span>),<span class="fu">c</span>(<span class="st">"Disease"</span>,<span class="st">"NoDisease"</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>M3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        Date OneDose TwoDose
-1 2021-01-11    3400       0
-2 2021-01-12    6200       0
-3 2021-01-22   60000       0
-4 2021-01-27  113000      50
-5 2021-01-31  155000      50
-6 2021-02-02  175000    6000</code></pre>
+<pre><code>         Disease NoDisease
+Positive     327        31
+Negative      50       192</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"assets/datesData.csv"</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(M3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         Date OneDose TwoDose
-1  2021-01-11    3400       0
-2  2021-01-12    6200       0
-3  2021-01-22   60000       0
-4  2021-01-27  113000      50
-5  2021-01-31  155000      50
-6  2021-02-02  175000    6000
-7  2021-02-10  250000    6000
-8  2021-02-18  250000  110000
-9  2021-03-01  317715  207324
-10 2021-03-04  350000  215000</code></pre>
+<pre><code>[1] "matrix" "array" </code></pre>
 </div>
 </div>
-<section id="package-rio---export" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="package-rio---export"><span class="header-section-number">3.1</span> 3. package <code>rio</code> - export</h3>
-<p>(can export to <code>.xlsx</code> or <code>.csv</code> file)</p>
+</section>
+<section id="simple-table-from-a-dataframe" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="simple-table-from-a-dataframe"><span class="header-section-number">5</span> Simple Table from a dataframe</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(df3, <span class="fu">here</span>(<span class="st">"assets/vaccines.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">327</span>,<span class="dv">50</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">192</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Disease"</span>,<span class="st">"NoDisease"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Positive"</span>,<span class="st">"Negative"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Disease NoDisease
+Positive     327        50
+Negative      50       192</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">as.table</span>(<span class="fu">as.matrix</span>(df))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>tab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Disease NoDisease
+Positive     327        50
+Negative      50       192</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "table"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Disease NoDisease Sum
+Positive     327        50 377
+Negative      50       192 242
+Sum          377       242 619</code></pre>
+</div>
+</div>
+</section>
+<section id="xtabs-require-dataframe-or-tibble" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="xtabs-require-dataframe-or-tibble"><span class="header-section-number">6</span> xtabs require dataframe or tibble</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tribble is easier to enter table values by rows</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span><span class="fu">tribble</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Predicted, <span class="sc">~</span>Actual, <span class="sc">~</span>Values,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Positive"</span>, <span class="st">"Disease"</span>, <span class="dv">327</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Positive"</span>, <span class="st">"NoDisease"</span>, <span class="dv">50</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Negative"</span>, <span class="st">"Disease"</span>, <span class="dv">50</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Negative"</span>, <span class="st">"NoDisease"</span>, <span class="dv">192</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  Predicted Actual    Values
+  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;
+1 Positive  Disease      327
+2 Positive  NoDisease     50
+3 Negative  Disease       50
+4 Negative  NoDisease    192</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># xtabs require a dataframe or tibble, returns table</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> <span class="fu">xtabs</span>( Values <span class="sc">~</span> Predicted <span class="sc">+</span> Actual, <span class="at">data=</span>df2)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tab2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Actual
+Predicted  Disease NoDisease Sum
+  Negative      50       192 242
+  Positive     327        50 377
+  Sum          377       242 619</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tab2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "xtabs" "table"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a nicer table (maybe)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ftable</span>(tab2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Actual Disease NoDisease
+Predicted                         
+Negative              50       192
+Positive             327        50</code></pre>
+</div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -970,18 +1045,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../dataframes/textEntry.html" class="pagination-link" aria-label="textEntry">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">textEntry</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../dataframes/filterSelectArrange.html" class="pagination-link" aria-label="filterSelectArrange">
-        <span class="nav-page-text">filterSelectArrange</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

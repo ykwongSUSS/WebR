@@ -559,7 +559,7 @@
     "href": "datatypes/dates.html#calculating-age-from-dates",
     "title": "Dates",
     "section": "2 Calculating age from Dates",
-    "text": "2 Calculating age from Dates\n\nlibrary(tidyverse)\nlibrary(eeptools)\ndf2 &lt;- read_csv(\"name, dob\n                CUMBERBATCH Benedict, 1976-07-19\n                FOX Megan, 1986-05-16\n                HANKS Tom, 1956-07-09\n                SANDLER Adam, 1966-09-09\n                SMITH Will, 1968-09-25\n                STONE Emma, 1988-11-06\")\ndf3 &lt;- arrange(df2, -desc(dob))\ndf4 &lt;- df3 %&gt;% \n         mutate(age=age_calc(dob, units=\"years\")) %&gt;%\n         mutate(mth=month(dob))\ndf4$mth &lt;- month.abb[df4$mth]\ndf4\n\n# A tibble: 6 × 4\n  name                 dob          age mth  \n  &lt;chr&gt;                &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;\n1 HANKS Tom            1956-07-09  68.4 Jul  \n2 SANDLER Adam         1966-09-09  58.2 Sep  \n3 SMITH Will           1968-09-25  56.2 Sep  \n4 CUMBERBATCH Benedict 1976-07-19  48.4 Jul  \n5 FOX Megan            1986-05-16  38.5 May  \n6 STONE Emma           1988-11-06  36.1 Nov",
+    "text": "2 Calculating age from Dates\n\nlibrary(tidyverse)\nlibrary(eeptools)\ndf2 &lt;- read_csv(\"name, dob\n                CUMBERBATCH Benedict, 1976-07-19\n                FOX Megan, 1986-05-16\n                HANKS Tom, 1956-07-09\n                SANDLER Adam, 1966-09-09\n                SMITH Will, 1968-09-25\n                STONE Emma, 1988-11-06\")\ndf3 &lt;- arrange(df2, -desc(dob))\ndf4 &lt;- df3 %&gt;% \n         mutate(age=age_calc(dob, units=\"years\")) %&gt;%\n         mutate(mth=month(dob))\ndf4$mth &lt;- month.abb[df4$mth]\ndf4\n\n# A tibble: 6 × 4\n  name                 dob          age mth  \n  &lt;chr&gt;                &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;\n1 HANKS Tom            1956-07-09  68.6 Jul  \n2 SANDLER Adam         1966-09-09  58.4 Sep  \n3 SMITH Will           1968-09-25  56.4 Sep  \n4 CUMBERBATCH Benedict 1976-07-19  48.5 Jul  \n5 FOX Megan            1986-05-16  38.7 May  \n6 STONE Emma           1988-11-06  36.2 Nov",
     "crumbs": [
       "Datatypes",
       "dates"
@@ -2675,7 +2675,7 @@
     "section": "",
     "text": "vcd is a package from Friendly’s Discrete Data Analysis with R. The information here is extracted from Friendly’s tutorial on working with categorical data 1.",
     "crumbs": [
-      "Tables",
+      "DataTables",
       "vcd"
     ]
   },
@@ -2686,7 +2686,7 @@
     "section": "1 Library",
     "text": "1 Library\n\nlibrary(tidyverse)",
     "crumbs": [
-      "Tables",
+      "DataTables",
       "vcd"
     ]
   },
@@ -2711,7 +2711,7 @@
     "section": "Footnotes",
     "text": "Footnotes\n\n\nFriendly, M. (2013). Working with categorical data with R and the vcd and vcdExtra packages. Toronto: York University.↩︎",
     "crumbs": [
-      "Tables",
+      "DataTables",
       "vcd"
     ]
   },
@@ -2720,9 +2720,9 @@
     "href": "tables/vcd.html#categorical-data-forms",
     "title": "vcd",
     "section": "2 Categorical Data Forms",
-    "text": "2 Categorical Data Forms\n\n2.1 Case-Form\n\npresented as a dataframe with factors (categorical) and numerical values.\n\n\nlibrary(vcd)\nnames(Arthritis)\n\n[1] \"ID\"        \"Treatment\" \"Sex\"       \"Age\"       \"Improved\" \n\nstr(Arthritis)\n\n'data.frame':   84 obs. of  5 variables:\n $ ID       : int  57 46 77 17 36 23 75 39 33 55 ...\n $ Treatment: Factor w/ 2 levels \"Placebo\",\"Treated\": 2 2 2 2 2 2 2 2 2 2 ...\n $ Sex      : Factor w/ 2 levels \"Female\",\"Male\": 2 2 2 2 2 2 2 2 2 2 ...\n $ Age      : int  27 29 30 32 46 58 59 59 63 63 ...\n $ Improved : Ord.factor w/ 3 levels \"None\"&lt;\"Some\"&lt;..: 2 1 1 3 3 3 1 3 1 1 ...\n\nhead(Arthritis)\n\n  ID Treatment  Sex Age Improved\n1 57   Treated Male  27     Some\n2 46   Treated Male  29     None\n3 77   Treated Male  30     None\n4 17   Treated Male  32   Marked\n5 36   Treated Male  46   Marked\n6 23   Treated Male  58   Marked\n\n\n\n\n2.2 Frequency-form\n\nhere we use the expand.grid function to enter data\nusually has a count or frequency column\n\n\n# Agresti table 3.11 p.106\n# a 2x3 dataframe\n\nGSS &lt;- data.frame(\n  expand.grid(sex=c(\"female\",\"male\"),\n              party=c(\"dem\",\"indep\",\"rep\")),\n  count = c(279,165,73,47,225,191)\n)\nGSS\n\n     sex party count\n1 female   dem   279\n2   male   dem   165\n3 female indep    73\n4   male indep    47\n5 female   rep   225\n6   male   rep   191\n\nnames(GSS)\n\n[1] \"sex\"   \"party\" \"count\"\n\nstr(GSS)\n\n'data.frame':   6 obs. of  3 variables:\n $ sex  : Factor w/ 2 levels \"female\",\"male\": 1 2 1 2 1 2\n $ party: Factor w/ 3 levels \"dem\",\"indep\",..: 1 1 2 2 3 3\n $ count: num  279 165 73 47 225 191\n\nsum(GSS$count)\n\n[1] 980\n\n\n\n\n2.3 Table Form\n\n# Example 1 - HairEyeColor\n# 3-way (or 3 factors) table\n# HairEyeColor is already in table form\n\nstr(HairEyeColor)\n\n 'table' num [1:4, 1:4, 1:2] 32 53 10 3 11 50 10 30 10 25 ...\n - attr(*, \"dimnames\")=List of 3\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Eye : chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n\nhead(HairEyeColor)\n\n, , Sex = Male\n\n       Eye\nHair    Brown Blue Hazel Green\n  Black    32   11    10     3\n  Brown    53   50    25    15\n  Red      10   10     7     7\n  Blond     3   30     5     8\n\n, , Sex = Female\n\n       Eye\nHair    Brown Blue Hazel Green\n  Black    36    9     5     2\n  Brown    66   34    29    14\n  Red      16    7     7     7\n  Blond     4   64     5     8\n\n# another representation\nftable(HairEyeColor)\n\n            Sex Male Female\nHair  Eye                  \nBlack Brown       32     36\n      Blue        11      9\n      Hazel       10      5\n      Green        3      2\nBrown Brown       53     66\n      Blue        50     34\n      Hazel       25     29\n      Green       15     14\nRed   Brown       10     16\n      Blue        10      7\n      Hazel        7      7\n      Green        7      7\nBlond Brown        3      4\n      Blue        30     64\n      Hazel        5      5\n      Green        8      8\n\nsum(HairEyeColor)\n\n[1] 592\n\nsapply(dimnames(HairEyeColor),length)\n\nHair  Eye  Sex \n   4    4    2 \n\n\n\n\n2.4 Structable table\n\n# structable representation\n# 3-way table\n\nstbl &lt;- structable(HairEyeColor)\nstr(stbl)\n\n num [1:8, 1:4] 32 36 53 66 10 16 3 4 11 9 ...\n - attr(*, \"dnames\")=List of 3\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Eye : chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n - attr(*, \"split_vertical\")= logi [1:3] FALSE TRUE FALSE\n - attr(*, \"col.vars\")=List of 1\n  ..$ Eye: chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n - attr(*, \"row.vars\")=List of 2\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n\nstbl\n\n             Eye Brown Blue Hazel Green\nHair  Sex                              \nBlack Male          32   11    10     3\n      Female        36    9     5     2\nBrown Male          53   50    25    15\n      Female        66   34    29    14\nRed   Male          10   10     7     7\n      Female        16    7     7     7\nBlond Male           3   30     5     8\n      Female         4   64     5     8\n\nHS &lt;- structable(Sex~Hair, HairEyeColor)\nHS\n\n      Sex Male Female\nHair                 \nBlack       56     52\nBrown      143    143\nRed         34     37\nBlond       46     81\n\nmosaic(HS)\n\n\n\n\n\n\n\nHSE &lt;- structable(Hair+Sex ~ Eye, HairEyeColor)\nHSE\n\n      Hair Black        Brown         Red        Blond       \n      Sex   Male Female  Male Female Male Female  Male Female\nEye                                                          \nBrown         32     36    53     66   10     16     3      4\nBlue          11      9    50     34   10      7    30     64\nHazel         10      5    25     29    7      7     5      5\nGreen          3      2    15     14    7      7     8      8\n\n\n\n\n2.5 Matrix table\n\n# Example 2 - JobSat\n# 2-way (or 2 factors) table\n\nJobSat &lt;- matrix(c(1,2,1,0, 3,3,6,1, 10,10,14,9, 6,7,12,11), 4, 4)\ndimnames(JobSat) = list(income=c(\"&lt; 15k\", \"15-25k\", \"25-40k\", \"&gt; 40k\"),\nsatisfaction=c(\"VeryD\", \"LittleD\", \"ModerateS\", \"VeryS\"))\nJobSat\n\n        satisfaction\nincome   VeryD LittleD ModerateS VeryS\n  &lt; 15k      1       3        10     6\n  15-25k     2       3        10     7\n  25-40k     1       6        14    12\n  &gt; 40k      0       1         9    11\n\nJobSat &lt;- as.table(JobSat)\nstr(JobSat)\n\n 'table' num [1:4, 1:4] 1 2 1 0 3 3 6 1 10 10 ...\n - attr(*, \"dimnames\")=List of 2\n  ..$ income      : chr [1:4] \"&lt; 15k\" \"15-25k\" \"25-40k\" \"&gt; 40k\"\n  ..$ satisfaction: chr [1:4] \"VeryD\" \"LittleD\" \"ModerateS\" \"VeryS\"\n\nJobSat\n\n        satisfaction\nincome   VeryD LittleD ModerateS VeryS\n  &lt; 15k      1       3        10     6\n  15-25k     2       3        10     7\n  25-40k     1       6        14    12\n  &gt; 40k      0       1         9    11",
+    "text": "2 Categorical Data Forms\n\n2.1 Case-Form\n\npresented as a dataframe with factors (categorical) and numerical values.\n\n\nlibrary(vcd)\nnames(Arthritis)\n\n[1] \"ID\"        \"Treatment\" \"Sex\"       \"Age\"       \"Improved\" \n\nstr(Arthritis)\n\n'data.frame':   84 obs. of  5 variables:\n $ ID       : int  57 46 77 17 36 23 75 39 33 55 ...\n $ Treatment: Factor w/ 2 levels \"Placebo\",\"Treated\": 2 2 2 2 2 2 2 2 2 2 ...\n $ Sex      : Factor w/ 2 levels \"Female\",\"Male\": 2 2 2 2 2 2 2 2 2 2 ...\n $ Age      : int  27 29 30 32 46 58 59 59 63 63 ...\n $ Improved : Ord.factor w/ 3 levels \"None\"&lt;\"Some\"&lt;..: 2 1 1 3 3 3 1 3 1 1 ...\n\nhead(Arthritis)\n\n  ID Treatment  Sex Age Improved\n1 57   Treated Male  27     Some\n2 46   Treated Male  29     None\n3 77   Treated Male  30     None\n4 17   Treated Male  32   Marked\n5 36   Treated Male  46   Marked\n6 23   Treated Male  58   Marked\n\n\n\n\n2.2 Frequency-form\n\nhere we use the expand.grid function to enter data\nusually has a count or frequency column\n\n\n# Agresti table 3.11 p.106\n# a 2x3 dataframe\n\nGSS &lt;- data.frame(\n  expand.grid(sex=c(\"female\",\"male\"),\n              party=c(\"dem\",\"indep\",\"rep\")),\n  count = c(279,165,73,47,225,191)\n)\nGSS\n\n     sex party count\n1 female   dem   279\n2   male   dem   165\n3 female indep    73\n4   male indep    47\n5 female   rep   225\n6   male   rep   191\n\nnames(GSS)\n\n[1] \"sex\"   \"party\" \"count\"\n\nstr(GSS)\n\n'data.frame':   6 obs. of  3 variables:\n $ sex  : Factor w/ 2 levels \"female\",\"male\": 1 2 1 2 1 2\n $ party: Factor w/ 3 levels \"dem\",\"indep\",..: 1 1 2 2 3 3\n $ count: num  279 165 73 47 225 191\n\nsum(GSS$count)\n\n[1] 980\n\n\n\n\n2.3 Table Form\n\n# Example 1 - HairEyeColor\n# 3-way (or 3 factors) table\n# HairEyeColor is already in table form\n\nstr(HairEyeColor)\n\n 'table' num [1:4, 1:4, 1:2] 32 53 10 3 11 50 10 30 10 25 ...\n - attr(*, \"dimnames\")=List of 3\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Eye : chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n\nhead(HairEyeColor)\n\n, , Sex = Male\n\n       Eye\nHair    Brown Blue Hazel Green\n  Black    32   11    10     3\n  Brown    53   50    25    15\n  Red      10   10     7     7\n  Blond     3   30     5     8\n\n, , Sex = Female\n\n       Eye\nHair    Brown Blue Hazel Green\n  Black    36    9     5     2\n  Brown    66   34    29    14\n  Red      16    7     7     7\n  Blond     4   64     5     8\n\n# another representation\nftable(HairEyeColor)\n\n            Sex Male Female\nHair  Eye                  \nBlack Brown       32     36\n      Blue        11      9\n      Hazel       10      5\n      Green        3      2\nBrown Brown       53     66\n      Blue        50     34\n      Hazel       25     29\n      Green       15     14\nRed   Brown       10     16\n      Blue        10      7\n      Hazel        7      7\n      Green        7      7\nBlond Brown        3      4\n      Blue        30     64\n      Hazel        5      5\n      Green        8      8\n\nsum(HairEyeColor)\n\n[1] 592\n\nsapply(dimnames(HairEyeColor),length)\n\nHair  Eye  Sex \n   4    4    2 \n\n\n\n2.3.1 Structable table\n\n# structable representation\n# 3-way table\n\nstbl &lt;- structable(HairEyeColor)\nstr(stbl)\n\n num [1:8, 1:4] 32 36 53 66 10 16 3 4 11 9 ...\n - attr(*, \"dnames\")=List of 3\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Eye : chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n - attr(*, \"split_vertical\")= logi [1:3] FALSE TRUE FALSE\n - attr(*, \"col.vars\")=List of 1\n  ..$ Eye: chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n - attr(*, \"row.vars\")=List of 2\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n\nstbl\n\n             Eye Brown Blue Hazel Green\nHair  Sex                              \nBlack Male          32   11    10     3\n      Female        36    9     5     2\nBrown Male          53   50    25    15\n      Female        66   34    29    14\nRed   Male          10   10     7     7\n      Female        16    7     7     7\nBlond Male           3   30     5     8\n      Female         4   64     5     8\n\nHS &lt;- structable(Sex~Hair, HairEyeColor)\nHS\n\n      Sex Male Female\nHair                 \nBlack       56     52\nBrown      143    143\nRed         34     37\nBlond       46     81\n\nmosaic(HS)\n\n\n\n\n\n\n\nHSE &lt;- structable(Hair+Sex ~ Eye, HairEyeColor)\nHSE\n\n      Hair Black        Brown         Red        Blond       \n      Sex   Male Female  Male Female Male Female  Male Female\nEye                                                          \nBrown         32     36    53     66   10     16     3      4\nBlue          11      9    50     34   10      7    30     64\nHazel         10      5    25     29    7      7     5      5\nGreen          3      2    15     14    7      7     8      8\n\n\n\n\n2.3.2 Matrix table\n\n# Example 2 - JobSat\n# 2-way (or 2 factors) table\n\nJobSat &lt;- matrix(c(1,2,1,0, 3,3,6,1, 10,10,14,9, 6,7,12,11), 4, 4)\ndimnames(JobSat) = list(income=c(\"&lt; 15k\", \"15-25k\", \"25-40k\", \"&gt; 40k\"),\nsatisfaction=c(\"VeryD\", \"LittleD\", \"ModerateS\", \"VeryS\"))\nJobSat\n\n        satisfaction\nincome   VeryD LittleD ModerateS VeryS\n  &lt; 15k      1       3        10     6\n  15-25k     2       3        10     7\n  25-40k     1       6        14    12\n  &gt; 40k      0       1         9    11\n\nJobSat &lt;- as.table(JobSat)\nstr(JobSat)\n\n 'table' num [1:4, 1:4] 1 2 1 0 3 3 6 1 10 10 ...\n - attr(*, \"dimnames\")=List of 2\n  ..$ income      : chr [1:4] \"&lt; 15k\" \"15-25k\" \"25-40k\" \"&gt; 40k\"\n  ..$ satisfaction: chr [1:4] \"VeryD\" \"LittleD\" \"ModerateS\" \"VeryS\"\n\nJobSat\n\n        satisfaction\nincome   VeryD LittleD ModerateS VeryS\n  &lt; 15k      1       3        10     6\n  15-25k     2       3        10     7\n  25-40k     1       6        14    12\n  &gt; 40k      0       1         9    11",
     "crumbs": [
-      "Tables",
+      "DataTables",
       "vcd"
     ]
   },
@@ -2730,7 +2730,345 @@
     "objectID": "tables/vcd.html#case-form",
     "href": "tables/vcd.html#case-form",
     "title": "vcd",
-    "section": "3 1. Case-Form",
-    "text": "3 1. Case-Form\n\npresented as a dataframe with factors (categorical) and numerical values.\n\n\nlibrary(vcd)\nnames(Arthritis)\n\n[1] \"ID\"        \"Treatment\" \"Sex\"       \"Age\"       \"Improved\" \n\nstr(Arthritis)\n\n'data.frame':   84 obs. of  5 variables:\n $ ID       : int  57 46 77 17 36 23 75 39 33 55 ...\n $ Treatment: Factor w/ 2 levels \"Placebo\",\"Treated\": 2 2 2 2 2 2 2 2 2 2 ...\n $ Sex      : Factor w/ 2 levels \"Female\",\"Male\": 2 2 2 2 2 2 2 2 2 2 ...\n $ Age      : int  27 29 30 32 46 58 59 59 63 63 ...\n $ Improved : Ord.factor w/ 3 levels \"None\"&lt;\"Some\"&lt;..: 2 1 1 3 3 3 1 3 1 1 ...\n\nhead(Arthritis)\n\n  ID Treatment  Sex Age Improved\n1 57   Treated Male  27     Some\n2 46   Treated Male  29     None\n3 77   Treated Male  30     None\n4 17   Treated Male  32   Marked\n5 36   Treated Male  46   Marked\n6 23   Treated Male  58   Marked\n\n\n\n3.1 2. Frequency-form\n\nhere we use the expand.grid function to enter data\n\n\n# Agresti table 3.11 p.106\n# a 3x2 factor table\n\nGSS &lt;- data.frame(\n  expand.grid(sex=c(\"female\",\"male\"),\n              party=c(\"dem\",\"indep\",\"rep\")),\n  count = c(279,165,73,47,225,191)\n)\nGSS\n\n     sex party count\n1 female   dem   279\n2   male   dem   165\n3 female indep    73\n4   male indep    47\n5 female   rep   225\n6   male   rep   191\n\nnames(GSS)\n\n[1] \"sex\"   \"party\" \"count\"\n\nstr(GSS)\n\n'data.frame':   6 obs. of  3 variables:\n $ sex  : Factor w/ 2 levels \"female\",\"male\": 1 2 1 2 1 2\n $ party: Factor w/ 3 levels \"dem\",\"indep\",..: 1 1 2 2 3 3\n $ count: num  279 165 73 47 225 191\n\nsum(GSS$count)\n\n[1] 980"
+    "section": "2 Case-Form",
+    "text": "2 Case-Form\n\npresented as a dataframe with factors (categorical) and numerical values.\n\n\n\nCode\n# Data as data.frame\n\ndf &lt;- read.table(header=TRUE, text=\"\nID Treatment    Sex Age Improved\n57   placebo   male  27     Some\n46   treated female  29     None\n77   treated female  30   Marked\n17   treated female  32     None\n36   placebo   male  46     Some\n23   treated   male  38   Marked \")\ndf$Sex&lt;-as.factor(df$Sex)\ndf$Treatment&lt;-as.factor(df$Treatment)\ndf$Improved&lt;-factor(df$Improved, ordered=TRUE, levels=c(\"None\",\"Some\",\"Marked\"))\n\nstr(df)\n\n\n'data.frame':   6 obs. of  5 variables:\n $ ID       : int  57 46 77 17 36 23\n $ Treatment: Factor w/ 2 levels \"placebo\",\"treated\": 1 2 2 2 1 2\n $ Sex      : Factor w/ 2 levels \"female\",\"male\": 2 1 1 1 2 2\n $ Age      : int  27 29 30 32 46 38\n $ Improved : Ord.factor w/ 3 levels \"None\"&lt;\"Some\"&lt;..: 2 1 3 1 2 3\n\n\nCode\ndf\n\n\n  ID Treatment    Sex Age Improved\n1 57   placebo   male  27     Some\n2 46   treated female  29     None\n3 77   treated female  30   Marked\n4 17   treated female  32     None\n5 36   placebo   male  46     Some\n6 23   treated   male  38   Marked",
+    "crumbs": [
+      "DataTables",
+      "vcd"
+    ]
+  },
+  {
+    "objectID": "tables/vcd.html#frequency-form",
+    "href": "tables/vcd.html#frequency-form",
+    "title": "vcd",
+    "section": "3 Frequency-form",
+    "text": "3 Frequency-form\n\npresented as a dataframe that has a count or frequency column\n\n\nlibrary(vcd)\n# Agresti table 3.11 p.106\n# a 2x3 dataframe\n\nGSS &lt;- data.frame(\n  expand.grid(sex=c(\"female\",\"male\"),\n              party=c(\"dem\",\"indep\",\"rep\")),\n  count = c(279,165,73,47,225,191)\n)\nGSS\n\n     sex party count\n1 female   dem   279\n2   male   dem   165\n3 female indep    73\n4   male indep    47\n5 female   rep   225\n6   male   rep   191\n\n# usually we would want to have cross tabulations\n# using xtabs\nxt &lt;- xtabs(count ~sex+party, data=GSS)\nxt\n\n        party\nsex      dem indep rep\n  female 279    73 225\n  male   165    47 191\n\n# or we want to have addmargins\naddmargins(xt)\n\n        party\nsex      dem indep rep Sum\n  female 279    73 225 577\n  male   165    47 191 403\n  Sum    444   120 416 980",
+    "crumbs": [
+      "DataTables",
+      "vcd"
+    ]
+  },
+  {
+    "objectID": "tables/vcd.html#table-form",
+    "href": "tables/vcd.html#table-form",
+    "title": "vcd",
+    "section": "4 Table Form",
+    "text": "4 Table Form\n\n# Example 1 - HairEyeColor\n# 3-way (or 3 factors) table\n# HairEyeColor is already in table form\n\nstr(HairEyeColor)\n\n 'table' num [1:4, 1:4, 1:2] 32 53 10 3 11 50 10 30 10 25 ...\n - attr(*, \"dimnames\")=List of 3\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Eye : chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n\nhead(HairEyeColor)\n\n, , Sex = Male\n\n       Eye\nHair    Brown Blue Hazel Green\n  Black    32   11    10     3\n  Brown    53   50    25    15\n  Red      10   10     7     7\n  Blond     3   30     5     8\n\n, , Sex = Female\n\n       Eye\nHair    Brown Blue Hazel Green\n  Black    36    9     5     2\n  Brown    66   34    29    14\n  Red      16    7     7     7\n  Blond     4   64     5     8\n\n# another representation\nftable(HairEyeColor)\n\n            Sex Male Female\nHair  Eye                  \nBlack Brown       32     36\n      Blue        11      9\n      Hazel       10      5\n      Green        3      2\nBrown Brown       53     66\n      Blue        50     34\n      Hazel       25     29\n      Green       15     14\nRed   Brown       10     16\n      Blue        10      7\n      Hazel        7      7\n      Green        7      7\nBlond Brown        3      4\n      Blue        30     64\n      Hazel        5      5\n      Green        8      8\n\nsum(HairEyeColor)\n\n[1] 592\n\nsapply(dimnames(HairEyeColor),length)\n\nHair  Eye  Sex \n   4    4    2 \n\n\n\n4.1 Structable table\n\n# structable representation\n# 3-way table\n\nstbl &lt;- structable(HairEyeColor)\nstr(stbl)\n\n num [1:8, 1:4] 32 36 53 66 10 16 3 4 11 9 ...\n - attr(*, \"dnames\")=List of 3\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Eye : chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n - attr(*, \"split_vertical\")= logi [1:3] FALSE TRUE FALSE\n - attr(*, \"col.vars\")=List of 1\n  ..$ Eye: chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n - attr(*, \"row.vars\")=List of 2\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n\nstbl\n\n             Eye Brown Blue Hazel Green\nHair  Sex                              \nBlack Male          32   11    10     3\n      Female        36    9     5     2\nBrown Male          53   50    25    15\n      Female        66   34    29    14\nRed   Male          10   10     7     7\n      Female        16    7     7     7\nBlond Male           3   30     5     8\n      Female         4   64     5     8\n\nHS &lt;- structable(Sex~Hair, HairEyeColor)\nHS\n\n      Sex Male Female\nHair                 \nBlack       56     52\nBrown      143    143\nRed         34     37\nBlond       46     81\n\nmosaic(HS)\n\n\n\n\n\n\n\nHSE &lt;- structable(Hair+Sex ~ Eye, HairEyeColor)\nHSE\n\n      Hair Black        Brown         Red        Blond       \n      Sex   Male Female  Male Female Male Female  Male Female\nEye                                                          \nBrown         32     36    53     66   10     16     3      4\nBlue          11      9    50     34   10      7    30     64\nHazel         10      5    25     29    7      7     5      5\nGreen          3      2    15     14    7      7     8      8\n\n\n\n\n4.2 Matrix table\n\n# Example 2 - JobSat\n# 2-way (or 2 factors) table\n\nJobSat &lt;- matrix(c(1,2,1,0, 3,3,6,1, 10,10,14,9, 6,7,12,11), 4, 4)\ndimnames(JobSat) = list(income=c(\"&lt; 15k\", \"15-25k\", \"25-40k\", \"&gt; 40k\"),\nsatisfaction=c(\"VeryD\", \"LittleD\", \"ModerateS\", \"VeryS\"))\nJobSat\n\n        satisfaction\nincome   VeryD LittleD ModerateS VeryS\n  &lt; 15k      1       3        10     6\n  15-25k     2       3        10     7\n  25-40k     1       6        14    12\n  &gt; 40k      0       1         9    11\n\nJobSat &lt;- as.table(JobSat)\nstr(JobSat)\n\n 'table' num [1:4, 1:4] 1 2 1 0 3 3 6 1 10 10 ...\n - attr(*, \"dimnames\")=List of 2\n  ..$ income      : chr [1:4] \"&lt; 15k\" \"15-25k\" \"25-40k\" \"&gt; 40k\"\n  ..$ satisfaction: chr [1:4] \"VeryD\" \"LittleD\" \"ModerateS\" \"VeryS\"\n\nJobSat\n\n        satisfaction\nincome   VeryD LittleD ModerateS VeryS\n  &lt; 15k      1       3        10     6\n  15-25k     2       3        10     7\n  25-40k     1       6        14    12\n  &gt; 40k      0       1         9    11",
+    "crumbs": [
+      "DataTables",
+      "vcd"
+    ]
+  },
+  {
+    "objectID": "datatables/createTable.html",
+    "href": "datatables/createTable.html",
+    "title": "createTable",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(data.table)\nlibrary(MASS)"
+  },
+  {
+    "objectID": "datatables/createTable.html#library",
+    "href": "datatables/createTable.html#library",
+    "title": "createTable",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(data.table)\nlibrary(MASS)"
+  },
+  {
+    "objectID": "datatables/createTable.html#data",
+    "href": "datatables/createTable.html#data",
+    "title": "createTable",
+    "section": "2 Data",
+    "text": "2 Data\nDevore Example 12.10\n3x3 table\n\nProd Blemish Crack Location Missing Others\nP1    34      65      17      21      13\nP2    33      52      25      19      6\nP3    32      28      16      14      10\n\n# vectors\nBlemish &lt;- c(34,33,32)\nCrack &lt;- c(65,52,28)\nLocation &lt;- c(17,25,16)\nMissing &lt;- c(21,19,14)\nOthers &lt;- c(13,6,10)\ndtable = data.table(Blemish, Crack, Location, Missing, Others)\ndf &lt;- data.frame(dtable)\ndtable\n\n   Blemish Crack Location Missing Others\n     &lt;num&gt; &lt;num&gt;    &lt;num&gt;   &lt;num&gt;  &lt;num&gt;\n1:      34    65       17      21     13\n2:      33    52       25      19      6\n3:      32    28       16      14     10\n\nstr(dtable)\n\nClasses 'data.table' and 'data.frame':  3 obs. of  5 variables:\n $ Blemish : num  34 33 32\n $ Crack   : num  65 52 28\n $ Location: num  17 25 16\n $ Missing : num  21 19 14\n $ Others  : num  13 6 10\n - attr(*, \".internal.selfref\")=&lt;externalptr&gt; \n\nstr(df)\n\n'data.frame':   3 obs. of  5 variables:\n $ Blemish : num  34 33 32\n $ Crack   : num  65 52 28\n $ Location: num  17 25 16\n $ Missing : num  21 19 14\n $ Others  : num  13 6 10"
+  },
+  {
+    "objectID": "datatables/aggregation.html",
+    "href": "datatables/aggregation.html",
+    "title": "xtabs",
+    "section": "",
+    "text": "library(tidyverse)\n\n\n\n\ndf1 &lt;- data.frame(Reference = c(\"KRXH\", \"KRPT\", \"FHRA\", \"CZKK\", \"CQTN\", \"PZXW\", \"SZRZ\", \"RMZE\", \"STNX\", \"TMDW\"), Status = c(\"Accepted\", \"Accepted\", \"Rejected\", \"Accepted\", \"Rejected\", \"Accepted\", \"Rejected\", \"Rejected\", \"Accepted\", \"Accepted\"), Gender = c(\"Female\", \"Male\", \"Male\", \"Female\", \"Female\", \"Female\", \"Male\", \"Female\", \"Female\", \"Female\"), Test = c(\"Test1\", \"Test1\", \"Test2\", \"Test3\", \"Test1\", \"Test4\", \"Test4\", \"Test2\", \"Test3\", \"Test1\"), NewOrFollowUp = c(\"New\", \"New\", \"New\", \"New\", \"New\", \"Follow-up\", \"New\", \"New\", \"New\", \"New\"))\ndf1\n\n   Reference   Status Gender  Test NewOrFollowUp\n1       KRXH Accepted Female Test1           New\n2       KRPT Accepted   Male Test1           New\n3       FHRA Rejected   Male Test2           New\n4       CZKK Accepted Female Test3           New\n5       CQTN Rejected Female Test1           New\n6       PZXW Accepted Female Test4     Follow-up\n7       SZRZ Rejected   Male Test4           New\n8       RMZE Rejected Female Test2           New\n9       STNX Accepted Female Test3           New\n10      TMDW Accepted Female Test1           New"
+  },
+  {
+    "objectID": "datatables/aggregation.html#libraries",
+    "href": "datatables/aggregation.html#libraries",
+    "title": "xtabs",
+    "section": "",
+    "text": "library(tidyverse)\n\n\n\n\ndf1 &lt;- data.frame(Reference = c(\"KRXH\", \"KRPT\", \"FHRA\", \"CZKK\", \"CQTN\", \"PZXW\", \"SZRZ\", \"RMZE\", \"STNX\", \"TMDW\"), Status = c(\"Accepted\", \"Accepted\", \"Rejected\", \"Accepted\", \"Rejected\", \"Accepted\", \"Rejected\", \"Rejected\", \"Accepted\", \"Accepted\"), Gender = c(\"Female\", \"Male\", \"Male\", \"Female\", \"Female\", \"Female\", \"Male\", \"Female\", \"Female\", \"Female\"), Test = c(\"Test1\", \"Test1\", \"Test2\", \"Test3\", \"Test1\", \"Test4\", \"Test4\", \"Test2\", \"Test3\", \"Test1\"), NewOrFollowUp = c(\"New\", \"New\", \"New\", \"New\", \"New\", \"Follow-up\", \"New\", \"New\", \"New\", \"New\"))\ndf1\n\n   Reference   Status Gender  Test NewOrFollowUp\n1       KRXH Accepted Female Test1           New\n2       KRPT Accepted   Male Test1           New\n3       FHRA Rejected   Male Test2           New\n4       CZKK Accepted Female Test3           New\n5       CQTN Rejected Female Test1           New\n6       PZXW Accepted Female Test4     Follow-up\n7       SZRZ Rejected   Male Test4           New\n8       RMZE Rejected Female Test2           New\n9       STNX Accepted Female Test3           New\n10      TMDW Accepted Female Test1           New"
+  },
+  {
+    "objectID": "datatables/aggregation.html#xtabs---uses-formula-style",
+    "href": "datatables/aggregation.html#xtabs---uses-formula-style",
+    "title": "xtabs",
+    "section": "2 xtabs - uses formula style",
+    "text": "2 xtabs - uses formula style\n\n2.1 count the levels in the variable Status\n\n# find the count of levels in the variable, “Status\nxtabs(~ Status, data=df1)\n\nStatus\nAccepted Rejected \n       6        4 \n\n\n\n\n2.2 create a table of Reference vs `Status`\n\nxtabs(~ Reference + Status, data=df1)\n\n         Status\nReference Accepted Rejected\n     CQTN        0        1\n     CZKK        1        0\n     FHRA        0        1\n     KRPT        1        0\n     KRXH        1        0\n     PZXW        1        0\n     RMZE        0        1\n     STNX        1        0\n     SZRZ        0        1\n     TMDW        1        0\n\n\n\n\n2.3 create a 3-dim table of Status, Gender and Test\n\nxt &lt;- xtabs(~ Status+Gender+Test, data=df1)\nxt\n\n, , Test = Test1\n\n          Gender\nStatus     Female Male\n  Accepted      2    1\n  Rejected      1    0\n\n, , Test = Test2\n\n          Gender\nStatus     Female Male\n  Accepted      0    0\n  Rejected      1    1\n\n, , Test = Test3\n\n          Gender\nStatus     Female Male\n  Accepted      2    0\n  Rejected      0    0\n\n, , Test = Test4\n\n          Gender\nStatus     Female Male\n  Accepted      1    0\n  Rejected      0    1\n\n\n\n\n2.4 using ftable (flattening)\n\nftable(xt)\n\n                Test Test1 Test2 Test3 Test4\nStatus   Gender                             \nAccepted Female          2     0     2     1\n         Male            1     0     0     0\nRejected Female          1     1     0     0\n         Male            0     1     0     1\n\n\n\n\n2.5 two-variables table\n\nxtabs(~Status+Gender, data=df1)\n\n          Gender\nStatus     Female Male\n  Accepted      5    1\n  Rejected      2    2\n\n\n\n\n2.6 plot cross-tabulations\n\nplot(xtabs(~Status+Gender, data=df1))"
+  },
+  {
+    "objectID": "datatables/frequency.html",
+    "href": "datatables/frequency.html",
+    "title": "frequency",
+    "section": "",
+    "text": "Code\nlibrary(tidyverse)\ntb &lt;- read_csv(\"id, gender, lgrades\n  SD101, M, C+\n  SD102, F, F\n  SD103, F, B\n  SD104, F, A+\n  SD105, M, B\n  SD106, F, B-\n  SD107, M, A\n  SD108, M, C\n  SD109, M, B-\n  SD110, M, B-\n\")\nlvlgender= c(\"M\",\"F\")\nlvlgrades= c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender&lt;-factor(tb$gender, lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades,lvlgrades)\n\n\n\ntb\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-"
+  },
+  {
+    "objectID": "datatables/frequency.html#one-way-contingency-table-grades",
+    "href": "datatables/frequency.html#one-way-contingency-table-grades",
+    "title": "frequency",
+    "section": "1 One-way contingency table (grades)",
+    "text": "1 One-way contingency table (grades)\n\n# use table function to count frequency in lgrades\ntblfreq &lt;- table(tb$lgrades) \ntblfreq\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\n\n\n# redo table back into a dataframe\ndf &lt;- data.frame(tblfreq)\nnames(df) &lt;- c(\"grades\",\"freq\")\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1"
+  },
+  {
+    "objectID": "datatables/frequency.html#two-way-contingency-table-gender-grades",
+    "href": "datatables/frequency.html#two-way-contingency-table-gender-grades",
+    "title": "frequency",
+    "section": "2 Two-way Contingency table (gender-grades)",
+    "text": "2 Two-way Contingency table (gender-grades)\n\ntwoWay &lt;- table(tb$gender,tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  2  1 1  0 0 0\n  F  1 0  0  0 1  1  0 0  0 0 1"
+  },
+  {
+    "objectID": "datatables/contingency.html",
+    "href": "datatables/contingency.html",
+    "title": "2x2 Contingency Table",
+    "section": "",
+    "text": "library(tidyverse)"
+  },
+  {
+    "objectID": "datatables/contingency.html#libraries",
+    "href": "datatables/contingency.html#libraries",
+    "title": "2x2 Contingency Table",
+    "section": "",
+    "text": "library(tidyverse)"
+  },
+  {
+    "objectID": "datatables/contingency.html#using-matrix",
+    "href": "datatables/contingency.html#using-matrix",
+    "title": "2x2 Contingency Table",
+    "section": "2 Using matrix",
+    "text": "2 Using matrix\n\n# Matrix: using nrows\nM1 &lt;- matrix(\n c(327,50,31,192),nrow=2,byrow=TRUE)\ncolnames(M1) &lt;- c(\"Disease\",\"NoDisease\")\nrownames(M1) &lt;- c(\"Positive\",\"Negative\")\nM1\n\n         Disease NoDisease\nPositive     327        50\nNegative      31       192\n\nclass(M1)\n\n[1] \"matrix\" \"array\""
+  },
+  {
+    "objectID": "datatables/contingency.html#using-cbind-or-rbind",
+    "href": "datatables/contingency.html#using-cbind-or-rbind",
+    "title": "2x2 Contingency Table",
+    "section": "3 Using cbind (or rbind)",
+    "text": "3 Using cbind (or rbind)\n\nM2 &lt;- cbind(c(327,31),c(50,192))\ndimnames(M2) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nM2\n\n         Disease NoDisease\nPositive     327        50\nNegative      31       192\n\nclass(M2)\n\n[1] \"matrix\" \"array\""
+  },
+  {
+    "objectID": "datatables/contingency.html#using-dim",
+    "href": "datatables/contingency.html#using-dim",
+    "title": "2x2 Contingency Table",
+    "section": "4 Using dim",
+    "text": "4 Using dim\n\nM3 &lt;- c(327,50,31,192)\ndim(M3) &lt;- c(2,2)\ndimnames(M3) = list(c(\"Positive\",\"Negative\"),c(\"Disease\",\"NoDisease\"))\nM3\n\n         Disease NoDisease\nPositive     327        31\nNegative      50       192\n\nclass(M3)\n\n[1] \"matrix\" \"array\""
+  },
+  {
+    "objectID": "datatables/contingency.html#simple-table-from-a-dataframe",
+    "href": "datatables/contingency.html#simple-table-from-a-dataframe",
+    "title": "2x2 Contingency Table",
+    "section": "5 Simple Table from a dataframe",
+    "text": "5 Simple Table from a dataframe\n\ndf &lt;- data.frame(\n  c(327,50),\n  c(50,192)\n)\ncolnames(df) &lt;- c(\"Disease\",\"NoDisease\")\nrownames(df) &lt;- c(\"Positive\",\"Negative\")\ndf\n\n         Disease NoDisease\nPositive     327        50\nNegative      50       192\n\nclass(df)\n\n[1] \"data.frame\"\n\ntab &lt;- as.table(as.matrix(df))\ntab\n\n         Disease NoDisease\nPositive     327        50\nNegative      50       192\n\nclass(tab)\n\n[1] \"table\"\n\naddmargins(tab)\n\n         Disease NoDisease Sum\nPositive     327        50 377\nNegative      50       192 242\nSum          377       242 619"
+  },
+  {
+    "objectID": "datatables/contingency.html#xtabs-require-dataframe-or-tibble",
+    "href": "datatables/contingency.html#xtabs-require-dataframe-or-tibble",
+    "title": "2x2 Contingency Table",
+    "section": "6 xtabs require dataframe or tibble",
+    "text": "6 xtabs require dataframe or tibble\n\n# tribble is easier to enter table values by rows\ndf2 &lt;-tribble(\n  ~Predicted, ~Actual, ~Values,\n  \"Positive\", \"Disease\", 327,\n  \"Positive\", \"NoDisease\", 50,\n  \"Negative\", \"Disease\", 50,\n  \"Negative\", \"NoDisease\", 192\n)\ndf2\n\n# A tibble: 4 × 3\n  Predicted Actual    Values\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;\n1 Positive  Disease      327\n2 Positive  NoDisease     50\n3 Negative  Disease       50\n4 Negative  NoDisease    192\n\n# xtabs require a dataframe or tibble, returns table\ntab2 &lt;- xtabs( Values ~ Predicted + Actual, data=df2)\naddmargins(tab2)\n\n          Actual\nPredicted  Disease NoDisease Sum\n  Negative      50       192 242\n  Positive     327        50 377\n  Sum          377       242 619\n\nclass(tab2)\n\n[1] \"xtabs\" \"table\"\n\n# a nicer table (maybe)\nftable(tab2)\n\n          Actual Disease NoDisease\nPredicted                         \nNegative              50       192\nPositive             327        50"
+  },
+  {
+    "objectID": "datatables/gt.html",
+    "href": "datatables/gt.html",
+    "title": "gt",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(gt)"
+  },
+  {
+    "objectID": "datatables/gt.html#another-table",
+    "href": "datatables/gt.html#another-table",
+    "title": "gt",
+    "section": "Another table",
+    "text": "Another table\n\ndf &lt;- read_csv(\"Predicted, Actual, Values\n               Positive, Disease, 327\n               Positive, NoDisease, 50\n               Negative, Disease, 50\n               Negative, NoDisease, 192\n               \")\ndf$Predicted &lt;- as.factor(df$Predicted)\ndf$Actual &lt;- as.factor(df$Actual)\ndf\n\n# A tibble: 4 × 3\n  Predicted Actual    Values\n  &lt;fct&gt;     &lt;fct&gt;      &lt;dbl&gt;\n1 Positive  Disease      327\n2 Positive  NoDisease     50\n3 Negative  Disease       50\n4 Negative  NoDisease    192\n\ngt(df)\n\n\n\n\n\n\n\nPredicted\nActual\nValues\n\n\n\n\nPositive\nDisease\n327\n\n\nPositive\nNoDisease\n50\n\n\nNegative\nDisease\n50\n\n\nNegative\nNoDisease\n192\n\n\n\n\n\n\n\n\nggplot(df, aes(x=Actual, y=Values, fill=Predicted))+\n  geom_col(position=\"dodge\",color=\"gray\")+\n  scale_fill_manual(values=c(\"pink\", \"lightblue\"))"
+  },
+  {
+    "objectID": "datatables/dataTableEx.html",
+    "href": "datatables/dataTableEx.html",
+    "title": "dataTableExercises",
+    "section": "",
+    "text": "URL: https://www.machinelearningplus.com/data-manipulation/101-r-data-table-exercises/\n\n1. Install data.table\n\nlibrary(data.table)\n\n\n\n2. Create a data.table from lists\n\nlist_1 &lt;- c(\"a\",\"b\",\"c\",\"d\")\nlist_2 &lt;- c(\"1\",\"2\",\"3\",\"4\")\nlist_3 &lt;- c(\"aa\",\"bb\",\"cc\",\"dd\")\ndt2 &lt;- data.table(v1=list_1,v2=list_2,v3=list_3)\nclass(dt2)\n\n[1] \"data.table\" \"data.frame\"\n\ndt2\n\n       v1     v2     v3\n   &lt;char&gt; &lt;char&gt; &lt;char&gt;\n1:      a      1     aa\n2:      b      2     bb\n3:      c      3     cc\n4:      d      4     dd\n\n\n\n\n3. import BostonHousing dataset as a data.table\nhttps://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv\n\nmycsv&lt;-\"https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv\"\ndt3&lt;-fread(file=mycsv)\ndt3\n\n        crim    zn indus  chas   nox    rm   age    dis   rad   tax ptratio\n       &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;int&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;num&gt; &lt;int&gt; &lt;int&gt;   &lt;num&gt;\n  1: 0.00632    18  2.31     0 0.538 6.575  65.2 4.0900     1   296    15.3\n  2: 0.02731     0  7.07     0 0.469 6.421  78.9 4.9671     2   242    17.8\n  3: 0.02729     0  7.07     0 0.469 7.185  61.1 4.9671     2   242    17.8\n  4: 0.03237     0  2.18     0 0.458 6.998  45.8 6.0622     3   222    18.7\n  5: 0.06905     0  2.18     0 0.458 7.147  54.2 6.0622     3   222    18.7\n ---                                                                       \n502: 0.06263     0 11.93     0 0.573 6.593  69.1 2.4786     1   273    21.0\n503: 0.04527     0 11.93     0 0.573 6.120  76.7 2.2875     1   273    21.0\n504: 0.06076     0 11.93     0 0.573 6.976  91.0 2.1675     1   273    21.0\n505: 0.10959     0 11.93     0 0.573 6.794  89.3 2.3889     1   273    21.0\n506: 0.04741     0 11.93     0 0.573 6.030  80.8 2.5050     1   273    21.0\n          b lstat  medv\n      &lt;num&gt; &lt;num&gt; &lt;num&gt;\n  1: 396.90  4.98  24.0\n  2: 396.90  9.14  21.6\n  3: 392.83  4.03  34.7\n  4: 394.63  2.94  33.4\n  5: 396.90  5.33  36.2\n ---                   \n502: 391.99  9.67  22.4\n503: 396.90  9.08  20.6\n504: 396.90  5.64  23.9\n505: 393.45  6.48  22.0\n506: 396.90  7.88  11.9\n\n\n\n\n4. import only ‘n=50’ rows of BostonHousing\n\nfread(file=mycsv, nrows=50) |&gt; head()\n\n      crim    zn indus  chas   nox    rm   age    dis   rad   tax ptratio\n     &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;int&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;  &lt;num&gt; &lt;int&gt; &lt;int&gt;   &lt;num&gt;\n1: 0.00632    18  2.31     0 0.538 6.575  65.2 4.0900     1   296    15.3\n2: 0.02731     0  7.07     0 0.469 6.421  78.9 4.9671     2   242    17.8\n3: 0.02729     0  7.07     0 0.469 7.185  61.1 4.9671     2   242    17.8\n4: 0.03237     0  2.18     0 0.458 6.998  45.8 6.0622     3   222    18.7\n5: 0.06905     0  2.18     0 0.458 7.147  54.2 6.0622     3   222    18.7\n6: 0.02985     0  2.18     0 0.458 6.430  58.7 6.0622     3   222    18.7\n        b lstat  medv\n    &lt;num&gt; &lt;num&gt; &lt;num&gt;\n1: 396.90  4.98  24.0\n2: 396.90  9.14  21.6\n3: 392.83  4.03  34.7\n4: 394.63  2.94  33.4\n5: 396.90  5.33  36.2\n6: 394.12  5.21  28.7\n\n\n\n\n5. Import only crim and medv columns\n\nfread(file=mycsv, select=c('crim','medv')) |&gt; head()\n\n      crim  medv\n     &lt;num&gt; &lt;num&gt;\n1: 0.00632  24.0\n2: 0.02731  21.6\n3: 0.02729  34.7\n4: 0.03237  33.4\n5: 0.06905  36.2\n6: 0.02985  28.7\n\n\n\n\n6. get nrows, ncolumns, datatype and summary stats of each column of Cars93\n\nDT &lt;- fread('https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv')\nnrow(DT)\n\n[1] 506\n\nncol(DT)\n\n[1] 14\n\nsapply(DT, class)\n\n     crim        zn     indus      chas       nox        rm       age       dis \n\"numeric\" \"numeric\" \"numeric\" \"integer\" \"numeric\" \"numeric\" \"numeric\" \"numeric\" \n      rad       tax   ptratio         b     lstat      medv \n\"integer\" \"integer\" \"numeric\" \"numeric\" \"numeric\" \"numeric\" \n\nsummary(DT)\n\n      crim                zn             indus            chas        \n Min.   : 0.00632   Min.   :  0.00   Min.   : 0.46   Min.   :0.00000  \n 1st Qu.: 0.08205   1st Qu.:  0.00   1st Qu.: 5.19   1st Qu.:0.00000  \n Median : 0.25651   Median :  0.00   Median : 9.69   Median :0.00000  \n Mean   : 3.61352   Mean   : 11.36   Mean   :11.14   Mean   :0.06917  \n 3rd Qu.: 3.67708   3rd Qu.: 12.50   3rd Qu.:18.10   3rd Qu.:0.00000  \n Max.   :88.97620   Max.   :100.00   Max.   :27.74   Max.   :1.00000  \n      nox               rm             age              dis        \n Min.   :0.3850   Min.   :3.561   Min.   :  2.90   Min.   : 1.130  \n 1st Qu.:0.4490   1st Qu.:5.886   1st Qu.: 45.02   1st Qu.: 2.100  \n Median :0.5380   Median :6.208   Median : 77.50   Median : 3.207  \n Mean   :0.5547   Mean   :6.285   Mean   : 68.57   Mean   : 3.795  \n 3rd Qu.:0.6240   3rd Qu.:6.623   3rd Qu.: 94.08   3rd Qu.: 5.188  \n Max.   :0.8710   Max.   :8.780   Max.   :100.00   Max.   :12.127  \n      rad              tax           ptratio            b         \n Min.   : 1.000   Min.   :187.0   Min.   :12.60   Min.   :  0.32  \n 1st Qu.: 4.000   1st Qu.:279.0   1st Qu.:17.40   1st Qu.:375.38  \n Median : 5.000   Median :330.0   Median :19.05   Median :391.44  \n Mean   : 9.549   Mean   :408.2   Mean   :18.46   Mean   :356.67  \n 3rd Qu.:24.000   3rd Qu.:666.0   3rd Qu.:20.20   3rd Qu.:396.23  \n Max.   :24.000   Max.   :711.0   Max.   :22.00   Max.   :396.90  \n     lstat            medv      \n Min.   : 1.73   Min.   : 5.00  \n 1st Qu.: 6.95   1st Qu.:17.02  \n Median :11.36   Median :21.20  \n Mean   :12.65   Mean   :22.53  \n 3rd Qu.:16.95   3rd Qu.:25.00  \n Max.   :37.97   Max.   :50.00"
+  },
+  {
+    "objectID": "datatables/dataTableTut.html",
+    "href": "datatables/dataTableTut.html",
+    "title": "dataTable",
+    "section": "",
+    "text": "{library(tidyverse)}"
+  },
+  {
+    "objectID": "datatables/dataTableTut.html#data",
+    "href": "datatables/dataTableTut.html#data",
+    "title": "dataTable",
+    "section": "1 Data",
+    "text": "1 Data\n      ID Test1 Test2 Exam \n1  SD101    11    48   61    \n2  SD102     8    43   77    \n3  SD103    13    15   49    \n4  SD104    15    20   57    \n5  SD105    10    40   82     \n6  SD106    11    23   65     \n7  SD107     6    24   46    \n8  SD108    12    47   80     \n9  SD109    10    21   48     \n10 SD110     7    27   62     \n\n1.1 Create a data.table using fread\n\nlibrary(data.table)\ndt0 &lt;- fread(text = \"\nrow ID Test1 Test2 Exam \n1  SD101    11    48   61     \n2  SD102     8    43   77    \n3  SD103    13    15   49    \n4  SD104    15    20   57    \n5  SD105    10    40   82    \n6  SD106    11    23   65    \n7  SD107     6    24   46    \n8  SD108    12    47   80    \n9  SD109    10    21   48   \n10 SD110     7    27   62   \")\nclass(dt0)\n\n[1] \"data.table\" \"data.frame\"\n\n# remove the row column\ndt &lt;- dt0[,!\"row\", with=FALSE]\ndt\n\n        ID Test1 Test2  Exam\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1:  SD101    11    48    61\n 2:  SD102     8    43    77\n 3:  SD103    13    15    49\n 4:  SD104    15    20    57\n 5:  SD105    10    40    82\n 6:  SD106    11    23    65\n 7:  SD107     6    24    46\n 8:  SD108    12    47    80\n 9:  SD109    10    21    48\n10:  SD110     7    27    62\n\n\n\n\n1.2 Create a new data.table column\n(equivalent of mutate)\n\n # equivalent of mutate\ndt[, TotScore := Test1+0.4*Test2+0.6*Exam ]\ndt\n\n        ID Test1 Test2  Exam TotScore\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;\n 1:  SD101    11    48    61     66.8\n 2:  SD102     8    43    77     71.4\n 3:  SD103    13    15    49     48.4\n 4:  SD104    15    20    57     57.2\n 5:  SD105    10    40    82     75.2\n 6:  SD106    11    23    65     59.2\n 7:  SD107     6    24    46     43.2\n 8:  SD108    12    47    80     78.8\n 9:  SD109    10    21    48     47.2\n10:  SD110     7    27    62     55.0\n\n\n\n\n1.3 Read a data.table column\n\nscore &lt;- dt[,TotScore]\nscore\n\n [1] 66.8 71.4 48.4 57.2 75.2 59.2 43.2 78.8 47.2 55.0\n\n\n\n\n1.4 Using cut to data segment and assign letter grade\n\nbreaks&lt;- c(0,40,44,49,54,59,64,69,74,79,84,100)\nlabels&lt;-c(\"F\",\"D\",\"D+\",\"C\",\"C+\",\"B-\",\"B\",\"B+\",\"A-\",\"A\",\"A+\")\nlgrades&lt;-cut(score, breaks, labels, right=TRUE)\ndt[,Grade := lgrades]\ndt\n\n        ID Test1 Test2  Exam TotScore  Grade\n    &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;\n 1:  SD101    11    48    61     66.8      B\n 2:  SD102     8    43    77     71.4     B+\n 3:  SD103    13    15    49     48.4     D+\n 4:  SD104    15    20    57     57.2     C+\n 5:  SD105    10    40    82     75.2     A-\n 6:  SD106    11    23    65     59.2     B-\n 7:  SD107     6    24    46     43.2      D\n 8:  SD108    12    47    80     78.8     A-\n 9:  SD109    10    21    48     47.2     D+\n10:  SD110     7    27    62     55.0     C+\n\n\n\n\n1.5 Filtering rows - all B’s (B+,B,B-)\n\nBTerms &lt;- c(\"B+\",\"B\",\"B-\")\ndt[Grade %in% BTerms,]\n\n       ID Test1 Test2  Exam TotScore  Grade\n   &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;\n1:  SD101    11    48    61     66.8      B\n2:  SD102     8    43    77     71.4     B+\n3:  SD106    11    23    65     59.2     B-"
+  },
+  {
+    "objectID": "datatables/vcd.html",
+    "href": "datatables/vcd.html",
+    "title": "vcd",
+    "section": "",
+    "text": "vcd is a package from Friendly’s Discrete Data Analysis with R. The information here is extracted from Friendly’s tutorial on working with categorical data 1.",
+    "crumbs": [
+      "DataTables",
+      "vcd"
+    ]
+  },
+  {
+    "objectID": "datatables/vcd.html#library",
+    "href": "datatables/vcd.html#library",
+    "title": "vcd",
+    "section": "1 Library",
+    "text": "1 Library\n\nlibrary(tidyverse)",
+    "crumbs": [
+      "DataTables",
+      "vcd"
+    ]
+  },
+  {
+    "objectID": "datatables/vcd.html#case-form",
+    "href": "datatables/vcd.html#case-form",
+    "title": "vcd",
+    "section": "2 Case-Form",
+    "text": "2 Case-Form\n\npresented as a dataframe with factors (categorical) and numerical values.\n\n\n\nCode\n# Data as data.frame\n\ndf &lt;- read.table(header=TRUE, text=\"\nID Treatment    Sex Age Improved\n57   placebo   male  27     Some\n46   treated female  29     None\n77   treated female  30   Marked\n17   treated female  32     None\n36   placebo   male  46     Some\n23   treated   male  38   Marked \")\ndf$Sex&lt;-as.factor(df$Sex)\ndf$Treatment&lt;-as.factor(df$Treatment)\ndf$Improved&lt;-factor(df$Improved, ordered=TRUE, levels=c(\"None\",\"Some\",\"Marked\"))\n\nstr(df)\n\n\n'data.frame':   6 obs. of  5 variables:\n $ ID       : int  57 46 77 17 36 23\n $ Treatment: Factor w/ 2 levels \"placebo\",\"treated\": 1 2 2 2 1 2\n $ Sex      : Factor w/ 2 levels \"female\",\"male\": 2 1 1 1 2 2\n $ Age      : int  27 29 30 32 46 38\n $ Improved : Ord.factor w/ 3 levels \"None\"&lt;\"Some\"&lt;..: 2 1 3 1 2 3\n\n\nCode\ndf\n\n\n  ID Treatment    Sex Age Improved\n1 57   placebo   male  27     Some\n2 46   treated female  29     None\n3 77   treated female  30   Marked\n4 17   treated female  32     None\n5 36   placebo   male  46     Some\n6 23   treated   male  38   Marked",
+    "crumbs": [
+      "DataTables",
+      "vcd"
+    ]
+  },
+  {
+    "objectID": "datatables/vcd.html#frequency-form",
+    "href": "datatables/vcd.html#frequency-form",
+    "title": "vcd",
+    "section": "3 Frequency-form",
+    "text": "3 Frequency-form\n\npresented as a dataframe that has a count or frequency column\n\n\nlibrary(vcd)\n# Agresti table 3.11 p.106\n# a 2x3 dataframe\n\nGSS &lt;- data.frame(\n  expand.grid(sex=c(\"female\",\"male\"),\n              party=c(\"dem\",\"indep\",\"rep\")),\n  count = c(279,165,73,47,225,191)\n)\nGSS\n\n     sex party count\n1 female   dem   279\n2   male   dem   165\n3 female indep    73\n4   male indep    47\n5 female   rep   225\n6   male   rep   191\n\n# usually we would want to have cross tabulations\n# using xtabs\nxt &lt;- xtabs(count ~sex+party, data=GSS)\nxt\n\n        party\nsex      dem indep rep\n  female 279    73 225\n  male   165    47 191\n\n# or we want to have addmargins\naddmargins(xt)\n\n        party\nsex      dem indep rep Sum\n  female 279    73 225 577\n  male   165    47 191 403\n  Sum    444   120 416 980",
+    "crumbs": [
+      "DataTables",
+      "vcd"
+    ]
+  },
+  {
+    "objectID": "datatables/vcd.html#table-form",
+    "href": "datatables/vcd.html#table-form",
+    "title": "vcd",
+    "section": "4 Table Form",
+    "text": "4 Table Form\n\n# Example 1 - HairEyeColor\n# 3-way (or 3 factors) table\n# HairEyeColor is already in table form\n\nstr(HairEyeColor)\n\n 'table' num [1:4, 1:4, 1:2] 32 53 10 3 11 50 10 30 10 25 ...\n - attr(*, \"dimnames\")=List of 3\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Eye : chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n\nhead(HairEyeColor)\n\n, , Sex = Male\n\n       Eye\nHair    Brown Blue Hazel Green\n  Black    32   11    10     3\n  Brown    53   50    25    15\n  Red      10   10     7     7\n  Blond     3   30     5     8\n\n, , Sex = Female\n\n       Eye\nHair    Brown Blue Hazel Green\n  Black    36    9     5     2\n  Brown    66   34    29    14\n  Red      16    7     7     7\n  Blond     4   64     5     8\n\n# another representation\nftable(HairEyeColor)\n\n            Sex Male Female\nHair  Eye                  \nBlack Brown       32     36\n      Blue        11      9\n      Hazel       10      5\n      Green        3      2\nBrown Brown       53     66\n      Blue        50     34\n      Hazel       25     29\n      Green       15     14\nRed   Brown       10     16\n      Blue        10      7\n      Hazel        7      7\n      Green        7      7\nBlond Brown        3      4\n      Blue        30     64\n      Hazel        5      5\n      Green        8      8\n\nsum(HairEyeColor)\n\n[1] 592\n\nsapply(dimnames(HairEyeColor),length)\n\nHair  Eye  Sex \n   4    4    2 \n\n\n\n4.1 Structable table\n\n# structable representation\n# 3-way table\n\nstbl &lt;- structable(HairEyeColor)\nstr(stbl)\n\n num [1:8, 1:4] 32 36 53 66 10 16 3 4 11 9 ...\n - attr(*, \"dnames\")=List of 3\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Eye : chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n - attr(*, \"split_vertical\")= logi [1:3] FALSE TRUE FALSE\n - attr(*, \"col.vars\")=List of 1\n  ..$ Eye: chr [1:4] \"Brown\" \"Blue\" \"Hazel\" \"Green\"\n - attr(*, \"row.vars\")=List of 2\n  ..$ Hair: chr [1:4] \"Black\" \"Brown\" \"Red\" \"Blond\"\n  ..$ Sex : chr [1:2] \"Male\" \"Female\"\n\nstbl\n\n             Eye Brown Blue Hazel Green\nHair  Sex                              \nBlack Male          32   11    10     3\n      Female        36    9     5     2\nBrown Male          53   50    25    15\n      Female        66   34    29    14\nRed   Male          10   10     7     7\n      Female        16    7     7     7\nBlond Male           3   30     5     8\n      Female         4   64     5     8\n\nHS &lt;- structable(Sex~Hair, HairEyeColor)\nHS\n\n      Sex Male Female\nHair                 \nBlack       56     52\nBrown      143    143\nRed         34     37\nBlond       46     81\n\nmosaic(HS)\n\n\n\n\n\n\n\nHSE &lt;- structable(Hair+Sex ~ Eye, HairEyeColor)\nHSE\n\n      Hair Black        Brown         Red        Blond       \n      Sex   Male Female  Male Female Male Female  Male Female\nEye                                                          \nBrown         32     36    53     66   10     16     3      4\nBlue          11      9    50     34   10      7    30     64\nHazel         10      5    25     29    7      7     5      5\nGreen          3      2    15     14    7      7     8      8\n\n\n\n\n4.2 Matrix table\n\n# Example 2 - JobSat\n# 2-way (or 2 factors) table\n\nJobSat &lt;- matrix(c(1,2,1,0, 3,3,6,1, 10,10,14,9, 6,7,12,11), 4, 4)\ndimnames(JobSat) = list(income=c(\"&lt; 15k\", \"15-25k\", \"25-40k\", \"&gt; 40k\"),\nsatisfaction=c(\"VeryD\", \"LittleD\", \"ModerateS\", \"VeryS\"))\nJobSat\n\n        satisfaction\nincome   VeryD LittleD ModerateS VeryS\n  &lt; 15k      1       3        10     6\n  15-25k     2       3        10     7\n  25-40k     1       6        14    12\n  &gt; 40k      0       1         9    11\n\nJobSat &lt;- as.table(JobSat)\nstr(JobSat)\n\n 'table' num [1:4, 1:4] 1 2 1 0 3 3 6 1 10 10 ...\n - attr(*, \"dimnames\")=List of 2\n  ..$ income      : chr [1:4] \"&lt; 15k\" \"15-25k\" \"25-40k\" \"&gt; 40k\"\n  ..$ satisfaction: chr [1:4] \"VeryD\" \"LittleD\" \"ModerateS\" \"VeryS\"\n\nJobSat\n\n        satisfaction\nincome   VeryD LittleD ModerateS VeryS\n  &lt; 15k      1       3        10     6\n  15-25k     2       3        10     7\n  25-40k     1       6        14    12\n  &gt; 40k      0       1         9    11",
+    "crumbs": [
+      "DataTables",
+      "vcd"
+    ]
+  },
+  {
+    "objectID": "datatables/vcd.html#footnotes",
+    "href": "datatables/vcd.html#footnotes",
+    "title": "vcd",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nFriendly, M. (2013). Working with categorical data with R and the vcd and vcdExtra packages. Toronto: York University.↩︎",
+    "crumbs": [
+      "DataTables",
+      "vcd"
+    ]
+  },
+  {
+    "objectID": "datatables/dataTable.html",
+    "href": "datatables/dataTable.html",
+    "title": "dataTable",
+    "section": "",
+    "text": "dataTables are also dataframes and thus functions-methods on dataframes are also applicable to dataTables\nfread is very useful for data input",
+    "crumbs": [
+      "DataTables",
+      "dataTable"
+    ]
+  },
+  {
+    "objectID": "datatables/dataTable.html#library",
+    "href": "datatables/dataTable.html#library",
+    "title": "dataTable",
+    "section": "1 Library",
+    "text": "1 Library\n\nlibrary(tidyverse)\nlibrary(data.table)",
+    "crumbs": [
+      "DataTables",
+      "dataTable"
+    ]
+  },
+  {
+    "objectID": "datatables/dataTable.html#data",
+    "href": "datatables/dataTable.html#data",
+    "title": "dataTable",
+    "section": "2 Data",
+    "text": "2 Data\n   ID Gender Test1 Test2 Exam \n1  SD101 M  11    48   61    \n2  SD102 F   8    43   77    \n3  SD103 F  13    15   49    \n4  SD104 F  15    20   57    \n5  SD105 M  10    40   82     \n6  SD106 F  11    23   65     \n7  SD107 M   6    24   46    \n8  SD108 M  12    47   80     \n9  SD109 M  10    21   48     \n10 SD110 M   7    27   62     \n\n2.1 Method 1: create data.table using fread\n\nlibrary(data.table)\n\n# note row definition\ndt0 &lt;- fread(text = \"\nrow  ID Gender Test1 Test2 Exam \n1  SD101 M   11    48   61    \n2  SD102 F    8    43   77    \n3  SD103 F   13    15   49    \n4  SD104 F   15    20   57    \n5  SD105 M   10    40   82     \n6  SD106 F   11    23   65     \n7  SD107 M    6    24   46    \n8  SD108 M   12    47   80     \n9  SD109 M   10    21   48     \n10 SD110 M    7    27   62  \")\nclass(dt0)\n\n[1] \"data.table\" \"data.frame\"\n\n# remove the row column\ndt &lt;- dt0[,!\"row\", with=FALSE]\ndt\n\n        ID Gender Test1 Test2  Exam\n    &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1:  SD101      M    11    48    61\n 2:  SD102      F     8    43    77\n 3:  SD103      F    13    15    49\n 4:  SD104      F    15    20    57\n 5:  SD105      M    10    40    82\n 6:  SD106      F    11    23    65\n 7:  SD107      M     6    24    46\n 8:  SD108      M    12    47    80\n 9:  SD109      M    10    21    48\n10:  SD110      M     7    27    62\n\n\n\n\n2.2 Method 2: create data.table using vectors or lists\n\nID2 &lt;- str_c(\"SD\",101:110)\nGender2 &lt;- c(\"M\",\"F\",\"F\",\"F\",\"M\",\"F\",\"M\",\"M\",\"M\",\"M\")\nTest21 &lt;- c(11,8,13,15,10,11,6,12,10,7)\nTest22 &lt;- c(48,43,15,20,40,23,24,47,21,27)\nExam23 &lt;- c(61,77,49,57,82,65,46,80,48,62)\ndt2 &lt;- data.table(ID2,Gender2,Test21,Test22,Exam23)\nclass(dt2)\n\n[1] \"data.table\" \"data.frame\"",
+    "crumbs": [
+      "DataTables",
+      "dataTable"
+    ]
+  },
+  {
+    "objectID": "datatables/dataTable.html#data.table-manipulation",
+    "href": "datatables/dataTable.html#data.table-manipulation",
+    "title": "dataTable",
+    "section": "3 data.Table Manipulation",
+    "text": "3 data.Table Manipulation\n\n3.1 Create a new data.table column\n\n# equivalent of mutate\n# just define with a := sign\n\ndt[, TotScore := Test1+0.4*Test2+0.6*Exam ]\ndt\n\n        ID Gender Test1 Test2  Exam TotScore\n    &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt;\n 1:  SD101      M    11    48    61     66.8\n 2:  SD102      F     8    43    77     71.4\n 3:  SD103      F    13    15    49     48.4\n 4:  SD104      F    15    20    57     57.2\n 5:  SD105      M    10    40    82     75.2\n 6:  SD106      F    11    23    65     59.2\n 7:  SD107      M     6    24    46     43.2\n 8:  SD108      M    12    47    80     78.8\n 9:  SD109      M    10    21    48     47.2\n10:  SD110      M     7    27    62     55.0\n\n\n\n\n3.2 Select multiple rows and columns\n\ndt[1:4,c('Test1','Test2'), with=FALSE]\n\n   Test1 Test2\n   &lt;int&gt; &lt;int&gt;\n1:    11    48\n2:     8    43\n3:    13    15\n4:    15    20\n\n\n\n\n3.3 Read a data.table column to a vector\n\nscore &lt;- dt[,TotScore]\nscore\n\n [1] 66.8 71.4 48.4 57.2 75.2 59.2 43.2 78.8 47.2 55.0\n\n\n\n\n3.4 Using cut to data segment and assign letter grade\n\nbreaks&lt;- c(0,40,44,49,54,59,64,69,74,79,84,100)\nlabels&lt;-c(\"F\",\"D\",\"D+\",\"C\",\"C+\",\"B-\",\"B\",\"B+\",\"A-\",\"A\",\"A+\")\nlgrades&lt;-cut(score, breaks, labels, right=TRUE)\ndt[,Grade := lgrades]\ndt\n\n        ID Gender Test1 Test2  Exam TotScore  Grade\n    &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;\n 1:  SD101      M    11    48    61     66.8      B\n 2:  SD102      F     8    43    77     71.4     B+\n 3:  SD103      F    13    15    49     48.4     D+\n 4:  SD104      F    15    20    57     57.2     C+\n 5:  SD105      M    10    40    82     75.2     A-\n 6:  SD106      F    11    23    65     59.2     B-\n 7:  SD107      M     6    24    46     43.2      D\n 8:  SD108      M    12    47    80     78.8     A-\n 9:  SD109      M    10    21    48     47.2     D+\n10:  SD110      M     7    27    62     55.0     C+\n\n\n\n\n3.5 Filtering rows - all B’s (B+,B,B-)\n\nBTerms &lt;- c(\"B+\",\"B\",\"B-\")\ndt[Grade %in% BTerms,]\n\n       ID Gender Test1 Test2  Exam TotScore  Grade\n   &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;\n1:  SD101      M    11    48    61     66.8      B\n2:  SD102      F     8    43    77     71.4     B+\n3:  SD106      F    11    23    65     59.2     B-\n\n\n\n\n3.6 Getting row numbers\n\nr1 &lt;- dt[,.I[Grade=='A-']]\nr1\n\n[1] 5 8\n\n# alternatively\nr2 &lt;- dt[,which(Grade=='A-')]\ndt[r2,]\n\n       ID Gender Test1 Test2  Exam TotScore  Grade\n   &lt;char&gt; &lt;char&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;num&gt; &lt;fctr&gt;\n1:  SD105      M    10    40    82     75.2     A-\n2:  SD108      M    12    47    80     78.8     A-\n\n\n\n\n3.7 Count numbers in each grade (Grouping)\n\nlvlgrades= as_factor(c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\"))\ndt[, .N, by=Grade]\n\n    Grade     N\n   &lt;fctr&gt; &lt;int&gt;\n1:      B     1\n2:     B+     1\n3:     D+     2\n4:     C+     2\n5:     A-     2\n6:     B-     1\n7:      D     1\n\n\n\n\n3.8 Mean TotScore by Gender (Grouping)\n\ndt_m &lt;- dt[,.(meanTotScore = round(mean(TotScore),2)),by=Gender]\ndt_m\n\n   Gender meanTotScore\n   &lt;char&gt;        &lt;num&gt;\n1:      M        61.03\n2:      F        59.05\n\n\n\n\n3.9 Means of Columns\n\ndt3 &lt;- dt[,.(mt1&lt;-mean(Test1), \n      mt2&lt;-mean(Test2),\n      mt3&lt;-mean(Exam))]\ndt3\n\n      V1    V2    V3\n   &lt;num&gt; &lt;num&gt; &lt;num&gt;\n1:  10.3  30.8  62.7\n\nsetnames(dt3, c('mt1','mt2','mt3'))\ndt3\n\n     mt1   mt2   mt3\n   &lt;num&gt; &lt;num&gt; &lt;num&gt;\n1:  10.3  30.8  62.7",
+    "crumbs": [
+      "DataTables",
+      "dataTable"
+    ]
+  },
+  {
+    "objectID": "datatables/xtab.html",
+    "href": "datatables/xtab.html",
+    "title": "xtab",
+    "section": "",
+    "text": "library(tidyverse)",
+    "crumbs": [
+      "DataTables",
+      "xtab"
+    ]
+  },
+  {
+    "objectID": "datatables/xtab.html#one-way-contingency-table-grades",
+    "href": "datatables/xtab.html#one-way-contingency-table-grades",
+    "title": "frequency",
+    "section": "1 One-way contingency table (grades)",
+    "text": "1 One-way contingency table (grades)\n\n# use table function to count frequency in lgrades\ntblfreq &lt;- table(tb$lgrades) \ntblfreq\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\n\n\n# redo table back into a dataframe\ndf &lt;- data.frame(tblfreq)\nnames(df) &lt;- c(\"grades\",\"freq\")\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1",
+    "crumbs": [
+      "DataTables",
+      "xtab"
+    ]
+  },
+  {
+    "objectID": "datatables/xtab.html#two-way-contingency-table-gender-grades",
+    "href": "datatables/xtab.html#two-way-contingency-table-gender-grades",
+    "title": "frequency",
+    "section": "2 Two-way Contingency table (gender-grades)",
+    "text": "2 Two-way Contingency table (gender-grades)\n\ntwoWay &lt;- table(tb$gender,tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  2  1 1  0 0 0\n  F  1 0  0  0 1  1  0 0  0 0 1",
+    "crumbs": [
+      "DataTables",
+      "xtab"
+    ]
+  },
+  {
+    "objectID": "datatables/xtab.html#library",
+    "href": "datatables/xtab.html#library",
+    "title": "xtab",
+    "section": "",
+    "text": "library(tidyverse)",
+    "crumbs": [
+      "DataTables",
+      "xtab"
+    ]
+  },
+  {
+    "objectID": "datatables/xtab.html#data",
+    "href": "datatables/xtab.html#data",
+    "title": "xtab",
+    "section": "2 Data",
+    "text": "2 Data\nAgresti Table 2.1",
+    "crumbs": [
+      "DataTables",
+      "xtab"
+    ]
   }
 ]

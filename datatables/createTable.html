@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>importExport – WebR</title>
+<title>createTable – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../dataframes/filterSelectArrange.html" rel="next">
-<link href="../dataframes/textEntry.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,7 +114,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dataframes/textEntry.html">DataFrames</a></li><li class="breadcrumb-item"><a href="../dataframes/importExport.html">importExport.</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      WebR
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dataframes/importExport.html" class="sidebar-item-text sidebar-link active">
+  <a href="../dataframes/importExport.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">importExport.</span></a>
   </div>
 </li>
@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/xtab.html" class="sidebar-item-text sidebar-link">
+  <a href="../datatables/xtab.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">xtab</span></a>
   </div>
 </li>
@@ -448,21 +448,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tidyverseread_csv" id="toc-tidyverseread_csv" class="nav-link active" data-scroll-target="#tidyverseread_csv"><span class="header-section-number">1</span> <code>tidyverse::read_csv</code></a></li>
-  <li><a href="#tidyversewrite_csv" id="toc-tidyversewrite_csv" class="nav-link" data-scroll-target="#tidyversewrite_csv"><span class="header-section-number">2</span> <code>tidyverse::write_csv</code></a></li>
-  <li><a href="#rioimport" id="toc-rioimport" class="nav-link" data-scroll-target="#rioimport"><span class="header-section-number">3</span> <code>rio::import</code></a>
-  <ul class="collapse">
-  <li><a href="#package-rio---export" id="toc-package-rio---export" class="nav-link" data-scroll-target="#package-rio---export"><span class="header-section-number">3.1</span> 3. package <code>rio</code> - export</a></li>
-  </ul></li>
+  <li><a href="#library" id="toc-library" class="nav-link active" data-scroll-target="#library"><span class="header-section-number">1</span> Library</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dataframes/textEntry.html">DataFrames</a></li><li class="breadcrumb-item"><a href="../dataframes/importExport.html">importExport.</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">importExport</h1>
+<h1 class="title">createTable</h1>
 </div>
 
 
@@ -479,77 +475,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="tidyverseread_csv" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="tidyverseread_csv"><span class="header-section-number">1</span> <code>tidyverse::read_csv</code></h2>
-<p>(reads <code>.csv</code> file, readr does not have “read_xls”)</p>
+<section id="library" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="library"><span class="header-section-number">1</span> Library</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns a tibble</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tb1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"assets"</span>,<span class="st">"data.csv"</span>),<span class="at">col_names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tb1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-     X1     X2    X3
-  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-1     2   3400     0
-2     3   6200     0
-3     4  60000     0
-4     6 113000    50
-5     8 155000    50
-6    11 175000  6000</code></pre>
-</div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tidyversewrite_csv" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="tidyversewrite_csv"><span class="header-section-number">2</span> <code>tidyverse::write_csv</code></h2>
+<section id="data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Devore Example 12.10</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>3x3 table</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Prod Blemish Crack Location Missing Others</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>P1    34      65      17      21      13</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>P2    33      52      25      19      6</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>P3    32      28      16      14      10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tb1) </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(tb1, <span class="fu">here</span>(<span class="st">"assets/datawrite.csv"</span>), <span class="at">col_names=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="rioimport" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="rioimport"><span class="header-section-number">3</span> <code>rio::import</code></h2>
-<p>(note: reads both <code>.csv</code> or <code>.xlsx</code> files.)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># returns dataframe</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"assets/datesData.xlsx"</span>))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vectors</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Blemish <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">34</span>,<span class="dv">33</span>,<span class="dv">32</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Crack <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>,<span class="dv">52</span>,<span class="dv">28</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Location <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">17</span>,<span class="dv">25</span>,<span class="dv">16</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Missing <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">21</span>,<span class="dv">19</span>,<span class="dv">14</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>Others <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">13</span>,<span class="dv">6</span>,<span class="dv">10</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>dtable <span class="ot">=</span> <span class="fu">data.table</span>(Blemish, Crack, Location, Missing, Others)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(dtable)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>dtable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        Date OneDose TwoDose
-1 2021-01-11    3400       0
-2 2021-01-12    6200       0
-3 2021-01-22   60000       0
-4 2021-01-27  113000      50
-5 2021-01-31  155000      50
-6 2021-02-02  175000    6000</code></pre>
+<pre><code>   Blemish Crack Location Missing Others
+     &lt;num&gt; &lt;num&gt;    &lt;num&gt;   &lt;num&gt;  &lt;num&gt;
+1:      34    65       17      21     13
+2:      33    52       25      19      6
+3:      32    28       16      14     10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"assets/datesData.csv"</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dtable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         Date OneDose TwoDose
-1  2021-01-11    3400       0
-2  2021-01-12    6200       0
-3  2021-01-22   60000       0
-4  2021-01-27  113000      50
-5  2021-01-31  155000      50
-6  2021-02-02  175000    6000
-7  2021-02-10  250000    6000
-8  2021-02-18  250000  110000
-9  2021-03-01  317715  207324
-10 2021-03-04  350000  215000</code></pre>
+<pre><code>Classes 'data.table' and 'data.frame':  3 obs. of  5 variables:
+ $ Blemish : num  34 33 32
+ $ Crack   : num  65 52 28
+ $ Location: num  17 25 16
+ $ Missing : num  21 19 14
+ $ Others  : num  13 6 10
+ - attr(*, ".internal.selfref")=&lt;externalptr&gt; </code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   3 obs. of  5 variables:
+ $ Blemish : num  34 33 32
+ $ Crack   : num  65 52 28
+ $ Location: num  17 25 16
+ $ Missing : num  21 19 14
+ $ Others  : num  13 6 10</code></pre>
 </div>
-<section id="package-rio---export" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="package-rio---export"><span class="header-section-number">3.1</span> 3. package <code>rio</code> - export</h3>
-<p>(can export to <code>.xlsx</code> or <code>.csv</code> file)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(df3, <span class="fu">here</span>(<span class="st">"assets/vaccines.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -970,18 +951,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../dataframes/textEntry.html" class="pagination-link" aria-label="textEntry">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">textEntry</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../dataframes/filterSelectArrange.html" class="pagination-link" aria-label="filterSelectArrange">
-        <span class="nav-page-text">filterSelectArrange</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>importExport – WebR</title>
+<title>xtabs – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../dataframes/filterSelectArrange.html" rel="next">
-<link href="../dataframes/textEntry.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,7 +114,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dataframes/textEntry.html">DataFrames</a></li><li class="breadcrumb-item"><a href="../dataframes/importExport.html">importExport.</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      WebR
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dataframes/importExport.html" class="sidebar-item-text sidebar-link active">
+  <a href="../dataframes/importExport.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">importExport.</span></a>
   </div>
 </li>
@@ -275,25 +275,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/vcd.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/vcd.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">vcd</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/xtab.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/xtab.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">xtab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/dataTable.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/dataTable.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">dataTable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/contingency.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/contingency.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">contingency</span></a>
   </div>
 </li>
@@ -448,11 +448,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tidyverseread_csv" id="toc-tidyverseread_csv" class="nav-link active" data-scroll-target="#tidyverseread_csv"><span class="header-section-number">1</span> <code>tidyverse::read_csv</code></a></li>
-  <li><a href="#tidyversewrite_csv" id="toc-tidyversewrite_csv" class="nav-link" data-scroll-target="#tidyversewrite_csv"><span class="header-section-number">2</span> <code>tidyverse::write_csv</code></a></li>
-  <li><a href="#rioimport" id="toc-rioimport" class="nav-link" data-scroll-target="#rioimport"><span class="header-section-number">3</span> <code>rio::import</code></a>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link active" data-scroll-target="#libraries"><span class="header-section-number">1</span> Libraries</a>
   <ul class="collapse">
-  <li><a href="#package-rio---export" id="toc-package-rio---export" class="nav-link" data-scroll-target="#package-rio---export"><span class="header-section-number">3.1</span> 3. package <code>rio</code> - export</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">1.1</span> Data</a></li>
+  </ul></li>
+  <li><a href="#xtabs---uses-formula-style" id="toc-xtabs---uses-formula-style" class="nav-link" data-scroll-target="#xtabs---uses-formula-style"><span class="header-section-number">2</span> xtabs - uses formula style</a>
+  <ul class="collapse">
+  <li><a href="#count-the-levels-in-the-variable-status" id="toc-count-the-levels-in-the-variable-status" class="nav-link" data-scroll-target="#count-the-levels-in-the-variable-status"><span class="header-section-number">2.1</span> count the levels in the variable <code>Status</code></a></li>
+  <li><a href="#create-a-table-of-reference-vs-status" id="toc-create-a-table-of-reference-vs-status" class="nav-link" data-scroll-target="#create-a-table-of-reference-vs-status"><span class="header-section-number">2.2</span> create a table of <code>Reference</code> vs `Status`</a></li>
+  <li><a href="#create-a-3-dim-table-of-status-gender-and-test" id="toc-create-a-3-dim-table-of-status-gender-and-test" class="nav-link" data-scroll-target="#create-a-3-dim-table-of-status-gender-and-test"><span class="header-section-number">2.3</span> create a 3-dim table of <code>Status</code>, <code>Gender</code> and <code>Test</code></a></li>
+  <li><a href="#using-ftable-flattening" id="toc-using-ftable-flattening" class="nav-link" data-scroll-target="#using-ftable-flattening"><span class="header-section-number">2.4</span> using ftable (flattening)</a></li>
+  <li><a href="#two-variables-table" id="toc-two-variables-table" class="nav-link" data-scroll-target="#two-variables-table"><span class="header-section-number">2.5</span> two-variables table</a></li>
+  <li><a href="#plot-cross-tabulations" id="toc-plot-cross-tabulations" class="nav-link" data-scroll-target="#plot-cross-tabulations"><span class="header-section-number">2.6</span> plot cross-tabulations</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -460,9 +467,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dataframes/textEntry.html">DataFrames</a></li><li class="breadcrumb-item"><a href="../dataframes/importExport.html">importExport.</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">importExport</h1>
+<h1 class="title">xtabs</h1>
 </div>
 
 
@@ -479,73 +486,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="tidyverseread_csv" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="tidyverseread_csv"><span class="header-section-number">1</span> <code>tidyverse::read_csv</code></h2>
-<p>(reads <code>.csv</code> file, readr does not have “read_xls”)</p>
+<section id="libraries" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="libraries"><span class="header-section-number">1</span> Libraries</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns a tibble</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tb1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"assets"</span>,<span class="st">"data.csv"</span>),<span class="at">col_names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tb1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="data" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="data"><span class="header-section-number">1.1</span> Data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Reference =</span> <span class="fu">c</span>(<span class="st">"KRXH"</span>, <span class="st">"KRPT"</span>, <span class="st">"FHRA"</span>, <span class="st">"CZKK"</span>, <span class="st">"CQTN"</span>, <span class="st">"PZXW"</span>, <span class="st">"SZRZ"</span>, <span class="st">"RMZE"</span>, <span class="st">"STNX"</span>, <span class="st">"TMDW"</span>), <span class="at">Status =</span> <span class="fu">c</span>(<span class="st">"Accepted"</span>, <span class="st">"Accepted"</span>, <span class="st">"Rejected"</span>, <span class="st">"Accepted"</span>, <span class="st">"Rejected"</span>, <span class="st">"Accepted"</span>, <span class="st">"Rejected"</span>, <span class="st">"Rejected"</span>, <span class="st">"Accepted"</span>, <span class="st">"Accepted"</span>), <span class="at">Gender =</span> <span class="fu">c</span>(<span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>), <span class="at">Test =</span> <span class="fu">c</span>(<span class="st">"Test1"</span>, <span class="st">"Test1"</span>, <span class="st">"Test2"</span>, <span class="st">"Test3"</span>, <span class="st">"Test1"</span>, <span class="st">"Test4"</span>, <span class="st">"Test4"</span>, <span class="st">"Test2"</span>, <span class="st">"Test3"</span>, <span class="st">"Test1"</span>), <span class="at">NewOrFollowUp =</span> <span class="fu">c</span>(<span class="st">"New"</span>, <span class="st">"New"</span>, <span class="st">"New"</span>, <span class="st">"New"</span>, <span class="st">"New"</span>, <span class="st">"Follow-up"</span>, <span class="st">"New"</span>, <span class="st">"New"</span>, <span class="st">"New"</span>, <span class="st">"New"</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-     X1     X2    X3
-  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-1     2   3400     0
-2     3   6200     0
-3     4  60000     0
-4     6 113000    50
-5     8 155000    50
-6    11 175000  6000</code></pre>
+<pre><code>   Reference   Status Gender  Test NewOrFollowUp
+1       KRXH Accepted Female Test1           New
+2       KRPT Accepted   Male Test1           New
+3       FHRA Rejected   Male Test2           New
+4       CZKK Accepted Female Test3           New
+5       CQTN Rejected Female Test1           New
+6       PZXW Accepted Female Test4     Follow-up
+7       SZRZ Rejected   Male Test4           New
+8       RMZE Rejected Female Test2           New
+9       STNX Accepted Female Test3           New
+10      TMDW Accepted Female Test1           New</code></pre>
 </div>
 </div>
 </section>
-<section id="tidyversewrite_csv" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="tidyversewrite_csv"><span class="header-section-number">2</span> <code>tidyverse::write_csv</code></h2>
+</section>
+<section id="xtabs---uses-formula-style" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="xtabs---uses-formula-style"><span class="header-section-number">2</span> xtabs - uses formula style</h2>
+<section id="count-the-levels-in-the-variable-status" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="count-the-levels-in-the-variable-status"><span class="header-section-number">2.1</span> count the levels in the variable <code>Status</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(tb1) </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(tb1, <span class="fu">here</span>(<span class="st">"assets/datawrite.csv"</span>), <span class="at">col_names=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find the count of levels in the variable, “Status</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span> Status, <span class="at">data=</span>df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Status
+Accepted Rejected 
+       6        4 </code></pre>
+</div>
 </div>
 </section>
-<section id="rioimport" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="rioimport"><span class="header-section-number">3</span> <code>rio::import</code></h2>
-<p>(note: reads both <code>.csv</code> or <code>.xlsx</code> files.)</p>
+<section id="create-a-table-of-reference-vs-status" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="create-a-table-of-reference-vs-status"><span class="header-section-number">2.2</span> create a table of <code>Reference</code> vs `Status`</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># returns dataframe</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"assets/datesData.xlsx"</span>))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span> Reference <span class="sc">+</span> Status, <span class="at">data=</span>df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        Date OneDose TwoDose
-1 2021-01-11    3400       0
-2 2021-01-12    6200       0
-3 2021-01-22   60000       0
-4 2021-01-27  113000      50
-5 2021-01-31  155000      50
-6 2021-02-02  175000    6000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">"assets/datesData.csv"</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>         Date OneDose TwoDose
-1  2021-01-11    3400       0
-2  2021-01-12    6200       0
-3  2021-01-22   60000       0
-4  2021-01-27  113000      50
-5  2021-01-31  155000      50
-6  2021-02-02  175000    6000
-7  2021-02-10  250000    6000
-8  2021-02-18  250000  110000
-9  2021-03-01  317715  207324
-10 2021-03-04  350000  215000</code></pre>
+<pre><code>         Status
+Reference Accepted Rejected
+     CQTN        0        1
+     CZKK        1        0
+     FHRA        0        1
+     KRPT        1        0
+     KRXH        1        0
+     PZXW        1        0
+     RMZE        0        1
+     STNX        1        0
+     SZRZ        0        1
+     TMDW        1        0</code></pre>
 </div>
 </div>
-<section id="package-rio---export" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="package-rio---export"><span class="header-section-number">3.1</span> 3. package <code>rio</code> - export</h3>
-<p>(can export to <code>.xlsx</code> or <code>.csv</code> file)</p>
+</section>
+<section id="create-a-3-dim-table-of-status-gender-and-test" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="create-a-3-dim-table-of-status-gender-and-test"><span class="header-section-number">2.3</span> create a 3-dim table of <code>Status</code>, <code>Gender</code> and <code>Test</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(df3, <span class="fu">here</span>(<span class="st">"assets/vaccines.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>xt <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span> Status<span class="sc">+</span>Gender<span class="sc">+</span>Test, <span class="at">data=</span>df1)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>xt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , Test = Test1
+
+          Gender
+Status     Female Male
+  Accepted      2    1
+  Rejected      1    0
+
+, , Test = Test2
+
+          Gender
+Status     Female Male
+  Accepted      0    0
+  Rejected      1    1
+
+, , Test = Test3
+
+          Gender
+Status     Female Male
+  Accepted      2    0
+  Rejected      0    0
+
+, , Test = Test4
+
+          Gender
+Status     Female Male
+  Accepted      1    0
+  Rejected      0    1</code></pre>
+</div>
+</div>
+</section>
+<section id="using-ftable-flattening" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="using-ftable-flattening"><span class="header-section-number">2.4</span> using ftable (flattening)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ftable</span>(xt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                Test Test1 Test2 Test3 Test4
+Status   Gender                             
+Accepted Female          2     0     2     1
+         Male            1     0     0     0
+Rejected Female          1     1     0     0
+         Male            0     1     0     1</code></pre>
+</div>
+</div>
+</section>
+<section id="two-variables-table" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="two-variables-table"><span class="header-section-number">2.5</span> two-variables table</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>Status<span class="sc">+</span>Gender, <span class="at">data=</span>df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Gender
+Status     Female Male
+  Accepted      5    1
+  Rejected      2    2</code></pre>
+</div>
+</div>
+</section>
+<section id="plot-cross-tabulations" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="plot-cross-tabulations"><span class="header-section-number">2.6</span> plot cross-tabulations</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">xtabs</span>(<span class="sc">~</span>Status<span class="sc">+</span>Gender, <span class="at">data=</span>df1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aggregation_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 
 
@@ -970,18 +1043,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../dataframes/textEntry.html" class="pagination-link" aria-label="textEntry">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">textEntry</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../dataframes/filterSelectArrange.html" class="pagination-link" aria-label="filterSelectArrange">
-        <span class="nav-page-text">filterSelectArrange</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
