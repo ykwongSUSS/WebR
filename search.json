@@ -3065,7 +3065,7 @@
     "href": "datatables/xtab.html#data",
     "title": "xtab",
     "section": "2 Data",
-    "text": "2 Data\nAgresti Table 2.1",
+    "text": "2 Data\nAgresti Table 2.1\n\nGender &lt;- factor(c(\"Males\",\"Femals\"))\nBelief &lt;- factor(c(\"Yes\",\"No\"))\ntable(Gender,Belief)\n\n        Belief\nGender   No Yes\n  Femals  1   0\n  Males   0   1",
     "crumbs": [
       "DataTables",
       "xtab"
