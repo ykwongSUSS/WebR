@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>gt – WebR</title>
+<title>table-frequency – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../tables/table.html" rel="next">
-<link href="../dataframes/pivot_longer.html" rel="prev">
+<link href="../tables/xtab.html" rel="next">
+<link href="../tables/gt.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/gt.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/gt.html">gt</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/gt.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/table.html">table</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -269,13 +269,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tables/gt.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tables/gt.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">gt</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tables/table.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/table.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">table</span></a>
   </div>
 </li>
@@ -448,19 +448,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#library" id="toc-library" class="nav-link active" data-scroll-target="#library">Library</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#basic-gt-on-tibble" id="toc-basic-gt-on-tibble" class="nav-link" data-scroll-target="#basic-gt-on-tibble">Basic gt on tibble</a></li>
-  <li><a href="#gt-on-data.frame" id="toc-gt-on-data.frame" class="nav-link" data-scroll-target="#gt-on-data.frame">gt on data.frame</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">1</span> Data</a></li>
+  <li><a href="#one-way-contingency" id="toc-one-way-contingency" class="nav-link" data-scroll-target="#one-way-contingency"><span class="header-section-number">2</span> one-way contingency</a></li>
+  <li><a href="#two-way-contingency" id="toc-two-way-contingency" class="nav-link" data-scroll-target="#two-way-contingency"><span class="header-section-number">3</span> two-way contingency</a></li>
+  <li><a href="#grades-freq-in-dataframe" id="toc-grades-freq-in-dataframe" class="nav-link" data-scroll-target="#grades-freq-in-dataframe"><span class="header-section-number">4</span> grades-freq in dataframe</a></li>
+  <li><a href="#column-plot" id="toc-column-plot" class="nav-link" data-scroll-target="#column-plot"><span class="header-section-number">5</span> column plot</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/gt.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/gt.html">gt</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/gt.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/table.html">table</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">gt</h1>
+<h1 class="title">table-frequency</h1>
 </div>
 
 
@@ -477,1055 +478,116 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>gt() creates formatted tables out of tibbles and dataframes</p>
-</div>
-</div>
-</div>
-<pre style="border: 1px solid black"><code></code></pre>
-<section id="library" class="level3">
-<h3 class="anchored" data-anchor-id="library">Library</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="data" class="level3">
-<h3 class="anchored" data-anchor-id="data">Data</h3>
+<section id="data" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data"><span class="header-section-number">1</span> Data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># islands is a named vector (continental land mass)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># we convert it to a tibble using enframe and</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># select top five islands</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>tbl<span class="ot">&lt;-</span>tibble<span class="sc">::</span><span class="fu">enframe</span>(islands) <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(value, <span class="at">n=</span><span class="dv">5</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"id, gender, lgrades</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">               SD101, M, C+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">               SD102, F, F</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">               SD103, F, B</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">               SD104, F, A+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">               SD105, M, B</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">               SD106, F, B-</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">               SD107, M, A</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">               SD108, M, C</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">               SD109, M, B-</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">               SD110, M, B-</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">               "</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>lvlgender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>,<span class="st">"F"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>lvlgrades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A+"</span>,<span class="st">"A"</span>,<span class="st">"A-"</span>,<span class="st">"B+"</span>,<span class="st">"B"</span>,<span class="st">"B-"</span>,<span class="st">"C+"</span>,<span class="st">"C"</span>,<span class="st">"D+"</span>,<span class="st">"D"</span>,<span class="st">"F"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(tb<span class="sc">$</span>gender, <span class="at">levels=</span>lvlgender)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>lgrades <span class="ot">&lt;-</span> <span class="fu">factor</span>(tb<span class="sc">$</span>lgrades, <span class="at">levels=</span>lvlgrades)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 2
-  name          value
-  &lt;chr&gt;         &lt;dbl&gt;
-1 Asia          16988
-2 Africa        11506
-3 North America  9390
-4 South America  6795
-5 Antarctica     5500</code></pre>
+<pre><code># A tibble: 10 × 3
+   id    gender lgrades
+   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  
+ 1 SD101 M      C+     
+ 2 SD102 F      F      
+ 3 SD103 F      B      
+ 4 SD104 F      A+     
+ 5 SD105 M      B      
+ 6 SD106 F      B-     
+ 7 SD107 M      A      
+ 8 SD108 M      C      
+ 9 SD109 M      B-     
+10 SD110 M      B-     </code></pre>
 </div>
 </div>
 </section>
-<section id="basic-gt-on-tibble" class="level3">
-<h3 class="anchored" data-anchor-id="basic-gt-on-tibble">Basic gt on tibble</h3>
+<section id="one-way-contingency" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="one-way-contingency"><span class="header-section-number">2</span> one-way contingency</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># basic gt table</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(tbl) <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">md</span>(<span class="st">"Landmasses of the World"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_caption</span>(</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span> <span class="fu">md</span>(<span class="st">"Top 5 selected"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="sfdykzggyl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#sfdykzggyl table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#sfdykzggyl thead, #sfdykzggyl tbody, #sfdykzggyl tfoot, #sfdykzggyl tr, #sfdykzggyl td, #sfdykzggyl th {
-  border-style: none;
-}
-
-#sfdykzggyl p {
-  margin: 0;
-  padding: 0;
-}
-
-#sfdykzggyl .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#sfdykzggyl .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#sfdykzggyl .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#sfdykzggyl .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#sfdykzggyl .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#sfdykzggyl .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#sfdykzggyl .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#sfdykzggyl .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#sfdykzggyl .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#sfdykzggyl .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#sfdykzggyl .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#sfdykzggyl .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#sfdykzggyl .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#sfdykzggyl .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#sfdykzggyl .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#sfdykzggyl .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#sfdykzggyl .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#sfdykzggyl .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#sfdykzggyl .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#sfdykzggyl .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#sfdykzggyl .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#sfdykzggyl .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#sfdykzggyl .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#sfdykzggyl .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#sfdykzggyl .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#sfdykzggyl .gt_left {
-  text-align: left;
-}
-
-#sfdykzggyl .gt_center {
-  text-align: center;
-}
-
-#sfdykzggyl .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#sfdykzggyl .gt_font_normal {
-  font-weight: normal;
-}
-
-#sfdykzggyl .gt_font_bold {
-  font-weight: bold;
-}
-
-#sfdykzggyl .gt_font_italic {
-  font-style: italic;
-}
-
-#sfdykzggyl .gt_super {
-  font-size: 65%;
-}
-
-#sfdykzggyl .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#sfdykzggyl .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#sfdykzggyl .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#sfdykzggyl .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#sfdykzggyl .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#sfdykzggyl .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#sfdykzggyl .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#sfdykzggyl .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#sfdykzggyl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<caption>Top 5 selected</caption>
-<thead>
-<tr class="gt_heading header">
-<th colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border">Landmasses of the World</th>
-</tr>
-<tr class="gt_col_headings even">
-<th id="name" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">name</th>
-<th id="value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">value</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="name">Asia</td>
-<td class="gt_row gt_right" headers="value">16988</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="name">Africa</td>
-<td class="gt_row gt_right" headers="value">11506</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="name">North America</td>
-<td class="gt_row gt_right" headers="value">9390</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="name">South America</td>
-<td class="gt_row gt_right" headers="value">6795</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="name">Antarctica</td>
-<td class="gt_row gt_right" headers="value">5500</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="gt-on-data.frame" class="level3">
-<h3 class="anchored" data-anchor-id="gt-on-data.frame">gt on data.frame</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">text=</span><span class="st">"</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">          Group Yes No</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">          Placebo 189 10845</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">          Aspirin 104 10933 "</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>oneWay <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>lgrades)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>oneWay</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    Group Yes    No
-1 Placebo 189 10845
-2 Aspirin 104 10933</code></pre>
+<pre><code>
+A+  A A- B+  B B- C+  C D+  D  F 
+ 1  1  0  0  2  3  1  1  0  0  1 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(df) <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="fu">md</span>(<span class="st">"Cross classification"</span>),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="fu">md</span>(<span class="st">"Aspirin use and myocardial infarction"</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"Mycardial Infarction"</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">c</span>(Yes, No)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(oneWay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "table"</code></pre>
+</div>
+</div>
+</section>
+<section id="two-way-contingency" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="two-way-contingency"><span class="header-section-number">3</span> two-way contingency</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gender-lgrades</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>twoWay <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>gender, tb<span class="sc">$</span>lgrades)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>twoWay</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+    A+ A A- B+ B B- C+ C D+ D F
+  M  0 1  0  0 1  2  1 1  0 0 0
+  F  1 0  0  0 1  1  0 0  0 0 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(twoWay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "table"</code></pre>
+</div>
+</div>
+</section>
+<section id="grades-freq-in-dataframe" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="grades-freq-in-dataframe"><span class="header-section-number">4</span> grades-freq in dataframe</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># redo table back into a dataframe</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(oneWay)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"grades"</span>,<span class="st">"freq"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   grades freq
+1      A+    1
+2       A    1
+3      A-    0
+4      B+    0
+5       B    2
+6      B-    3
+7      C+    1
+8       C    1
+9      D+    0
+10      D    0
+11      F    1</code></pre>
+</div>
+</div>
+</section>
+<section id="column-plot" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="column-plot"><span class="header-section-number">5</span> column plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>grades, <span class="at">y=</span>freq))<span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">"lightblue"</span>, <span class="at">color=</span><span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="ebcctxrsot" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ebcctxrsot table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#ebcctxrsot thead, #ebcctxrsot tbody, #ebcctxrsot tfoot, #ebcctxrsot tr, #ebcctxrsot td, #ebcctxrsot th {
-  border-style: none;
-}
-
-#ebcctxrsot p {
-  margin: 0;
-  padding: 0;
-}
-
-#ebcctxrsot .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#ebcctxrsot .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#ebcctxrsot .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#ebcctxrsot .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#ebcctxrsot .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#ebcctxrsot .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#ebcctxrsot .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#ebcctxrsot .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#ebcctxrsot .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#ebcctxrsot .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#ebcctxrsot .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#ebcctxrsot .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#ebcctxrsot .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#ebcctxrsot .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#ebcctxrsot .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ebcctxrsot .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#ebcctxrsot .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#ebcctxrsot .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#ebcctxrsot .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ebcctxrsot .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#ebcctxrsot .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ebcctxrsot .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#ebcctxrsot .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ebcctxrsot .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ebcctxrsot .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ebcctxrsot .gt_left {
-  text-align: left;
-}
-
-#ebcctxrsot .gt_center {
-  text-align: center;
-}
-
-#ebcctxrsot .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#ebcctxrsot .gt_font_normal {
-  font-weight: normal;
-}
-
-#ebcctxrsot .gt_font_bold {
-  font-weight: bold;
-}
-
-#ebcctxrsot .gt_font_italic {
-  font-style: italic;
-}
-
-#ebcctxrsot .gt_super {
-  font-size: 65%;
-}
-
-#ebcctxrsot .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#ebcctxrsot .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#ebcctxrsot .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#ebcctxrsot .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#ebcctxrsot .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#ebcctxrsot .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#ebcctxrsot .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#ebcctxrsot .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#ebcctxrsot div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="gt_heading header">
-<th colspan="3" class="gt_heading gt_title gt_font_normal">Cross classification</th>
-</tr>
-<tr class="gt_heading even">
-<th colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Aspirin use and myocardial infarction</th>
-</tr>
-<tr class="gt_col_headings gt_spanner_row header">
-<th rowspan="2" id="Group" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Group</th>
-<th colspan="2" id="Mycardial Infarction" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
-Mycardial Infarction
-</div></th>
-</tr>
-<tr class="gt_col_headings even">
-<th id="Yes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Yes</th>
-<th id="No" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">No</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="Group">Placebo</td>
-<td class="gt_row gt_right" headers="Yes">189</td>
-<td class="gt_row gt_right" headers="No">10845</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="Group">Aspirin</td>
-<td class="gt_row gt_right" headers="Yes">104</td>
-<td class="gt_row gt_right" headers="No">10933</td>
-</tr>
-</tbody>
-</table>
-
+<div>
+<figure class="figure">
+<p><img src="table_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
 </div>
@@ -1953,13 +1015,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../dataframes/pivot_longer.html" class="pagination-link" aria-label="pivot_longer">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">pivot_longer</span>
+      <a href="../tables/gt.html" class="pagination-link" aria-label="gt">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">gt</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../tables/table.html" class="pagination-link" aria-label="table">
-        <span class="nav-page-text">table</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tables/xtab.html" class="pagination-link" aria-label="xtab">
+        <span class="nav-page-text">xtab</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

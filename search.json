@@ -1261,7 +1261,7 @@
     "href": "tables/gt.html",
     "title": "gt",
     "section": "",
-    "text": "library(tidyverse)\nlibrary(gt)",
+    "text": "gt() creates formatted tables out of tibbles and dataframes\n\n\n\n\n\nLibrary\n\nlibrary(tidyverse)\nlibrary(gt)\n\n\n\nData\n\n# islands is a named vector (continental land mass)\n# we convert it to a tibble using enframe and\n# select top five islands\n\ntbl&lt;-tibble::enframe(islands) %&gt;% slice_max(value, n=5)\ntbl\n\n# A tibble: 5 × 2\n  name          value\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Asia          16988\n2 Africa        11506\n3 North America  9390\n4 South America  6795\n5 Antarctica     5500\n\n\n\n\nBasic gt on tibble\n\n# basic gt table\ngt(tbl) |&gt;\n  tab_header(\n    title = md(\"Landmasses of the World\")) |&gt;\n  tab_caption(\n    caption= md(\"Top 5 selected\"))\n\n\n\n\n\nTop 5 selected\n\n\nLandmasses of the World\n\n\nname\nvalue\n\n\n\n\nAsia\n16988\n\n\nAfrica\n11506\n\n\nNorth America\n9390\n\n\nSouth America\n6795\n\n\nAntarctica\n5500\n\n\n\n\n\n\n\n\n\ngt on data.frame\n\ndf &lt;- read.table(header=TRUE, text=\"\n          Group Yes No\n          Placebo 189 10845\n          Aspirin 104 10933 \")\ndf\n\n    Group Yes    No\n1 Placebo 189 10845\n2 Aspirin 104 10933\n\ngt(df) |&gt;\n  tab_header(\n    title=md(\"Cross classification\"),\n    subtitle=md(\"Aspirin use and myocardial infarction\")\n  ) |&gt;\n  tab_spanner(\n    label = \"Mycardial Infarction\",\n    columns = c(Yes, No)\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCross classification\n\n\nAspirin use and myocardial infarction\n\n\nGroup\n\nMycardial Infarction\n\n\n\nYes\nNo\n\n\n\n\nPlacebo\n189\n10845\n\n\nAspirin\n104\n10933",
     "crumbs": [
       "Tables",
       "gt"
@@ -2100,7 +2100,7 @@
     "href": "datatypes/vectors.html",
     "title": "Vectors",
     "section": "",
-    "text": "vec1 &lt;- c(1, 2, 3, 5)\nvec1 &lt;- vec1 + 1\nvec1\n\n[1] 2 3 4 6\n\nclass(vec1)\n\n[1] \"numeric\"\n\n\n\nvec2 &lt;- c(\"a\",\"b\",\"c\")\nstr(vec2)\n\n chr [1:3] \"a\" \"b\" \"c\"",
+    "text": "vec1 &lt;- c(1, 2, 3, 5)\nvec1\n\n[1] 1 2 3 5\n\nstr(vec1)\n\n num [1:4] 1 2 3 5\n\n\n\nvec2 &lt;- c(\"a\",\"b\",\"c\")\nstr(vec2)\n\n chr [1:3] \"a\" \"b\" \"c\"",
     "crumbs": [
       "Datatypes",
       "vectors"
@@ -2111,7 +2111,7 @@
     "href": "datatypes/vectors.html#vectors",
     "title": "Vectors",
     "section": "",
-    "text": "vec1 &lt;- c(1, 2, 3, 5)\nvec1 &lt;- vec1 + 1\nvec1\n\n[1] 2 3 4 6\n\nclass(vec1)\n\n[1] \"numeric\"\n\n\n\nvec2 &lt;- c(\"a\",\"b\",\"c\")\nstr(vec2)\n\n chr [1:3] \"a\" \"b\" \"c\"",
+    "text": "vec1 &lt;- c(1, 2, 3, 5)\nvec1\n\n[1] 1 2 3 5\n\nstr(vec1)\n\n num [1:4] 1 2 3 5\n\n\n\nvec2 &lt;- c(\"a\",\"b\",\"c\")\nstr(vec2)\n\n chr [1:3] \"a\" \"b\" \"c\"",
     "crumbs": [
       "Datatypes",
       "vectors"
@@ -2144,7 +2144,7 @@
     "href": "datatypes/vectors.html#sequences",
     "title": "Vectors",
     "section": "2 Sequences",
-    "text": "2 Sequences\n\nvec3 &lt;- seq(1,10,0.5)\nvec3\n\n [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0\n[16]  8.5  9.0  9.5 10.0\n\nvec3[3]\n\n[1] 2",
+    "text": "2 Sequences\n\n# begin, end, increment\nvec3 &lt;- seq(2,5,1)\nvec3\n\n[1] 2 3 4 5\n\n# masking\nvec4 &lt;- rep(c(0,1),2)\nvec4\n\n[1] 0 1 0 1\n\n# vector product\nvec3*vec4\n\n[1] 0 3 0 5",
     "crumbs": [
       "Datatypes",
       "vectors"
@@ -3128,6 +3128,116 @@
     "crumbs": [
       "Tables",
       "xtab"
+    ]
+  },
+  {
+    "objectID": "datatypes/vectors.html#named-vector-to-tibble",
+    "href": "datatypes/vectors.html#named-vector-to-tibble",
+    "title": "Vectors",
+    "section": "3 named vector to tibble",
+    "text": "3 named vector to tibble\n\n# islands is a named vector (continental land mass)\n# we convert it to a tibble using enframe and\n# select top five islands\nlibrary(tidyverse)\ntibble::enframe(islands) |&gt; slice_max(value, n=5)\n\n# A tibble: 5 × 2\n  name          value\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Asia          16988\n2 Africa        11506\n3 North America  9390\n4 South America  6795\n5 Antarctica     5500",
+    "crumbs": [
+      "Datatypes",
+      "vectors"
+    ]
+  },
+  {
+    "objectID": "tables/table.html",
+    "href": "tables/table.html",
+    "title": "table-frequency",
+    "section": "",
+    "text": "library(tidyverse)",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#data",
+    "href": "tables/table.html#data",
+    "title": "table-frequency",
+    "section": "1 Data",
+    "text": "1 Data\n\n\nCode\ntb &lt;- read_csv(\"id, gender, lgrades\n               SD101, M, C+\n               SD102, F, F\n               SD103, F, B\n               SD104, F, A+\n               SD105, M, B\n               SD106, F, B-\n               SD107, M, A\n               SD108, M, C\n               SD109, M, B-\n               SD110, M, B-\n               \")\nlvlgender &lt;- c(\"M\",\"F\")\nlvlgrades &lt;- c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender &lt;- factor(tb$gender, levels=lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades, levels=lvlgrades)\ntb\n\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#one-way-contingency",
+    "href": "tables/table.html#one-way-contingency",
+    "title": "table-frequency",
+    "section": "2 one-way contingency",
+    "text": "2 one-way contingency\n\noneWay &lt;- table(tb$lgrades)\noneWay\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(oneWay)\n\n[1] \"table\"",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#two-way-contingency",
+    "href": "tables/table.html#two-way-contingency",
+    "title": "table-frequency",
+    "section": "3 two-way contingency",
+    "text": "3 two-way contingency\n\n# gender-lgrades\ntwoWay &lt;- table(tb$gender, tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  2  1 1  0 0 0\n  F  1 0  0  0 1  1  0 0  0 0 1\n\nclass(twoWay)\n\n[1] \"table\"",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#grades-freq-in-dataframe",
+    "href": "tables/table.html#grades-freq-in-dataframe",
+    "title": "table-frequency",
+    "section": "4 grades-freq in dataframe",
+    "text": "4 grades-freq in dataframe\n\n# redo table back into a dataframe\ndf &lt;- data.frame(oneWay)\nnames(df) &lt;- c(\"grades\",\"freq\")\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#column-plot",
+    "href": "tables/table.html#column-plot",
+    "title": "table-frequency",
+    "section": "5 column plot",
+    "text": "5 column plot\n\nggplot(df, aes(x=grades, y=freq))+\n  geom_col(fill=\"lightblue\", color=\"black\")",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/gt.html#contingency-table",
+    "href": "tables/gt.html#contingency-table",
+    "title": "gt",
+    "section": "Contingency table",
+    "text": "Contingency table\n\ndf &lt;- read_csv(\"Group, Yes, No\n               Placebo, 189, 10845\n               Aspirin, 104, 10933\n               \")\ndf$Group &lt;- as.factor(df$Group)\ndf\n\n# A tibble: 2 × 3\n  Group     Yes    No\n  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 Placebo   189 10845\n2 Aspirin   104 10933\n\ngt(df) |&gt;\n  tab_header(\n    title=md(\"Cross classification\"),\n    subtitle=md(\"Aspirin use and myocardial infarction\")\n  ) |&gt;\n  tab_spanner(\n    label = \"Mycardial Infarction\",\n    columns = c(Yes, No)\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCross classification\n\n\nAspirin use and myocardial infarction\n\n\nGroup\n\nMycardial Infarction\n\n\n\nYes\nNo\n\n\n\n\nPlacebo\n189\n10845\n\n\nAspirin\n104\n10933",
+    "crumbs": [
+      "Tables",
+      "gt"
+    ]
+  },
+  {
+    "objectID": "tables/gt.html#gt-contingency-table",
+    "href": "tables/gt.html#gt-contingency-table",
+    "title": "gt",
+    "section": "gt contingency table",
+    "text": "gt contingency table\n\n# gt operates on dataframes\ndf &lt;- read_csv(\"Group, Yes, No\n               Placebo, 189, 10845\n               Aspirin, 104, 10933\n               \")\ndf$Group &lt;- as.factor(df$Group)\ndf\n\n# A tibble: 2 × 3\n  Group     Yes    No\n  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 Placebo   189 10845\n2 Aspirin   104 10933\n\ngt(df) |&gt;\n  tab_header(\n    title=md(\"Cross classification\"),\n    subtitle=md(\"Aspirin use and myocardial infarction\")\n  ) |&gt;\n  tab_spanner(\n    label = \"Mycardial Infarction\",\n    columns = c(Yes, No)\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCross classification\n\n\nAspirin use and myocardial infarction\n\n\nGroup\n\nMycardial Infarction\n\n\n\nYes\nNo\n\n\n\n\nPlacebo\n189\n10845\n\n\nAspirin\n104\n10933",
+    "crumbs": [
+      "Tables",
+      "gt"
+    ]
+  },
+  {
+    "objectID": "tables/gt.html#gt-on-contingency-table",
+    "href": "tables/gt.html#gt-on-contingency-table",
+    "title": "gt",
+    "section": "gt on contingency table",
+    "text": "gt on contingency table\n\ndf &lt;- read.table(header=TRUE, text=\"\n          Group Yes No\n          Placebo 189 10845\n          Aspirin 104 10933 \")\ndf\n\n    Group Yes    No\n1 Placebo 189 10845\n2 Aspirin 104 10933\n\ngt(df) |&gt;\n  tab_header(\n    title=md(\"Cross classification\"),\n    subtitle=md(\"Aspirin use and myocardial infarction\")\n  ) |&gt;\n  tab_spanner(\n    label = \"Mycardial Infarction\",\n    columns = c(Yes, No)\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCross classification\n\n\nAspirin use and myocardial infarction\n\n\nGroup\n\nMycardial Infarction\n\n\n\nYes\nNo\n\n\n\n\nPlacebo\n189\n10845\n\n\nAspirin\n104\n10933\n\n\n\n\n\n\n\n\ndf2 &lt;- read.table(header=TRUE, text=\"\n          Group Yes No\n          Placebo 189 10845\n          Aspirin 104 10933 \")\ndf2\n\n    Group Yes    No\n1 Placebo 189 10845\n2 Aspirin 104 10933\n\ngt(df2)\n\n\n\n\n\n\n\nGroup\nYes\nNo\n\n\n\n\nPlacebo\n189\n10845\n\n\nAspirin\n104\n10933",
+    "crumbs": [
+      "Tables",
+      "gt"
     ]
   }
 ]
