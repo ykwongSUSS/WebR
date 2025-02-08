@@ -1270,9 +1270,9 @@
   {
     "objectID": "tables/xtab.html",
     "href": "tables/xtab.html",
-    "title": "xtab",
+    "title": "xtabs",
     "section": "",
-    "text": "library(tidyverse)\nlibrary(gt)",
+    "text": "xtabs works on tibbles and dataframes and uses formula entry\naddmargins works for xtab form",
     "crumbs": [
       "Tables",
       "xtab"
@@ -3111,9 +3111,9 @@
   {
     "objectID": "tables/xtab.html#library",
     "href": "tables/xtab.html#library",
-    "title": "xtab",
-    "section": "",
-    "text": "library(tidyverse)\nlibrary(gt)",
+    "title": "xtabs",
+    "section": "1 Library",
+    "text": "1 Library\n\nlibrary(tidyverse)",
     "crumbs": [
       "Tables",
       "xtab"
@@ -3122,9 +3122,9 @@
   {
     "objectID": "tables/xtab.html#data",
     "href": "tables/xtab.html#data",
-    "title": "xtab",
+    "title": "xtabs",
     "section": "2 Data",
-    "text": "2 Data\nAgresti Table 2.1\n\n\nCode\ndata = data.frame(\n  Gender = c(\"Females\",\"Males\",\"Total\"),\n  Yes = c(1230, 859, 2089),\n  No = c(357,413,770),\n  Total = c(1587,1272,2859)\n)\ndata %&gt;% gt() %&gt;%\n  tab_options(table.width = px(400)) %&gt;%\n  tab_header(title=\"Belief in afterlife by Gender\") %&gt;%\n  tab_spanner(\n    label=\"Belief in Afterlife\",\n    columns = c(Yes,No)) |&gt;\n  tab_caption(caption=\"caption here\")\n\n\n\n\n\n\ncaption here\n\n\n\n\n\n\n\n\nBelief in afterlife by Gender\n\n\nGender\n\nBelief in Afterlife\n\nTotal\n\n\nYes\nNo\n\n\n\n\nFemales\n1230\n357\n1587\n\n\nMales\n859\n413\n1272\n\n\nTotal\n2089\n770\n2859\n\n\n\n\n\n\n\nThe fastest way to enter the contingency table is to first enter as a matrix and then convert it to table for subsequent summary. addmargins work for both matrix and table forms.\n\nM &lt;- matrix (c(1230,357, 859,413 ), nrow=2, byrow=TRUE,\n                  dimnames = list (c(\"Females\",\"Males\"),\n                                   c(\"yes\",\"no\")))\nM\n\n         yes  no\nFemales 1230 357\nMales    859 413\n\nN &lt;- addmargins(M)\nstr(N)\n\n num [1:3, 1:3] 1230 859 2089 357 413 ...\n - attr(*, \"dimnames\")=List of 2\n  ..$ : chr [1:3] \"Females\" \"Males\" \"Sum\"\n  ..$ : chr [1:3] \"yes\" \"no\" \"Sum\"",
+    "text": "2 Data\n\n\nCode\n# dataframe\ndf = read.table(header=TRUE, text=\"\n     Gender Party Value\n     Female Democrat 495\n     Female Republican 272\n     Female Independent 590\n     Male Democrat 330\n     Male Republican 265\n     Male Independent 498 \")\n  \ndf\n\n\n  Gender       Party Value\n1 Female    Democrat   495\n2 Female  Republican   272\n3 Female Independent   590\n4   Male    Democrat   330\n5   Male  Republican   265\n6   Male Independent   498\n\n\n\n2.1 xtab form (formula)\n\nxtabs( Value ~ Gender+Party, data=df)\n\n        Party\nGender   Democrat Independent Republican\n  Female      495         590        272\n  Male        330         498        265",
     "crumbs": [
       "Tables",
       "xtab"
@@ -3146,7 +3146,7 @@
     "href": "tables/table.html",
     "title": "table",
     "section": "",
-    "text": "table function takes a dataframe or tibble and returns a contigency table (of frequency) - commonly two-way table.\nlibrary(tidyverse)",
+    "text": "table function takes a dataframe or tibble and returns a contigency table (of frequency) - commonly two-way table.\naddmargins function works for matrix and table forms.\nlibrary(tidyverse)",
     "crumbs": [
       "Tables",
       "table"
@@ -3260,6 +3260,94 @@
     "crumbs": [
       "Tables",
       "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#data---frequency",
+    "href": "tables/table.html#data---frequency",
+    "title": "table",
+    "section": "1 Data - Frequency",
+    "text": "1 Data - Frequency\n\n\nCode\ntb &lt;- read_csv(\"id, gender, lgrades\n               SD101, M, C+\n               SD102, F, F\n               SD103, F, B\n               SD104, F, A+\n               SD105, M, B\n               SD106, F, B-\n               SD107, M, A\n               SD108, M, C\n               SD109, M, B-\n               SD110, M, B-\n               \")\nlvlgender &lt;- c(\"F\",\"M\")\nlvlgrades &lt;- c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender &lt;- factor(tb$gender, levels=lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades, levels=lvlgrades)\ntb\n\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-     \n\n\n\n1.1 one-way frequency table\n\n# table - one way\n# table will do the count in the vector\ntbl1 &lt;- table(tb$lgrades)\ntbl1\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(tbl1)\n\n[1] \"table\"\n\n\n\n# convert table to dataframe\n# setNames() is available in stats package\ndf&lt;-data.frame(tbl1) |&gt; setNames(c(\"grades\",\"freq\"))\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1\n\n\n\n\n1.2 two-way frequency table\n\n# gender-lgrades\ntbl2 &lt;- table(tb$gender, tb$lgrades)\ntbl2\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  F  1 0  0  0 1  1  0 0  0 0 1\n  M  0 1  0  0 1  2  1 1  0 0 0\n\nclass(tbl2)\n\n[1] \"table\"\n\ndimnames(tbl2)\n\n[[1]]\n[1] \"F\" \"M\"\n\n[[2]]\n [1] \"A+\" \"A\"  \"A-\" \"B+\" \"B\"  \"B-\" \"C+\" \"C\"  \"D+\" \"D\"  \"F\" \n\n\n\n\n1.3 addmargins(table, FUN)\n\naddmargins(tbl2, FUN=sum)\n\nMargins computed over dimensions\nin the following order:\n1: \n2: \n\n\n     \n      A+  A A- B+  B B- C+  C D+  D  F sum\n  F    1  0  0  0  1  1  0  0  0  0  1   4\n  M    0  1  0  0  1  2  1  1  0  0  0   6\n  sum  1  1  0  0  2  3  1  1  0  0  1  10",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#data---contingency",
+    "href": "tables/table.html#data---contingency",
+    "title": "table",
+    "section": "2 Data - Contingency",
+    "text": "2 Data - Contingency\n\n\n\n\n\n\n\ncreate a contingency table in matrix form first and then convert to table.\naddmargins works for matrix and table forms\n\n\n\n\n\nM &lt;- matrix (c(1230,357, 859,413 ), nrow=2, byrow=TRUE,\n                  dimnames = list (c(\"Females\",\"Males\"),\n                                   c(\"yes\",\"no\")))\nM\n\n         yes  no\nFemales 1230 357\nMales    859 413\n\nN &lt;- addmargins(M)\nN\n\n         yes  no  Sum\nFemales 1230 357 1587\nMales    859 413 1272\nSum     2089 770 2859",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#data---frequency-table",
+    "href": "tables/table.html#data---frequency-table",
+    "title": "table",
+    "section": "1 Data - Frequency Table",
+    "text": "1 Data - Frequency Table\n\n\nCode\ntb &lt;- read_csv(\"id, gender, lgrades\n               SD101, M, C+\n               SD102, F, F\n               SD103, F, B\n               SD104, F, A+\n               SD105, M, B\n               SD106, F, B-\n               SD107, M, A\n               SD108, M, C\n               SD109, M, B-\n               SD110, M, B-\n               \")\nlvlgender &lt;- c(\"F\",\"M\")\nlvlgrades &lt;- c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender &lt;- factor(tb$gender, levels=lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades, levels=lvlgrades)\ntb\n\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-     \n\n\n\n1.1 one-way frequency table\n\n# table - one way\n# table will do the count in the vector\ntbl1 &lt;- table(tb$lgrades)\ntbl1\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(tbl1)\n\n[1] \"table\"\n\n\n\n# convert table to dataframe\n# setNames() is available in stats package\ndf&lt;-data.frame(tbl1) |&gt; setNames(c(\"grades\",\"freq\"))\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1\n\n\n\n\n1.2 two-way frequency table\n\n# gender-lgrades\ntbl2 &lt;- table(tb$gender, tb$lgrades)\ntbl2\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  F  1 0  0  0 1  1  0 0  0 0 1\n  M  0 1  0  0 1  2  1 1  0 0 0\n\nclass(tbl2)\n\n[1] \"table\"\n\ndimnames(tbl2)\n\n[[1]]\n[1] \"F\" \"M\"\n\n[[2]]\n [1] \"A+\" \"A\"  \"A-\" \"B+\" \"B\"  \"B-\" \"C+\" \"C\"  \"D+\" \"D\"  \"F\" \n\n\n\n\n1.3 addmargins(table, FUN)\n\naddmargins(tbl2, FUN=sum)\n\nMargins computed over dimensions\nin the following order:\n1: \n2: \n\n\n     \n      A+  A A- B+  B B- C+  C D+  D  F sum\n  F    1  0  0  0  1  1  0  0  0  0  1   4\n  M    0  1  0  0  1  2  1  1  0  0  0   6\n  sum  1  1  0  0  2  3  1  1  0  0  1  10",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#data---contingency-table",
+    "href": "tables/table.html#data---contingency-table",
+    "title": "table",
+    "section": "2 Data - Contingency Table",
+    "text": "2 Data - Contingency Table\n\n\n\n\n\n\n\ncreate a contingency table in matrix form first and then convert to table.\naddmargins works for matrix and table forms\n\n\n\n\n\nM &lt;- matrix (c(1230,357, 859,413 ), nrow=2, byrow=TRUE,\n                  dimnames = list (c(\"Females\",\"Males\"),\n                                   c(\"yes\",\"no\")))\nclass(M)\n\n[1] \"matrix\" \"array\" \n\naddmargins(M)\n\n         yes  no  Sum\nFemales 1230 357 1587\nMales    859 413 1272\nSum     2089 770 2859\n\ntbl3 &lt;- as.table(M)\nclass(tbl3)\n\n[1] \"table\"\n\naddmargins(tbl3)\n\n         yes   no  Sum\nFemales 1230  357 1587\nMales    859  413 1272\nSum     2089  770 2859",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#data---frequency-tables",
+    "href": "tables/table.html#data---frequency-tables",
+    "title": "table",
+    "section": "1 Data - Frequency Tables",
+    "text": "1 Data - Frequency Tables\n\n\nCode\ntb &lt;- read_csv(\"id, gender, lgrades\n               SD101, M, C+\n               SD102, F, F\n               SD103, F, B\n               SD104, F, A+\n               SD105, M, B\n               SD106, F, B-\n               SD107, M, A\n               SD108, M, C\n               SD109, M, B-\n               SD110, M, B-\n               \")\nlvlgender &lt;- c(\"F\",\"M\")\nlvlgrades &lt;- c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender &lt;- factor(tb$gender, levels=lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades, levels=lvlgrades)\ntb\n\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-     \n\n\n\n1.1 one-way frequency table\n\n# table - one way\n# table will do the count in the vector\ntbl1 &lt;- table(tb$lgrades)\ntbl1\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(tbl1)\n\n[1] \"table\"\n\n\n\n# convert table to dataframe\n# setNames() is available in stats package\ndf&lt;-data.frame(tbl1) |&gt; setNames(c(\"grades\",\"freq\"))\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1\n\n\n\n\n1.2 two-way frequency table\n\n# gender-lgrades\ntbl2 &lt;- table(tb$gender, tb$lgrades)\ntbl2\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  F  1 0  0  0 1  1  0 0  0 0 1\n  M  0 1  0  0 1  2  1 1  0 0 0\n\nclass(tbl2)\n\n[1] \"table\"\n\ndimnames(tbl2)\n\n[[1]]\n[1] \"F\" \"M\"\n\n[[2]]\n [1] \"A+\" \"A\"  \"A-\" \"B+\" \"B\"  \"B-\" \"C+\" \"C\"  \"D+\" \"D\"  \"F\" \n\n\n\n\n1.3 addmargins(table, FUN)\n\naddmargins(tbl2, FUN=sum)\n\nMargins computed over dimensions\nin the following order:\n1: \n2: \n\n\n     \n      A+  A A- B+  B B- C+  C D+  D  F sum\n  F    1  0  0  0  1  1  0  0  0  0  1   4\n  M    0  1  0  0  1  2  1  1  0  0  0   6\n  sum  1  1  0  0  2  3  1  1  0  0  1  10",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#data---contingency-tables",
+    "href": "tables/table.html#data---contingency-tables",
+    "title": "table",
+    "section": "2 Data - Contingency Tables",
+    "text": "2 Data - Contingency Tables\n\n\n\n\n\n\n\ncreate a contingency table in matrix form first and then convert to table.\naddmargins works for matrix and table forms\n\n\n\n\n\n2.1 Matrix form\n\n# Table 2.2 of Agresti\nM &lt;- matrix (c(189,10845,104,10933), nrow=2, byrow=TRUE,\n                dimnames = list(group=c(\"Placebo\",\"Aspirin\"),\n                                c(\"yes\",\"no\")))\nclass(M)\n\n[1] \"matrix\" \"array\" \n\naddmargins(M)\n\n         \ngroup     yes    no   Sum\n  Placebo 189 10845 11034\n  Aspirin 104 10933 11037\n  Sum     293 21778 22071\n\n\n\n\n2.2 Table form\n\nlibrary(gt)\n# gt acts on tb and df only\ntbl3 &lt;- as.table(M)\nclass(tbl3)\n\n[1] \"table\"\n\ntbl3\n\n         \ngroup       yes    no\n  Placebo   189 10845\n  Aspirin   104 10933\n\ntbl4 &lt;- addmargins(tbl3,2)\ntbl4\n\n         \ngroup       yes    no   Sum\n  Placebo   189 10845 11034\n  Aspirin   104 10933 11037\n\n\n\n\n2.3 Proportions table\n\n# margin=1 proportionates the rowSums\nP &lt;- prop.table(tbl3, margin=1) |&gt; round(4)\nP\n\n         \ngroup        yes     no\n  Placebo 0.0171 0.9829\n  Aspirin 0.0094 0.9906\n\n\n\n\n2.4 Proportions test\n\n# Wald CI for proportion differences\nprop.test(tbl3, conf.level=0.95, correct=FALSE)\n\n\n    2-sample test for equality of proportions without continuity correction\n\ndata:  tbl3\nX-squared = 25.014, df = 1, p-value = 5.692e-07\nalternative hypothesis: two.sided\n95 percent confidence interval:\n 0.004687751 0.010724297\nsample estimates:\n    prop 1     prop 2 \n0.01712887 0.00942285",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/xtab.html#data-df",
+    "href": "tables/xtab.html#data-df",
+    "title": "xtabs",
+    "section": "2 Data (df)",
+    "text": "2 Data (df)\n\n\nCode\n# dataframe\ndf = read.table(header=TRUE, text=\"\n     Gender Party Value\n     Female Democrat 495\n     Female Republican 272\n     Female Independent 590\n     Male Democrat 330\n     Male Republican 265\n     Male Independent 498 \")\n  \ndf\n\n\n  Gender       Party Value\n1 Female    Democrat   495\n2 Female  Republican   272\n3 Female Independent   590\n4   Male    Democrat   330\n5   Male  Republican   265\n6   Male Independent   498\n\n\n\n2.1 xtab form\n\nxtab &lt;- xtabs( Value ~ Gender+Party, data=df)\n\n\n\n2.2 addmargins\n\naddmargins(xtab,2)\n\n        Party\nGender   Democrat Independent Republican  Sum\n  Female      495         590        272 1357\n  Male        330         498        265 1093",
+    "crumbs": [
+      "Tables",
+      "xtab"
+    ]
+  },
+  {
+    "objectID": "tables/xtab.html#data---contingency",
+    "href": "tables/xtab.html#data---contingency",
+    "title": "xtabs",
+    "section": "2 Data - contingency",
+    "text": "2 Data - contingency\n\n\nCode\n# dataframe\ndf = read.table(header=TRUE, text=\"\n     Gender Party Value\n     Female Democrat 495\n     Female Republican 272\n     Female Independent 590\n     Male Democrat 330\n     Male Republican 265\n     Male Independent 498 \")\n  \ndf\n\n\n  Gender       Party Value\n1 Female    Democrat   495\n2 Female  Republican   272\n3 Female Independent   590\n4   Male    Democrat   330\n5   Male  Republican   265\n6   Male Independent   498\n\n\n\n2.1 xtab form\n\nxtab &lt;- xtabs( Value ~ Gender+Party, data=df)\nclass(xtab)\n\n[1] \"xtabs\" \"table\"\n\n\n\n\n2.2 addmargins\n\naddmargins(xtab,2)\n\n        Party\nGender   Democrat Independent Republican  Sum\n  Female      495         590        272 1357\n  Male        330         498        265 1093",
+    "crumbs": [
+      "Tables",
+      "xtab"
     ]
   }
 ]

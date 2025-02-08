@@ -448,11 +448,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">1</span> Data</a></li>
-  <li><a href="#one-way-contingency-frequency" id="toc-one-way-contingency-frequency" class="nav-link" data-scroll-target="#one-way-contingency-frequency"><span class="header-section-number">2</span> one-way contingency (frequency)</a></li>
-  <li><a href="#two-way-contingency" id="toc-two-way-contingency" class="nav-link" data-scroll-target="#two-way-contingency"><span class="header-section-number">3</span> two-way contingency</a>
+  <li><a href="#data---frequency-tables" id="toc-data---frequency-tables" class="nav-link active" data-scroll-target="#data---frequency-tables"><span class="header-section-number">1</span> Data - Frequency Tables</a>
   <ul class="collapse">
-  <li><a href="#addmarginstable-fun" id="toc-addmarginstable-fun" class="nav-link" data-scroll-target="#addmarginstable-fun"><span class="header-section-number">3.1</span> addmargins(<code>table, FUN</code>)</a></li>
+  <li><a href="#one-way-frequency-table" id="toc-one-way-frequency-table" class="nav-link" data-scroll-target="#one-way-frequency-table"><span class="header-section-number">1.1</span> one-way frequency table</a></li>
+  <li><a href="#two-way-frequency-table" id="toc-two-way-frequency-table" class="nav-link" data-scroll-target="#two-way-frequency-table"><span class="header-section-number">1.2</span> two-way frequency table</a></li>
+  <li><a href="#addmarginstable-fun" id="toc-addmarginstable-fun" class="nav-link" data-scroll-target="#addmarginstable-fun"><span class="header-section-number">1.3</span> addmargins(<code>table, FUN</code>)</a></li>
+  </ul></li>
+  <li><a href="#data---contingency-tables" id="toc-data---contingency-tables" class="nav-link" data-scroll-target="#data---contingency-tables"><span class="header-section-number">2</span> Data - Contingency Tables</a>
+  <ul class="collapse">
+  <li><a href="#matrix-form" id="toc-matrix-form" class="nav-link" data-scroll-target="#matrix-form"><span class="header-section-number">2.1</span> Matrix form</a></li>
+  <li><a href="#table-form" id="toc-table-form" class="nav-link" data-scroll-target="#table-form"><span class="header-section-number">2.2</span> Table form</a></li>
+  <li><a href="#proportions-table" id="toc-proportions-table" class="nav-link" data-scroll-target="#proportions-table"><span class="header-section-number">2.3</span> Proportions table</a></li>
+  <li><a href="#proportions-test" id="toc-proportions-test" class="nav-link" data-scroll-target="#proportions-test"><span class="header-section-number">2.4</span> Proportions test</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -485,15 +492,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><code>table</code> function takes a dataframe or tibble and returns a contigency table (of frequency) - commonly two-way table.</p>
+<ol type="1">
+<li><code>table</code> function takes a dataframe or tibble and returns a contigency table (of frequency) - commonly two-way table.</li>
+<li><code>addmargins</code> function works for matrix and table forms.</li>
+</ol>
 </div>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="data" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="data"><span class="header-section-number">1</span> Data</h2>
+<section id="data---frequency-tables" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data---frequency-tables"><span class="header-section-number">1</span> Data - Frequency Tables</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -531,9 +541,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 10 SD110 M      B-     </code></pre>
 </div>
 </div>
-</section>
-<section id="one-way-contingency-frequency" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="one-way-contingency-frequency"><span class="header-section-number">2</span> one-way contingency (frequency)</h2>
+<section id="one-way-frequency-table" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="one-way-frequency-table"><span class="header-section-number">1.1</span> one-way frequency table</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># table - one way</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># table will do the count in the vector</span></span>
@@ -570,8 +579,8 @@ A+  A A- B+  B B- C+  C D+  D  F
 </div>
 </div>
 </section>
-<section id="two-way-contingency" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="two-way-contingency"><span class="header-section-number">3</span> two-way contingency</h2>
+<section id="two-way-frequency-table" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="two-way-frequency-table"><span class="header-section-number">1.2</span> two-way frequency table</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gender-lgrades</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tbl2 <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>gender, tb<span class="sc">$</span>lgrades)</span>
@@ -586,11 +595,20 @@ A+  A A- B+  B B- C+  C D+  D  F
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "table"</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(tbl2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "F" "M"
+
+[[2]]
+ [1] "A+" "A"  "A-" "B+" "B"  "B-" "C+" "C"  "D+" "D"  "F" </code></pre>
 </div>
-<section id="addmarginstable-fun" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="addmarginstable-fun"><span class="header-section-number">3.1</span> addmargins(<code>table, FUN</code>)</h3>
+</div>
+</section>
+<section id="addmarginstable-fun" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="addmarginstable-fun"><span class="header-section-number">1.3</span> addmargins(<code>table, FUN</code>)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tbl2, <span class="at">FUN=</span>sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tbl2, <span class="at">FUN=</span>sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Margins computed over dimensions
 in the following order:
@@ -603,6 +621,104 @@ in the following order:
   F    1  0  0  0  1  1  0  0  0  0  1   4
   M    0  1  0  0  1  2  1  1  0  0  0   6
   sum  1  1  0  0  2  3  1  1  0  0  1  10</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="data---contingency-tables" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data---contingency-tables"><span class="header-section-number">2</span> Data - Contingency Tables</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li>create a contingency table in matrix form first and then convert to table.</li>
+<li><code>addmargins</code> works for matrix and table forms</li>
+</ol>
+</div>
+</div>
+</div>
+<section id="matrix-form" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="matrix-form"><span class="header-section-number">2.1</span> Matrix form</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Table 2.2 of Agresti</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="fu">c</span>(<span class="dv">189</span>,<span class="dv">10845</span>,<span class="dv">104</span>,<span class="dv">10933</span>), <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="at">group=</span><span class="fu">c</span>(<span class="st">"Placebo"</span>,<span class="st">"Aspirin"</span>),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="st">"yes"</span>,<span class="st">"no"</span>)))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(M)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "matrix" "array" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(M)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+group     yes    no   Sum
+  Placebo 189 10845 11034
+  Aspirin 104 10933 11037
+  Sum     293 21778 22071</code></pre>
+</div>
+</div>
+</section>
+<section id="table-form" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="table-form"><span class="header-section-number">2.2</span> Table form</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gt acts on tb and df only</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>tbl3 <span class="ot">&lt;-</span> <span class="fu">as.table</span>(M)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "table"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>tbl3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+group       yes    no
+  Placebo   189 10845
+  Aspirin   104 10933</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>tbl4 <span class="ot">&lt;-</span> <span class="fu">addmargins</span>(tbl3,<span class="dv">2</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>tbl4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+group       yes    no   Sum
+  Placebo   189 10845 11034
+  Aspirin   104 10933 11037</code></pre>
+</div>
+</div>
+</section>
+<section id="proportions-table" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="proportions-table"><span class="header-section-number">2.3</span> Proportions table</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># margin=1 proportionates the rowSums</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(tbl3, <span class="at">margin=</span><span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">4</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>P</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         
+group        yes     no
+  Placebo 0.0171 0.9829
+  Aspirin 0.0094 0.9906</code></pre>
+</div>
+</div>
+</section>
+<section id="proportions-test" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="proportions-test"><span class="header-section-number">2.4</span> Proportions test</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wald CI for proportion differences</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(tbl3, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">correct=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    2-sample test for equality of proportions without continuity correction
+
+data:  tbl3
+X-squared = 25.014, df = 1, p-value = 5.692e-07
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ 0.004687751 0.010724297
+sample estimates:
+    prop 1     prop 2 
+0.01712887 0.00942285 </code></pre>
 </div>
 </div>
 
