@@ -3144,9 +3144,9 @@
   {
     "objectID": "tables/table.html",
     "href": "tables/table.html",
-    "title": "table-frequency",
+    "title": "table",
     "section": "",
-    "text": "library(tidyverse)",
+    "text": "table function takes a dataframe or tibble and returns a contigency table (of frequency) - commonly two-way table.\nlibrary(tidyverse)",
     "crumbs": [
       "Tables",
       "table"
@@ -3155,9 +3155,9 @@
   {
     "objectID": "tables/table.html#data",
     "href": "tables/table.html#data",
-    "title": "table-frequency",
+    "title": "table",
     "section": "1 Data",
-    "text": "1 Data\n\n\nCode\ntb &lt;- read_csv(\"id, gender, lgrades\n               SD101, M, C+\n               SD102, F, F\n               SD103, F, B\n               SD104, F, A+\n               SD105, M, B\n               SD106, F, B-\n               SD107, M, A\n               SD108, M, C\n               SD109, M, B-\n               SD110, M, B-\n               \")\nlvlgender &lt;- c(\"M\",\"F\")\nlvlgrades &lt;- c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender &lt;- factor(tb$gender, levels=lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades, levels=lvlgrades)\ntb\n\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-",
+    "text": "1 Data\n\n\nCode\ntb &lt;- read_csv(\"id, gender, lgrades\n               SD101, M, C+\n               SD102, F, F\n               SD103, F, B\n               SD104, F, A+\n               SD105, M, B\n               SD106, F, B-\n               SD107, M, A\n               SD108, M, C\n               SD109, M, B-\n               SD110, M, B-\n               \")\nlvlgender &lt;- c(\"F\",\"M\")\nlvlgrades &lt;- c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender &lt;- factor(tb$gender, levels=lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades, levels=lvlgrades)\ntb\n\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-",
     "crumbs": [
       "Tables",
       "table"
@@ -3166,9 +3166,9 @@
   {
     "objectID": "tables/table.html#one-way-contingency",
     "href": "tables/table.html#one-way-contingency",
-    "title": "table-frequency",
+    "title": "table",
     "section": "2 one-way contingency",
-    "text": "2 one-way contingency\n\noneWay &lt;- table(tb$lgrades)\noneWay\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(oneWay)\n\n[1] \"table\"",
+    "text": "2 one-way contingency\n\n# table - one way\ntbl1 &lt;- table(tb$lgrades)\ntbl1\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(tbl1)\n\n[1] \"table\"\n\n\n\n# convert table to dataframe\ndf&lt;-data.frame(tbl1) |&gt; setNames( c(\"grades\",\"freq\"))\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1",
     "crumbs": [
       "Tables",
       "table"
@@ -3177,9 +3177,9 @@
   {
     "objectID": "tables/table.html#two-way-contingency",
     "href": "tables/table.html#two-way-contingency",
-    "title": "table-frequency",
+    "title": "table",
     "section": "3 two-way contingency",
-    "text": "3 two-way contingency\n\n# gender-lgrades\ntwoWay &lt;- table(tb$gender, tb$lgrades)\ntwoWay\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  M  0 1  0  0 1  2  1 1  0 0 0\n  F  1 0  0  0 1  1  0 0  0 0 1\n\nclass(twoWay)\n\n[1] \"table\"",
+    "text": "3 two-way contingency\n\n# gender-lgrades\ntbl2 &lt;- table(tb$gender, tb$lgrades)\ntbl2\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  F  1 0  0  0 1  1  0 0  0 0 1\n  M  0 1  0  0 1  2  1 1  0 0 0\n\nclass(tbl2)\n\n[1] \"table\"\n\n\n\n3.1 addmargins(table, FUN)\n\naddmargins(tbl2, FUN=sum)\n\nMargins computed over dimensions\nin the following order:\n1: \n2: \n\n\n     \n      A+  A A- B+  B B- C+  C D+  D  F sum\n  F    1  0  0  0  1  1  0  0  0  0  1   4\n  M    0  1  0  0  1  2  1  1  0  0  0   6\n  sum  1  1  0  0  2  3  1  1  0  0  1  10",
     "crumbs": [
       "Tables",
       "table"
@@ -3188,7 +3188,7 @@
   {
     "objectID": "tables/table.html#grades-freq-in-dataframe",
     "href": "tables/table.html#grades-freq-in-dataframe",
-    "title": "table-frequency",
+    "title": "table",
     "section": "4 grades-freq in dataframe",
     "text": "4 grades-freq in dataframe\n\n# redo table back into a dataframe\ndf &lt;- data.frame(oneWay)\nnames(df) &lt;- c(\"grades\",\"freq\")\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1",
     "crumbs": [
@@ -3199,7 +3199,7 @@
   {
     "objectID": "tables/table.html#column-plot",
     "href": "tables/table.html#column-plot",
-    "title": "table-frequency",
+    "title": "table",
     "section": "5 column plot",
     "text": "5 column plot\n\nggplot(df, aes(x=grades, y=freq))+\n  geom_col(fill=\"lightblue\", color=\"black\")",
     "crumbs": [
@@ -3238,6 +3238,28 @@
     "crumbs": [
       "Tables",
       "gt"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#one-way-frequency-contingency_",
+    "href": "tables/table.html#one-way-frequency-contingency_",
+    "title": "table",
+    "section": "2 one-way frequency (contingency_\\)",
+    "text": "2 one-way frequency (contingency_\\)\n\n# table - one way\ntbl1 &lt;- table(tb$lgrades)\ntbl1\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(tbl1)\n\n[1] \"table\"\n\n\n\n# convert table to dataframe\ndf&lt;-data.frame(tbl1) |&gt; setNames( c(\"grades\",\"freq\"))\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1",
+    "crumbs": [
+      "Tables",
+      "table"
+    ]
+  },
+  {
+    "objectID": "tables/table.html#one-way-contingency-frequency",
+    "href": "tables/table.html#one-way-contingency-frequency",
+    "title": "table",
+    "section": "2 one-way contingency (frequency)",
+    "text": "2 one-way contingency (frequency)\n\n# table - one way\n# table will do the count in the vector\ntbl1 &lt;- table(tb$lgrades)\ntbl1\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(tbl1)\n\n[1] \"table\"\n\n\n\n# convert table to dataframe\n# setNames() is available in stats package\ndf&lt;-data.frame(tbl1) |&gt; setNames(c(\"grades\",\"freq\"))\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1",
+    "crumbs": [
+      "Tables",
+      "table"
     ]
   }
 ]

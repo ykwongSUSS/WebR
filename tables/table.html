@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>table-frequency – WebR</title>
+<title>table – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -449,10 +449,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">1</span> Data</a></li>
-  <li><a href="#one-way-contingency" id="toc-one-way-contingency" class="nav-link" data-scroll-target="#one-way-contingency"><span class="header-section-number">2</span> one-way contingency</a></li>
-  <li><a href="#two-way-contingency" id="toc-two-way-contingency" class="nav-link" data-scroll-target="#two-way-contingency"><span class="header-section-number">3</span> two-way contingency</a></li>
-  <li><a href="#grades-freq-in-dataframe" id="toc-grades-freq-in-dataframe" class="nav-link" data-scroll-target="#grades-freq-in-dataframe"><span class="header-section-number">4</span> grades-freq in dataframe</a></li>
-  <li><a href="#column-plot" id="toc-column-plot" class="nav-link" data-scroll-target="#column-plot"><span class="header-section-number">5</span> column plot</a></li>
+  <li><a href="#one-way-contingency-frequency" id="toc-one-way-contingency-frequency" class="nav-link" data-scroll-target="#one-way-contingency-frequency"><span class="header-section-number">2</span> one-way contingency (frequency)</a></li>
+  <li><a href="#two-way-contingency" id="toc-two-way-contingency" class="nav-link" data-scroll-target="#two-way-contingency"><span class="header-section-number">3</span> two-way contingency</a>
+  <ul class="collapse">
+  <li><a href="#addmarginstable-fun" id="toc-addmarginstable-fun" class="nav-link" data-scroll-target="#addmarginstable-fun"><span class="header-section-number">3.1</span> addmargins(<code>table, FUN</code>)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -461,7 +462,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/gt.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/table.html">table</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">table-frequency</h1>
+<h1 class="title">table</h1>
 </div>
 
 
@@ -478,6 +479,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><code>table</code> function takes a dataframe or tibble and returns a contigency table (of frequency) - commonly two-way table.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -498,7 +509,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">               SD109, M, B-</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">               SD110, M, B-</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">               "</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>lvlgender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>,<span class="st">"F"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>lvlgender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"F"</span>,<span class="st">"M"</span>)</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>lvlgrades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A+"</span>,<span class="st">"A"</span>,<span class="st">"A-"</span>,<span class="st">"B+"</span>,<span class="st">"B"</span>,<span class="st">"B-"</span>,<span class="st">"C+"</span>,<span class="st">"C"</span>,<span class="st">"D+"</span>,<span class="st">"D"</span>,<span class="st">"F"</span>)</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(tb<span class="sc">$</span>gender, <span class="at">levels=</span>lvlgender)</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>lgrades <span class="ot">&lt;-</span> <span class="fu">factor</span>(tb<span class="sc">$</span>lgrades, <span class="at">levels=</span>lvlgrades)</span>
@@ -521,47 +532,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="one-way-contingency" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="one-way-contingency"><span class="header-section-number">2</span> one-way contingency</h2>
+<section id="one-way-contingency-frequency" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="one-way-contingency-frequency"><span class="header-section-number">2</span> one-way contingency (frequency)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>oneWay <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>lgrades)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>oneWay</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># table - one way</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># table will do the count in the vector</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>tbl1 <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>lgrades)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>tbl1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 A+  A A- B+  B B- C+  C D+  D  F 
  1  1  0  0  2  3  1  1  0  0  1 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(oneWay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "table"</code></pre>
 </div>
 </div>
-</section>
-<section id="two-way-contingency" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="two-way-contingency"><span class="header-section-number">3</span> two-way contingency</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gender-lgrades</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>twoWay <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>gender, tb<span class="sc">$</span>lgrades)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>twoWay</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   
-    A+ A A- B+ B B- C+ C D+ D F
-  M  0 1  0  0 1  2  1 1  0 0 0
-  F  1 0  0  0 1  1  0 0  0 0 1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(twoWay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "table"</code></pre>
-</div>
-</div>
-</section>
-<section id="grades-freq-in-dataframe" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="grades-freq-in-dataframe"><span class="header-section-number">4</span> grades-freq in dataframe</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># redo table back into a dataframe</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(oneWay)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"grades"</span>,<span class="st">"freq"</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert table to dataframe</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># setNames() is available in stats package</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(tbl1) <span class="sc">|&gt;</span> <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">"grades"</span>,<span class="st">"freq"</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   grades freq
 1      A+    1
@@ -578,21 +570,44 @@ A+  A A- B+  B B- C+  C D+  D  F
 </div>
 </div>
 </section>
-<section id="column-plot" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="column-plot"><span class="header-section-number">5</span> column plot</h2>
+<section id="two-way-contingency" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="two-way-contingency"><span class="header-section-number">3</span> two-way contingency</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>grades, <span class="at">y=</span>freq))<span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">"lightblue"</span>, <span class="at">color=</span><span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="table_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gender-lgrades</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tbl2 <span class="ot">&lt;-</span> <span class="fu">table</span>(tb<span class="sc">$</span>gender, tb<span class="sc">$</span>lgrades)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>tbl2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+    A+ A A- B+ B B- C+ C D+ D F
+  F  1 0  0  0 1  1  0 0  0 0 1
+  M  0 1  0  0 1  2  1 1  0 0 0</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "table"</code></pre>
+</div>
+</div>
+<section id="addmarginstable-fun" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="addmarginstable-fun"><span class="header-section-number">3.1</span> addmargins(<code>table, FUN</code>)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tbl2, <span class="at">FUN=</span>sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Margins computed over dimensions
+in the following order:
+1: 
+2: </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     
+      A+  A A- B+  B B- C+  C D+  D  F sum
+  F    1  0  0  0  1  1  0  0  0  0  1   4
+  M    0  1  0  0  1  2  1  1  0  0  0   6
+  sum  1  1  0  0  2  3  1  1  0  0  1  10</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
