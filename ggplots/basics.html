@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../ggplots/curves.html" rel="next">
-<link href="../tables/gt.html" rel="prev">
+<link href="../tables/vcd.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -209,12 +209,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">matrices</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../datatypes/table.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">table</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -275,26 +269,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../tables/gt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">gt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/xtab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">xtab</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../tables/dataTable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">dataTable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tables/frequency.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">frequency</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tables/contingency.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">contingency</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../tables/gt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">gt</span></a>
+  <a href="../tables/vcd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">vcd</span></a>
   </div>
 </li>
       </ul>
@@ -584,7 +584,7 @@ plots
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   30 obs. of  2 variables:
  $ direction: chr  "N" "S" "E" "W" ...
- $ speed    : num  4.96 5.14 4.7 5.13 4.93 ...</code></pre>
+ $ speed    : num  5.32 4.9 5.32 5.1 5.43 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># indicate x</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># counting on y is automatic</span></span>
@@ -644,17 +644,17 @@ plots
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   30 obs. of  2 variables:
  $ direction: chr  "N" "S" "E" "W" ...
- $ speed    : num  4.96 5.14 4.7 5.13 4.93 ...</code></pre>
+ $ speed    : num  5.32 4.9 5.32 5.1 5.43 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(dfWind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  direction    speed
-1         N 4.956320
-2         S 5.135507
-3         E 4.703843
-4         W 5.132938
-5         W 4.934271
-6         E 5.150573</code></pre>
+1         N 5.318754
+2         S 4.902615
+3         E 5.322361
+4         W 5.102295
+5         W 5.428915
+6         E 5.273065</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(dfWind, <span class="fu">aes</span>(<span class="at">x=</span>speed))<span class="sc">+</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">fill=</span><span class="st">"lightgray"</span>,<span class="at">color=</span><span class="st">"black"</span>)<span class="sc">+</span></span>
@@ -1132,8 +1132,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../tables/gt.html" class="pagination-link" aria-label="gt">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">gt</span>
+      <a href="../tables/vcd.html" class="pagination-link" aria-label="vcd">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">vcd</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

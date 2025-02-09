@@ -559,7 +559,7 @@
     "href": "datatypes/dates.html#calculating-age-from-dates",
     "title": "Dates",
     "section": "2 Calculating age from Dates",
-    "text": "2 Calculating age from Dates\n\nlibrary(tidyverse)\nlibrary(eeptools)\ndf2 &lt;- read_csv(\"name, dob\n                CUMBERBATCH Benedict, 1976-07-19\n                FOX Megan, 1986-05-16\n                HANKS Tom, 1956-07-09\n                SANDLER Adam, 1966-09-09\n                SMITH Will, 1968-09-25\n                STONE Emma, 1988-11-06\")\ndf3 &lt;- arrange(df2, -desc(dob))\ndf4 &lt;- df3 %&gt;% \n         mutate(age=age_calc(dob, units=\"years\")) %&gt;%\n         mutate(mth=month(dob))\ndf4$mth &lt;- month.abb[df4$mth]\ndf4\n\n# A tibble: 6 × 4\n  name                 dob          age mth  \n  &lt;chr&gt;                &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;\n1 HANKS Tom            1956-07-09  68.6 Jul  \n2 SANDLER Adam         1966-09-09  58.4 Sep  \n3 SMITH Will           1968-09-25  56.4 Sep  \n4 CUMBERBATCH Benedict 1976-07-19  48.5 Jul  \n5 FOX Megan            1986-05-16  38.7 May  \n6 STONE Emma           1988-11-06  36.2 Nov",
+    "text": "2 Calculating age from Dates\n\nlibrary(tidyverse)\nlibrary(eeptools)\ndf2 &lt;- read_csv(\"name, dob\n                CUMBERBATCH Benedict, 1976-07-19\n                FOX Megan, 1986-05-16\n                HANKS Tom, 1956-07-09\n                SANDLER Adam, 1966-09-09\n                SMITH Will, 1968-09-25\n                STONE Emma, 1988-11-06\")\ndf3 &lt;- arrange(df2, -desc(dob))\ndf4 &lt;- df3 %&gt;% \n         mutate(age=age_calc(dob, units=\"years\")) %&gt;%\n         mutate(mth=month(dob))\ndf4$mth &lt;- month.abb[df4$mth]\ndf4\n\n# A tibble: 6 × 4\n  name                 dob          age mth  \n  &lt;chr&gt;                &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;\n1 HANKS Tom            1956-07-09  68.6 Jul  \n2 SANDLER Adam         1966-09-09  58.4 Sep  \n3 SMITH Will           1968-09-25  56.4 Sep  \n4 CUMBERBATCH Benedict 1976-07-19  48.6 Jul  \n5 FOX Megan            1986-05-16  38.7 May  \n6 STONE Emma           1988-11-06  36.3 Nov",
     "crumbs": [
       "Datatypes",
       "dates"
@@ -1780,7 +1780,7 @@
     "href": "ggplots/basics.html#barplot",
     "title": "basicPlots",
     "section": "3 BarPlot",
-    "text": "3 BarPlot\n\n# barplot\ndirection = c('N','S','E','W','W','E','W','E','E','E','E','S','S','N','N','W','E','E','N','N','N','S','E','W','W','E','W','E','E','E')\nspeed = rnorm(30, 5, 0.2)\ndfWind &lt;- data.frame(direction,speed)\nstr(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  4.96 5.14 4.7 5.13 4.93 ...\n\n# indicate x\n# counting on y is automatic\n\nggplot(dfWind,aes(x=direction, fill=direction))+\n  geom_bar(color=\"black\")+\n  labs(\n    title=\"BarPlot\",\n    subtitle=\"auto counting\"\n  )",
+    "text": "3 BarPlot\n\n# barplot\ndirection = c('N','S','E','W','W','E','W','E','E','E','E','S','S','N','N','W','E','E','N','N','N','S','E','W','W','E','W','E','E','E')\nspeed = rnorm(30, 5, 0.2)\ndfWind &lt;- data.frame(direction,speed)\nstr(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  5.32 4.9 5.32 5.1 5.43 ...\n\n# indicate x\n# counting on y is automatic\n\nggplot(dfWind,aes(x=direction, fill=direction))+\n  geom_bar(color=\"black\")+\n  labs(\n    title=\"BarPlot\",\n    subtitle=\"auto counting\"\n  )",
     "crumbs": [
       "ggPlots",
       "basics"
@@ -1802,7 +1802,7 @@
     "href": "ggplots/basics.html#histogram",
     "title": "basicPlots",
     "section": "5 Histogram",
-    "text": "5 Histogram\n\n  str(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  4.96 5.14 4.7 5.13 4.93 ...\n\n  head(dfWind)\n\n  direction    speed\n1         N 4.956320\n2         S 5.135507\n3         E 4.703843\n4         W 5.132938\n5         W 4.934271\n6         E 5.150573\n\n  ggplot(dfWind, aes(x=speed))+\n    geom_histogram(bins = 8, fill=\"lightgray\",color=\"black\")+\n    labs(\n      title=\"Histogram\",\n      subtitle = \"bins=8\",\n      xlab = \"Wind Speed\",\n      ylab = \"Frequency\"\n    )",
+    "text": "5 Histogram\n\n  str(dfWind)\n\n'data.frame':   30 obs. of  2 variables:\n $ direction: chr  \"N\" \"S\" \"E\" \"W\" ...\n $ speed    : num  5.32 4.9 5.32 5.1 5.43 ...\n\n  head(dfWind)\n\n  direction    speed\n1         N 5.318754\n2         S 4.902615\n3         E 5.322361\n4         W 5.102295\n5         W 5.428915\n6         E 5.273065\n\n  ggplot(dfWind, aes(x=speed))+\n    geom_histogram(bins = 8, fill=\"lightgray\",color=\"black\")+\n    labs(\n      title=\"Histogram\",\n      subtitle = \"bins=8\",\n      xlab = \"Wind Speed\",\n      ylab = \"Frequency\"\n    )",
     "crumbs": [
       "ggPlots",
       "basics"
