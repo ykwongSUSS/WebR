@@ -1261,7 +1261,7 @@
     "href": "tables/gt.html",
     "title": "gt",
     "section": "",
-    "text": "gt() creates formatted tables out of tibbles and dataframes\n\n\n\n\n\nLibrary\n\nlibrary(tidyverse)\nlibrary(gt)\n\n\n\nData\n\n# islands is a named vector (continental land mass)\n# we convert it to a tibble using enframe and\n# select top five islands\n\ntbl&lt;-tibble::enframe(islands) %&gt;% slice_max(value, n=5)\ntbl\n\n# A tibble: 5 × 2\n  name          value\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Asia          16988\n2 Africa        11506\n3 North America  9390\n4 South America  6795\n5 Antarctica     5500\n\n\n\n\nBasic gt on tibble\n\n# basic gt table\ngt(tbl) |&gt;\n  tab_header(\n    title = md(\"Landmasses of the World\")) |&gt;\n  tab_caption(\n    caption= md(\"Top 5 selected\"))\n\n\n\n\n\nTop 5 selected\n\n\nLandmasses of the World\n\n\nname\nvalue\n\n\n\n\nAsia\n16988\n\n\nAfrica\n11506\n\n\nNorth America\n9390\n\n\nSouth America\n6795\n\n\nAntarctica\n5500\n\n\n\n\n\n\n\n\n\ngt on data.frame\n\ndf &lt;- read.table(header=TRUE, text=\"\n          Group Yes No\n          Placebo 189 10845\n          Aspirin 104 10933 \")\ndf\n\n    Group Yes    No\n1 Placebo 189 10845\n2 Aspirin 104 10933\n\ngt(df) |&gt;\n  tab_header(\n    title=md(\"Cross classification\"),\n    subtitle=md(\"Aspirin use and myocardial infarction\")\n  ) |&gt;\n  tab_spanner(\n    label = \"Mycardial Infarction\",\n    columns = c(Yes, No)\n  )\n\n\n\n\n\n\n\n\n\n\n\n\nCross classification\n\n\nAspirin use and myocardial infarction\n\n\nGroup\n\nMycardial Infarction\n\n\n\nYes\nNo\n\n\n\n\nPlacebo\n189\n10845\n\n\nAspirin\n104\n10933",
+    "text": "gt() formats tables out of dataframes and tibbles\n\n\n\n\n\nLibrary\n\nlibrary(tidyverse)\nlibrary(gt)\n\n\n\nData\n\n\nCode\n# islands is a named vector (continental land mass)\n# we convert it to a tibble using enframe and\n# select top five islands\n\ntbl&lt;-tibble::enframe(islands) %&gt;% slice_max(value, n=5)\ntbl\n\n\n# A tibble: 5 × 2\n  name          value\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Asia          16988\n2 Africa        11506\n3 North America  9390\n4 South America  6795\n5 Antarctica     5500\n\n\n\n\nBasic gt on tibble\n\n# basic gt table\ngt(tbl) |&gt;\n  tab_header(\n    title = md(\"Landmasses of the World\")) |&gt;\n  tab_caption(\n    caption= md(\"Top 5 selected\")) |&gt;\n  fmt_number(sep_mark=\",\",decimals=0)\n\n\n\n\n\nTop 5 selected\n\n\nLandmasses of the World\n\n\nname\nvalue\n\n\n\n\nAsia\n16,988\n\n\nAfrica\n11,506\n\n\nNorth America\n9,390\n\n\nSouth America\n6,795\n\n\nAntarctica\n5,500\n\n\n\n\n\n\n\n\n\ngt on data.frame\n\ndf &lt;- read.table(header=TRUE, text=\"\n          Group Yes No\n          Placebo 189 10845\n          Aspirin 104 10933 \")\ndf\n\n    Group Yes    No\n1 Placebo 189 10845\n2 Aspirin 104 10933\n\ngt(df) |&gt;\n  tab_header(\n    title=md(\"Cross classification\"),\n    subtitle=md(\"Aspirin use and myocardial infarction\")\n  ) |&gt;\n  tab_spanner(\n    label = \"Mycardial Infarction\",\n    columns = c(Yes, No)\n  ) \n\n\n\n\n\n\n\n\n\n\n\n\nCross classification\n\n\nAspirin use and myocardial infarction\n\n\nGroup\n\nMycardial Infarction\n\n\n\nYes\nNo\n\n\n\n\nPlacebo\n189\n10845\n\n\nAspirin\n104\n10933",
     "crumbs": [
       "Tables",
       "gt"
@@ -1272,7 +1272,7 @@
     "href": "tables/xtab.html",
     "title": "xtabs",
     "section": "",
-    "text": "xtabs works on tibbles and dataframes and uses formula entry\naddmargins works for xtab form",
+    "text": "xtabs works on dataframes and tibbles and uses formula entry\naddmargins works for xtab form",
     "crumbs": [
       "Tables",
       "xtab"
@@ -2562,7 +2562,7 @@
     "href": "tables/dataTable.html",
     "title": "dataTable",
     "section": "",
-    "text": "dataTables are also dataframes and thus functions-methods on dataframes are also applicable to dataTables\nfread is very useful for data input",
+    "text": "needs library(data.table)\ncreate dataTable (dt) using fread or data.table\ndata.table is also a data.frame and thus functions-methods on dataframes are also applicable to dataTable",
     "crumbs": [
       "Tables",
       "dataTable"
@@ -3146,7 +3146,7 @@
     "href": "tables/table.html",
     "title": "table",
     "section": "",
-    "text": "table function takes a dataframe or tibble and returns a contigency table (of frequency) - commonly two-way table.\naddmargins function works for matrix and table forms.\nlibrary(tidyverse)",
+    "text": "table works on dataframes and tibbles.\nused for counting categories into a frequency table\naddmargins function works for matrix and table forms.\nlibrary(tidyverse)",
     "crumbs": [
       "Tables",
       "table"
@@ -3344,7 +3344,29 @@
     "href": "tables/xtab.html#data---contingency",
     "title": "xtabs",
     "section": "2 Data - contingency",
-    "text": "2 Data - contingency\n\n\nCode\n# dataframe\ndf = read.table(header=TRUE, text=\"\n     Gender Party Value\n     Female Democrat 495\n     Female Republican 272\n     Female Independent 590\n     Male Democrat 330\n     Male Republican 265\n     Male Independent 498 \")\n  \ndf\n\n\n  Gender       Party Value\n1 Female    Democrat   495\n2 Female  Republican   272\n3 Female Independent   590\n4   Male    Democrat   330\n5   Male  Republican   265\n6   Male Independent   498\n\n\n\n2.1 xtab form\n\nxtab &lt;- xtabs( Value ~ Gender+Party, data=df)\nclass(xtab)\n\n[1] \"xtabs\" \"table\"\n\n\n\n\n2.2 addmargins\n\naddmargins(xtab,2)\n\n        Party\nGender   Democrat Independent Republican  Sum\n  Female      495         590        272 1357\n  Male        330         498        265 1093",
+    "text": "2 Data - contingency\n\n\nCode\n# dataframe\ndf = read.table(header=TRUE, text=\"\n     Gender Party Value\n     Female Democrat 495\n     Female Republican 272\n     Female Independent 590\n     Male Democrat 330\n     Male Republican 265\n     Male Independent 498 \")\ndf\n\n\n  Gender       Party Value\n1 Female    Democrat   495\n2 Female  Republican   272\n3 Female Independent   590\n4   Male    Democrat   330\n5   Male  Republican   265\n6   Male Independent   498\n\n\n\n2.1 xtab form\n\nxtab &lt;- xtabs( Value ~ Gender+Party, data=df)\nclass(xtab)\n\n[1] \"xtabs\" \"table\"\n\n\n\n\n2.2 addmargins\n\naddmargins(xtab,2)\n\n        Party\nGender   Democrat Independent Republican  Sum\n  Female      495         590        272 1357\n  Male        330         498        265 1093",
+    "crumbs": [
+      "Tables",
+      "xtab"
+    ]
+  },
+  {
+    "objectID": "tables/xtab.html#data---df",
+    "href": "tables/xtab.html#data---df",
+    "title": "xtabs",
+    "section": "2 Data - df",
+    "text": "2 Data - df\n\n\nCode\n# dataframe\ndf = read.table(header=TRUE, text=\"\n     Gender Party Value\n     Female Democrat 495\n     Female Republican 272\n     Female Independent 590\n     Male Democrat 330\n     Male Republican 265\n     Male Independent 498 \")\ndf\n\n\n  Gender       Party Value\n1 Female    Democrat   495\n2 Female  Republican   272\n3 Female Independent   590\n4   Male    Democrat   330\n5   Male  Republican   265\n6   Male Independent   498\n\n\n\n2.1 xtab form\n\nxtab &lt;- xtabs( Value ~ Gender+Party, data=df)\nclass(xtab)\n\n[1] \"xtabs\" \"table\"\n\n\n\n\n2.2 addmargins\n\naddmargins(xtab,2)\n\n        Party\nGender   Democrat Independent Republican  Sum\n  Female      495         590        272 1357\n  Male        330         498        265 1093",
+    "crumbs": [
+      "Tables",
+      "xtab"
+    ]
+  },
+  {
+    "objectID": "tables/xtab.html#data---dataframe",
+    "href": "tables/xtab.html#data---dataframe",
+    "title": "xtabs",
+    "section": "2 Data - dataframe",
+    "text": "2 Data - dataframe\n\n\nCode\n# dataframe\ndf = read.table(header=TRUE, text=\"\n     Gender Party Value\n     Female Democrat 495\n     Female Republican 272\n     Female Independent 590\n     Male Democrat 330\n     Male Republican 265\n     Male Independent 498 \")\ndf\n\n\n  Gender       Party Value\n1 Female    Democrat   495\n2 Female  Republican   272\n3 Female Independent   590\n4   Male    Democrat   330\n5   Male  Republican   265\n6   Male Independent   498\n\n\n\n2.1 xtab form\n\ntab &lt;- xtabs( Value ~ Gender+Party, data=df)\nclass(tab)\n\n[1] \"xtabs\" \"table\"\n\ntab\n\n        Party\nGender   Democrat Independent Republican\n  Female      495         590        272\n  Male        330         498        265\n\n\n\n\n2.2 addmargins\n\naddmargins(tab,2)\n\n        Party\nGender   Democrat Independent Republican  Sum\n  Female      495         590        272 1357\n  Male        330         498        265 1093",
     "crumbs": [
       "Tables",
       "xtab"

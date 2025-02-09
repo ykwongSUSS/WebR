@@ -449,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#library" id="toc-library" class="nav-link active" data-scroll-target="#library"><span class="header-section-number">1</span> Library</a></li>
-  <li><a href="#data---contingency" id="toc-data---contingency" class="nav-link" data-scroll-target="#data---contingency"><span class="header-section-number">2</span> Data - contingency</a>
+  <li><a href="#data---dataframe" id="toc-data---dataframe" class="nav-link" data-scroll-target="#data---dataframe"><span class="header-section-number">2</span> Data - dataframe</a>
   <ul class="collapse">
   <li><a href="#xtab-form" id="toc-xtab-form" class="nav-link" data-scroll-target="#xtab-form"><span class="header-section-number">2.1</span> xtab form</a></li>
   <li><a href="#addmargins" id="toc-addmargins" class="nav-link" data-scroll-target="#addmargins"><span class="header-section-number">2.2</span> addmargins</a></li>
@@ -486,7 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container">
 <ol type="1">
-<li>xtabs works on <strong>tibbles</strong> and <strong>dataframes</strong> and uses <strong>formula</strong> entry</li>
+<li>xtabs works on <strong>dataframes</strong> and <strong>tibbles</strong> and uses <strong>formula</strong> entry</li>
 <li><code>addmargins</code> works for xtab form</li>
 </ol>
 </div>
@@ -498,8 +498,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="data---contingency" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="data---contingency"><span class="header-section-number">2</span> Data - contingency</h2>
+<section id="data---dataframe" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data---dataframe"><span class="header-section-number">2</span> Data - dataframe</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -512,8 +512,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">     Male Democrat 330</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">     Male Republican 265</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">     Male Independent 498 "</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Gender       Party Value
@@ -528,17 +527,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="xtab-form" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="xtab-form"><span class="header-section-number">2.1</span> xtab form</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>xtab <span class="ot">&lt;-</span> <span class="fu">xtabs</span>( Value <span class="sc">~</span> Gender<span class="sc">+</span>Party, <span class="at">data=</span>df)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(xtab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">xtabs</span>( Value <span class="sc">~</span> Gender<span class="sc">+</span>Party, <span class="at">data=</span>df)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "xtabs" "table"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Party
+Gender   Democrat Independent Republican
+  Female      495         590        272
+  Male        330         498        265</code></pre>
 </div>
 </div>
 </section>
 <section id="addmargins" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="addmargins"><span class="header-section-number">2.2</span> addmargins</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(xtab,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tab,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        Party
 Gender   Democrat Independent Republican  Sum

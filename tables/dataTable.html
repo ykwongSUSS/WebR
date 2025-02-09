@@ -209,12 +209,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">matrices</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../datatypes/table.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">table</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -277,6 +271,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../tables/gt.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">gt</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -491,10 +491,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <ol type="1">
-<li>dataTables are also dataframes and thus functions-methods on dataframes are also applicable to dataTables</li>
-<li><code>fread</code> is very useful for data input</li>
+<li>needs <code>library(data.table)</code></li>
+<li>create dataTable (dt) using <code>fread</code> or <code>data.table</code></li>
+<li><strong>data.table</strong> is also a <strong>data.frame</strong> and thus functions-methods on dataframes are also applicable to dataTable</li>
 </ol>
+</div>
+</div>
+</div>
 <section id="library" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="library"><span class="header-section-number">1</span> Library</h2>
 <div class="cell">
