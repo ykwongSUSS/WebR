@@ -3371,5 +3371,67 @@
       "Tables",
       "xtab"
     ]
+  },
+  {
+    "objectID": "tables/flextable.html",
+    "href": "tables/flextable.html",
+    "title": "flexTable",
+    "section": "",
+    "text": "flextable takes a data.frame and returns a flextable. flextable also allows you to merge cells, add header rows, add footer rows, change all formatting and specify how data should be displayed in cells. Table contents can also contain a mix of content types such as text and images.",
+    "crumbs": [
+      "Tables",
+      "flextable"
+    ]
+  },
+  {
+    "objectID": "tables/flextable.html#library",
+    "href": "tables/flextable.html#library",
+    "title": "flexTable",
+    "section": "Library",
+    "text": "Library\n\nlibrary(tidyverse)\nlibrary(flextable)",
+    "crumbs": [
+      "Tables",
+      "flextable"
+    ]
+  },
+  {
+    "objectID": "tables/flextable.html#data",
+    "href": "tables/flextable.html#data",
+    "title": "flexTable",
+    "section": "Data",
+    "text": "Data\n\n\nCode\ntb &lt;- tibble::enframe(islands) %&gt;% slice_max(value, n=5)\ntb     \n\n\n# A tibble: 5 × 2\n  name          value\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Asia          16988\n2 Africa        11506\n3 North America  9390\n4 South America  6795\n5 Antarctica     5500"
+  },
+  {
+    "objectID": "tables/flextable.html#data1",
+    "href": "tables/flextable.html#data1",
+    "title": "flexTable",
+    "section": "Data1",
+    "text": "Data1\n\n\nCode\ntb &lt;- tibble::enframe(islands) %&gt;% slice_max(value, n=5)\ntb     \n\n\n# A tibble: 5 × 2\n  name          value\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Asia          16988\n2 Africa        11506\n3 North America  9390\n4 South America  6795\n5 Antarctica     5500\n\n\n\nFlextable\n\nft &lt;- tb |&gt; flextable(cwidth=c(2,1)) |&gt; theme_box()\nft\n\nsnamevalueAsia16,988Africa11,506North America9,390South America6,795Antarctica5,500",
+    "crumbs": [
+      "Tables",
+      "flextable"
+    ]
+  },
+  {
+    "objectID": "tables/flextable.html#flextable",
+    "href": "tables/flextable.html#flextable",
+    "title": "flexTable",
+    "section": "Flextable",
+    "text": "Flextable\n\nft &lt;- tb |&gt; flextable(cwidth=c(2,1)) |&gt; theme_box()\nft\n\nLandmasses of the WorldnamevalueAsia16,988Africa11,506North America9,390South America6,795Antarctica5,500",
+    "crumbs": [
+      "Tables",
+      "flextable"
+    ]
+  },
+  {
+    "objectID": "tables/flextable.html#data2",
+    "href": "tables/flextable.html#data2",
+    "title": "flexTable",
+    "section": "Data2",
+    "text": "Data2\n\ndf &lt;- read.table(header=TRUE, text=\"\n          Group Yes No\n          Placebo 189 10845\n          Aspirin 104 10933 \")\ndf\n\n    Group Yes    No\n1 Placebo 189 10845\n2 Aspirin 104 10933\n\n\n\nFlextable\n\nft &lt;- flextable(df)\nft \n\nCross ClassificationGroupYesNoPlacebo18910,845Aspirin10410,933",
+    "crumbs": [
+      "Tables",
+      "flextable"
+    ]
   }
 ]
