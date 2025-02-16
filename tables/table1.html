@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>flexTable – WebR</title>
+<title>table1 – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../tables/table.html" rel="next">
-<link href="../tables/gt.html" rel="prev">
+<link href="../tables/flextable.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -102,8 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link href="../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
-<script src="../site_libs/tabwid-1.1.3/tabwid.js"></script>
+<link href="../site_libs/table1-1.0/table1_defaults.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -118,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/gt.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/flextable.html">flextable</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/gt.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/table1.html">table1</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -277,8 +276,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tables/flextable.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tables/flextable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">flextable</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/table1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">table1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -456,24 +461,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#library" id="toc-library" class="nav-link active" data-scroll-target="#library">Library</a></li>
-  <li><a href="#data1---tibble" id="toc-data1---tibble" class="nav-link" data-scroll-target="#data1---tibble">Data1 - tibble</a>
+  <li><a href="#data-1---df" id="toc-data-1---df" class="nav-link active" data-scroll-target="#data-1---df"><span class="header-section-number">1</span> Data 1 - df</a>
   <ul class="collapse">
-  <li><a href="#flextable" id="toc-flextable" class="nav-link" data-scroll-target="#flextable">Flextable</a></li>
+  <li><a href="#table1" id="toc-table1" class="nav-link" data-scroll-target="#table1"><span class="header-section-number">1.1</span> <code>table1</code></a></li>
   </ul></li>
-  <li><a href="#data2---dataframe" id="toc-data2---dataframe" class="nav-link" data-scroll-target="#data2---dataframe">Data2 - dataframe</a>
-  <ul class="collapse">
-  <li><a href="#flextable-1" id="toc-flextable-1" class="nav-link" data-scroll-target="#flextable-1">Flextable</a></li>
-  </ul></li>
+  <li><a href="#data-2---dat" id="toc-data-2---dat" class="nav-link" data-scroll-target="#data-2---dat"><span class="header-section-number">2</span> Data 2 - dat</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/gt.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/flextable.html">flextable</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tables/gt.html">Tables</a></li><li class="breadcrumb-item"><a href="../tables/table1.html">table1</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">flexTable</h1>
+<h1 class="title">table1</h1>
 </div>
 
 
@@ -490,70 +491,570 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><code>flextable</code> takes a&nbsp;<code>data.frame</code> and returns a flextable. <code>flextable</code> also allows you to merge cells, add header rows, add footer rows, change all formatting and specify how data should be displayed in cells. Table contents can also contain a mix of content types such as text and images.</p>
-<section id="library" class="level2">
-<h2 class="anchored" data-anchor-id="library">Library</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(table1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="data1---tibble" class="level2">
-<h2 class="anchored" data-anchor-id="data1---tibble">Data1 - tibble</h2>
+<section id="data-1---df" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data-1---df"><span class="header-section-number">1</span> Data 1 - df</h2>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">enframe</span>(islands) <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(value, <span class="at">n=</span><span class="dv">5</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tb     </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>melanoma2 <span class="ot">&lt;-</span> melanoma</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(melanoma2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 2
-  name          value
-  &lt;chr&gt;         &lt;dbl&gt;
-1 Asia          16988
-2 Africa        11506
-3 North America  9390
-4 South America  6795
-5 Antarctica     5500</code></pre>
+<pre><code>'data.frame':   205 obs. of  7 variables:
+ $ time     : num  10 30 35 99 185 204 210 232 232 279 ...
+ $ status   : num  3 3 2 3 1 1 1 3 1 1 ...
+ $ sex      : num  1 1 1 0 1 1 1 0 1 0 ...
+ $ age      : num  76 56 41 71 52 28 77 60 49 68 ...
+ $ year     : num  1972 1968 1977 1968 1965 ...
+ $ thickness: num  6.76 0.65 1.34 2.9 12.08 ...
+ $ ulcer    : num  1 0 0 0 1 1 1 1 1 1 ...</code></pre>
 </div>
-</div>
-<section id="flextable" class="level3">
-<h3 class="anchored" data-anchor-id="flextable">Flextable</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ft <span class="ot">&lt;-</span> tb <span class="sc">|&gt;</span> <span class="fu">flextable</span>(<span class="at">cwidth=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)) <span class="sc">|&gt;</span> <span class="fu">theme_box</span>()</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ft</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="tabwid"><style>.cl-2a3311fe{}.cl-2a3021f6{font-family:'Helvetica';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2a302200{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2a315ac6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-2a315ac7{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-2a3166c4{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2a3166ce{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2a3166cf{width:2in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2a3166d8{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-2a3311fe"><caption><p>Landmass of Top 5 Continents</p></caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-2a3166c4"><p class="cl-2a315ac6"><span class="cl-2a3021f6">name</span></p></th><th class="cl-2a3166ce"><p class="cl-2a315ac7"><span class="cl-2a3021f6">value</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-2a3166cf"><p class="cl-2a315ac6"><span class="cl-2a302200">Asia</span></p></td><td class="cl-2a3166d8"><p class="cl-2a315ac7"><span class="cl-2a302200">16,988</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2a3166c4"><p class="cl-2a315ac6"><span class="cl-2a302200">Africa</span></p></td><td class="cl-2a3166ce"><p class="cl-2a315ac7"><span class="cl-2a302200">11,506</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2a3166c4"><p class="cl-2a315ac6"><span class="cl-2a302200">North America</span></p></td><td class="cl-2a3166ce"><p class="cl-2a315ac7"><span class="cl-2a302200">9,390</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2a3166c4"><p class="cl-2a315ac6"><span class="cl-2a302200">South America</span></p></td><td class="cl-2a3166ce"><p class="cl-2a315ac7"><span class="cl-2a302200">6,795</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2a3166c4"><p class="cl-2a315ac6"><span class="cl-2a302200">Antarctica</span></p></td><td class="cl-2a3166ce"><p class="cl-2a315ac7"><span class="cl-2a302200">5,500</span></p></td></tr></tbody></table></div>
-</div>
-</div>
-</section>
-</section>
-<section id="data2---dataframe" class="level2">
-<h2 class="anchored" data-anchor-id="data2---dataframe">Data2 - dataframe</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">text=</span><span class="st">"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">          Group Yes No</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">          Placebo 189 10845</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">          Aspirin 104 10933 "</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(melanoma2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    Group Yes    No
-1 Placebo 189 10845
-2 Aspirin 104 10933</code></pre>
+<pre><code>  time status sex age year thickness ulcer
+1   10      3   1  76 1972      6.76     1
+2   30      3   1  56 1968      0.65     0
+3   35      2   1  41 1977      1.34     0
+4   99      3   0  71 1968      2.90     0
+5  185      1   1  52 1965     12.08     1
+6  204      1   1  28 1971      4.84     1</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>melanoma2<span class="sc">$</span>status <span class="ot">&lt;-</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">factor</span>(melanoma2<span class="sc">$</span>status, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Alive"</span>, <span class="co"># Reference</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Melanoma"</span>, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Non-melanoma"</span>))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>melanoma2<span class="sc">$</span>sex <span class="ot">&lt;-</span> </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">factor</span>(melanoma2<span class="sc">$</span>sex, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Male"</span>,<span class="st">"Female"</span>))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>melanoma2<span class="sc">$</span>ulcer <span class="ot">&lt;-</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">factor</span>(melanoma2<span class="sc">$</span>ulcer, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Absent"</span>, </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Present"</span>))</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(melanoma2<span class="sc">$</span>sex)       <span class="ot">&lt;-</span> <span class="st">"Sex"</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(melanoma2<span class="sc">$</span>age)       <span class="ot">&lt;-</span> <span class="st">"Age"</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(melanoma2<span class="sc">$</span>ulcer)     <span class="ot">&lt;-</span> <span class="st">"Ulceration"</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(melanoma2<span class="sc">$</span>thickness) <span class="ot">&lt;-</span> <span class="st">"Thicknessᵃ"</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">units</span>(melanoma2<span class="sc">$</span>age)       <span class="ot">&lt;-</span> <span class="st">"years"</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">units</span>(melanoma2<span class="sc">$</span>thickness) <span class="ot">&lt;-</span> <span class="st">"mm"</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>caption <span class="ot">&lt;-</span> <span class="st">"Basic Stats"</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>footnote <span class="ot">&lt;-</span> <span class="st">"ᵃ Also known as Breslow thickness"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="flextable-1" class="level3">
-<h3 class="anchored" data-anchor-id="flextable-1">Flextable</h3>
+<section id="table1" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="table1"><span class="header-section-number">1.1</span> <code>table1</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ft <span class="ot">&lt;-</span> <span class="fu">flextable</span>(df)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ft </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table1</span>(<span class="sc">~</span> sex <span class="sc">+</span> age <span class="sc">+</span> ulcer <span class="sc">+</span> thickness <span class="sc">|</span> status, <span class="at">data=</span>melanoma2,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">overall=</span><span class="fu">c</span>(<span class="at">left=</span><span class="st">"Total"</span>), <span class="at">caption=</span>caption, <span class="at">footnote=</span>footnote)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-2a3ab8aa{}.cl-2a383cd8{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2a39439e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-2a39439f{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-2a394f2e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2a394f38{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2a394f39{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2a394f3a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2a394f3b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2a394f42{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-2a3ab8aa"><caption><p>Cross Classification</p></caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-2a394f2e"><p class="cl-2a39439e"><span class="cl-2a383cd8">Group</span></p></th><th class="cl-2a394f38"><p class="cl-2a39439f"><span class="cl-2a383cd8">Yes</span></p></th><th class="cl-2a394f38"><p class="cl-2a39439f"><span class="cl-2a383cd8">No</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-2a394f39"><p class="cl-2a39439e"><span class="cl-2a383cd8">Placebo</span></p></td><td class="cl-2a394f3a"><p class="cl-2a39439f"><span class="cl-2a383cd8">189</span></p></td><td class="cl-2a394f3a"><p class="cl-2a39439f"><span class="cl-2a383cd8">10,845</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-2a394f3b"><p class="cl-2a39439e"><span class="cl-2a383cd8">Aspirin</span></p></td><td class="cl-2a394f42"><p class="cl-2a39439f"><span class="cl-2a383cd8">104</span></p></td><td class="cl-2a394f42"><p class="cl-2a39439f"><span class="cl-2a383cd8">10,933</span></p></td></tr></tbody></table></div>
+<div class="Rtable1"><table class="Rtable1"><caption>Basic Stats</caption>
+
+<thead>
+<tr>
+<th class="rowlabel firstrow lastrow"></th>
+<th class="firstrow lastrow"><span class="stratlabel">Total<br><span class="stratn">(N=205)</span></span></th>
+<th class="firstrow lastrow"><span class="stratlabel">Alive<br><span class="stratn">(N=134)</span></span></th>
+<th class="firstrow lastrow"><span class="stratlabel">Melanoma<br><span class="stratn">(N=57)</span></span></th>
+<th class="firstrow lastrow"><span class="stratlabel">Non-melanoma<br><span class="stratn">(N=14)</span></span></th>
+</tr>
+</thead><tfoot><tr><td colspan="5" class="Rtable1-footnote"><p>ᵃ Also known as Breslow thickness</p>
+</td></tr></tfoot>
+
+<tbody>
+<tr>
+<td class="rowlabel firstrow">Sex</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Male</td>
+<td>79 (38.5%)</td>
+<td>43 (32.1%)</td>
+<td>29 (50.9%)</td>
+<td>7 (50.0%)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Female</td>
+<td class="lastrow">126 (61.5%)</td>
+<td class="lastrow">91 (67.9%)</td>
+<td class="lastrow">28 (49.1%)</td>
+<td class="lastrow">7 (50.0%)</td>
+</tr>
+<tr>
+<td class="rowlabel firstrow">Age (years)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Mean (SD)</td>
+<td>52.5 (16.7)</td>
+<td>50.0 (15.9)</td>
+<td>55.1 (17.9)</td>
+<td>65.3 (10.9)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">54.0 [4.00, 95.0]</td>
+<td class="lastrow">52.0 [4.00, 84.0]</td>
+<td class="lastrow">56.0 [14.0, 95.0]</td>
+<td class="lastrow">65.0 [49.0, 86.0]</td>
+</tr>
+<tr>
+<td class="rowlabel firstrow">Ulceration</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Absent</td>
+<td>115 (56.1%)</td>
+<td>92 (68.7%)</td>
+<td>16 (28.1%)</td>
+<td>7 (50.0%)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Present</td>
+<td class="lastrow">90 (43.9%)</td>
+<td class="lastrow">42 (31.3%)</td>
+<td class="lastrow">41 (71.9%)</td>
+<td class="lastrow">7 (50.0%)</td>
+</tr>
+<tr>
+<td class="rowlabel firstrow">Thicknessᵃ (mm)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr>
+<td class="rowlabel">Mean (SD)</td>
+<td>2.92 (2.96)</td>
+<td>2.24 (2.33)</td>
+<td>4.31 (3.57)</td>
+<td>3.72 (3.63)</td>
+</tr>
+<tr>
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.94 [0.100, 17.4]</td>
+<td class="lastrow">1.36 [0.100, 12.9]</td>
+<td class="lastrow">3.54 [0.320, 17.4]</td>
+<td class="lastrow">2.26 [0.160, 12.6]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-2---dat" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data-2---dat"><span class="header-section-number">2</span> Data 2 - dat</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">subset</span>(survival<span class="sc">::</span>pbc, <span class="sc">!</span><span class="fu">is.na</span>(trt))  <span class="co"># Exclude subjects not randomized</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>trt     <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>trt, <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"D-penicillamine"</span>, <span class="st">"Placebo"</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>sex     <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>sex, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"f"</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>stage   <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>stage, <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">labels=</span><span class="fu">paste</span>(<span class="st">"Stage"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>edema   <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>edema, <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"No edema"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Untreated or successfully treated"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Edema despite diuretic therapy"</span>))</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>spiders <span class="ot">&lt;-</span> <span class="fu">as.logical</span>(dat<span class="sc">$</span>spiders)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>hepato  <span class="ot">&lt;-</span> <span class="fu">as.logical</span>(dat<span class="sc">$</span>hepato)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>ascites <span class="ot">&lt;-</span> <span class="fu">as.logical</span>(dat<span class="sc">$</span>ascites)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>age)      <span class="ot">&lt;-</span> <span class="st">"Age (y)"</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>sex)      <span class="ot">&lt;-</span> <span class="st">"Sex"</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>stage)    <span class="ot">&lt;-</span> <span class="st">"Histologic stage of disease"</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>edema)    <span class="ot">&lt;-</span> <span class="st">"Edema status"</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>spiders)  <span class="ot">&lt;-</span> <span class="st">"Blood vessel malformations in the skin"</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>hepato)   <span class="ot">&lt;-</span> <span class="st">"Presence of hepatomegaly or enlarged liver"</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>ascites)  <span class="ot">&lt;-</span> <span class="st">"Presence of ascites"</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>platelet) <span class="ot">&lt;-</span> <span class="st">"Platelet count (&amp;times; 10&lt;sup&gt;9&lt;/sup&gt; per liter)"</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>protime)  <span class="ot">&lt;-</span> <span class="st">"Standardised blood clotting time"</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>albumin)  <span class="ot">&lt;-</span> <span class="st">"Serum albumin (g/dL)"</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>alk.phos) <span class="ot">&lt;-</span> <span class="st">"Alkaline phosphotase (U/L)"</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>ast)      <span class="ot">&lt;-</span> <span class="st">"Aspartate aminotransferase (U/mL)"</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>bili)     <span class="ot">&lt;-</span> <span class="st">"Serum bilirubin (mg/dL)"</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>chol)     <span class="ot">&lt;-</span> <span class="st">"Serum cholesterol (mg/dL)"</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>copper)   <span class="ot">&lt;-</span> <span class="st">"Urine copper (&amp;mu;g/day)"</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fu">label</span>(dat<span class="sc">$</span>trig)     <span class="ot">&lt;-</span> <span class="st">"Triglycerides (mg/dL)"</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="fu">table1</span>(<span class="sc">~</span> age <span class="sc">+</span> sex <span class="sc">+</span> stage <span class="sc">+</span> edema <span class="sc">+</span> spiders <span class="sc">+</span> hepato <span class="sc">+</span> ascites <span class="sc">+</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>         platelet <span class="sc">+</span> protime <span class="sc">+</span> albumin <span class="sc">+</span> alk.phos <span class="sc">+</span> ast <span class="sc">+</span> bili <span class="sc">+</span> chol <span class="sc">+</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>         copper <span class="sc">+</span> trig <span class="sc">|</span> trt, <span class="at">data=</span>dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="Rtable1">
+<table class="Rtable1 caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="rowlabel firstrow lastrow" data-quarto-table-cell-role="th"></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">D-penicillamine<br>
+<span class="stratn">(N=158)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Placebo<br>
+<span class="stratn">(N=154)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Overall<br>
+<span class="stratn">(N=312)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowlabel firstrow">Age (y)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>51.4 (11.0)</td>
+<td>48.6 (9.96)</td>
+<td>50.0 (10.6)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">51.9 [26.3, 78.4]</td>
+<td class="lastrow">48.1 [30.6, 74.5]</td>
+<td class="lastrow">49.8 [26.3, 78.4]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">Sex</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Male</td>
+<td>21 (13.3%)</td>
+<td>15 (9.7%)</td>
+<td>36 (11.5%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Female</td>
+<td class="lastrow">137 (86.7%)</td>
+<td class="lastrow">139 (90.3%)</td>
+<td class="lastrow">276 (88.5%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">Histologic stage of disease</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Stage 1</td>
+<td>12 (7.6%)</td>
+<td>4 (2.6%)</td>
+<td>16 (5.1%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Stage 2</td>
+<td>35 (22.2%)</td>
+<td>32 (20.8%)</td>
+<td>67 (21.5%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Stage 3</td>
+<td>56 (35.4%)</td>
+<td>64 (41.6%)</td>
+<td>120 (38.5%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Stage 4</td>
+<td class="lastrow">55 (34.8%)</td>
+<td class="lastrow">54 (35.1%)</td>
+<td class="lastrow">109 (34.9%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">Edema status</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">No edema</td>
+<td>132 (83.5%)</td>
+<td>131 (85.1%)</td>
+<td>263 (84.3%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Untreated or successfully treated</td>
+<td>16 (10.1%)</td>
+<td>13 (8.4%)</td>
+<td>29 (9.3%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Edema despite diuretic therapy</td>
+<td class="lastrow">10 (6.3%)</td>
+<td class="lastrow">10 (6.5%)</td>
+<td class="lastrow">20 (6.4%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">Blood vessel malformations in the skin</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Yes</td>
+<td>45 (28.5%)</td>
+<td>45 (29.2%)</td>
+<td>90 (28.8%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">No</td>
+<td class="lastrow">113 (71.5%)</td>
+<td class="lastrow">109 (70.8%)</td>
+<td class="lastrow">222 (71.2%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">Presence of hepatomegaly or enlarged liver</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Yes</td>
+<td>73 (46.2%)</td>
+<td>87 (56.5%)</td>
+<td>160 (51.3%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">No</td>
+<td class="lastrow">85 (53.8%)</td>
+<td class="lastrow">67 (43.5%)</td>
+<td class="lastrow">152 (48.7%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">Presence of ascites</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Yes</td>
+<td>14 (8.9%)</td>
+<td>10 (6.5%)</td>
+<td>24 (7.7%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">No</td>
+<td class="lastrow">144 (91.1%)</td>
+<td class="lastrow">144 (93.5%)</td>
+<td class="lastrow">288 (92.3%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">Platelet count (× 10<sup>9</sup> per liter)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>259 (100)</td>
+<td>265 (90.7)</td>
+<td>262 (95.6)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Median [Min, Max]</td>
+<td>255 [62.0, 563]</td>
+<td>260 [71.0, 487]</td>
+<td>257 [62.0, 563]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Missing</td>
+<td class="lastrow">2 (1.3%)</td>
+<td class="lastrow">2 (1.3%)</td>
+<td class="lastrow">4 (1.3%)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">Standardised blood clotting time</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>10.7 (0.851)</td>
+<td>10.8 (1.14)</td>
+<td>10.7 (1.00)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">10.6 [9.00, 14.1]</td>
+<td class="lastrow">10.6 [9.20, 17.1]</td>
+<td class="lastrow">10.6 [9.00, 17.1]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">Serum albumin (g/dL)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>3.52 (0.443)</td>
+<td>3.52 (0.396)</td>
+<td>3.52 (0.420)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">3.57 [2.10, 4.64]</td>
+<td class="lastrow">3.55 [1.96, 4.38]</td>
+<td class="lastrow">3.55 [1.96, 4.64]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">Alkaline phosphotase (U/L)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>2020 (2180)</td>
+<td>1940 (2100)</td>
+<td>1980 (2140)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1210 [369, 11600]</td>
+<td class="lastrow">1280 [289, 13900]</td>
+<td class="lastrow">1260 [289, 13900]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">Aspartate aminotransferase (U/mL)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>120 (54.5)</td>
+<td>125 (58.9)</td>
+<td>123 (56.7)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">112 [26.4, 338]</td>
+<td class="lastrow">117 [28.4, 457]</td>
+<td class="lastrow">115 [26.4, 457]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel firstrow">Serum bilirubin (mg/dL)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>2.87 (3.63)</td>
+<td>3.65 (5.28)</td>
+<td>3.26 (4.53)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Median [Min, Max]</td>
+<td class="lastrow">1.40 [0.300, 20.0]</td>
+<td class="lastrow">1.30 [0.300, 28.0]</td>
+<td class="lastrow">1.35 [0.300, 28.0]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">Serum cholesterol (mg/dL)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>365 (210)</td>
+<td>374 (252)</td>
+<td>370 (232)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Median [Min, Max]</td>
+<td>316 [127, 1710]</td>
+<td>304 [120, 1780]</td>
+<td>310 [120, 1780]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Missing</td>
+<td class="lastrow">18 (11.4%)</td>
+<td class="lastrow">10 (6.5%)</td>
+<td class="lastrow">28 (9.0%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">Urine copper (μg/day)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>97.6 (90.6)</td>
+<td>97.7 (80.5)</td>
+<td>97.6 (85.6)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Median [Min, Max]</td>
+<td>73.0 [9.00, 588]</td>
+<td>73.0 [4.00, 558]</td>
+<td>73.0 [4.00, 588]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Missing</td>
+<td class="lastrow">1 (0.6%)</td>
+<td class="lastrow">1 (0.6%)</td>
+<td class="lastrow">2 (0.6%)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel firstrow">Triglycerides (mg/dL)</td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Mean (SD)</td>
+<td>124 (71.5)</td>
+<td>125 (58.5)</td>
+<td>125 (65.1)</td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Median [Min, Max]</td>
+<td>106 [33.0, 598]</td>
+<td>113 [44.0, 432]</td>
+<td>108 [33.0, 598]</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel lastrow">Missing</td>
+<td class="lastrow">19 (12.0%)</td>
+<td class="lastrow">11 (7.1%)</td>
+<td class="lastrow">30 (9.6%)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -976,8 +1477,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../tables/gt.html" class="pagination-link" aria-label="gt">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">gt</span>
+      <a href="../tables/flextable.html" class="pagination-link" aria-label="flextable">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">flextable</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
