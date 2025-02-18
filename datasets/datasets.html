@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>datasets – WebR</title>
+<title>WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -175,12 +209,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">matrices</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../datatypes/table.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">table</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -233,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">DataTables</span></a>
+ <span class="menu-text">Tables</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -241,26 +269,44 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/vcd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">vcd</span></a>
+  <a href="../tables/gt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">gt</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/xtab.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/flextable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">flextable</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/table1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">table1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tables/xtab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">xtab</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/dataTable.html" class="sidebar-item-text sidebar-link">
+  <a href="../tables/dataTable.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">dataTable</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../datatables/contingency.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">contingency</span></a>
+  <a href="../tables/vcd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">vcd</span></a>
   </div>
 </li>
       </ul>
@@ -409,18 +455,46 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#baser-datasets" id="toc-baser-datasets" class="nav-link active" data-scroll-target="#baser-datasets"><span class="header-section-number">1</span> BaseR Datasets</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../datasets/datasets.html">DataSets</a></li><li class="breadcrumb-item"><a href="../datasets/datasets.html">DataSets</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../datasets/datasets.html">DataSets</a></li><li class="breadcrumb-item"><a href="../datasets/datasets.html">DataSets</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">WebR</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<p>213 2.778 1.2 7020 706 2.725 3.3 7020 440 2.683 3.4 7020 984 2.835 8.2 5680 155 2.779 2.3 5680 251 2.712 2.3 5680 311 2.712 1.6 7960 989 2.686 6.0 7960 326 2.821 4.0 7960 479 2.810 2.7 7090 324 2.845 1.9 7090 404 2.755 3.0 7090 688 2.735 3.4 6130 180 2.705 2.6 6130 1046 2.755 7.7 6130 272 2.734 3.2 6880 1168 2.725 7.4 7270 821 2.750 6.1 7270 418 2.740 4.4 7270 1102 2.708 9.2 7390 56 2.860 1.6 2950 91 3.002 1.3 2950 97 2.749 1.9 2950</p>
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<section id="baser-datasets" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="baser-datasets"><span class="header-section-number">1</span> BaseR Datasets</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
