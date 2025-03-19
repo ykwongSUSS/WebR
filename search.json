@@ -3611,10 +3611,65 @@
     "href": "datatypes/strings.html#sequences",
     "title": "Strings",
     "section": "3 Sequences",
-    "text": "3 Sequences\n\nletters[seq( from = 1, to = 10 )]\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\"\n\nLETTERS[seq(from=1,to=10,by=2)]\n\n[1] \"A\" \"C\" \"E\" \"G\" \"I\"\n\nletters[1:26]\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\" \"k\" \"l\" \"m\" \"n\" \"o\" \"p\" \"q\" \"r\" \"s\"\n[20] \"t\" \"u\" \"v\" \"w\" \"x\" \"y\" \"z\"",
+    "text": "3 Sequences\n\nletters[seq( from = 1, to = 10 )]\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\"\n\nLETTERS[seq(from=1,to=10,by=2)]\n\n[1] \"A\" \"C\" \"E\" \"G\" \"I\"\n\nletters[1:26]\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\" \"k\" \"l\" \"m\" \"n\" \"o\" \"p\" \"q\" \"r\" \"s\"\n[20] \"t\" \"u\" \"v\" \"w\" \"x\" \"y\" \"z\"\n\n\n\n3.1 Order and Rank\n\nl &lt;- c(\"F\",\"A\",\"C\",\"E\")\nl\n\n[1] \"F\" \"A\" \"C\" \"E\"\n\no &lt;- order(l) |&gt; print()\n\n[1] 2 3 4 1\n\nl[o]\n\n[1] \"A\" \"C\" \"E\" \"F\"\n\nr &lt;- rank(l) |&gt; print()\n\n[1] 4 1 2 3",
     "crumbs": [
       "Datatypes",
       "strings"
+    ]
+  },
+  {
+    "objectID": "dataframes/flextable.html",
+    "href": "dataframes/flextable.html",
+    "title": "flexTable",
+    "section": "",
+    "text": "flextable takes a data.frame and returns a flextable. flextable also allows you to merge cells, add header rows, add footer rows, change all formatting and specify how data should be displayed in cells. Table contents can also contain a mix of content types such as text and images.",
+    "crumbs": [
+      "DataFrames",
+      "flextable"
+    ]
+  },
+  {
+    "objectID": "dataframes/flextable.html#library",
+    "href": "dataframes/flextable.html#library",
+    "title": "flexTable",
+    "section": "Library",
+    "text": "Library\n\nlibrary(tidyverse)\nlibrary(flextable)",
+    "crumbs": [
+      "DataFrames",
+      "flextable"
+    ]
+  },
+  {
+    "objectID": "dataframes/flextable.html#data1---tibble",
+    "href": "dataframes/flextable.html#data1---tibble",
+    "title": "flexTable",
+    "section": "Data1 - tibble",
+    "text": "Data1 - tibble\n\n\nCode\ntb &lt;- tibble::enframe(islands) %&gt;% slice_max(value, n=5)\ntb     \n\n\n# A tibble: 5 × 2\n  name          value\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Asia          16988\n2 Africa        11506\n3 North America  9390\n4 South America  6795\n5 Antarctica     5500\n\n\n\nFlextable\n\n# | tbl-cap: \"Landmass of Top 5 Continents\"\nft &lt;- tb |&gt; flextable(cwidth=c(2,1)) |&gt; theme_box()\nft\n\nLandmass of Top 5 ContinentsnamevalueAsia16,988Africa11,506North America9,390South America6,795Antarctica5,500",
+    "crumbs": [
+      "DataFrames",
+      "flextable"
+    ]
+  },
+  {
+    "objectID": "dataframes/flextable.html#data2---dataframe",
+    "href": "dataframes/flextable.html#data2---dataframe",
+    "title": "flexTable",
+    "section": "Data2 - dataframe",
+    "text": "Data2 - dataframe\n\ndf &lt;- read.table(header=TRUE, text=\"\n          Group Yes No\n          Placebo 189 10845\n          Aspirin 104 10933 \")\ndf\n\n    Group Yes    No\n1 Placebo 189 10845\n2 Aspirin 104 10933\n\n\n\nFlextable\n\nft &lt;- flextable(df)\nft \n\nCross ClassificationGroupYesNoPlacebo18910,845Aspirin10410,933",
+    "crumbs": [
+      "DataFrames",
+      "flextable"
+    ]
+  },
+  {
+    "objectID": "dataframes/gt.html",
+    "href": "dataframes/gt.html",
+    "title": "gt",
+    "section": "",
+    "text": "gt() formats tables out of dataframes and tibbles\n\n\n\n\n\nLibrary\n\nlibrary(tidyverse)\nlibrary(gt)\n\n\n\nData\n\n\nCode\n# islands is a named vector (continental land mass)\n# we convert it to a tibble using enframe and\n# select top five islands\n\ntbl&lt;-tibble::enframe(islands) %&gt;% slice_max(value, n=5)\ntbl\n\n\n# A tibble: 5 × 2\n  name          value\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Asia          16988\n2 Africa        11506\n3 North America  9390\n4 South America  6795\n5 Antarctica     5500\n\n\n\n\nBasic gt on tibble\n\n# basic gt table\ngt(tbl) |&gt;\n  tab_header(\n    title = md(\"Landmasses of the World\")) |&gt;\n  tab_caption(\n    caption= md(\"Top 5 selected\")) |&gt;\n  fmt_number(sep_mark=\",\",decimals=0)\n\n\n\n\n\nTop 5 selected\n\n\nLandmasses of the World\n\n\nname\nvalue\n\n\n\n\nAsia\n16,988\n\n\nAfrica\n11,506\n\n\nNorth America\n9,390\n\n\nSouth America\n6,795\n\n\nAntarctica\n5,500\n\n\n\n\n\n\n\n\n\ngt on data.frame\n\ndf &lt;- read.table(header=TRUE, text=\"\n          Group Yes No\n          Placebo 189 10845\n          Aspirin 104 10933 \")\ndf\n\n    Group Yes    No\n1 Placebo 189 10845\n2 Aspirin 104 10933\n\ngt(df) |&gt;\n  tab_header(\n    title=md(\"Cross classification\"),\n    subtitle=md(\"Aspirin use and myocardial infarction\")\n  ) |&gt;\n  tab_spanner(\n    label = \"Mycardial Infarction\",\n    columns = c(Yes, No)\n  ) \n\n\n\n\n\n\n\n\n\n\n\n\nCross classification\n\n\nAspirin use and myocardial infarction\n\n\nGroup\n\nMycardial Infarction\n\n\n\nYes\nNo\n\n\n\n\nPlacebo\n189\n10845\n\n\nAspirin\n104\n10933",
+    "crumbs": [
+      "DataFrames",
+      "gt"
     ]
   }
 ]
