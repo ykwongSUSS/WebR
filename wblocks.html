@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>yaml – WebR</title>
+<title>Blocks in HTML – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./wblocks.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./datatypes/numbers.html" rel="next">
+<link href="./yaml.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -103,6 +103,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -116,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li><li class="breadcrumb-item"><a href="./yaml.html">yaml</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li><li class="breadcrumb-item"><a href="./wblocks.html">wblocks</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -152,13 +181,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./yaml.html" class="sidebar-item-text sidebar-link active">
+  <a href="./yaml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">yaml</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./wblocks.html" class="sidebar-item-text sidebar-link">
+  <a href="./wblocks.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">wblocks</span></a>
   </div>
 </li>
@@ -466,23 +495,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#code-block-yaml-html" id="toc-code-block-yaml-html" class="nav-link active" data-scroll-target="#code-block-yaml-html"><span class="header-section-number">1</span> Code-block yaml : html</a>
+  <li><a href="#r-code-chunk" id="toc-r-code-chunk" class="nav-link active" data-scroll-target="#r-code-chunk"><span class="header-section-number">1</span> R Code chunk</a></li>
+  <li><a href="#display---code-block" id="toc-display---code-block" class="nav-link" data-scroll-target="#display---code-block"><span class="header-section-number">2</span> Display - Code block</a>
   <ul class="collapse">
-  <li><a href="#or-code-block-yaml-with-pdf" id="toc-or-code-block-yaml-with-pdf" class="nav-link" data-scroll-target="#or-code-block-yaml-with-pdf"><span class="header-section-number">1.1</span> or code-block yaml : with pdf</a></li>
+  <li><a href="#display-r" id="toc-display-r" class="nav-link" data-scroll-target="#display-r"><span class="header-section-number">2.1</span> Display <code>R</code></a></li>
+  <li><a href="#display-latex" id="toc-display-latex" class="nav-link" data-scroll-target="#display-latex"><span class="header-section-number">2.2</span> Display <code>latex</code></a></li>
+  <li><a href="#display-data-default" id="toc-display-data-default" class="nav-link" data-scroll-target="#display-data-default"><span class="header-section-number">2.3</span> Display data <code>default</code></a></li>
   </ul></li>
-  <li><a href="#code-block-r" id="toc-code-block-r" class="nav-link" data-scroll-target="#code-block-r"><span class="header-section-number">2</span> Code-block R</a></li>
-  <li><a href="#footnote" id="toc-footnote" class="nav-link" data-scroll-target="#footnote"><span class="header-section-number">3</span> Footnote</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
-  <li><a href="#navigation-sidebar-in-_quarto.yml" id="toc-navigation-sidebar-in-_quarto.yml" class="nav-link" data-scroll-target="#navigation-sidebar-in-_quarto.yml"><span class="header-section-number">5</span> Navigation sidebar in <code>_quarto.yml</code></a></li>
+  <li><a href="#tex-block-for-latex" id="toc-tex-block-for-latex" class="nav-link" data-scroll-target="#tex-block-for-latex"><span class="header-section-number">3</span> TeX Block for <code>LaTeX</code></a>
+  <ul class="collapse">
+  <li><a href="#snippets-in-tex-block" id="toc-snippets-in-tex-block" class="nav-link" data-scroll-target="#snippets-in-tex-block"><span class="header-section-number">3.1</span> Snippets in tex block</a></li>
+  <li><a href="#tex-block-for-equations" id="toc-tex-block-for-equations" class="nav-link" data-scroll-target="#tex-block-for-equations"><span class="header-section-number">3.2</span> TeX Block for equations</a></li>
+  <li><a href="#tex-block---boxed-equations" id="toc-tex-block---boxed-equations" class="nav-link" data-scroll-target="#tex-block---boxed-equations"><span class="header-section-number">3.3</span> TeX Block - <code>\boxed</code> equations</a></li>
+  <li><a href="#tex-block---tex-table-using-array" id="toc-tex-block---tex-table-using-array" class="nav-link" data-scroll-target="#tex-block---tex-table-using-array"><span class="header-section-number">3.4</span> TeX Block - tex-table using <code>array</code></a></li>
+  <li><a href="#tex-block-with-div-block-over-it" id="toc-tex-block-with-div-block-over-it" class="nav-link" data-scroll-target="#tex-block-with-div-block-over-it"><span class="header-section-number">3.5</span> TeX block with Div block over it</a></li>
+  </ul></li>
+  <li><a href="#div-block" id="toc-div-block" class="nav-link" data-scroll-target="#div-block"><span class="header-section-number">4</span> Div Block</a>
+  <ul class="collapse">
+  <li><a href="#div-block---embed-tex" id="toc-div-block---embed-tex" class="nav-link" data-scroll-target="#div-block---embed-tex"><span class="header-section-number">4.1</span> Div block - embed TeX</a></li>
+  <li><a href="#div-block---css-and-padding" id="toc-div-block---css-and-padding" class="nav-link" data-scroll-target="#div-block---css-and-padding"><span class="header-section-number">4.2</span> Div Block - css and padding</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li><li class="breadcrumb-item"><a href="./yaml.html">yaml</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li><li class="breadcrumb-item"><a href="./wblocks.html">wblocks</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">yaml</h1>
+<h1 class="title">Blocks in HTML</h1>
 </div>
 
 
@@ -499,93 +540,154 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="code-block-yaml-html" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="code-block-yaml-html"><span class="header-section-number">1</span> Code-block yaml : html</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"yaml"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="or-code-block-yaml-with-pdf" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="or-code-block-yaml-with-pdf"><span class="header-section-number">1.1</span> or code-block yaml : with pdf</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"yaml"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">pagesize</span><span class="kw">:</span><span class="at"> A4</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-in-header</span><span class="kw">:</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">      text</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        \usepackage{scrlayer-scrpage}</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        \rohead{"yaml"}</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="r-code-chunk" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="r-code-chunk"><span class="header-section-number">1</span> R Code chunk</h2>
+<p><code>{/R Code Chunk}</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># normal executable</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.644854</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a> <span class="co">#| eval: false</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(No output)</p>
+<hr>
 </section>
-</section>
-<section id="code-block-r" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="code-block-r"><span class="header-section-number">2</span> Code-block R</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>{r library}</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: TRUE</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: FALSE</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: FALSE</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="footnote" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="footnote"><span class="header-section-number">3</span> Footnote</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Devore’s book. [^1]</span>
+<section id="display---code-block" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="display---code-block"><span class="header-section-number">2</span> Display - Code block</h2>
+<p><code>{ / Code Block... &lt;source code display&gt; }</code></p>
+<section id="display-r" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="display-r"><span class="header-section-number">2.1</span> Display <code>R</code></h3>
+<div class="sourceCode" id="cb4" style="border: 1px solid"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># style="border:black 1px solid"</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>[^1]: Devore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>2021. Modern Mathematical Statistics with Applications. </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Vol. 285. Springer.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Devore’s book as a footnote.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>… the footnote is usually written on the next line but will appear at the bottom of the page as a footnote. This footnote is in QMarkdown. A LaTeX footnote is different and has a separate <code>\footnote</code> command. Tip: check for extra backslashes if footnote is not working.</p>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="references" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
-<p>Add this in the <code>yaml</code> of <code>Reference.qmd</code>, where <code>WebR.bib</code> is the <code>bibdesk file</code> of <code>bibtex</code> referencecs</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bibliography: WebR.bib</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nocite: |</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  @*</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="display-latex" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="display-latex"><span class="header-section-number">2.2</span> Display <code>latex</code></h3>
+<div class="sourceCode" id="cb5" style="border: 1px solid;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">align</span>}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="sc">\bar</span><span class="ss"> x = </span><span class="sc">\frac</span><span class="ss">{</span><span class="sc">\sum</span><span class="ss"> x_i}{n} </span><span class="sc">\\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="sc">\sigma</span><span class="ss">^2</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">align</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="navigation-sidebar-in-_quarto.yml" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="navigation-sidebar-in-_quarto.yml"><span class="header-section-number">5</span> Navigation sidebar in <code>_quarto.yml</code></h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"WebR"</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">page-navigation</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sidebar</span><span class="kw">:</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">search</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">contents</span><span class="kw">:</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">section</span><span class="kw">:</span><span class="at"> Preface </span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> YAML</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="at">              </span><span class="fu">href</span><span class="kw">:</span><span class="at"> yaml.qmd</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="at">     </span><span class="kw">-</span><span class="at"> </span><span class="fu">section</span><span class="kw">:</span><span class="at"> Datatypes</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="at">       </span><span class="fu">href</span><span class="kw">:</span><span class="at"> datatypes.qmd</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="at">         </span><span class="fu">contents</span><span class="kw">:</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> numbers</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">href</span><span class="kw">:</span><span class="at"> datatypes/numbers.qmd</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> strings</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">href</span><span class="kw">:</span><span class="at"> datatypes/strings.qmd</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">...</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="display-data-default" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="display-data-default"><span class="header-section-number">2.3</span> Display data <code>default</code></h3>
+<div class="sourceCode" id="cb6" style="border: black 1px solid; background: white"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>{border: black 1px solid; background: white}</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Source: Example 8.17 Devore</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Data: vector of measurements</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>18.4 16.0 16.9 12.0 40.1 19.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="tex-block-for-latex" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="tex-block-for-latex"><span class="header-section-number">3</span> TeX Block for <code>LaTeX</code></h2>
+<p><code>{ / TeX Block... }</code></p>
+<section id="snippets-in-tex-block" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="snippets-in-tex-block"><span class="header-section-number">3.1</span> Snippets in tex block</h3>
+<div class="sourceCode" id="cb7" style="border: 1px black solid"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Use shift-cmd-p and Expand snippet at cursor</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>For example: ali*  to expand to </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>   \begin{align*}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      |</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>   \end{align*}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tex-block-for-equations" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="tex-block-for-equations"><span class="header-section-number">3.2</span> TeX Block for equations</h3>
+<p>Sample mean</p>
+<p><span class="math display">\[\begin{align*}
+  \bar x = \frac{\sum x_i}{n} \tag{1.1}
+\end{align*}\]</span></p>
+<p>Sample variance</p>
+<p><span class="math display">\[\begin{align*}
+  S^2 = \frac{\sum (X_i - \bar X)}{n-1}  \tag{1.2}
+\end{align*}\]</span></p>
+</section>
+<section id="tex-block---boxed-equations" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="tex-block---boxed-equations"><span class="header-section-number">3.3</span> TeX Block - <code>\boxed</code> equations</h3>
+<p>Integration by parts:</p>
+<p><span class="math display">\[\begin{equation}
+  \boxed{ \int udv = uv - \int vdu }
+\end{equation}\]</span></p>
+<div class="sourceCode" id="cb8" style="border: 1px solid"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">equation</span>}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="sc">\boxed</span><span class="ss">{ </span><span class="sc">\int</span><span class="ss"> udv = uv - </span><span class="sc">\int</span><span class="ss"> vdu }</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">equation</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tex-block---tex-table-using-array" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="tex-block---tex-table-using-array"><span class="header-section-number">3.4</span> TeX Block - tex-table using <code>array</code></h3>
+<p>Example Collett-Table 2.7</p>
+<span class="math display">\[\begin{array}{c c c c }
+\hline
+\text{Group} &amp; \text{Number of Deaths} &amp; \text{Number Surviving} &amp; \text{Number at Risk} \\
+      &amp; \text{at $t_{(j)}$} &amp; \text{beyond $t_{(j)}$} &amp; \text{just before $t_{(j)}$} \\
+\hline
+\rm{I} &amp; d_{1j} &amp; n_{1j}-d_{1j} &amp; n_{1j} \\
+\rm{II} &amp; d_{2j} &amp; n_{2j}-d_{2j} &amp; n_{2j} \\
+\hline
+\text{Total} &amp; d_{j} &amp; n_{j}-d_{j} &amp; n_{j} \\
+\hline
+\end{array}\]</span>
+<p>note: <code>tabular</code> not supported, use <code>array</code> to form a tex-table</p>
+<div class="sourceCode" id="cb9" style="border: 1px black solid;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">array</span>}{c c c c } </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\text</span>{Group} &amp; <span class="fu">\text</span>{Number of Deaths} &amp; <span class="fu">\text</span>{Number Surviving} &amp; <span class="fu">\text</span>{Number at Risk} <span class="fu">\\</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>      &amp; <span class="fu">\text</span>{at <span class="ss">$t_{(j)}$</span>} &amp; <span class="fu">\text</span>{beyond <span class="ss">$t_{(j)}$</span>} &amp; <span class="fu">\text</span>{just before <span class="ss">$t_{(j)}$</span>} <span class="fu">\\</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\rm</span>{I} &amp; d_{1j} &amp; n_{1j}-d_{1j} &amp; n_{1j} <span class="fu">\\</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\rm</span>{II} &amp; d_{2j} &amp; n_{2j}-d_{2j} &amp; n_{2j} <span class="fu">\\</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\text</span>{Total} &amp; d_{j} &amp; n_{j}-d_{j} &amp; n_{j} <span class="fu">\\</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span> </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">array</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tex-block-with-div-block-over-it" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="tex-block-with-div-block-over-it"><span class="header-section-number">3.5</span> TeX block with Div block over it</h3>
+<p># div-block - style=border: 1px solid; background:white; padding-right:1cm</p>
+<div style="border: 1px black solid; background: white; padding-right: 1cm">
+<p><span class="math display">\[\begin{align}
+Sample\ mean\\
+  \bar x &amp;= \frac{\sum x_i}{n} \tag{1.1}\\
+  
+Sample\ variance\\
+  S^2 &amp;= \frac{\sum (X_i - \bar X)}{n-1}. \tag{1.2}
+\end{align}\]</span></p>
+</div>
+<hr>
+</section>
+</section>
+<section id="div-block" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="div-block"><span class="header-section-number">4</span> Div Block</h2>
+<p><code>{/ Div... } can format with css html</code></p>
+<section id="div-block---embed-tex" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="div-block---embed-tex"><span class="header-section-number">4.1</span> Div block - embed TeX</h3>
+<div style="border: 1px solid black;">
+<p><span class="math display">\[
+\int udv = uv - \int vdu
+\]</span></p>
+</div>
+</section>
+<section id="div-block---css-and-padding" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="div-block---css-and-padding"><span class="header-section-number">4.2</span> Div Block - css and padding</h3>
+<div id="Theorem" class="theorem" style="border: 1px solid black; background-color: gainsboro; padding:20px">
+<p><span class="math inline">\(\textbf{Gosset's Theorem}\)</span></p>
+<p>If <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> is a random sample from a <span class="math inline">\(N(\mu, \sigma)\)</span> distribution, then the rv</p>
+<p><span class="math display">\[
+\frac{\bar X - \mu}{S/\sqrt{n}}
+\]</span></p>
+<p>has the t distribution with (n-1) degrees of freedom, <span class="math inline">\(t_{n-1}.\)</span></p>
+</div>
 
 
 </section>
+</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Devore, Jay L, Kenneth N Berk, Matthew A Carlton, et al.&nbsp;2021. Modern Mathematical Statistics with Applications. Vol. 285. Springer.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1005,13 +1107,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./yaml.html" class="pagination-link" aria-label="yaml">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">yaml</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./wblocks.html" class="pagination-link" aria-label="wblocks">
-        <span class="nav-page-text">wblocks</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./datatypes/numbers.html" class="pagination-link" aria-label="numbers">
+        <span class="nav-page-text">numbers</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
