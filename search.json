@@ -14,7 +14,7 @@
     "href": "yaml.html",
     "title": "yaml",
     "section": "",
-    "text": "---\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false\n---",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false\n\n\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
     "crumbs": [
       "Preface",
       "yaml"
@@ -101,7 +101,7 @@
     "href": "index.html",
     "title": "WebR",
     "section": "",
-    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:\n\nDatatypes\nDataFrames\nTables\nggPlots\nProgramming\nDatasets\nExamples\nReferences\n\n\n0.1 Other websites\n\nykwongWebR : R Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv : Survival Analysis with R",
+    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:",
     "crumbs": [
       "Preface"
     ]
@@ -857,8 +857,8 @@
     "objectID": "yaml.html#navigation-sidebar-in-_quarto.yml",
     "href": "yaml.html#navigation-sidebar-in-_quarto.yml",
     "title": "yaml",
-    "section": "2 Navigation sidebar in _quarto.yml",
-    "text": "2 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebR\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Preface \n        href: index.qmd\n          contents: \n            - text: YAML\n              href: yaml.qmd\n     - section: Datatypes\n       href: datatypes.qmd\n         contents:\n          - text: numbers\n            href: datatypes/numbers.qmd\n          - text: strings\n            href: datatypes/strings.qmd\n...\n---",
+    "section": "5 Navigation sidebar in _quarto.yml",
+    "text": "5 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebR\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Preface \n        href: index.qmd\n          contents: \n            - text: YAML\n              href: yaml.qmd\n     - section: Datatypes\n       href: datatypes.qmd\n         contents:\n          - text: numbers\n            href: datatypes/numbers.qmd\n          - text: strings\n            href: datatypes/strings.qmd\n...\n---",
     "crumbs": [
       "Preface",
       "yaml"
@@ -3146,7 +3146,7 @@
     "href": "tables/table.html",
     "title": "table",
     "section": "",
-    "text": "table works on dataframes and tibbles.\nused for counting categories into a frequency table\naddmargins function works for matrix and table forms.\nlibrary(tidyverse)",
+    "text": "table works on dataframes and tibbles.\nused for counting categories into a frequency table.\ntable output is a named vector\naddmargins function works for matrix and table forms.\nlibrary(tidyverse)",
     "crumbs": [
       "Tables",
       "table"
@@ -3266,8 +3266,8 @@
     "objectID": "tables/table.html#data---frequency",
     "href": "tables/table.html#data---frequency",
     "title": "table",
-    "section": "1 Data - Frequency",
-    "text": "1 Data - Frequency\n\n\nCode\ntb &lt;- read_csv(\"id, gender, lgrades\n               SD101, M, C+\n               SD102, F, F\n               SD103, F, B\n               SD104, F, A+\n               SD105, M, B\n               SD106, F, B-\n               SD107, M, A\n               SD108, M, C\n               SD109, M, B-\n               SD110, M, B-\n               \")\nlvlgender &lt;- c(\"F\",\"M\")\nlvlgrades &lt;- c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender &lt;- factor(tb$gender, levels=lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades, levels=lvlgrades)\ntb\n\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-     \n\n\n\n1.1 one-way frequency table\n\n# table - one way\n# table will do the count in the vector\ntbl1 &lt;- table(tb$lgrades)\ntbl1\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(tbl1)\n\n[1] \"table\"\n\n\n\n# convert table to dataframe\n# setNames() is available in stats package\ndf&lt;-data.frame(tbl1) |&gt; setNames(c(\"grades\",\"freq\"))\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1\n\n\n\n\n1.2 two-way frequency table\n\n# gender-lgrades\ntbl2 &lt;- table(tb$gender, tb$lgrades)\ntbl2\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  F  1 0  0  0 1  1  0 0  0 0 1\n  M  0 1  0  0 1  2  1 1  0 0 0\n\nclass(tbl2)\n\n[1] \"table\"\n\ndimnames(tbl2)\n\n[[1]]\n[1] \"F\" \"M\"\n\n[[2]]\n [1] \"A+\" \"A\"  \"A-\" \"B+\" \"B\"  \"B-\" \"C+\" \"C\"  \"D+\" \"D\"  \"F\" \n\n\n\n\n1.3 addmargins(table, FUN)\n\naddmargins(tbl2, FUN=sum)\n\nMargins computed over dimensions\nin the following order:\n1: \n2: \n\n\n     \n      A+  A A- B+  B B- C+  C D+  D  F sum\n  F    1  0  0  0  1  1  0  0  0  0  1   4\n  M    0  1  0  0  1  2  1  1  0  0  0   6\n  sum  1  1  0  0  2  3  1  1  0  0  1  10",
+    "section": "2 Data - Frequency",
+    "text": "2 Data - Frequency\n\n\nCode\ntb &lt;- read_csv(\"id, gender, lgrades\n               SD101, M, C+\n               SD102, F, F\n               SD103, F, B\n               SD104, F, A+\n               SD105, M, B\n               SD106, F, B-\n               SD107, M, A\n               SD108, M, C\n               SD109, M, B-\n               SD110, M, B-\n               \")\nlvlgender &lt;- c(\"F\",\"M\")\nlvlgrades &lt;- c(\"A+\",\"A\",\"A-\",\"B+\",\"B\",\"B-\",\"C+\",\"C\",\"D+\",\"D\",\"F\")\ntb$gender &lt;- factor(tb$gender, levels=lvlgender)\ntb$lgrades &lt;- factor(tb$lgrades, levels=lvlgrades)\ntb\n\n\n# A tibble: 10 × 3\n   id    gender lgrades\n   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;  \n 1 SD101 M      C+     \n 2 SD102 F      F      \n 3 SD103 F      B      \n 4 SD104 F      A+     \n 5 SD105 M      B      \n 6 SD106 F      B-     \n 7 SD107 M      A      \n 8 SD108 M      C      \n 9 SD109 M      B-     \n10 SD110 M      B-     \n\n\n\n2.1 one-way frequency table\n\n# table - one way\n# table will do the count in the vector\ntbl1 &lt;- table(tb$lgrades)\ntbl1\n\n\nA+  A A- B+  B B- C+  C D+  D  F \n 1  1  0  0  2  3  1  1  0  0  1 \n\nclass(tbl1)\n\n[1] \"table\"\n\n\n\n\n2.2 named-vector (table)\nThe table function returns a named vector.\n\n# to return the first row\nnames(tbl1) \n\n [1] \"A+\" \"A\"  \"A-\" \"B+\" \"B\"  \"B-\" \"C+\" \"C\"  \"D+\" \"D\"  \"F\" \n\n# to return a table of values\n# convert to vector of values\nv &lt;- unname(tbl1) |&gt; as.vector()\nv \n\n [1] 1 1 0 0 2 3 1 1 0 0 1\n\n\n\n\n2.3 Set table to dataframe\n\n# convert table to dataframe\n# setNames() is available in stats package\ndf&lt;-data.frame(tbl1) |&gt; setNames(c(\"grades\",\"freq\"))\ndf\n\n   grades freq\n1      A+    1\n2       A    1\n3      A-    0\n4      B+    0\n5       B    2\n6      B-    3\n7      C+    1\n8       C    1\n9      D+    0\n10      D    0\n11      F    1\n\n\n\n\n2.4 two-way frequency table\n\n# gender-lgrades\ntbl2 &lt;- table(tb$gender, tb$lgrades)\ntbl2\n\n   \n    A+ A A- B+ B B- C+ C D+ D F\n  F  1 0  0  0 1  1  0 0  0 0 1\n  M  0 1  0  0 1  2  1 1  0 0 0\n\ndimnames(tbl2)\n\n[[1]]\n[1] \"F\" \"M\"\n\n[[2]]\n [1] \"A+\" \"A\"  \"A-\" \"B+\" \"B\"  \"B-\" \"C+\" \"C\"  \"D+\" \"D\"  \"F\" \n\nclass(tbl2)\n\n[1] \"table\"\n\n\n\n\n2.5 Get values from table\n\nv1 &lt;- tbl2[1,] |&gt; unname() |&gt; as.vector()\nv2 &lt;- tbl2[2,] |&gt; unname() |&gt; as.vector()\nv1 \n\n [1] 1 0 0 0 1 1 0 0 0 0 1\n\nv2\n\n [1] 0 1 0 0 1 2 1 1 0 0 0\n\n\n\n\n2.6 addmargins(table, FUN)\n\naddmargins(tbl2, FUN=sum)\n\nMargins computed over dimensions\nin the following order:\n1: \n2: \n\n\n     \n      A+  A A- B+  B B- C+  C D+  D  F sum\n  F    1  0  0  0  1  1  0  0  0  0  1   4\n  M    0  1  0  0  1  2  1  1  0  0  0   6\n  sum  1  1  0  0  2  3  1  1  0  0  1  10",
     "crumbs": [
       "Tables",
       "table"
@@ -3494,7 +3494,7 @@
     "href": "tables/table.html#data---table-tbl",
     "title": "table",
     "section": "1 Data - table (tbl)",
-    "text": "1 Data - table (tbl)\n\ntable function is in baseR and creates a contingency table from a matrix form.\naddmargins works for matrix and table forms\n\n\n1.1 Matrix form\n\n# Table 2.2 of Agresti\nM &lt;- matrix (c(189,10845,104,10933), nrow=2, byrow=TRUE,\n             dimnames = list(group=c(\"Placebo\",\"Aspirin\"),\n                                c(\"yes\",\"no\")))\nclass(M)\n\n[1] \"matrix\" \"array\" \n\naddmargins(M)\n\n         \ngroup     yes    no   Sum\n  Placebo 189 10845 11034\n  Aspirin 104 10933 11037\n  Sum     293 21778 22071\n\n\n\n\n1.2 Table form\n\ntbl3 &lt;- as.table(M)\nclass(tbl3)\n\n[1] \"table\"\n\naddmargins(tbl3,2)\n\n         \ngroup       yes    no   Sum\n  Placebo   189 10845 11034\n  Aspirin   104 10933 11037\n\n\n\n\n1.3 Proportions table\n\n# margin=1 proportionates the rowSums\nptbl &lt;- prop.table(tbl3, margin=1) |&gt; round(4)\nptbl\n\n         \ngroup        yes     no\n  Placebo 0.0171 0.9829\n  Aspirin 0.0094 0.9906\n\n\n\n\n1.4 Proportions test\n\n# Wald CI for proportion differences\nprop.test(tbl3, conf.level=0.95, correct=FALSE)\n\n\n    2-sample test for equality of proportions without continuity correction\n\ndata:  tbl3\nX-squared = 25.014, df = 1, p-value = 5.692e-07\nalternative hypothesis: two.sided\n95 percent confidence interval:\n 0.004687751 0.010724297\nsample estimates:\n    prop 1     prop 2 \n0.01712887 0.00942285",
+    "text": "1 Data - table (tbl)\n\ntable function is in baseR and creates a contingency table from a matrix form.\naddmargins works for matrix and table forms\n\n\n1.1 Matrix form\n\n# Table 2.2 of Agresti\nM &lt;- matrix (c(189,10845,104,10933), nrow=2, byrow=TRUE,\n             dimnames = list(group=c(\"Placebo\",\"Aspirin\"),\n                                c(\"yes\",\"no\")))\nclass(M)\n\n[1] \"matrix\" \"array\" \n\nM\n\n         \ngroup     yes    no\n  Placebo 189 10845\n  Aspirin 104 10933\n\n# margins added to matrix M (or later as table)\naddmargins(M) \n\n         \ngroup     yes    no   Sum\n  Placebo 189 10845 11034\n  Aspirin 104 10933 11037\n  Sum     293 21778 22071\n\n\n\n\n1.2 Table form\n\n# convert M to table\n\ntbl3 &lt;- as.table(M)\nclass(tbl3)\n\n[1] \"table\"\n\n# margins added to table\naddmargins(tbl3,2)\n\n         \ngroup       yes    no   Sum\n  Placebo   189 10845 11034\n  Aspirin   104 10933 11037\n\n\n\n\n1.3 Proportions table\n\n# margin=1 proportionates the rowSums\nptbl &lt;- prop.table(tbl3, margin=1) |&gt; round(4)\nptbl\n\n         \ngroup        yes     no\n  Placebo 0.0171 0.9829\n  Aspirin 0.0094 0.9906\n\n\n\n\n1.4 Proportions test\n\n# Wald CI for proportion differences\nprop.test(tbl3, conf.level=0.95, correct=FALSE)\n\n\n    2-sample test for equality of proportions without continuity correction\n\ndata:  tbl3\nX-squared = 25.014, df = 1, p-value = 5.692e-07\nalternative hypothesis: two.sided\n95 percent confidence interval:\n 0.004687751 0.010724297\nsample estimates:\n    prop 1     prop 2 \n0.01712887 0.00942285",
     "crumbs": [
       "Tables",
       "table"
@@ -3670,6 +3670,159 @@
     "crumbs": [
       "DataFrames",
       "gt"
+    ]
+  },
+  {
+    "objectID": "yaml.html#yaml---default",
+    "href": "yaml.html#yaml---default",
+    "title": "yaml",
+    "section": "",
+    "text": "---\ntitle: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false\n---",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#yaml---extended-pdf",
+    "href": "yaml.html#yaml---extended-pdf",
+    "title": "yaml",
+    "section": "2 yaml - extended pdf",
+    "text": "2 yaml - extended pdf\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#yaml---default-html",
+    "href": "yaml.html#yaml---default-html",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#yaml---html",
+    "href": "yaml.html#yaml---html",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#yaml---with-pdf",
+    "href": "yaml.html#yaml---with-pdf",
+    "title": "yaml",
+    "section": "2 yaml - with pdf",
+    "text": "2 yaml - with pdf\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#code-block---yaml-html",
+    "href": "yaml.html#code-block---yaml-html",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#code-block-r",
+    "href": "yaml.html#code-block-r",
+    "title": "yaml",
+    "section": "2 Code-block R",
+    "text": "2 Code-block R\n{r library}\n#| code-fold: TRUE\n#| eval: FALSE\n#| warning: FALSE\n\nlibrary(tidyverse)\nlibrary(gt)\nlibrary(here)\ntheme_set(theme_bw())",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#code-block-yaml-html",
+    "href": "yaml.html#code-block-yaml-html",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false\n\n\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#code-block-yaml---with-pdf",
+    "href": "yaml.html#code-block-yaml---with-pdf",
+    "title": "yaml",
+    "section": "2 Code-block: yaml - with pdf",
+    "text": "2 Code-block: yaml - with pdf\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#code-block-yaml-with-pdf",
+    "href": "yaml.html#code-block-yaml-with-pdf",
+    "title": "yaml",
+    "section": "2 Code-block yaml : with pdf",
+    "text": "2 Code-block yaml : with pdf\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#footnote",
+    "href": "yaml.html#footnote",
+    "title": "yaml",
+    "section": "3 Footnote",
+    "text": "3 Footnote\nDevore’s book. [^1]\n\n[^1]: Devore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. \n2021. Modern Mathematical Statistics with Applications. \nVol. 285. Springer.\nDevore’s book as a footnote.1\n… the footnote is usually written on the next line but will appear at the bottom of the page as a footnote. This footnote is in Markdown. LaTeX footnote is different and has a separate \\footnote command. Tip: check for extra backslashes if footnote is not working.",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#footnotes",
+    "href": "yaml.html#footnotes",
+    "title": "yaml",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nDevore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. 2021. Modern Mathematical Statistics with Applications. Vol. 285. Springer.↩︎",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "yaml.html#references",
+    "href": "yaml.html#references",
+    "title": "yaml",
+    "section": "4 References",
+    "text": "4 References\nAdd this in the yaml of Reference.qmd, where WebR.bib is the bibdesk file of bibtex referencecs\nbibliography: WebR.bib\nnocite: |\n  @*",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "index.html#other-websites",
+    "href": "index.html#other-websites",
+    "title": "WebR",
+    "section": "1 Other websites",
+    "text": "1 Other websites\n\nykwongWebR : R Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv : Survival Analysis with R",
+    "crumbs": [
+      "Preface"
     ]
   }
 ]
