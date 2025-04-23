@@ -64,6 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./datatypes/numbers.html" rel="next">
+<link href="./qblocks.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -143,9 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      WebR
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li><li class="breadcrumb-item"><a href="./qtex.html">qtex</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -189,6 +189,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./qblocks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">qblocks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qtex.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">qtex</span></a>
   </div>
 </li>
       </ul>
@@ -497,13 +503,17 @@ window.Quarto = {
   <ul>
   <li><a href="#tex-snippets" id="toc-tex-snippets" class="nav-link active" data-scroll-target="#tex-snippets"><span class="header-section-number">1</span> Tex Snippets</a></li>
   <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations"><span class="header-section-number">2</span> Equations</a></li>
+  <li><a href="#tex-tables" id="toc-tex-tables" class="nav-link" data-scroll-target="#tex-tables"><span class="header-section-number">3</span> TeX Tables</a>
+  <ul class="collapse">
+  <li><a href="#tex-block---tex-table-using-array" id="toc-tex-block---tex-table-using-array" class="nav-link" data-scroll-target="#tex-block---tex-table-using-array"><span class="header-section-number">3.1</span> TeX Block - Tex-table using <code>array</code></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li><li class="breadcrumb-item"><a href="./qtex.html">qtex</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Selected Tex Codes</h1>
 </div>
@@ -541,7 +551,7 @@ window.Quarto = {
 </section>
 <section id="equations" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="equations"><span class="header-section-number">2</span> Equations</h2>
-<p>(<code>\blacksquare</code>, <code>ali*</code> )</p>
+<p>(<code>\blacksquare, \tag</code> )</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode texinfo code-with-copy"><code class="sourceCode texinfo"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Make the substitution u= $x/\beta$, so that $x=\beta u$ and $dx = \beta du: </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    \int_0^\infty x^{\alpha-1}e^{-x/\beta} dx </span>
@@ -557,8 +567,38 @@ window.Quarto = {
    &amp; = \int_0^\infty x^{\alpha-1}e^{-x} dx \\[12pt]
    &amp; = \Gamma(\alpha) \qquad\blacksquare \tag{4.5}
 \end{align*}\]</span></p>
+</section>
+<section id="tex-tables" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="tex-tables"><span class="header-section-number">3</span> TeX Tables</h2>
+<section id="tex-block---tex-table-using-array" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="tex-block---tex-table-using-array"><span class="header-section-number">3.1</span> TeX Block - Tex-table using <code>array</code></h3>
+<p>Example Collett-Table 2.7</p>
+<span class="math display">\[\begin{array}{c c c c }
+\hline
+\text{Group} &amp; \text{Number of Deaths} &amp; \text{Number Surviving} &amp; \text{Number at Risk} \\
+      &amp; \text{at $t_{(j)}$} &amp; \text{beyond $t_{(j)}$} &amp; \text{just before $t_{(j)}$} \\
+\hline
+\rm{I} &amp; d_{1j} &amp; n_{1j}-d_{1j} &amp; n_{1j} \\
+\rm{II} &amp; d_{2j} &amp; n_{2j}-d_{2j} &amp; n_{2j} \\
+\hline
+\text{Total} &amp; d_{j} &amp; n_{j}-d_{j} &amp; n_{j} \\
+\hline
+\end{array}\]</span>
+<p>note: <code>tabular</code> not supported, use <code>array</code> to form a Tex-table</p>
+<div class="sourceCode" id="cb4" style="border: 1px black solid;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">array</span>}{c c c c } </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\text</span>{Group} &amp; <span class="fu">\text</span>{Number of Deaths} &amp; <span class="fu">\text</span>{Number Surviving} &amp; <span class="fu">\text</span>{Number at Risk} <span class="fu">\\</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      &amp; <span class="fu">\text</span>{at <span class="ss">$t_{(j)}$</span>} &amp; <span class="fu">\text</span>{beyond <span class="ss">$t_{(j)}$</span>} &amp; <span class="fu">\text</span>{just before <span class="ss">$t_{(j)}$</span>} <span class="fu">\\</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\rm</span>{I} &amp; d_{1j} &amp; n_{1j}-d_{1j} &amp; n_{1j} <span class="fu">\\</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\rm</span>{II} &amp; d_{2j} &amp; n_{2j}-d_{2j} &amp; n_{2j} <span class="fu">\\</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\text</span>{Total} &amp; d_{j} &amp; n_{j}-d_{j} &amp; n_{j} <span class="fu">\\</span> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span> </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">array</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -979,6 +1019,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./qblocks.html" class="pagination-link" aria-label="qblocks">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">qblocks</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./datatypes/numbers.html" class="pagination-link" aria-label="numbers">
+        <span class="nav-page-text">numbers</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

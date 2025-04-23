@@ -3970,7 +3970,11 @@
     "href": "qtex.html",
     "title": "Selected Tex Codes",
     "section": "",
-    "text": "(use cmd-shift-p and expand at cursor)\n\nali*\n\nbegin{align*}\n  |\n\\end{align*}\n\narray\n\n\\begin{array}{c c c}\n\\hline\n  |\n\\end{array}"
+    "text": "(use cmd-shift-p and expand at cursor)\n\nali*\n\nbegin{align*}\n  |\n\\end{align*}\n\narray\n\n\\begin{array}{c c c}\n\\hline\n  |\n\\end{array}",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
   },
   {
     "objectID": "qtex.html#selected-tex-codes",
@@ -3984,7 +3988,11 @@
     "href": "qtex.html#tex-snippets",
     "title": "Selected Tex Codes",
     "section": "",
-    "text": "(use cmd-shift-p and expand at cursor)\n\nali*\n\nbegin{align*}\n  |\n\\end{align*}\n\narray\n\n\\begin{array}{c c c}\n\\hline\n  |\n\\end{array}"
+    "text": "(use cmd-shift-p and expand at cursor)\n\nali*\n\nbegin{align*}\n  |\n\\end{align*}\n\narray\n\n\\begin{array}{c c c}\n\\hline\n  |\n\\end{array}",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
   },
   {
     "objectID": "qtex.html#snippets",
@@ -3998,6 +4006,32 @@
     "href": "qtex.html#equations",
     "title": "Selected Tex Codes",
     "section": "2 Equations",
-    "text": "2 Equations\n(\\blacksquare, ali* )\nMake the substitution u= $x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\nMake the substitution u= \\(x/\\beta\\), so that \\(x=\\beta u\\) and $dx = du: \\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n\\end{align*}\\]"
+    "text": "2 Equations\n(\\blacksquare, \\tag )\nMake the substitution u= $x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\nMake the substitution u= \\(x/\\beta\\), so that \\(x=\\beta u\\) and $dx = du: \\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n\\end{align*}\\]",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
+  },
+  {
+    "objectID": "qtex.html#tables",
+    "href": "qtex.html#tables",
+    "title": "Selected Tex Codes",
+    "section": "3 Tables",
+    "text": "3 Tables",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
+  },
+  {
+    "objectID": "qtex.html#tex-tables",
+    "href": "qtex.html#tex-tables",
+    "title": "Selected Tex Codes",
+    "section": "3 TeX Tables",
+    "text": "3 TeX Tables\n\n3.1 TeX Block - Tex-table using array\nExample Collett-Table 2.7\n\\[\\begin{array}{c c c c }\n\\hline\n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\\n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\\n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\\n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\\n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\\n\\hline\n\\end{array}\\]\nnote: tabular not supported, use array to form a Tex-table\n\\begin{array}{c c c c } \n\\hline \n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\ \n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\ \n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\ \n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\ \n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\ \n\\hline \n\\end{array}",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
   }
 ]
