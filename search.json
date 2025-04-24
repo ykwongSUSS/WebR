@@ -857,8 +857,8 @@
     "objectID": "yaml.html#navigation-sidebar-in-_quarto.yml",
     "href": "yaml.html#navigation-sidebar-in-_quarto.yml",
     "title": "yaml",
-    "section": "5 Navigation sidebar in _quarto.yml",
-    "text": "5 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebR\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Preface \n        href: index.qmd\n          contents: \n            - text: YAML\n              href: yaml.qmd\n     - section: Datatypes\n       href: datatypes.qmd\n         contents:\n          - text: numbers\n            href: datatypes/numbers.qmd\n          - text: strings\n            href: datatypes/strings.qmd\n...\n---",
+    "section": "6 Navigation sidebar in _quarto.yml",
+    "text": "6 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebR\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Preface \n        href: index.qmd\n          contents: \n            - text: YAML\n              href: yaml.qmd\n     - section: Datatypes\n       href: datatypes.qmd\n         contents:\n          - text: numbers\n            href: datatypes/numbers.qmd\n          - text: strings\n            href: datatypes/strings.qmd\n...\n---",
     "crumbs": [
       "Preface",
       "yaml"
@@ -3600,7 +3600,7 @@
     "href": "datatypes/strings.html#stringr-functions",
     "title": "Strings",
     "section": "2 stringr functions",
-    "text": "2 stringr functions\n\n2.1 merge 2 trings - concat\n\n# str_c to concat strings\ns2 &lt;- str_c(s1,  \" ALREADY\") |&gt; print()\n\n[1] \"I ate ALREADY\"\n\n\n\n\n2.2 string properties\n\n# lowercase\nstr_to_lower(s2)\n\n[1] \"i ate already\"\n\nstr_length(s2)\n\n[1] 13\n\n\n\n\n2.3 str_trim, str_replace_all\n\n# removes trailing spaces\ns3 &lt;- str_trim(s2, side=\"both\")\ns3\n\n[1] \"I ate ALREADY\"\n\n# removes all spaces\ns4 &lt;- str_replace_all(s2, \"[ ]\",\"\")\ns4\n\n[1] \"IateALREADY\"\n\n\n\n\n\n2.4 strsplit (returns a list)\n\n# output of website crawling\nt0 &lt;- \"gets%better%every%day\"\nt1 &lt;- strsplit(t0,split='%')\nt1\n\n[[1]]\n[1] \"gets\"   \"better\" \"every\"  \"day\"   \n\ntypeof(t1)\n\n[1] \"list\"\n\n\n\n\n2.5 split into chars\n\n# split= may be omitted\nu0 &lt;- c(\"The quick brown fox jumps over the lazy dog\")\nu1 &lt;- strsplit(u0,\"\")\nu1\n\n[[1]]\n [1] \"T\" \"h\" \"e\" \" \" \"q\" \"u\" \"i\" \"c\" \"k\" \" \" \"b\" \"r\" \"o\" \"w\" \"n\" \" \" \"f\" \"o\" \"x\"\n[20] \" \" \"j\" \"u\" \"m\" \"p\" \"s\" \" \" \"o\" \"v\" \"e\" \"r\" \" \" \"t\" \"h\" \"e\" \" \" \"l\" \"a\" \"z\"\n[39] \"y\" \" \" \"d\" \"o\" \"g\"\n\n\n\n\n2.6 split into words\n\nu2 &lt;- strsplit(u0, \" \")\nu2\n\n[[1]]\n[1] \"The\"   \"quick\" \"brown\" \"fox\"   \"jumps\" \"over\"  \"the\"   \"lazy\"  \"dog\"  \n\n\n\n\n2.7 regex can be used in strsplit\n\nv0 &lt;- \"all16i5need6is4a%long8vacation\"\nv1 &lt;- strsplit(v0,\"[0-9,%]+\")\nv1\n\n[[1]]\n[1] \"all\"      \"i\"        \"need\"     \"is\"       \"a\"        \"long\"     \"vacation\"",
+    "text": "2 stringr functions\n\n2.1 merge 2 strings - concat\n\n# str_c to concat strings\ns2 &lt;- str_c(s1,  \" ALREADY\") |&gt; print()\n\n[1] \"I ate ALREADY\"\n\n\n\n\n2.2 string properties\n\n# lowercase\nstr_to_lower(s2)\n\n[1] \"i ate already\"\n\nstr_length(s2)\n\n[1] 13\n\n\n\n\n2.3 str_trim, str_replace_all\n\n# removes trailing spaces\ns3 &lt;- str_trim(s2, side=\"both\")\ns3\n\n[1] \"I ate ALREADY\"\n\n# removes all spaces\ns4 &lt;- str_replace_all(s2, \"[ ]\",\"\")\ns4\n\n[1] \"IateALREADY\"\n\n\n\n\n\n2.4 strsplit (returns a list)\n\n# output of website crawling\nt0 &lt;- \"gets%better%every%day\"\nt1 &lt;- strsplit(t0,split='%')\nt1\n\n[[1]]\n[1] \"gets\"   \"better\" \"every\"  \"day\"   \n\ntypeof(t1)\n\n[1] \"list\"\n\n\n\n\n2.5 split into chars\n\n# split= may be omitted\nu0 &lt;- c(\"The quick brown fox jumps over the lazy dog\")\nu1 &lt;- strsplit(u0,\"\")\nu1\n\n[[1]]\n [1] \"T\" \"h\" \"e\" \" \" \"q\" \"u\" \"i\" \"c\" \"k\" \" \" \"b\" \"r\" \"o\" \"w\" \"n\" \" \" \"f\" \"o\" \"x\"\n[20] \" \" \"j\" \"u\" \"m\" \"p\" \"s\" \" \" \"o\" \"v\" \"e\" \"r\" \" \" \"t\" \"h\" \"e\" \" \" \"l\" \"a\" \"z\"\n[39] \"y\" \" \" \"d\" \"o\" \"g\"\n\n\n\n\n2.6 split into words\n\nu2 &lt;- strsplit(u0, \" \")\nu2\n\n[[1]]\n[1] \"The\"   \"quick\" \"brown\" \"fox\"   \"jumps\" \"over\"  \"the\"   \"lazy\"  \"dog\"  \n\n\n\n\n2.7 regex can be used in strsplit\n\nv0 &lt;- \"all16i5need6is4a%long8vacation\"\nv1 &lt;- strsplit(v0,\"[0-9,%]+\")\nv1\n\n[[1]]\n[1] \"all\"      \"i\"        \"need\"     \"is\"       \"a\"        \"long\"     \"vacation\"",
     "crumbs": [
       "Datatypes",
       "strings"
@@ -3809,7 +3809,7 @@
     "href": "yaml.html#references",
     "title": "yaml",
     "section": "4 References",
-    "text": "4 References\nAdd this in the yaml of Reference.qmd, where WebR.bib is the bibdesk file of bibtex referencecs\nbibliography: WebR.bib\nnocite: |\n  @*",
+    "text": "4 References\nAdd this in the yaml of Reference.qmd, where WebR.bib is the Bibdesk file of BibLaTeX (.bib) references. @* below lists all references.\nbibliography: WebR.bib\nnocite: |\n  @*",
     "crumbs": [
       "Preface",
       "yaml"
@@ -4006,7 +4006,7 @@
     "href": "qtex.html#equations",
     "title": "Selected Tex Codes",
     "section": "2 Equations",
-    "text": "2 Equations\n(\\blacksquare, \\tag )\nMake the substitution u= $x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\nMake the substitution u= \\(x/\\beta\\), so that \\(x=\\beta u\\) and $dx = du: \\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n\\end{align*}\\]",
+    "text": "2 Equations\n(\\blacksquare, \\tag, align*, \\\\[12pt] )\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\nMake the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n\\end{align*}\\]",
     "crumbs": [
       "Preface",
       "qtex"
@@ -4028,10 +4028,32 @@
     "href": "qtex.html#tex-tables",
     "title": "Selected Tex Codes",
     "section": "3 TeX Tables",
-    "text": "3 TeX Tables\n\n3.1 TeX Block - Tex-table using array\nExample Collett-Table 2.7\n\\[\\begin{array}{c c c c }\n\\hline\n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\\n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\\n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\\n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\\n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\\n\\hline\n\\end{array}\\]\nnote: tabular not supported, use array to form a Tex-table\n\\begin{array}{c c c c } \n\\hline \n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\ \n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\ \n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\ \n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\ \n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\ \n\\hline \n\\end{array}",
+    "text": "3 TeX Tables\n\n3.1 TeX Block - Tex-table using array\nExample Collett 1 - Table 2.7\n\\[\\begin{array}{c c c c }\n\\hline\n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\\n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\\n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\\n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\\n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\\n\\hline\n\\end{array}\\]\nnote: tabular not supported, use array to form a Tex-table\n\\begin{array}{c c c c } \n\\hline \n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\ \n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\ \n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\ \n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\ \n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\ \n\\hline \n\\end{array}",
     "crumbs": [
       "Preface",
       "qtex"
+    ]
+  },
+  {
+    "objectID": "qtex.html#footnotes",
+    "href": "qtex.html#footnotes",
+    "title": "Selected Tex Codes",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nDevore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. 2021. Modern Mathematical Statistics with Applications. Vol. 285. Springer.↩︎",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
+  },
+  {
+    "objectID": "yaml.html#citations",
+    "href": "yaml.html#citations",
+    "title": "yaml",
+    "section": "5 Citations",
+    "text": "5 Citations\nCitations can be styled using for example, csl: nature.csl in yaml. The citation is embedded as [@kuhn2022t] giving the output (Kuhn and Silge 2022).",
+    "crumbs": [
+      "Preface",
+      "yaml"
     ]
   }
 ]

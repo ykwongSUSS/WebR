@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./wblocks.html" rel="next">
+<link href="./qblocks.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -158,8 +178,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./wblocks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">wblocks</span></a>
+  <a href="./qblocks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">qblocks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qtex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">qtex</span></a>
   </div>
 </li>
       </ul>
@@ -473,7 +499,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#code-block-r" id="toc-code-block-r" class="nav-link" data-scroll-target="#code-block-r"><span class="header-section-number">2</span> Code-block R</a></li>
   <li><a href="#footnote" id="toc-footnote" class="nav-link" data-scroll-target="#footnote"><span class="header-section-number">3</span> Footnote</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
-  <li><a href="#navigation-sidebar-in-_quarto.yml" id="toc-navigation-sidebar-in-_quarto.yml" class="nav-link" data-scroll-target="#navigation-sidebar-in-_quarto.yml"><span class="header-section-number">5</span> Navigation sidebar in <code>_quarto.yml</code></a></li>
+  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations"><span class="header-section-number">5</span> Citations</a></li>
+  <li><a href="#navigation-sidebar-in-_quarto.yml" id="toc-navigation-sidebar-in-_quarto.yml" class="nav-link" data-scroll-target="#navigation-sidebar-in-_quarto.yml"><span class="header-section-number">6</span> Navigation sidebar in <code>_quarto.yml</code></a></li>
   </ul>
 </nav>
     </div>
@@ -544,13 +571,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="references" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
-<p>Add this in the <code>yaml</code> of <code>Reference.qmd</code>, where <code>WebR.bib</code> is the <code>bibdesk file</code> of <code>bibtex</code> referencecs</p>
+<p>Add this in the <code>yaml</code> of <code>Reference.qmd</code>, where <code>WebR.bib</code> is the <code>Bibdesk file</code> of <code>BibLaTeX (.bib)</code> references. <code>@*</code> below lists all references.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bibliography: WebR.bib</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nocite: |</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  @*</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="navigation-sidebar-in-_quarto.yml" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="navigation-sidebar-in-_quarto.yml"><span class="header-section-number">5</span> Navigation sidebar in <code>_quarto.yml</code></h2>
+<section id="citations" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="citations"><span class="header-section-number">5</span> Citations</h2>
+<p>Citations can be styled using for example, <code>csl: nature.csl</code> in yaml. The citation is embedded as <code>[@kuhn2022t]</code> giving the output <span class="citation" data-cites="kuhn2022t">(<a href="#ref-kuhn2022t" role="doc-biblioref">Kuhn and Silge 2022</a>)</span>.</p>
+</section>
+<section id="navigation-sidebar-in-_quarto.yml" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="navigation-sidebar-in-_quarto.yml"><span class="header-section-number">6</span> Navigation sidebar in <code>_quarto.yml</code></h2>
 <div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
@@ -577,10 +608,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ismay2019s" class="csl-entry" role="listitem">
+Ismay, C., and A. Y. Kim. 2019. <em>Statistical Inference via Data Science: A ModernDive into r and the Tidyverse</em>. https://doi.org/10.1201/9780367409913: Chapman; Hall/CRC.
+</div>
+<div id="ref-kuhn2022t" class="csl-entry" role="listitem">
+Kuhn, Max, and Julia Silge. 2022. <em>Tidy Modeling with r</em>. " O’Reilly Media, Inc.".
+</div>
+<div id="ref-wickham2023r" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science</em>. 2nd ed. " O’Reilly Media, Inc.".
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Devore, Jay L, Kenneth N Berk, Matthew A Carlton, et al.&nbsp;2021. Modern Mathematical Statistics with Applications. Vol. 285. Springer.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -1010,8 +1052,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./wblocks.html" class="pagination-link" aria-label="wblocks">
-        <span class="nav-page-text">wblocks</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./qblocks.html" class="pagination-link" aria-label="qblocks">
+        <span class="nav-page-text">qblocks</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

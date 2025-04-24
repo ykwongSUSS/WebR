@@ -551,8 +551,8 @@ window.Quarto = {
 </section>
 <section id="equations" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="equations"><span class="header-section-number">2</span> Equations</h2>
-<p>(<code>\blacksquare, \tag</code> )</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode texinfo code-with-copy"><code class="sourceCode texinfo"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Make the substitution u= $x/\beta$, so that $x=\beta u$ and $dx = \beta du: </span>
+<p>(<code>\blacksquare, \tag, align*, \\[12pt]</code> )</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode texinfo code-with-copy"><code class="sourceCode texinfo"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Make the substitution $u = x/\beta$, so that $x=\beta u$ and $dx = \beta du$: </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    \int_0^\infty x^{\alpha-1}e^{-x/\beta} dx </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     &amp;=  \int_0^\infty (\beta u)^{\alpha-1} e^{-u} \beta du \\[12pt]</span>
@@ -560,7 +560,8 @@ window.Quarto = {
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>   &amp; = \int_0^\infty x^{\alpha-1}e^{-x} dx \\[12pt]</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>   &amp; = \Gamma(\alpha) \qquad\blacksquare \tag{4.5}</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a> \end{align*}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Make the substitution u= <span class="math inline">\(x/\beta\)</span>, so that <span class="math inline">\(x=\beta u\)</span> and $dx = du: <span class="math display">\[\begin{align*}
+<p>Make the substitution <span class="math inline">\(u= x/\beta\)</span>, so that <span class="math inline">\(x=\beta u\)</span> and <span class="math inline">\(dx = \beta du\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
     \int_0^\infty x^{\alpha-1}e^{-x/\beta} dx
      &amp;=  \int_0^\infty (\beta u)^{\alpha-1} e^{-u} \beta du \\[12pt]
    &amp; = \int_0^\infty u^{\alpha-1}e^{-u} du \\[12pt]
@@ -572,7 +573,7 @@ window.Quarto = {
 <h2 data-number="3" class="anchored" data-anchor-id="tex-tables"><span class="header-section-number">3</span> TeX Tables</h2>
 <section id="tex-block---tex-table-using-array" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="tex-block---tex-table-using-array"><span class="header-section-number">3.1</span> TeX Block - Tex-table using <code>array</code></h3>
-<p>Example Collett-Table 2.7</p>
+<p>Example Collett <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> - Table 2.7</p>
 <span class="math display">\[\begin{array}{c c c c }
 \hline
 \text{Group} &amp; \text{Number of Deaths} &amp; \text{Number Surviving} &amp; \text{Number at Risk} \\
@@ -601,7 +602,13 @@ window.Quarto = {
 </section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Devore, Jay L, Kenneth N Berk, Matthew A Carlton, et al.&nbsp;2021. Modern Mathematical Statistics with Applications. Vol. 285. Springer.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
