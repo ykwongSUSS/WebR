@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Selected Tex Codes – WebR</title>
+<title>Selected TeX Codes – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -501,11 +501,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tex-snippets" id="toc-tex-snippets" class="nav-link active" data-scroll-target="#tex-snippets"><span class="header-section-number">1</span> Tex Snippets</a></li>
-  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations"><span class="header-section-number">2</span> Equations</a></li>
+  <li><a href="#tex-snippets" id="toc-tex-snippets" class="nav-link active" data-scroll-target="#tex-snippets"><span class="header-section-number">1</span> TeX Snippets</a></li>
+  <li><a href="#theorems-and-proofs-in-div-and-tex-blocks" id="toc-theorems-and-proofs-in-div-and-tex-blocks" class="nav-link" data-scroll-target="#theorems-and-proofs-in-div-and-tex-blocks"><span class="header-section-number">2</span> Theorems and proofs in <code>div</code> and <code>tex</code> blocks</a>
+  <ul class="collapse">
+  <li><a href="#tex-block---boxed-equations" id="toc-tex-block---boxed-equations" class="nav-link" data-scroll-target="#tex-block---boxed-equations"><span class="header-section-number">2.1</span> TeX Block - <code>\boxed</code> equations</a></li>
+  </ul></li>
   <li><a href="#tex-tables" id="toc-tex-tables" class="nav-link" data-scroll-target="#tex-tables"><span class="header-section-number">3</span> TeX Tables</a>
   <ul class="collapse">
   <li><a href="#tex-block---tex-table-using-array" id="toc-tex-block---tex-table-using-array" class="nav-link" data-scroll-target="#tex-block---tex-table-using-array"><span class="header-section-number">3.1</span> TeX Block - Tex-table using <code>array</code></a></li>
+  <li><a href="#tex-block-with-div-block-over-it" id="toc-tex-block-with-div-block-over-it" class="nav-link" data-scroll-target="#tex-block-with-div-block-over-it"><span class="header-section-number">3.2</span> TeX block with Div block over it</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -515,7 +519,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li><li class="breadcrumb-item"><a href="./qtex.html">qtex</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Selected Tex Codes</h1>
+<h1 class="title">Selected TeX Codes</h1>
 </div>
 
 
@@ -533,7 +537,7 @@ window.Quarto = {
 
 
 <section id="tex-snippets" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="tex-snippets"><span class="header-section-number">1</span> Tex Snippets</h2>
+<h2 data-number="1" class="anchored" data-anchor-id="tex-snippets"><span class="header-section-number">1</span> TeX Snippets</h2>
 <p>(use <code>cmd-shift-p</code> and <code>expand at cursor</code>)</p>
 <ol type="1">
 <li><code>ali*</code></li>
@@ -549,25 +553,44 @@ window.Quarto = {
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  |</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>\end{array}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="equations" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="equations"><span class="header-section-number">2</span> Equations</h2>
-<p>(<code>\blacksquare, \tag, align*, \\[12pt]</code> )</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode texinfo code-with-copy"><code class="sourceCode texinfo"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Make the substitution $u = x/\beta$, so that $x=\beta u$ and $dx = \beta du$: </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    \int_0^\infty x^{\alpha-1}e^{-x/\beta} dx </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     &amp;=  \int_0^\infty (\beta u)^{\alpha-1} e^{-u} \beta du \\[12pt]</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>   &amp; = \int_0^\infty u^{\alpha-1}e^{-u} du \\[12pt]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>   &amp; = \int_0^\infty x^{\alpha-1}e^{-x} dx \\[12pt]</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>   &amp; = \Gamma(\alpha) \qquad\blacksquare \tag{4.5}</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a> \end{align*}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="theorems-and-proofs-in-div-and-tex-blocks" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="theorems-and-proofs-in-div-and-tex-blocks"><span class="header-section-number">2</span> Theorems and proofs in <code>div</code> and <code>tex</code> blocks</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>\blacksquare, \tag, align*</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>#thm-; #lem-; #cor-; #prp; #cnj-; #def-; </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>#exm-; #exr-; #sol-; #rem-</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>.proof</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="prp-line" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> <span class="math display">\[\int_0^\infty x^{\alpha-1}e^{-x/\beta} dx  = \Gamma(\alpha) \tag{4.5}\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span></p>
 <p>Make the substitution <span class="math inline">\(u= x/\beta\)</span>, so that <span class="math inline">\(x=\beta u\)</span> and <span class="math inline">\(dx = \beta du\)</span>:</p>
 <p><span class="math display">\[\begin{align*}
     \int_0^\infty x^{\alpha-1}e^{-x/\beta} dx
      &amp;=  \int_0^\infty (\beta u)^{\alpha-1} e^{-u} \beta du \\[12pt]
    &amp; = \int_0^\infty u^{\alpha-1}e^{-u} du \\[12pt]
    &amp; = \int_0^\infty x^{\alpha-1}e^{-x} dx \\[12pt]
-   &amp; = \Gamma(\alpha) \qquad\blacksquare \tag{4.5}
+   &amp; = \Gamma(\alpha) \qquad\blacksquare
 \end{align*}\]</span></p>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode texinfo code-with-copy"><code class="sourceCode texinfo"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Make the substitution $u = x/\beta$, so that $x=\beta u$ and $dx = \beta du$: </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    \int_0^\infty x^{\alpha-1}e^{-x/\beta} dx </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     &amp;=  \int_0^\infty (\beta u)^{\alpha-1} e^{-u} \beta du \\[12pt]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>   &amp; = \int_0^\infty u^{\alpha-1}e^{-u} du \\[12pt]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>   &amp; = \int_0^\infty x^{\alpha-1}e^{-x} dx \\[12pt]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>   &amp; = \Gamma(\alpha) \qquad\blacksquare \tag{4.5}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a> \end{align*}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="tex-block---boxed-equations" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="tex-block---boxed-equations"><span class="header-section-number">2.1</span> TeX Block - <code>\boxed</code> equations</h3>
+<p>Integration by parts:</p>
+<p><span class="math display">\[\begin{equation}
+  \boxed{ \int udv = uv - \int vdu }
+\end{equation}\]</span></p>
+<div class="sourceCode" id="cb5" style="border: 1px solid"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">equation</span>}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="sc">\boxed</span><span class="ss">{ </span><span class="sc">\int</span><span class="ss"> udv = uv - </span><span class="sc">\int</span><span class="ss"> vdu }</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">equation</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="tex-tables" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="tex-tables"><span class="header-section-number">3</span> TeX Tables</h2>
@@ -586,17 +609,30 @@ window.Quarto = {
 \hline
 \end{array}\]</span>
 <p>note: <code>tabular</code> not supported, use <code>array</code> to form a Tex-table</p>
-<div class="sourceCode" id="cb4" style="border: 1px black solid;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">array</span>}{c c c c } </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\text</span>{Group} &amp; <span class="fu">\text</span>{Number of Deaths} &amp; <span class="fu">\text</span>{Number Surviving} &amp; <span class="fu">\text</span>{Number at Risk} <span class="fu">\\</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      &amp; <span class="fu">\text</span>{at <span class="ss">$t_{(j)}$</span>} &amp; <span class="fu">\text</span>{beyond <span class="ss">$t_{(j)}$</span>} &amp; <span class="fu">\text</span>{just before <span class="ss">$t_{(j)}$</span>} <span class="fu">\\</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\rm</span>{I} &amp; d_{1j} &amp; n_{1j}-d_{1j} &amp; n_{1j} <span class="fu">\\</span> </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\rm</span>{II} &amp; d_{2j} &amp; n_{2j}-d_{2j} &amp; n_{2j} <span class="fu">\\</span> </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\text</span>{Total} &amp; d_{j} &amp; n_{j}-d_{j} &amp; n_{j} <span class="fu">\\</span> </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span> </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">array</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6" style="border: 1px black solid;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">array</span>}{c c c c } </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\text</span>{Group} &amp; <span class="fu">\text</span>{Number of Deaths} &amp; <span class="fu">\text</span>{Number Surviving} &amp; <span class="fu">\text</span>{Number at Risk} <span class="fu">\\</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      &amp; <span class="fu">\text</span>{at <span class="ss">$t_{(j)}$</span>} &amp; <span class="fu">\text</span>{beyond <span class="ss">$t_{(j)}$</span>} &amp; <span class="fu">\text</span>{just before <span class="ss">$t_{(j)}$</span>} <span class="fu">\\</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\rm</span>{I} &amp; d_{1j} &amp; n_{1j}-d_{1j} &amp; n_{1j} <span class="fu">\\</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\rm</span>{II} &amp; d_{2j} &amp; n_{2j}-d_{2j} &amp; n_{2j} <span class="fu">\\</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\text</span>{Total} &amp; d_{j} &amp; n_{j}-d_{j} &amp; n_{j} <span class="fu">\\</span> </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span> </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">array</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tex-block-with-div-block-over-it" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="tex-block-with-div-block-over-it"><span class="header-section-number">3.2</span> TeX block with Div block over it</h3>
+<p># div-block - style=border: 1px solid; background:white; padding-right:1cm</p>
+<div style="border: 1px black solid; background: white; padding-right: 1cm">
+<p><span class="math display">\[\begin{align}
+Sample\ mean\\
+  \bar x &amp;= \frac{\sum x_i}{n} \tag{1.1}\\
+  
+Sample\ variance\\
+  S^2 &amp;= \frac{\sum (X_i - \bar X)}{n-1}. \tag{1.2}
+\end{align}\]</span></p>
+</div>
 
 
 </section>

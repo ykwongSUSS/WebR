@@ -3958,8 +3958,8 @@
     "objectID": "qblocks.html#div-block",
     "href": "qblocks.html#div-block",
     "title": "Blocks in HTML",
-    "section": "4 Div Block",
-    "text": "4 Div Block\n{/ Div... } can format with css html\n\n4.1 Div block - embed TeX\n\n\\[\n\\int udv = uv - \\int vdu\n\\]\n\n\n\n4.2 Div Block - css and padding\n\n\\(\\textbf{Gosset's Theorem}\\)\nIf \\(X_1, X_2, \\ldots, X_n\\) is a random sample from a \\(N(\\mu, \\sigma)\\) distribution, then the rv\n\\[\n\\frac{\\bar X - \\mu}{S/\\sqrt{n}}\n\\]\nhas the t distribution with (n-1) degrees of freedom, \\(t_{n-1}.\\)",
+    "section": "3 Div Block",
+    "text": "3 Div Block\n{/ Div... } can format with css html\n\n3.1 Div block - embed TeX\n\n\\[\n\\int udv = uv - \\int vdu\n\\]\n\n\n\n3.2 Div Block - css and padding\n\n\\(\\textbf{Gosset's Theorem}\\)\nIf \\(X_1, X_2, \\ldots, X_n\\) is a random sample from a \\(N(\\mu, \\sigma)\\) distribution, then the rv\n\\[\n\\frac{\\bar X - \\mu}{S/\\sqrt{n}}\n\\]\nhas the t distribution with (n-1) degrees of freedom, \\(t_{n-1}.\\)",
     "crumbs": [
       "Preface",
       "qblocks"
@@ -3968,7 +3968,7 @@
   {
     "objectID": "qtex.html",
     "href": "qtex.html",
-    "title": "Selected Tex Codes",
+    "title": "Selected TeX Codes",
     "section": "",
     "text": "(use cmd-shift-p and expand at cursor)\n\nali*\n\nbegin{align*}\n  |\n\\end{align*}\n\narray\n\n\\begin{array}{c c c}\n\\hline\n  |\n\\end{array}",
     "crumbs": [
@@ -3986,7 +3986,7 @@
   {
     "objectID": "qtex.html#tex-snippets",
     "href": "qtex.html#tex-snippets",
-    "title": "Selected Tex Codes",
+    "title": "Selected TeX Codes",
     "section": "",
     "text": "(use cmd-shift-p and expand at cursor)\n\nali*\n\nbegin{align*}\n  |\n\\end{align*}\n\narray\n\n\\begin{array}{c c c}\n\\hline\n  |\n\\end{array}",
     "crumbs": [
@@ -4004,7 +4004,7 @@
   {
     "objectID": "qtex.html#equations",
     "href": "qtex.html#equations",
-    "title": "Selected Tex Codes",
+    "title": "Selected TeX Codes",
     "section": "2 Equations",
     "text": "2 Equations\n(\\blacksquare, \\tag, align*, \\\\[12pt] )\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\nMake the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n\\end{align*}\\]",
     "crumbs": [
@@ -4026,9 +4026,9 @@
   {
     "objectID": "qtex.html#tex-tables",
     "href": "qtex.html#tex-tables",
-    "title": "Selected Tex Codes",
+    "title": "Selected TeX Codes",
     "section": "3 TeX Tables",
-    "text": "3 TeX Tables\n\n3.1 TeX Block - Tex-table using array\nExample Collett 1 - Table 2.7\n\\[\\begin{array}{c c c c }\n\\hline\n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\\n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\\n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\\n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\\n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\\n\\hline\n\\end{array}\\]\nnote: tabular not supported, use array to form a Tex-table\n\\begin{array}{c c c c } \n\\hline \n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\ \n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\ \n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\ \n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\ \n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\ \n\\hline \n\\end{array}",
+    "text": "3 TeX Tables\n\n3.1 TeX Block - Tex-table using array\nExample Collett 1 - Table 2.7\n\\[\\begin{array}{c c c c }\n\\hline\n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\\n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\\n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\\n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\\n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\\n\\hline\n\\end{array}\\]\nnote: tabular not supported, use array to form a Tex-table\n\\begin{array}{c c c c } \n\\hline \n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\ \n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\ \n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\ \n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\ \n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\ \n\\hline \n\\end{array}\n\n\n3.2 TeX block with Div block over it\n# div-block - style=border: 1px solid; background:white; padding-right:1cm\n\n\\[\\begin{align}\nSample\\ mean\\\\\n  \\bar x &= \\frac{\\sum x_i}{n} \\tag{1.1}\\\\\n  \nSample\\ variance\\\\\n  S^2 &= \\frac{\\sum (X_i - \\bar X)}{n-1}. \\tag{1.2}\n\\end{align}\\]",
     "crumbs": [
       "Preface",
       "qtex"
@@ -4037,7 +4037,7 @@
   {
     "objectID": "qtex.html#footnotes",
     "href": "qtex.html#footnotes",
-    "title": "Selected Tex Codes",
+    "title": "Selected TeX Codes",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nDevore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. 2021. Modern Mathematical Statistics with Applications. Vol. 285. Springer.↩︎",
     "crumbs": [
@@ -4054,6 +4054,72 @@
     "crumbs": [
       "Preface",
       "yaml"
+    ]
+  },
+  {
+    "objectID": "qtex.html#equations-in-qmd",
+    "href": "qtex.html#equations-in-qmd",
+    "title": "Selected TeX Codes",
+    "section": "2 Equations in qmd",
+    "text": "2 Equations in qmd\n(\\blacksquare, \\tag, align*, \\\\[12pt] )\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\nMake the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n\\end{align*}\\]",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
+  },
+  {
+    "objectID": "qtex.html#equations-in-tex-block",
+    "href": "qtex.html#equations-in-tex-block",
+    "title": "Selected TeX Codes",
+    "section": "2 Equations in TeX block",
+    "text": "2 Equations in TeX block\n(\\blacksquare, \\tag, align*, \\\\[12pt] )\n\nProposition 1 \\[\\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx  = \\Gamma(\\alpha)\\]\n\n\nProof. \nMake the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n\\end{align*}\\]\n\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\n\n2.1 TeX Block - \\boxed equations\nIntegration by parts:\n\\[\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}\\]\n\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
+  },
+  {
+    "objectID": "qtex.html#theorems-and-proof-in-div-and-tex-block",
+    "href": "qtex.html#theorems-and-proof-in-div-and-tex-block",
+    "title": "Selected TeX Codes",
+    "section": "2 Theorems and proof in Div and TeX block",
+    "text": "2 Theorems and proof in Div and TeX block\n(\\blacksquare, \\tag, align*, \\\\[12pt] )\n\nProposition 1 \\[\\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx  = \\Gamma(\\alpha)\\]\n\n\nProof. \nMake the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n\\end{align*}\\]\n\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\n\n2.1 TeX Block - \\boxed equations\nIntegration by parts:\n\\[\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}\\]\n\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
+  },
+  {
+    "objectID": "qtex.html#theorems-and-proof-in-div-and-tex-blocks",
+    "href": "qtex.html#theorems-and-proof-in-div-and-tex-blocks",
+    "title": "Selected TeX Codes",
+    "section": "2 Theorems and proof in Div and TeX blocks",
+    "text": "2 Theorems and proof in Div and TeX blocks\n(\\blacksquare, \\tag, align*, \\\\[12pt] )\n(#thm-;#lem-;#cor-;#prp;#cnj-;#def-;#exm-;#exr-;#sol-;#rem-)\n(.proof)\n\nProposition 1 \\[\\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx  = \\Gamma(\\alpha)\\]\n\n\nProof. \nMake the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n\\end{align*}\\]\n\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\n\n2.1 TeX Block - \\boxed equations\nIntegration by parts:\n\\[\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}\\]\n\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
+  },
+  {
+    "objectID": "qtex.html#theorems-and-proofs-in-div-and-tex-blocks",
+    "href": "qtex.html#theorems-and-proofs-in-div-and-tex-blocks",
+    "title": "Selected TeX Codes",
+    "section": "2 Theorems and proofs in div and tex blocks",
+    "text": "2 Theorems and proofs in div and tex blocks\n\\blacksquare, \\tag, align*\n#thm-; #lem-; #cor-; #prp; #cnj-; #def-; \n#exm-; #exr-; #sol-; #rem-\n.proof\n\nProposition 1 \\[\\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx  = \\Gamma(\\alpha) \\tag{4.5}\\]\n\n\nProof. \nMake the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare\n\\end{align*}\\]\n\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\n\n2.1 TeX Block - \\boxed equations\nIntegration by parts:\n\\[\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}\\]\n\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
+  },
+  {
+    "objectID": "qtex.html#section",
+    "href": "qtex.html#section",
+    "title": "Selected TeX Codes",
+    "section": "4 ",
+    "text": "4",
+    "crumbs": [
+      "Preface",
+      "qtex"
     ]
   }
 ]

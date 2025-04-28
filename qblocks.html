@@ -508,18 +508,10 @@ window.Quarto = {
   <li><a href="#display-latex" id="toc-display-latex" class="nav-link" data-scroll-target="#display-latex"><span class="header-section-number">2.2</span> Display <code>latex</code></a></li>
   <li><a href="#display-data-default" id="toc-display-data-default" class="nav-link" data-scroll-target="#display-data-default"><span class="header-section-number">2.3</span> Display data <code>default</code></a></li>
   </ul></li>
-  <li><a href="#tex-block-for-latex" id="toc-tex-block-for-latex" class="nav-link" data-scroll-target="#tex-block-for-latex"><span class="header-section-number">3</span> TeX Block for <code>LaTeX</code></a>
+  <li><a href="#div-block" id="toc-div-block" class="nav-link" data-scroll-target="#div-block"><span class="header-section-number">3</span> Div Block</a>
   <ul class="collapse">
-  <li><a href="#snippets-in-tex-block" id="toc-snippets-in-tex-block" class="nav-link" data-scroll-target="#snippets-in-tex-block"><span class="header-section-number">3.1</span> Snippets in tex block</a></li>
-  <li><a href="#tex-block-for-equations" id="toc-tex-block-for-equations" class="nav-link" data-scroll-target="#tex-block-for-equations"><span class="header-section-number">3.2</span> TeX Block for equations</a></li>
-  <li><a href="#tex-block---boxed-equations" id="toc-tex-block---boxed-equations" class="nav-link" data-scroll-target="#tex-block---boxed-equations"><span class="header-section-number">3.3</span> TeX Block - <code>\boxed</code> equations</a></li>
-  <li><a href="#tex-block---tex-table-using-array" id="toc-tex-block---tex-table-using-array" class="nav-link" data-scroll-target="#tex-block---tex-table-using-array"><span class="header-section-number">3.4</span> TeX Block - tex-table using <code>array</code></a></li>
-  <li><a href="#tex-block-with-div-block-over-it" id="toc-tex-block-with-div-block-over-it" class="nav-link" data-scroll-target="#tex-block-with-div-block-over-it"><span class="header-section-number">3.5</span> TeX block with Div block over it</a></li>
-  </ul></li>
-  <li><a href="#div-block" id="toc-div-block" class="nav-link" data-scroll-target="#div-block"><span class="header-section-number">4</span> Div Block</a>
-  <ul class="collapse">
-  <li><a href="#div-block---embed-tex" id="toc-div-block---embed-tex" class="nav-link" data-scroll-target="#div-block---embed-tex"><span class="header-section-number">4.1</span> Div block - embed TeX</a></li>
-  <li><a href="#div-block---css-and-padding" id="toc-div-block---css-and-padding" class="nav-link" data-scroll-target="#div-block---css-and-padding"><span class="header-section-number">4.2</span> Div Block - css and padding</a></li>
+  <li><a href="#div-block---embed-tex" id="toc-div-block---embed-tex" class="nav-link" data-scroll-target="#div-block---embed-tex"><span class="header-section-number">3.1</span> Div block - embed TeX</a></li>
+  <li><a href="#div-block---css-and-padding" id="toc-div-block---css-and-padding" class="nav-link" data-scroll-target="#div-block---css-and-padding"><span class="header-section-number">3.2</span> Div Block - css and padding</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -592,94 +584,19 @@ window.Quarto = {
 <hr>
 </section>
 </section>
-<section id="tex-block-for-latex" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="tex-block-for-latex"><span class="header-section-number">3</span> TeX Block for <code>LaTeX</code></h2>
-<p><code>{ / TeX Block... }</code></p>
-<section id="snippets-in-tex-block" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="snippets-in-tex-block"><span class="header-section-number">3.1</span> Snippets in tex block</h3>
-<div class="sourceCode" id="cb7" style="border: 1px black solid"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Use shift-cmd-p and Expand snippet at cursor</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>For example: ali*  to expand to </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>   \begin{align*}</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      |</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>   \end{align*}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="tex-block-for-equations" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="tex-block-for-equations"><span class="header-section-number">3.2</span> TeX Block for equations</h3>
-<p>Sample mean</p>
-<p><span class="math display">\[\begin{align*}
-  \bar x = \frac{\sum x_i}{n} \tag{1.1}
-\end{align*}\]</span></p>
-<p>Sample variance</p>
-<p><span class="math display">\[\begin{align*}
-  S^2 = \frac{\sum (X_i - \bar X)}{n-1}  \tag{1.2}
-\end{align*}\]</span></p>
-</section>
-<section id="tex-block---boxed-equations" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="tex-block---boxed-equations"><span class="header-section-number">3.3</span> TeX Block - <code>\boxed</code> equations</h3>
-<p>Integration by parts:</p>
-<p><span class="math display">\[\begin{equation}
-  \boxed{ \int udv = uv - \int vdu }
-\end{equation}\]</span></p>
-<div class="sourceCode" id="cb8" style="border: 1px solid"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">equation</span>}</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="sc">\boxed</span><span class="ss">{ </span><span class="sc">\int</span><span class="ss"> udv = uv - </span><span class="sc">\int</span><span class="ss"> vdu }</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">equation</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="tex-block---tex-table-using-array" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="tex-block---tex-table-using-array"><span class="header-section-number">3.4</span> TeX Block - tex-table using <code>array</code></h3>
-<p>Example Collett-Table 2.7</p>
-<span class="math display">\[\begin{array}{c c c c }
-\hline
-\text{Group} &amp; \text{Number of Deaths} &amp; \text{Number Surviving} &amp; \text{Number at Risk} \\
-      &amp; \text{at $t_{(j)}$} &amp; \text{beyond $t_{(j)}$} &amp; \text{just before $t_{(j)}$} \\
-\hline
-\rm{I} &amp; d_{1j} &amp; n_{1j}-d_{1j} &amp; n_{1j} \\
-\rm{II} &amp; d_{2j} &amp; n_{2j}-d_{2j} &amp; n_{2j} \\
-\hline
-\text{Total} &amp; d_{j} &amp; n_{j}-d_{j} &amp; n_{j} \\
-\hline
-\end{array}\]</span>
-<p>note: <code>tabular</code> not supported, use <code>array</code> to form a tex-table</p>
-<div class="sourceCode" id="cb9" style="border: 1px black solid;"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">array</span>}{c c c c } </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">\text</span>{Group} &amp; <span class="fu">\text</span>{Number of Deaths} &amp; <span class="fu">\text</span>{Number Surviving} &amp; <span class="fu">\text</span>{Number at Risk} <span class="fu">\\</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>      &amp; <span class="fu">\text</span>{at <span class="ss">$t_{(j)}$</span>} &amp; <span class="fu">\text</span>{beyond <span class="ss">$t_{(j)}$</span>} &amp; <span class="fu">\text</span>{just before <span class="ss">$t_{(j)}$</span>} <span class="fu">\\</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">\rm</span>{I} &amp; d_{1j} &amp; n_{1j}-d_{1j} &amp; n_{1j} <span class="fu">\\</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\rm</span>{II} &amp; d_{2j} &amp; n_{2j}-d_{2j} &amp; n_{2j} <span class="fu">\\</span> </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">\text</span>{Total} &amp; d_{j} &amp; n_{j}-d_{j} &amp; n_{j} <span class="fu">\\</span> </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">\hline</span> </span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">array</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="tex-block-with-div-block-over-it" class="level3" data-number="3.5">
-<h3 data-number="3.5" class="anchored" data-anchor-id="tex-block-with-div-block-over-it"><span class="header-section-number">3.5</span> TeX block with Div block over it</h3>
-<p># div-block - style=border: 1px solid; background:white; padding-right:1cm</p>
-<div style="border: 1px black solid; background: white; padding-right: 1cm">
-<p><span class="math display">\[\begin{align}
-Sample\ mean\\
-  \bar x &amp;= \frac{\sum x_i}{n} \tag{1.1}\\
-  
-Sample\ variance\\
-  S^2 &amp;= \frac{\sum (X_i - \bar X)}{n-1}. \tag{1.2}
-\end{align}\]</span></p>
-</div>
-<hr>
-</section>
-</section>
-<section id="div-block" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="div-block"><span class="header-section-number">4</span> Div Block</h2>
+<section id="div-block" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="div-block"><span class="header-section-number">3</span> Div Block</h2>
 <p><code>{/ Div... } can format with css html</code></p>
-<section id="div-block---embed-tex" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="div-block---embed-tex"><span class="header-section-number">4.1</span> Div block - embed TeX</h3>
+<section id="div-block---embed-tex" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="div-block---embed-tex"><span class="header-section-number">3.1</span> Div block - embed TeX</h3>
 <div style="border: 1px solid black;">
 <p><span class="math display">\[
 \int udv = uv - \int vdu
 \]</span></p>
 </div>
 </section>
-<section id="div-block---css-and-padding" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="div-block---css-and-padding"><span class="header-section-number">4.2</span> Div Block - css and padding</h3>
+<section id="div-block---css-and-padding" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="div-block---css-and-padding"><span class="header-section-number">3.2</span> Div Block - css and padding</h3>
 <div id="Theorem" class="theorem" style="border: 1px solid black; background-color: gainsboro; padding:20px">
 <p><span class="math inline">\(\textbf{Gosset's Theorem}\)</span></p>
 <p>If <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> is a random sample from a <span class="math inline">\(N(\mu, \sigma)\)</span> distribution, then the rv</p>
