@@ -3895,7 +3895,7 @@
     "href": "index.html#websites",
     "title": "WebR",
     "section": "1 Websites",
-    "text": "1 Websites\n\nykwongWebR : R Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv : Survival Analysis with R\nykwongWebNpar : Non-parametric Statistics with R",
+    "text": "1 Websites\n\nykwongWebR : R Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv : Survival Analysis with R\nykwongWebNpar : Non-parametric Statistics with R\nykwongWebLA : Non-parametric Statistics with R",
     "crumbs": [
       "Preface"
     ]
@@ -4117,6 +4117,17 @@
     "title": "Selected TeX Codes",
     "section": "4 ",
     "text": "4",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
+  },
+  {
+    "objectID": "qtex.html#theorems-and-proofs-in-div-blocks",
+    "href": "qtex.html#theorems-and-proofs-in-div-blocks",
+    "title": "Selected TeX Codes",
+    "section": "2 Theorems and proofs in div blocks",
+    "text": "2 Theorems and proofs in div blocks\n\\blacksquare, \\tag, align*\n#thm-; #lem-; #cor-; #prp; #cnj-; #def-; \n#exm-; #exr-; #sol-; #rem-\n.proof\n\nProposition 1 \\[\\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx  = \\Gamma(\\alpha) \\tag{4.5}\\]\n\n\nProof. \nMake the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare\n\\end{align*}\\]\n\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\n\n2.1 TeX Block - \\boxed equations\nIntegration by parts:\n\\[\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}\\]\n\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}",
     "crumbs": [
       "Preface",
       "qtex"
