@@ -4132,5 +4132,27 @@
       "Preface",
       "qtex"
     ]
+  },
+  {
+    "objectID": "qtex.html#definitions-propositions-and-theorems-are-placed-in-div-blocks",
+    "href": "qtex.html#definitions-propositions-and-theorems-are-placed-in-div-blocks",
+    "title": "Selected TeX Codes",
+    "section": "1 Definitions, propositions and theorems are placed in div blocks",
+    "text": "1 Definitions, propositions and theorems are placed in div blocks\n\\blacksquare, \\tag, align*\n#thm-; #lem-; #cor-; #prp; #cnj-; #def-; \n#exm-; #exr-; #sol-; #rem-\n.proof\n\nProposition 1 \\[\\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx  = \\Gamma(\\alpha) \\tag{4.5}\\]\n\n\nProof. \nMake the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare\n\\end{align*}\\]\n\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\n\n1.1 TeX Block - \\boxed equations\nIntegration by parts:\n\\[\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}\\]\n\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
+  },
+  {
+    "objectID": "qtex.html#definitions-propositions-and-theorems",
+    "href": "qtex.html#definitions-propositions-and-theorems",
+    "title": "Selected TeX Codes",
+    "section": "2 Definitions, propositions and theorems",
+    "text": "2 Definitions, propositions and theorems\n\nare usually placed in a fenced qmd div block\ncss style: border: 1pt black solid; padding: 6pt\nmath notation in TeX may be used in qmd\nno cross referencing below. Just use qmd double asterisks for bold def.\n\n\nDefinition 3.4.3 A subspace of \\(\\mathbb{W}\\) of \\(\\mathbb{R^n}\\) is a set of vectors such that for every \\(c \\in \\mathbb{R^n}\\) and for every \\(\\mathbf{uv} \\in \\mathbb{W}\\), then\n\n\\(\\mathbf{0} \\in \\mathbb{W}\\)\n\\(\\mathbf{u + v} \\in \\mathbb{W}\\)\nc\\(\\mathbf{u} \\in \\mathbb{W}\\)\n\nWhen these properties hold we say that \\(\\mathbb{W}\\) is closed under addition and scalar multiplication.\n\n# this is a code-block\n\ndiv-ID : #thm-line; \n#lem-; #cor-; #prp; #cnj-; #def-; \n#exm-; #exr-; #sol-; #rem-\n.proof\n\n2.0.1 Cross referencing a theorem and proof in div\n\n#thm-line is used to cross reference displaying Theorem 1\n.proof is a class in the div block\na tex-block is used for the displayed equation (4.5)\ntex commands: \\qquad\\blacksquare and \\tag{4.5} are used\n\n\nTheorem 1 \\[\\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx  = \\Gamma(\\alpha) \\tag{4.5}\\]\n\n\nProof. Make the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare\n\\end{align*}\\]\n\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\n\n\n2.1 TeX Block - \\boxed equations\nIntegration by parts:\n\\[\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}\\]\n\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}",
+    "crumbs": [
+      "Preface",
+      "qtex"
+    ]
   }
 ]
