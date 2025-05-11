@@ -1344,7 +1344,7 @@
   {
     "objectID": "test.html",
     "href": "test.html",
-    "title": "WebR",
+    "title": "yaml",
     "section": "",
     "text": "library(tidyverse)\n\n\n\n\nlibrary(data.table)\nPM &lt;- scan(text=\"45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0\")\nDC &lt;- scan(text=\"44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1\")\nPL &lt;- scan(text=\"46.0 45.9 44.8 46.2 45.1 45.5\") # note shorter\n\nnames(PM) &lt;- c(rep(\"PM\",length(PM)))\nnames(DC) &lt;- c(rep(\"DC\",length(DC)))\nnames(PL) &lt;- c(rep(\"PL\",length(PL)))\nvec &lt;- c(PM,DC,PL)\nvec\n\n  PM   PM   PM   PM   PM   PM   PM   PM   DC   DC   DC   DC   DC   DC   DC   DC \n45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0 44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1 \n  PL   PL   PL   PL   PL   PL \n46.0 45.9 44.8 46.2 45.1 45.5 \n\ndf &lt;- stack(vec)[2:1]\ndf\n\n   ind values\n1   PM   45.5\n2   PM   45.3\n3   PM   45.4\n4   PM   44.4\n5   PM   44.6\n6   PM   43.9\n7   PM   44.6\n8   PM   44.0\n9   DC   44.2\n10  DC   43.9\n11  DC   44.7\n12  DC   44.2\n13  DC   44.0\n14  DC   43.8\n15  DC   44.6\n16  DC   43.1\n17  PL   46.0\n18  PL   45.9\n19  PL   44.8\n20  PL   46.2\n21  PL   45.1\n22  PL   45.5\n\n\n\n\n\n\nggplot(df, aes(x=ind,y=values,color=ind))+\n  geom_boxplot()+\n  geom_jitter()+\n  theme_bw()"
   },
@@ -2614,7 +2614,7 @@
   {
     "objectID": "test.html#boxplot-jitter",
     "href": "test.html#boxplot-jitter",
-    "title": "WebR",
+    "title": "yaml",
     "section": "",
     "text": "library(tidyverse)\n\n\n\n\nlibrary(data.table)\nPM &lt;- scan(text=\"45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0\")\nDC &lt;- scan(text=\"44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1\")\nPL &lt;- scan(text=\"46.0 45.9 44.8 46.2 45.1 45.5\") # note shorter\n\nnames(PM) &lt;- c(rep(\"PM\",length(PM)))\nnames(DC) &lt;- c(rep(\"DC\",length(DC)))\nnames(PL) &lt;- c(rep(\"PL\",length(PL)))\nvec &lt;- c(PM,DC,PL)\nvec\n\n  PM   PM   PM   PM   PM   PM   PM   PM   DC   DC   DC   DC   DC   DC   DC   DC \n45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0 44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1 \n  PL   PL   PL   PL   PL   PL \n46.0 45.9 44.8 46.2 45.1 45.5 \n\ndf &lt;- stack(vec)[2:1]\ndf\n\n   ind values\n1   PM   45.5\n2   PM   45.3\n3   PM   45.4\n4   PM   44.4\n5   PM   44.6\n6   PM   43.9\n7   PM   44.6\n8   PM   44.0\n9   DC   44.2\n10  DC   43.9\n11  DC   44.7\n12  DC   44.2\n13  DC   44.0\n14  DC   43.8\n15  DC   44.6\n16  DC   43.1\n17  PL   46.0\n18  PL   45.9\n19  PL   44.8\n20  PL   46.2\n21  PL   45.1\n22  PL   45.5\n\n\n\n\n\n\nggplot(df, aes(x=ind,y=values,color=ind))+\n  geom_boxplot()+\n  geom_jitter()+\n  theme_bw()"
   },
@@ -4153,6 +4153,37 @@
     "crumbs": [
       "Preface",
       "qtex"
+    ]
+  },
+  {
+    "objectID": "qmd.html",
+    "href": "qmd.html",
+    "title": "qmd",
+    "section": "",
+    "text": "Quarto is based on Pandoc and uses its variation of markdown as its underlying document syntax. The file extension for a Quarto document is .qmd . Check out Quarto markdown page for the common markdown codes. Here we highlight some of the quirks that we may commonly come across (listed in no particular order)."
+  },
+  {
+    "objectID": "qmd.html#footnote",
+    "href": "qmd.html#footnote",
+    "title": "qmd",
+    "section": "1 Footnote",
+    "text": "1 Footnote\nDevore’s book. [^1]\n\n[^1]: Devore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. \n2021. Modern Mathematical Statistics with Applications. \nVol. 285. Springer.\nDevore’s book as a footnote.1\n… the footnote is usually written on the next line but will appear at the bottom of the page as a footnote. This footnote is in QMarkdown. A LaTeX footnote is different and has a separate \\footnote command. Tip: check for extra backslashes if footnote is not working."
+  },
+  {
+    "objectID": "qmd.html#footnotes",
+    "href": "qmd.html#footnotes",
+    "title": "qmd",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nDevore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. 2021. Modern Mathematical Statistics with Applications. Vol. 285. Springer.↩︎"
+  },
+  {
+    "objectID": "index.html#reference-notes",
+    "href": "index.html#reference-notes",
+    "title": "WebR",
+    "section": "2 Reference Notes",
+    "text": "2 Reference Notes\n\nyaml: html, pdf\nqmd: footnote, references\nqblocks: code blocks, tex blocks and div blocks\nqtex: selected tex codes",
+    "crumbs": [
+      "Preface"
     ]
   }
 ]
