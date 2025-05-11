@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>qmd – WebR</title>
+<title>Quarto Markdown – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,6 +103,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -156,18 +185,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./yaml.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">yaml</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./qblocks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">qblocks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./qtex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">qtex</span></a>
   </div>
 </li>
       </ul>
@@ -486,7 +503,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">qmd</h1>
+<h1 class="title">Quarto Markdown</h1>
 </div>
 
 
@@ -516,9 +533,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="selected-code-chunks-and-code-blocks" class="level3" data-number="0.2">
 <h3 data-number="0.2" class="anchored" data-anchor-id="selected-code-chunks-and-code-blocks"><span class="header-section-number">0.2</span> Selected Code Chunks and Code Blocks</h3>
-<p><strong>Computational</strong> <code>Code Chunks</code> are available for <code>R,Python, Julia.</code> Other code chunks include support for <code>Mermaid, GraphViz</code> . Some of these are detailed in accompanying References. Type backslash <code>/</code> to see menu for selection (under visual editor of RStudio).</p>
+<p><strong>Computational</strong> <code>Code Chunks</code> are available for <code>R,Python, Julia.</code> Other code chunks include support for <code>Mermaid, GraphViz</code> . Some of these are detailed in accompanying References. Type backslash <code>/</code> to see the selections (under visual editor of RStudio).</p>
 <p>Code Blocks (descriptive) are available to cater to <code>TeX, HTML, Line, Div and Raw</code> .</p>
-<p>Example <code>code chunk</code> with GraphViz</p>
+<p>Example <code>code chunk</code> with <code>GraphViz(dot)</code></p>
 <div class="cell" data-fig-width="4" data-fig-height="2" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -598,17 +615,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="markdown-or-latex" class="level3" data-number="0.3">
 <h3 data-number="0.3" class="anchored" data-anchor-id="markdown-or-latex"><span class="header-section-number">0.3</span> Markdown or LaTeX</h3>
-<p>Formulas and equations can be written in Markdown or LaTeX (or even Typst). In the case of LaTeX the display mode equations are written in a <code>TeX block</code>. Math inline and display modes can be used in qMarkdown but it is better to use TeX block for display mode. See more at the LaTeX reference note.</p>
+<p>Formulas and equations can be written in qMarkdown <code>/math</code> or a LaTeX block <code>/tex</code> (or even in a Typst block). Math inline and display modes can be used in qMarkdown but it is better to use a TeX block for multi-line equations. More at the LaTeX reference note.</p>
+<ol type="1">
+<li><p>Use markdown <code>math mode</code></p>
+<p>Theorem: For any <span class="math inline">\(\alpha, \beta &gt; 0\)</span></p></li>
+</ol>
+<p><span class="math display">\[
+\int_0^\infty x^{\alpha-1} e^{-x/\beta} dx = \beta^\alpha \Gamma(\alpha)
+\]</span></p>
+<ol start="2" type="1">
+<li><p>Use <code>TeX code block</code></p>
+<p>Proof: Substitute <span class="math inline">\(u=x/\beta\)</span> so that <span class="math inline">\(x=\beta u\)</span> and <span class="math inline">\(dx = \beta\ du\)</span></p></li>
+</ol>
+<p><span class="math display">\[\begin{align*}
+   \int_0^\infty x^{\alpha-1} e^{-x/\beta} dx &amp;= \int_0^\infty (\beta u)^{\alpha-1} e^{-u} \beta du \\[6pt]
+   &amp;= \beta^\alpha \int_0^\infty u^{\alpha-1} e^{-u} du \\[6pt]
+   &amp;= \beta^\alpha \Gamma(\alpha)  \qquad\blacksquare
+\end{align*}\]</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode texinfo code-with-copy"><code class="sourceCode texinfo"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   \int_0^\infty x^{\alpha-1} e^{-x/\beta} dx </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     &amp;= \int_0^\infty (\beta u)^{\alpha-1} e^{-u} \beta du \\[6pt]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     &amp;= \beta^\alpha \int_0^\infty u^{\alpha-1} e^{-u} du  \\[6pt]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     &amp;= \beta^\alpha \Gamma(\alpha)  \qquad\blacksquare</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>\end{align*}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="footnote" class="level3" data-number="0.4">
 <h3 data-number="0.4" class="anchored" data-anchor-id="footnote"><span class="header-section-number">0.4</span> Footnote</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Devore’s book. [^1]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>[^1]: Devore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>2021. Modern Mathematical Statistics with Applications. </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Vol. 285. Springer.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Devore’s book as a footnote.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>… the footnote is usually written on the next line but will appear at the bottom of the page as a footnote. This footnote is in QMarkdown. A LaTeX footnote is different and has a separate <code>\footnote</code> command. Tip: check for extra backslashes if footnote is not working.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Devore’s book. [^1]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>[^1]: Devore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>2021. Modern Mathematical Statistics with Applications. </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Vol. 285. Springer.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

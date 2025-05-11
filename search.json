@@ -4158,7 +4158,7 @@
   {
     "objectID": "qmd.html",
     "href": "qmd.html",
-    "title": "qmd",
+    "title": "Quarto Markdown",
     "section": "",
     "text": "Quarto is based on Pandoc and uses its variation of markdown as its underlying document syntax. The file extension for a Quarto document is .qmd . Check out Quarto markdown page for the common markdown codes. Here we highlight some of the quirks that we may commonly come across (listed in no particular order)."
   },
@@ -4172,7 +4172,7 @@
   {
     "objectID": "qmd.html#footnotes",
     "href": "qmd.html#footnotes",
-    "title": "qmd",
+    "title": "Quarto Markdown",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nDevore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. 2021. Modern Mathematical Statistics with Applications. Vol. 285. Springer.↩︎"
   },
