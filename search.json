@@ -857,8 +857,8 @@
     "objectID": "yaml.html#navigation-sidebar-in-_quarto.yml",
     "href": "yaml.html#navigation-sidebar-in-_quarto.yml",
     "title": "yaml",
-    "section": "6 Navigation sidebar in _quarto.yml",
-    "text": "6 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebR\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Preface \n        href: index.qmd\n          contents: \n            - text: YAML\n              href: yaml.qmd\n     - section: Datatypes\n       href: datatypes.qmd\n         contents:\n          - text: numbers\n            href: datatypes/numbers.qmd\n          - text: strings\n            href: datatypes/strings.qmd\n...\n---",
+    "section": "5 Navigation sidebar in _quarto.yml",
+    "text": "5 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebR\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Preface \n        href: index.qmd\n          contents: \n            - text: YAML\n              href: yaml.qmd\n     - section: Datatypes\n       href: datatypes.qmd\n         contents:\n          - text: numbers\n            href: datatypes/numbers.qmd\n          - text: strings\n            href: datatypes/strings.qmd\n...\n---",
     "crumbs": [
       "Preface",
       "yaml"
@@ -3808,8 +3808,8 @@
     "objectID": "yaml.html#references",
     "href": "yaml.html#references",
     "title": "yaml",
-    "section": "4 References",
-    "text": "4 References\nAdd this in the yaml of Reference.qmd, where WebR.bib is the Bibdesk file of BibLaTeX (.bib) references. @* below lists all references.\nbibliography: WebR.bib\nnocite: |\n  @*",
+    "section": "3 References",
+    "text": "3 References\nAdd this in the yaml of Reference.qmd, where WebR.bib is the Bibdesk file of BibLaTeX (.bib) references. @* below lists all references.\nbibliography: WebR.bib\nnocite: |\n  @*",
     "crumbs": [
       "Preface",
       "yaml"
@@ -4049,8 +4049,8 @@
     "objectID": "yaml.html#citations",
     "href": "yaml.html#citations",
     "title": "yaml",
-    "section": "5 Citations",
-    "text": "5 Citations\nCitations can be styled using for example, csl: nature.csl in yaml. The citation is embedded as [@kuhn2022t] giving the output (Kuhn and Silge 2022).",
+    "section": "4 Citations",
+    "text": "4 Citations\nCitations can be styled using for example, csl: nature.csl in yaml. The citation is embedded as [@kuhn2022t] giving the output (Kuhn and Silge 2022).",
     "crumbs": [
       "Preface",
       "yaml"
