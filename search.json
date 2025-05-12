@@ -4145,7 +4145,7 @@
     "href": "index.html#reference-notes",
     "title": "WebR",
     "section": "2 Reference Notes",
-    "text": "2 Reference Notes\n\nyaml: html, pdf\nqmd: footnote, references\nqblocks: code blocks, tex blocks and div blocks\nqtex: selected tex codes\nd2: D2 diagramming",
+    "text": "2 Reference Notes\n\nyaml: html, pdf\nqmd: footnote, references\nqblocks: code blocks, tex blocks and div blocks\nqtex: selected tex codes\nqD2: D2 diagramming",
     "crumbs": [
       "Preface"
     ]
