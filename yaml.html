@@ -85,7 +85,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./qblocks.html" rel="next">
+<link href="./datatypes/numbers.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -176,18 +176,6 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./yaml.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">yaml</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./qblocks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">qblocks</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./qtex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">qtex</span></a>
   </div>
 </li>
       </ul>
@@ -498,7 +486,7 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#or-code-block-yaml-html-and-pdf" id="toc-or-code-block-yaml-html-and-pdf" class="nav-link" data-scroll-target="#or-code-block-yaml-html-and-pdf"><span class="header-section-number">1.1</span> or code-block yaml : html and pdf</a></li>
   </ul></li>
-  <li><a href="#code-block-r" id="toc-code-block-r" class="nav-link" data-scroll-target="#code-block-r"><span class="header-section-number">2</span> Code-block R</a></li>
+  <li><a href="#code-chunk-r" id="toc-code-chunk-r" class="nav-link" data-scroll-target="#code-chunk-r"><span class="header-section-number">2</span> Code-chunk R</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
   <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations"><span class="header-section-number">4</span> Citations</a></li>
   <li><a href="#navigation-sidebar-in-_quarto.yml" id="toc-navigation-sidebar-in-_quarto.yml" class="nav-link" data-scroll-target="#navigation-sidebar-in-_quarto.yml"><span class="header-section-number">5</span> Navigation sidebar in <code>_quarto.yml</code></a></li>
@@ -548,17 +536,16 @@ div.csl-indent {
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="code-block-r" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="code-block-r"><span class="header-section-number">2</span> Code-block R</h2>
+<section id="code-chunk-r" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="code-chunk-r"><span class="header-section-number">2</span> Code-chunk R</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>{r library}</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: TRUE</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: FALSE</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: FALSE</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="references" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
@@ -1019,8 +1006,8 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for 
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./qblocks.html" class="pagination-link" aria-label="qblocks">
-        <span class="nav-page-text">qblocks</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./datatypes/numbers.html" class="pagination-link" aria-label="numbers">
+        <span class="nav-page-text">numbers</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

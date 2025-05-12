@@ -4185,5 +4185,16 @@
     "crumbs": [
       "Preface"
     ]
+  },
+  {
+    "objectID": "yaml.html#code-chunk-r",
+    "href": "yaml.html#code-chunk-r",
+    "title": "yaml",
+    "section": "2 Code-chunk R",
+    "text": "2 Code-chunk R\n{r library}\n#| code-fold: TRUE\n#| eval: FALSE\n\nlibrary(tidyverse)\nlibrary(gt)\nlibrary(here)\ntheme_set(theme_bw())",
+    "crumbs": [
+      "Preface",
+      "yaml"
+    ]
   }
 ]
