@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>WebR</title>
+<title>qmdJulia – WebR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./yaml.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +81,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      WebR
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -109,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./index.html" class="sidebar-item-text sidebar-link active">
+            <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -426,8 +427,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#websites" id="toc-websites" class="nav-link active" data-scroll-target="#websites"><span class="header-section-number">1</span> Websites</a></li>
-  <li><a href="#reference-notes" id="toc-reference-notes" class="nav-link" data-scroll-target="#reference-notes"><span class="header-section-number">2</span> Reference Notes</a></li>
+  <li><a href="#julia-engine-in-yaml" id="toc-julia-engine-in-yaml" class="nav-link active" data-scroll-target="#julia-engine-in-yaml"><strong>1&nbsp;Julia engine in YAML</strong></a></li>
+  <li><a href="#julia-in-quarto-qmd" id="toc-julia-in-quarto-qmd" class="nav-link" data-scroll-target="#julia-in-quarto-qmd"><strong>2&nbsp;Julia in Quarto qmd</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -436,7 +437,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">WebR</h1>
+<h1 class="title">qmdJulia</h1>
 </div>
 
 
@@ -453,39 +454,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This <code>WebR</code> website is created using Quarto. It is a collection of R snippets useful for my study of R.</p>
-<p>The website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.</p>
-<p>The main chapters for this website are grouped by topics:</p>
-<ol type="1">
-<li>Datatypes</li>
-<li>DataFrames</li>
-<li>Tables</li>
-<li>ggPlots</li>
-<li>Programming</li>
-<li>Datasets</li>
-<li>Examples</li>
-<li>References</li>
-</ol>
-<section id="websites" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="websites"><span class="header-section-number">1</span> Websites</h2>
-<ol type="1">
-<li><a href="http://ykwongwebr.netlify.app">ykwongWebR</a> : R Basics</li>
-<li><a href="http://ykwongwebStats.netlify.app">ykwongWebStats</a>: Mathematical Statistics with R</li>
-<li><a href="http://ykwongwebsurv.netlify.app">ykwongWebSurv</a> : Survival Analysis with R</li>
-<li><a href="http://ykwongwebnpar.netlify.app">ykwongWebNpar</a> : Non-parametric Statistics with R</li>
-<li><a href="http://ykwongwebla.netlify.app">ykwongWebLA</a> : Linear Algebra with Julia</li>
-<li><a href="https://ykwongSUSS.github.io">ykwongWebJ</a>: Julia Basics</li>
-</ol>
+<section id="julia-engine-in-yaml" class="level2">
+<h2 class="anchored" data-anchor-id="julia-engine-in-yaml"><strong>1&nbsp;Julia engine in YAML</strong></h2>
+<p>Note1:&nbsp;<code>quarto check</code>&nbsp;is a useful command at terminal prompt.</p>
+<p>Note2: ** this is pre-release** Native Julia can be enabled with (1)&nbsp;<code>engine: julia</code>&nbsp;in the yaml header for qmd, or alternatively (2) you can prioritize&nbsp;<code>julia</code>&nbsp;in the project-wide in the&nbsp;<code>_quarto.yml</code>project file by adding&nbsp;<code>engines: ['julia']</code>&nbsp;in the&nbsp;<code>_quarto.yml</code>&nbsp;file. Requires Quarto{v.1.7+)</p>
 </section>
-<section id="reference-notes" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="reference-notes"><span class="header-section-number">2</span> Reference Notes</h2>
-<ol type="1">
-<li><a href="https://ykwongwebr.netlify.app/yaml">yaml</a>: html, pdf</li>
-<li><a href="http://ykwongwebr.netlify.app/qmd">qmd</a>: footnote, references</li>
-<li><a href="https://ykwongwebr.netlify.app/qblocks">qblocks</a>: code blocks, tex blocks and div blocks</li>
-<li><a href="http://ykwongwebR.netlify.app/qtex">qtex</a>: selected tex codes</li>
-<li><a href="http://ykwongwebR.netlify.app/qD2">qD2</a>: D2 diagramming</li>
-</ol>
+<section id="julia-in-quarto-qmd" class="level2">
+<h2 class="anchored" data-anchor-id="julia-in-quarto-qmd"><strong>2&nbsp;Julia in Quarto qmd</strong></h2>
+<p><code>Julia is executed in a `julia code chunk`</code></p>
+<pre><code># matrices
+A = [1 2; 3 4; 5 6]
+B = [1 2 3; 4 5 6]' # transposed vector
+A |&gt; display
+B</code></pre>
+<pre><code></code></pre>
 
 
 </section>
@@ -890,15 +872,6 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./yaml.html" class="pagination-link" aria-label="yaml">
-        <span class="nav-page-text">yaml</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

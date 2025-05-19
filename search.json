@@ -3895,7 +3895,7 @@
     "href": "index.html#websites",
     "title": "WebR",
     "section": "1 Websites",
-    "text": "1 Websites\n\nykwongWebR : R Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv : Survival Analysis with R\nykwongWebNpar : Non-parametric Statistics with R\nykwongWebLA : Linear Algebra with Julia",
+    "text": "1 Websites\n\nykwongWebR : R Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv : Survival Analysis with R\nykwongWebNpar : Non-parametric Statistics with R\nykwongWebLA : Linear Algebra with Julia\nykwongWebJ: Julia Basics",
     "crumbs": [
       "Preface"
     ]
@@ -4174,5 +4174,26 @@
     "title": "quartoD2",
     "section": "1 basic examples",
     "text": "1 basic examples\n\n1.1 D2: sizing hello-world\n```{.d2 width=\"40%\"}\n# default direction is down\n# use attribute other\ncaller -&gt; receiver: hello\n```\n\n\n\n1.2 D2: direction LR\n# {width=\"75%\"}\ndirection: right\nx -&gt; y -- z\n\n\n\n1.3 D2: glob\ndirection: right\nnigel\n汶翰\n*.shape:person\n*.style.font-size:10\nnigel &lt;-&gt; 汶翰\n\n\n\n1.4 D2: shape, font, fill and stroke.\n\ndefault shape is rectangle\nselected shapes: square, page, cylinder, circle, oval, step, person, cloud,  document.\n\ndirection: right\nNode\\n12pt -&gt; C: 13\nB -&gt; C:12\nC -&gt; D:11\n\nNode\\n12pt:{\n  shape: circle\n  style.fill: lightblue\n  style.font-color: brown\n  style.stroke: brown\n  style.font-size: 12\n  }\nB:{\n  shape: circle\n  style.fill: yellow}\nC.shape: circle\nD:{\n  shape: rectangle \n  style.fill: orange}\n\n\n\n1.5 D2: Container\ndirection: right\nContainer{\ngcloud: Google Cloud{shape:cloud}\nuser.shape:person\nuser &lt;-&gt; gcloud }"
+  },
+  {
+    "objectID": "qmdJulia.html",
+    "href": "qmdJulia.html",
+    "title": "qmdJulia",
+    "section": "",
+    "text": "Note1: quarto check is a useful command at terminal prompt.\nNote2: ** this is pre-release** Native Julia can be enabled with (1) engine: julia in the yaml header for qmd, or alternatively (2) you can prioritize julia in the project-wide in the _quarto.ymlproject file by adding engines: ['julia'] in the _quarto.yml file. Requires Quarto{v.1.7+)"
+  },
+  {
+    "objectID": "qmdJulia.html#julia-engine-in-yaml",
+    "href": "qmdJulia.html#julia-engine-in-yaml",
+    "title": "qmdJulia",
+    "section": "",
+    "text": "Note1: quarto check is a useful command at terminal prompt.\nNote2: ** this is pre-release** Native Julia can be enabled with (1) engine: julia in the yaml header for qmd, or alternatively (2) you can prioritize julia in the project-wide in the _quarto.ymlproject file by adding engines: ['julia'] in the _quarto.yml file. Requires Quarto{v.1.7+)"
+  },
+  {
+    "objectID": "qmdJulia.html#julia-in-quarto-qmd",
+    "href": "qmdJulia.html#julia-in-quarto-qmd",
+    "title": "qmdJulia",
+    "section": "2 Julia in Quarto qmd",
+    "text": "2 Julia in Quarto qmd\nJulia is executed in a `julia code chunk`\n# matrices\nA = [1 2; 3 4; 5 6]\nB = [1 2 3; 4 5 6]' # transposed vector\nA |&gt; display\nB"
   }
 ]
