@@ -4201,7 +4201,7 @@
     "href": "index.html#webcentral",
     "title": "WebR",
     "section": "1 WebCentral",
-    "text": "1 WebCentral\n\nWebQ: Quarto Basics\nWebR : R Basics\nWebJ: Julia Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv : Survival Analysis with R\nykwongWebNpar : Non-parametric Statistics with R\nykwongWebLA : Linear Algebra with Julia",
+    "text": "1 WebCentral\n\nWebQ: Quarto Notes\nWebR : R Basics\nWebJ: Julia Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv : Survival Analysis with R\nykwongWebNpar : Non-parametric Statistics with R\nykwongWebLA : Linear Algebra with Julia",
     "crumbs": [
       "Preface"
     ]
@@ -4239,7 +4239,7 @@
     "href": "index.html#quarto-notes",
     "title": "WebR",
     "section": "2 Quarto Notes",
-    "text": "2 Quarto Notes\n\nyaml: html, pdf\njulia: Julia in Quarto\ntikz extension: Tikz in Quarto\nversion: how to version",
+    "text": "2 Quarto Notes\n\nyaml: html, pdf\nqmd: md in Quarto\nR: R in Quarto\njulia: Julia in Quarto\ntex: TeX in Quarto\ntikz extension: Tikz in Quarto\ngraphviz: Graphviz\nversion: how to version",
     "crumbs": [
       "Preface"
     ]
