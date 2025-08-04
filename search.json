@@ -101,10 +101,7 @@
     "href": "index.html",
     "title": "WebR",
     "section": "",
-    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R.\nThe website is designed to maximize quick access to frequently asked materials. It is not a tutorial, more like a quick reference.\nThe main chapters for this website are grouped by topics:",
-    "crumbs": [
-      "Preface"
-    ]
+    "text": "This WebR website is created using Quarto. It is a collection of R snippets useful for my study of R."
   },
   {
     "objectID": "datasets/trees/trees.html",
@@ -1346,7 +1343,7 @@
     "href": "test.html",
     "title": "yaml",
     "section": "",
-    "text": "library(tidyverse)\n\n\n\n\nlibrary(data.table)\nPM &lt;- scan(text=\"45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0\")\nDC &lt;- scan(text=\"44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1\")\nPL &lt;- scan(text=\"46.0 45.9 44.8 46.2 45.1 45.5\") # note shorter\n\nnames(PM) &lt;- c(rep(\"PM\",length(PM)))\nnames(DC) &lt;- c(rep(\"DC\",length(DC)))\nnames(PL) &lt;- c(rep(\"PL\",length(PL)))\nvec &lt;- c(PM,DC,PL)\nvec\n\n  PM   PM   PM   PM   PM   PM   PM   PM   DC   DC   DC   DC   DC   DC   DC   DC \n45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0 44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1 \n  PL   PL   PL   PL   PL   PL \n46.0 45.9 44.8 46.2 45.1 45.5 \n\ndf &lt;- stack(vec)[2:1]\ndf\n\n   ind values\n1   PM   45.5\n2   PM   45.3\n3   PM   45.4\n4   PM   44.4\n5   PM   44.6\n6   PM   43.9\n7   PM   44.6\n8   PM   44.0\n9   DC   44.2\n10  DC   43.9\n11  DC   44.7\n12  DC   44.2\n13  DC   44.0\n14  DC   43.8\n15  DC   44.6\n16  DC   43.1\n17  PL   46.0\n18  PL   45.9\n19  PL   44.8\n20  PL   46.2\n21  PL   45.1\n22  PL   45.5\n\n\n\n\n\n\nggplot(df, aes(x=ind,y=values,color=ind))+\n  geom_boxplot()+\n  geom_jitter()+\n  theme_bw()"
+    "text": "library(tidyverse)\n\n\n\n\nlibrary(data.table)\nPM &lt;- scan(text=\"45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0\")\nDC &lt;- scan(text=\"44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1\")\nPL &lt;- scan(text=\"46.0 45.9 44.8 46.2 45.1 45.5\") # note shorter\n\nnames(PM) &lt;- c(rep(\"PM\",length(PM)))\nnames(DC) &lt;- c(rep(\"DC\",length(DC)))\nnames(PL) &lt;- c(rep(\"PL\",length(PL)))\nvec &lt;- c(PM,DC,PL)\nvec\n\n  PM   PM   PM   PM   PM   PM   PM   PM   DC   DC   DC   DC   DC   DC   DC   DC \n45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0 44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1 \n  PL   PL   PL   PL   PL   PL \n46.0 45.9 44.8 46.2 45.1 45.5 \n\ndf &lt;- stack(vec)[2:1]\ndf\n\n   ind values\n1   PM   45.5\n2   PM   45.3\n3   PM   45.4\n4   PM   44.4\n5   PM   44.6\n6   PM   43.9\n7   PM   44.6\n8   PM   44.0\n9   DC   44.2\n10  DC   43.9\n11  DC   44.7\n12  DC   44.2\n13  DC   44.0\n14  DC   43.8\n15  DC   44.6\n16  DC   43.1\n17  PL   46.0\n18  PL   45.9\n19  PL   44.8\n20  PL   46.2\n21  PL   45.1\n22  PL   45.5\n\n\n\n\n\n\n# lightbox-click for expanded figure.\n\nggplot(df, aes(x=ind,y=values,color=ind))+\n  geom_boxplot()+\n  geom_jitter()+\n  theme_bw()"
   },
   {
     "objectID": "tables/contigency.html",
@@ -2616,7 +2613,7 @@
     "href": "test.html#boxplot-jitter",
     "title": "yaml",
     "section": "",
-    "text": "library(tidyverse)\n\n\n\n\nlibrary(data.table)\nPM &lt;- scan(text=\"45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0\")\nDC &lt;- scan(text=\"44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1\")\nPL &lt;- scan(text=\"46.0 45.9 44.8 46.2 45.1 45.5\") # note shorter\n\nnames(PM) &lt;- c(rep(\"PM\",length(PM)))\nnames(DC) &lt;- c(rep(\"DC\",length(DC)))\nnames(PL) &lt;- c(rep(\"PL\",length(PL)))\nvec &lt;- c(PM,DC,PL)\nvec\n\n  PM   PM   PM   PM   PM   PM   PM   PM   DC   DC   DC   DC   DC   DC   DC   DC \n45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0 44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1 \n  PL   PL   PL   PL   PL   PL \n46.0 45.9 44.8 46.2 45.1 45.5 \n\ndf &lt;- stack(vec)[2:1]\ndf\n\n   ind values\n1   PM   45.5\n2   PM   45.3\n3   PM   45.4\n4   PM   44.4\n5   PM   44.6\n6   PM   43.9\n7   PM   44.6\n8   PM   44.0\n9   DC   44.2\n10  DC   43.9\n11  DC   44.7\n12  DC   44.2\n13  DC   44.0\n14  DC   43.8\n15  DC   44.6\n16  DC   43.1\n17  PL   46.0\n18  PL   45.9\n19  PL   44.8\n20  PL   46.2\n21  PL   45.1\n22  PL   45.5\n\n\n\n\n\n\nggplot(df, aes(x=ind,y=values,color=ind))+\n  geom_boxplot()+\n  geom_jitter()+\n  theme_bw()"
+    "text": "library(tidyverse)\n\n\n\n\nlibrary(data.table)\nPM &lt;- scan(text=\"45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0\")\nDC &lt;- scan(text=\"44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1\")\nPL &lt;- scan(text=\"46.0 45.9 44.8 46.2 45.1 45.5\") # note shorter\n\nnames(PM) &lt;- c(rep(\"PM\",length(PM)))\nnames(DC) &lt;- c(rep(\"DC\",length(DC)))\nnames(PL) &lt;- c(rep(\"PL\",length(PL)))\nvec &lt;- c(PM,DC,PL)\nvec\n\n  PM   PM   PM   PM   PM   PM   PM   PM   DC   DC   DC   DC   DC   DC   DC   DC \n45.5 45.3 45.4 44.4 44.6 43.9 44.6 44.0 44.2 43.9 44.7 44.2 44.0 43.8 44.6 43.1 \n  PL   PL   PL   PL   PL   PL \n46.0 45.9 44.8 46.2 45.1 45.5 \n\ndf &lt;- stack(vec)[2:1]\ndf\n\n   ind values\n1   PM   45.5\n2   PM   45.3\n3   PM   45.4\n4   PM   44.4\n5   PM   44.6\n6   PM   43.9\n7   PM   44.6\n8   PM   44.0\n9   DC   44.2\n10  DC   43.9\n11  DC   44.7\n12  DC   44.2\n13  DC   44.0\n14  DC   43.8\n15  DC   44.6\n16  DC   43.1\n17  PL   46.0\n18  PL   45.9\n19  PL   44.8\n20  PL   46.2\n21  PL   45.1\n22  PL   45.5\n\n\n\n\n\n\n# lightbox-click for expanded figure.\n\nggplot(df, aes(x=ind,y=values,color=ind))+\n  geom_boxplot()+\n  geom_jitter()+\n  theme_bw()"
   },
   {
     "objectID": "tables/createTable.html",
@@ -4166,7 +4163,7 @@
     "href": "qD2.html",
     "title": "quartoD2",
     "section": "",
-    "text": "This is a quarto Website for learning D2 diagramming environment using qmd with D2 code chunk. Use . ```d2 to activate code chunk for entering D2 commands.\nNote: the D2 environment must first be installed and then the filter is used in the YAML for the current project (see YAML above)."
+    "text": "This is a quarto Website for learning D2 diagramming extension using qmd with D2 code chunk. Use . ```d2 to activate code chunk for entering D2 commands.\nNote: the D2 environment must first be installed and then the filter is used in the YAML for the current project (see YAML above)."
   },
   {
     "objectID": "qD2.html#basic-examples",
@@ -4200,11 +4197,8 @@
     "objectID": "index.html#webcentral",
     "href": "index.html#webcentral",
     "title": "WebR",
-    "section": "1 WebCentral",
-    "text": "1 WebCentral\n\nWebQ: Quarto Notes\nWebR : R Basics\nWebJ: Julia Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv : Survival Analysis with R\nykwongWebNpar : Non-parametric Statistics with R\nykwongWebLA : Linear Algebra with Julia",
-    "crumbs": [
-      "Preface"
-    ]
+    "section": "2 WebCentral",
+    "text": "2 WebCentral\n\nWebQ: github.io\nWebR: R Basics\nWebJ: Julia Basics\nWebTikz: Tikz Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebNPar: NonParametric Statistics with R\nykwongWebSurv: Survival Analysis with R\nykwongWebLA: Linear Algebra with Julia"
   },
   {
     "objectID": "qtikz.html",
@@ -4238,11 +4232,8 @@
     "objectID": "index.html#quarto-notes",
     "href": "index.html#quarto-notes",
     "title": "WebR",
-    "section": "2 Quarto Notes",
-    "text": "2 Quarto Notes\n\nyaml: html, pdf\nqmd: md in Quarto\nR: R in Quarto\njulia: Julia in Quarto\ntex: TeX in Quarto\ntikz extension: Tikz in Quarto\ngraphviz: Graphviz\nversion: how to version",
-    "crumbs": [
-      "Preface"
-    ]
+    "section": "3 Quarto Notes",
+    "text": "3 Quarto Notes\n\nyaml: html, pdf\nqmd: md in Quarto\nR: R in Quarto\njulia: Julia in Quarto\ntex: TeX in Quarto\ntikz extension: Tikz in Quarto\ngraphviz: Graphviz\nversion: how to version"
   },
   {
     "objectID": "qtikz.html#section",
@@ -4306,5 +4297,12 @@
     "title": "qtikz",
     "section": "1 Plots with datavisualization",
     "text": "1 Plots with datavisualization\n\\usetikzlibrary{datavisualization}\n\\begin{tikzpicture}\n  \\datavisualization [school book axes, \n    all axes={grid}, \n    visualize as scatter,\n    ]\n    data {\n      x, y\n      5.0, -4.0\n     -2.0, 1.0\n        0, 0\n      2.4,-1.4\n    };\n\\end{tikzpicture}\n\n\n1.1 2D polynomial\n\\begin{tikzpicture}[domain=0:4]\n  \\draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);\n\n  \\draw[-&gt;] (-0.2,0) -- (4.2,0) node[right] {$x$};\n  \\draw[-&gt;] (0,-1.2) -- (0,4.2) node[above] {$f(x)$};\n\n  \\draw[color=red,thick] plot (\\x,\\x)  node[right] {$f(x) =x$};\n  \n  % \\x r means to convert '\\x' from degrees to _r_adians:\n  \\draw[color=blue,thick]  plot (\\x,{sin(\\x r)})  node[right] {$f(x) = \\sin x$};\n  \n  \\draw[color=orange,thick] plot (\\x,{0.05*exp(\\x)}) node[right] {$f(x) = \\frac{1}{20} \\mathrm e^x$};\n  \n\\end{tikzpicture}"
+  },
+  {
+    "objectID": "index.html#r",
+    "href": "index.html#r",
+    "title": "WebR",
+    "section": "1 R",
+    "text": "1 R\n\nDatatypes\nDataFrames\nTables\nggPlots\nProgramming\nDatasets\nExamples\nReferences"
   }
 ]
